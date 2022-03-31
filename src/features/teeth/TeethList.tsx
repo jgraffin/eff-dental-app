@@ -1,4 +1,4 @@
-import { IonContent, IonSpinner } from "@ionic/react";
+import { IonContent, IonRippleEffect, IonSpinner } from "@ionic/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,9 +6,14 @@ import { RootState } from "../../app/store";
 
 import { fetchPosts, selectAllItems, TeethType } from "../teeth/teethSlice";
 
+import { List } from "./Styles";
+
 const Tooth = ({ post }: TeethType | any) => {
   return (
-    <li className="tooth-list__item" key={post.id}>
+    <li
+      className={`ion-activatable ripple-parent tooth-list__item tooth-list__item--${post.toothNumber}`}
+      key={post.id}
+    >
       <Link
         to={{
           pathname: `/edit/${post.id}`,
@@ -16,6 +21,7 @@ const Tooth = ({ post }: TeethType | any) => {
       >
         {post.toothNumber}
       </Link>
+      <IonRippleEffect color="dark"></IonRippleEffect>
     </li>
   );
 };
@@ -45,14 +51,10 @@ export const TeethList = () => {
   }
 
   return (
-    <>
-      {postStatus !== "loading" ? (
-        <IonContent>
-          <ul className="tooth-list">{content}</ul>
-        </IonContent>
-      ) : (
-        <IonSpinner className="loading" name="crescent" color="primary" />
-      )}
-    </>
+    <IonContent>
+      <List>
+        <ul className="tooth-list">{content}</ul>
+      </List>
+    </IonContent>
   );
 };

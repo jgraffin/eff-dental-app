@@ -8,13 +8,12 @@ import {
   IonItem,
   IonLabel,
   IonList,
-  IonRouterOutlet,
   IonSelect,
   IonSelectOption,
+  IonSpinner,
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import Home from "./pages/Home";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -49,9 +48,6 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
     state.teeth.items.find((item: TeethType) => item.id === id)
   );
 
-  console.log('Edit', match);
-  console.log('Data', data);
-
   const [brand, setBrand] = useState(data.brand);
   const [toothNumber] = useState(data.toothNumber);
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
@@ -64,7 +60,7 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
   const history = useHistory();
 
   const onBrandChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLInputElement;
+    const field = event.target as HTMLIonInputElement;
     setBrand(field.value);
   };
 
@@ -74,17 +70,17 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
   };
 
   const onConnectionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
+    const field = event.target as HTMLIonSelectElement;
     setConnection(field.value);
   };
 
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
+    const field = event.target as HTMLIonSelectElement;
     setPlatform(field.value);
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
+    const field = event.target as HTMLIonSelectElement;
     setPosition(field.value);
   };
 
@@ -118,10 +114,6 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
         isSelected: false,
       })
     );
-    history.push(`/`);
-  }
-
-  const onDismiss = () => {
     history.push(`/`);
   };
 
@@ -185,10 +177,7 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
           </IonItem>
           <IonItem>
             <IonLabel>Unir?</IonLabel>
-            <IonCheckbox
-              checked={unionImplant}
-              onIonChange={onUnionChanged}
-            />
+            <IonCheckbox checked={unionImplant} onIonChange={onUnionChanged} />
           </IonItem>
         </IonList>
         {!isSelected ? (
@@ -201,7 +190,7 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
           >
             Selecionar
           </IonButton>
-        ):(
+        ) : (
           <div className="container__buttons">
             <IonButton
               expand="block"
@@ -223,22 +212,31 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
             </IonButton>
           </div>
         )}
-        
       </div>
     </Modal>
   );
 };
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <TeethList />
-      <Switch>
-        <Route exact path="/edit/:id" component={Edit} />
-        <Redirect to="/" />
-      </Switch>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const postStatus = useSelector((state: RootState) => state.teeth.status);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <>
+          {postStatus !== "loading" ? (
+            <TeethList />
+          ) : (
+            <IonSpinner className="loading" name="crescent" color="primary" />
+          )}
+        </>
+        <Switch>
+          <Route path="/edit/:id" component={Edit} />
+          <Redirect to="/" />
+        </Switch>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
