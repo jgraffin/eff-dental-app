@@ -3,13 +3,13 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export type TeethType = {
-  id: string;
+  id: number;
   brand: string;
   connection: string;
   platform: string;
   position: "well-positioned";
   isSelected: boolean;
-  toothNumber: string;
+  toothNumber: number;
   unionImplant: boolean;
 };
 

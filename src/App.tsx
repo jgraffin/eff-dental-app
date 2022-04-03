@@ -42,10 +42,10 @@ import { TeethList } from "./features/teeth/TeethList";
 
 setupIonicReact();
 
-const Edit = ({ match }: { match: { params: { id: string } } }) => {
+const Edit = ({ match }: { match: { id: number } } | any) => {
   const { id } = match.params;
   const data = useSelector((state: RootState) =>
-    state.teeth.items.find((item: TeethType) => item.id === id)
+    state.teeth.items.find((item: TeethType) => String(item.id) === String(id))
   );
 
   const [brand, setBrand] = useState(data.brand);
@@ -60,7 +60,7 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
   const history = useHistory();
 
   const onBrandChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLIonInputElement;
+    const field = event.target as HTMLInputElement;
     setBrand(field.value);
   };
 
@@ -70,17 +70,17 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
   };
 
   const onConnectionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLIonSelectElement;
+    const field = event.target as HTMLSelectElement;
     setConnection(field.value);
   };
 
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLIonSelectElement;
+    const field = event.target as HTMLSelectElement;
     setPlatform(field.value);
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLIonSelectElement;
+    const field = event.target as HTMLSelectElement;
     setPosition(field.value);
   };
 
@@ -132,7 +132,6 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
             <IonLabel position="floating">Marca do Implante</IonLabel>
             <IonInput
               value={brand}
-              placeholder="Name"
               onIonChange={onBrandChanged}
               type="text"
               autocapitalize="true"
@@ -176,15 +175,15 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
             </IonSelect>
           </IonItem>
           <IonItem>
-            <IonLabel>Unir?</IonLabel>
+            <IonLabel>Múltiplas?</IonLabel>
             <IonCheckbox checked={unionImplant} onIonChange={onUnionChanged} />
           </IonItem>
         </IonList>
         {!isSelected ? (
           <IonButton
             expand="block"
+            size="large"
             shape="round"
-            color="warning"
             type="button"
             onClick={onSaveEdit}
           >
@@ -195,7 +194,7 @@ const Edit = ({ match }: { match: { params: { id: string } } }) => {
             <IonButton
               expand="block"
               shape="round"
-              color="warning"
+              color="light"
               type="button"
               onClick={onSaveEdit}
             >

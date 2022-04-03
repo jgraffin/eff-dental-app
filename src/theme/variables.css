@@ -50,7 +50,7 @@
   --ion-color-secondary-tint: #d7d7d7;
 
   /** tertiary **/
-  --ion-color-tertiary: #5d7db7;
+  --ion-color-tertiary: #7575f8;
   --ion-color-tertiary-rgb: 93, 125, 183;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -281,12 +281,43 @@ html.md {
   font-family: var(--font-family-bold);
 }
 
-.item {
-  --border-color: var(--ion-color-secondary-contrast);
+.item-interactive.item-has-focus {
+  --highlight-background: var(--ion-color-secondary-contrast);
 }
 
-.item-checkbox-checked {
+.sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating,
+.item-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.sc-ion-label-md-h.sc-ion-label-md-s.md {
+  font-size: 0.8rem;
+}
+
+.item-interactive.item-has-focus
+  .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating {
+  color: var(--ion-color-secondary-contrast);
+}
+
+.item,
+.item-has-focus {
+  --border-color: var(--ion-color-secondary-contrast);
   --padding-start: 0;
+}
+
+.item:last-of-type {
+  --border-color: transparent;
+}
+
+.md.in-item.interactive {
+  --background-checked: var(--ion-color-secondary-contrast);
+  --checkmark-color: var(--ion-color-primary);
+  --border-color-checked: var(--ion-color-secondary-contrast);
+}
+
+ion-checkbox[aria-checked="false"] {
+  --background: transparent;
 }
 
 .item.sc-ion-label-md-h,
@@ -295,9 +326,9 @@ html.md {
 }
 
 .native-input.sc-ion-input-md,
-.item-select {
+.item-select,
+.item-has-focus {
   color: var(--ion-color-secondary-contrast);
-  font-size: 1.2rem;
 }
 
 .list-md,

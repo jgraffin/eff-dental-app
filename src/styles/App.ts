@@ -37,7 +37,7 @@ export const Modal = styled.div`
     background-image: linear-gradient(
       50deg,
       #1d847b 44%,
-      #6e8a3c 99%,
+      #3c8a67 99%,
       #6d893b 100%
     );
     border-radius: 30px 30px 0 0;
@@ -58,7 +58,7 @@ export const ModalClose = styled.div`
   width: 2.8rem;
   height: 2.8rem;
   position: absolute;
-  right: 1rem;
+  right: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
