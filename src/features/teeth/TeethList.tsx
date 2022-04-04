@@ -42,16 +42,20 @@ export const TeethList = () => {
       dispatch(fetchPosts());
     }
 
-    const hasUnionImplantTopLine = posts.filter(
+    const filterTeethNumberTopRange = posts.filter(
+      (tooth: { id: number }) => tooth.id >= 1 && tooth.id <= 16
+    );
+
+    const hasUnionImplantTopLine = filterTeethNumberTopRange.filter(
       (union: { unionImplant: { unionImplant: boolean } }) =>
         union.unionImplant ?? union
     );
 
-    const filterTeethNumberRange = posts.filter(
-      (tooth: { toothNumber: number }) => tooth.toothNumber >= 17
+    const filterTeethNumberBottomRange = posts.filter(
+      (tooth: { id: number }) => tooth.id >= 17
     );
 
-    const hasUnionImplantBottomLine = filterTeethNumberRange.filter(
+    const hasUnionImplantBottomLine = filterTeethNumberBottomRange.filter(
       (union: { unionImplant: { unionImplant: boolean } }) =>
         union.unionImplant ?? union
     );

@@ -25,53 +25,41 @@ export const List = styled.div`
     .tooth-list {
       &__item {
         &.has-union {
-          transform: translateY(-8px);
           transition: ease-in-out 0.3s;
           will-change: contents;
 
-          &::before {
-            background: var(--ion-color-tertiary);
-            content: "";
-            height: 1.7rem;
-            left: 50%;
-            margin-left: -2px;
-            position: absolute;
-            top: -28px;
-            width: 4px;
-            transition: ease-in-out 0.3s;
-          }
+          &.tooth-list__item--18.has-union,
+          &.tooth-list__item--17.has-union,
+          &.tooth-list__item--16.has-union,
+          &.tooth-list__item--15.has-union,
+          &.tooth-list__item--14.has-union,
+          &.tooth-list__item--13.has-union,
+          &.tooth-list__item--12.has-union,
+          &.tooth-list__item--11.has-union,
+          &.tooth-list__item--21.has-union,
+          &.tooth-list__item--22.has-union,
+          &.tooth-list__item--23.has-union,
+          &.tooth-list__item--24.has-union,
+          &.tooth-list__item--25.has-union,
+          &.tooth-list__item--26.has-union,
+          &.tooth-list__item--27.has-union,
+          &.tooth-list__item--28.has-union {
+            &.is-selected {
+              border: 2px solid var(--ion-color-tertiary);
+              transform: translateY(-8px);
+            }
 
-          &.is-selected {
-            border: 2px solid var(--ion-color-tertiary);
-          }
-        }
-
-        transform: translateY(0);
-
-        &.tooth-list__item--48.has-union,
-        &.tooth-list__item--47.has-union,
-        &.tooth-list__item--46.has-union,
-        &.tooth-list__item--45.has-union,
-        &.tooth-list__item--44.has-union,
-        &.tooth-list__item--43.has-union,
-        &.tooth-list__item--42.has-union,
-        &.tooth-list__item--41.has-union,
-        &.tooth-list__item--31.has-union,
-        &.tooth-list__item--32.has-union,
-        &.tooth-list__item--33.has-union,
-        &.tooth-list__item--34.has-union,
-        &.tooth-list__item--35.has-union,
-        &.tooth-list__item--36.has-union,
-        &.tooth-list__item--37.has-union,
-        &.tooth-list__item--38.has-union {
-          &.is-selected {
-            border: 1px dashed var(--ion-color-tertiary);
-          }
-
-          transform: translateY(0);
-
-          &::before {
-            display: none;
+            &::before {
+              background: var(--ion-color-tertiary);
+              content: "";
+              height: 1.7rem;
+              left: 50%;
+              margin-left: -2px;
+              position: absolute;
+              top: -28px;
+              width: 2px;
+              transition: ease-in-out 0.3s;
+            }
           }
         }
       }
@@ -86,22 +74,6 @@ export const List = styled.div`
         &.has-union {
           transition: ease-in-out 0.3s;
           will-change: contents;
-
-          &::before {
-            background: var(--ion-color-tertiary);
-            content: "";
-            height: 1.7rem;
-            left: 50%;
-            margin-left: -2px;
-            position: absolute;
-            top: -28px;
-            width: 4px;
-            transition: ease-in-out 0.3s;
-          }
-
-          &.is-selected {
-            border: 2px solid var(--ion-color-tertiary);
-          }
         }
 
         &.tooth-list__item--48.has-union,
@@ -122,14 +94,20 @@ export const List = styled.div`
         &.tooth-list__item--38.has-union {
           &.is-selected {
             border: 2px solid var(--ion-color-tertiary);
+            transform: translateY(16px);
           }
 
-          transform: translateY(8px);
-
-          &::before {
-            display: block;
-            top: auto;
+          &::after {
+            background: var(--ion-color-tertiary);
+            content: "";
+            height: 1.7rem;
+            left: 50%;
+            margin-left: -2px;
+            position: absolute;
             bottom: -28px;
+            width: 4px;
+            top: auto;
+            transition: ease-in-out 0.3s;
           }
         }
       }
@@ -176,23 +154,23 @@ export const List = styled.div`
         text-decoration: none;
         width: 100%;
         z-index: 2;
+
+        &::after {
+          content: "";
+          background-image: url("./assets/images/sprite.png");
+          background-repeat: no-repeat;
+          background-position: left top;
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 1.6rem 0 0 0.5rem;
+          width: 2rem;
+          height: 3.5rem;
+        }
       }
 
       &.is-selected {
         border: 1px dashed var(--ion-color-tertiary);
-      }
-
-      &::after {
-        content: "";
-        background-image: url("./assets/images/sprite.png");
-        background-repeat: no-repeat;
-        background-position: left top;
-        position: absolute;
-        left: 0;
-        top: 0;
-        margin: 1.6rem 0 0 0.5rem;
-        width: 2rem;
-        height: 3.5rem;
       }
 
       &.tooth-list__item--18 {
