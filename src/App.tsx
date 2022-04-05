@@ -35,8 +35,12 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./app/store";
-import { itemUpdated, TeethType } from "./features/teeth/teethSlice";
-import { useState } from "react";
+import {
+  itemUpdated,
+  selectAllItems,
+  TeethType,
+} from "./features/teeth/teethSlice";
+import { useEffect, useState } from "react";
 import { Modal, ModalClose } from "./styles/App";
 import { TeethList } from "./features/teeth/TeethList";
 
@@ -44,6 +48,7 @@ setupIonicReact();
 
 const Edit = ({ match }: { match: { id: number } } | any) => {
   const { id } = match.params;
+  const posts = useSelector(selectAllItems);
   const data = useSelector((state: RootState) =>
     state.teeth.items.find((item: TeethType) => String(item.id) === String(id))
   );
@@ -51,8 +56,10 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [brand, setBrand] = useState(data.brand);
   const [toothNumber] = useState(data.toothNumber);
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
-  const [connection, setConnection] = useState(data.connection);
-  const [platform, setPlatform] = useState(data.platform);
+  const [connectionName, setConnectionName] = useState(
+    data.connection.connectionName
+  );
+  const [platform, setPlatform] = useState(data.connection.platform);
   const [position, setPosition] = useState(data.position);
   const [isSelected] = useState(data.isSelected);
 
@@ -71,7 +78,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 
   const onConnectionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLSelectElement;
-    setConnection(field.value);
+    setConnectionName(field.value);
   };
 
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
@@ -91,8 +98,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           id: id,
           toothNumber,
           brand,
-          connection,
-          platform,
+          connection: [{ id, connectionName, platform }],
           unionImplant,
           position,
           isSelected: true,
@@ -107,15 +113,18 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
       itemUpdated({
         ...data,
         brand: "",
-        connection: "",
-        platform: "",
+        connection: [{ connectionName: "", platform: "" }],
         unionImplant: false,
-        position: "well-positioned",
+        position: "",
         isSelected: false,
       })
     );
     history.push(`/`);
   };
+
+  useEffect(() => {
+    console.log(connectionName);
+  }, [connectionName]);
 
   return (
     <Modal>
@@ -140,12 +149,17 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           <IonItem>
             <IonLabel position="floating">Conexão</IonLabel>
             <IonSelect
-              value={connection}
+              value={connectionName}
               placeholder="Selecione"
               onIonChange={onConnectionChanged}
             >
-              <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
-              <IonSelectOption value="Lorem Ipsum">Lorem Ipsum</IonSelectOption>
+              {posts.map((item: any) =>
+                item.connection.type.map((item: any) => (
+                  <IonSelectOption key={item.id} value={item.name}>
+                    {item.name}
+                  </IonSelectOption>
+                ))
+              )}
             </IonSelect>
           </IonItem>
           <IonItem>
@@ -155,8 +169,44 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               placeholder="Selecione"
               onIonChange={onPlatformChanged}
             >
-              <IonSelectOption value="4.1">4.1</IonSelectOption>
-              <IonSelectOption value="3.5">3.5</IonSelectOption>
+              {connectionName === "Cone Morse" &&
+                posts.map((item: any) =>
+                  item.connection.platform[0].platformToConeMorse.map(
+                    (coneMorse: any) => (
+                      <IonSelectOption
+                        key={coneMorse.code}
+                        value={coneMorse.code}
+                      >
+                        {coneMorse.code}
+                      </IonSelectOption>
+                    )
+                  )
+                )}
+
+              {connectionName === "Lorem Ipsum" &&
+                posts.map((item: any) =>
+                  item.connection.platform[1].platformToLorem.map(
+                    (lorem: any) => (
+                      <IonSelectOption key={lorem.code} value={lorem.code}>
+                        {lorem.code}
+                      </IonSelectOption>
+                    )
+                  )
+                )}
+
+              {connectionName === "Whatever" &&
+                posts.map((item: any) =>
+                  item.connection.platform[2].platformToWhatever.map(
+                    (whatEver: any) => (
+                      <IonSelectOption
+                        key={whatEver.code}
+                        value={whatEver.code}
+                      >
+                        {whatEver.code}
+                      </IonSelectOption>
+                    )
+                  )
+                )}
             </IonSelect>
           </IonItem>
           <IonItem>
@@ -166,12 +216,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               placeholder="Selecione"
               onIonChange={onPositionChanged}
             >
-              <IonSelectOption value="Bem Posicionado">
-                Bem Posicionado
+              <IonSelectOption value="well-positioned">
+                Favorável
               </IonSelectOption>
-              <IonSelectOption value="Mal Posicionado">
-                Mal Posicionado
+              <IonSelectOption value="bad-positioned">
+                Desfavorável
               </IonSelectOption>
+              <IonSelectOption value="">Nenhum</IonSelectOption>
             </IonSelect>
           </IonItem>
           <IonItem>

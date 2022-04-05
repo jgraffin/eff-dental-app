@@ -28,37 +28,39 @@ export const List = styled.div`
           transition: ease-in-out 0.3s;
           will-change: contents;
 
-          &.tooth-list__item--18.has-union,
-          &.tooth-list__item--17.has-union,
-          &.tooth-list__item--16.has-union,
-          &.tooth-list__item--15.has-union,
-          &.tooth-list__item--14.has-union,
-          &.tooth-list__item--13.has-union,
-          &.tooth-list__item--12.has-union,
-          &.tooth-list__item--11.has-union,
-          &.tooth-list__item--21.has-union,
-          &.tooth-list__item--22.has-union,
-          &.tooth-list__item--23.has-union,
-          &.tooth-list__item--24.has-union,
-          &.tooth-list__item--25.has-union,
-          &.tooth-list__item--26.has-union,
-          &.tooth-list__item--27.has-union,
-          &.tooth-list__item--28.has-union {
-            &.is-selected {
-              border: 2px solid var(--ion-color-tertiary);
-              transform: translateY(-8px);
-            }
+          &.tooth-list__item {
+            &--18,
+            &--17,
+            &--16,
+            &--15,
+            &--14,
+            &--13,
+            &--12,
+            &--11,
+            &--21,
+            &--22,
+            &--23,
+            &--24,
+            &--25,
+            &--26,
+            &--27,
+            &--28 {
+              &.is-selected {
+                border: 2px solid var(--ion-color-tertiary);
+                transform: translateY(-8px);
+              }
 
-            &::before {
-              background: var(--ion-color-tertiary);
-              content: "";
-              height: 1.7rem;
-              left: 50%;
-              margin-left: -2px;
-              position: absolute;
-              top: -28px;
-              width: 2px;
-              transition: ease-in-out 0.3s;
+              &::before {
+                background: var(--ion-color-tertiary);
+                content: "";
+                height: 1.7rem;
+                left: 50%;
+                margin-left: -2px;
+                position: absolute;
+                top: -28px;
+                transition: ease-in-out 0.3s;
+                width: 2px;
+              }
             }
           }
         }
@@ -74,40 +76,42 @@ export const List = styled.div`
         &.has-union {
           transition: ease-in-out 0.3s;
           will-change: contents;
-        }
 
-        &.tooth-list__item--48.has-union,
-        &.tooth-list__item--47.has-union,
-        &.tooth-list__item--46.has-union,
-        &.tooth-list__item--45.has-union,
-        &.tooth-list__item--44.has-union,
-        &.tooth-list__item--43.has-union,
-        &.tooth-list__item--42.has-union,
-        &.tooth-list__item--41.has-union,
-        &.tooth-list__item--31.has-union,
-        &.tooth-list__item--32.has-union,
-        &.tooth-list__item--33.has-union,
-        &.tooth-list__item--34.has-union,
-        &.tooth-list__item--35.has-union,
-        &.tooth-list__item--36.has-union,
-        &.tooth-list__item--37.has-union,
-        &.tooth-list__item--38.has-union {
-          &.is-selected {
-            border: 2px solid var(--ion-color-tertiary);
-            transform: translateY(16px);
-          }
+          &.tooth-list__item {
+            &--48,
+            &--47,
+            &--46,
+            &--45,
+            &--44,
+            &--43,
+            &--42,
+            &--41,
+            &--31,
+            &--32,
+            &--33,
+            &--34,
+            &--35,
+            &--36,
+            &--37,
+            &--38 {
+              &.is-selected {
+                border: 2px solid var(--ion-color-tertiary);
+                transform: translateY(16px);
+              }
 
-          &::after {
-            background: var(--ion-color-tertiary);
-            content: "";
-            height: 1.7rem;
-            left: 50%;
-            margin-left: -2px;
-            position: absolute;
-            bottom: -28px;
-            width: 4px;
-            top: auto;
-            transition: ease-in-out 0.3s;
+              &::after {
+                background: var(--ion-color-tertiary);
+                content: "";
+                height: 1.7rem;
+                left: 50%;
+                margin-left: -2px;
+                position: absolute;
+                bottom: -28px;
+                width: 4px;
+                top: auto;
+                transition: ease-in-out 0.3s;
+              }
+            }
           }
         }
       }

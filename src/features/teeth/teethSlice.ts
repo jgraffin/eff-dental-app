@@ -5,9 +5,14 @@ import { RootState } from "../../app/store";
 export type TeethType = {
   id: number;
   brand: string;
-  connection: string;
-  platform: string;
-  position: "well-positioned";
+  connection: [
+    {
+      id: string;
+      connectionName: [];
+      platform: [];
+    }
+  ];
+  position: string;
   isSelected: boolean;
   toothNumber: number;
   unionImplant: boolean;
@@ -35,8 +40,7 @@ const teethSlice = createSlice({
         id,
         brand,
         unionImplant,
-        connection,
-        platform,
+        connection: [{ connectionName, platform }],
         position,
         isSelected,
         toothNumber,
@@ -47,8 +51,8 @@ const teethSlice = createSlice({
       if (existingItem) {
         existingItem.brand = brand;
         existingItem.unionImplant = unionImplant;
-        existingItem.connection = connection;
-        existingItem.platform = platform;
+        existingItem.connection.connectionName = connectionName;
+        existingItem.connection.platform = platform;
         existingItem.position = position;
         existingItem.isSelected = isSelected;
         existingItem.toothNumber = toothNumber;
@@ -59,7 +63,7 @@ const teethSlice = createSlice({
         {
           brand,
           unionImplant,
-          connection,
+          connectionName,
           platform,
           position,
           isSelected,
