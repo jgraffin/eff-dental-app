@@ -5,13 +5,8 @@ import { RootState } from "../../app/store";
 export type TeethType = {
   id: number;
   brand: string;
-  connection: [
-    {
-      id: string;
-      connectionName: [];
-      platform: [];
-    }
-  ];
+  connectionName: string;
+  platform: string;
   position: string;
   isSelected: boolean;
   toothNumber: number;
@@ -38,36 +33,37 @@ const teethSlice = createSlice({
     itemUpdated(state: RootState, action: PayloadAction<TeethType>) {
       const {
         id,
+        toothNumber,
         brand,
+        connectionName,
+        platform,
         unionImplant,
-        connection: [{ connectionName, platform }],
         position,
         isSelected,
-        toothNumber,
       } = action.payload;
       const existingItem = state.items.find(
         (item: TeethType) => item.id === id
       );
       if (existingItem) {
+        existingItem.toothNumber = toothNumber;
         existingItem.brand = brand;
+        existingItem.connectionName = connectionName;
+        existingItem.platform = platform;
         existingItem.unionImplant = unionImplant;
-        existingItem.connection.connectionName = connectionName;
-        existingItem.connection.platform = platform;
         existingItem.position = position;
         existingItem.isSelected = isSelected;
-        existingItem.toothNumber = toothNumber;
       }
 
       axios.put(
         `https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth/${id}`,
         {
+          toothNumber,
           brand,
-          unionImplant,
           connectionName,
           platform,
+          unionImplant,
           position,
           isSelected,
-          toothNumber,
         }
       );
     },

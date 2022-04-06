@@ -60,6 +60,8 @@ export const TeethList = () => {
         union.unionImplant ?? union
     );
 
+    console.log(hasUnionImplantTopLine);
+
     if (hasUnionImplantTopLine.length > 1) {
       setHasUnionTopLine(true);
     } else {

@@ -35,31 +35,25 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./app/store";
-import {
-  itemUpdated,
-  selectAllItems,
-  TeethType,
-} from "./features/teeth/teethSlice";
-import { useEffect, useState } from "react";
+import { itemUpdated, TeethType } from "./features/teeth/teethSlice";
+import { useState } from "react";
 import { Modal, ModalClose } from "./styles/App";
 import { TeethList } from "./features/teeth/TeethList";
+import { platformConeMorse, platformLorem } from "./mock/platforms";
 
 setupIonicReact();
 
 const Edit = ({ match }: { match: { id: number } } | any) => {
   const { id } = match.params;
-  const posts = useSelector(selectAllItems);
   const data = useSelector((state: RootState) =>
     state.teeth.items.find((item: TeethType) => String(item.id) === String(id))
   );
 
-  const [brand, setBrand] = useState(data.brand);
   const [toothNumber] = useState(data.toothNumber);
+  const [brand, setBrand] = useState(data.brand);
+  const [connectionName, setConnectionName] = useState(data.connectionName);
+  const [platform, setPlatform] = useState(data.platform);
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
-  const [connectionName, setConnectionName] = useState(
-    data.connection.connectionName
-  );
-  const [platform, setPlatform] = useState(data.connection.platform);
   const [position, setPosition] = useState(data.position);
   const [isSelected] = useState(data.isSelected);
 
@@ -98,7 +92,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           id: id,
           toothNumber,
           brand,
-          connection: [{ id, connectionName, platform }],
+          connectionName,
+          platform,
           unionImplant,
           position,
           isSelected: true,
@@ -113,7 +108,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
       itemUpdated({
         ...data,
         brand: "",
-        connection: [{ connectionName: "", platform: "" }],
+        connectionName,
+        platform,
         unionImplant: false,
         position: "",
         isSelected: false,
@@ -121,10 +117,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     );
     history.push(`/`);
   };
-
-  useEffect(() => {
-    console.log(connectionName);
-  }, [connectionName]);
 
   return (
     <Modal>
@@ -153,13 +145,9 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               placeholder="Selecione"
               onIonChange={onConnectionChanged}
             >
-              {posts.map((item: any) =>
-                item.connection.type.map((item: any) => (
-                  <IonSelectOption key={item.id} value={item.name}>
-                    {item.name}
-                  </IonSelectOption>
-                ))
-              )}
+              <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
+              <IonSelectOption value="Lorem Ipsum">Lorem Ipsum</IonSelectOption>
+              <IonSelectOption value="Whatever">Whatever</IonSelectOption>
             </IonSelect>
           </IonItem>
           <IonItem>
@@ -170,43 +158,18 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               onIonChange={onPlatformChanged}
             >
               {connectionName === "Cone Morse" &&
-                posts.map((item: any) =>
-                  item.connection.platform[0].platformToConeMorse.map(
-                    (coneMorse: any) => (
-                      <IonSelectOption
-                        key={coneMorse.code}
-                        value={coneMorse.code}
-                      >
-                        {coneMorse.code}
-                      </IonSelectOption>
-                    )
-                  )
-                )}
+                platformConeMorse.map((item: any) => (
+                  <IonSelectOption key={item.code} value={item.code}>
+                    {item.code}
+                  </IonSelectOption>
+                ))}
 
               {connectionName === "Lorem Ipsum" &&
-                posts.map((item: any) =>
-                  item.connection.platform[1].platformToLorem.map(
-                    (lorem: any) => (
-                      <IonSelectOption key={lorem.code} value={lorem.code}>
-                        {lorem.code}
-                      </IonSelectOption>
-                    )
-                  )
-                )}
-
-              {connectionName === "Whatever" &&
-                posts.map((item: any) =>
-                  item.connection.platform[2].platformToWhatever.map(
-                    (whatEver: any) => (
-                      <IonSelectOption
-                        key={whatEver.code}
-                        value={whatEver.code}
-                      >
-                        {whatEver.code}
-                      </IonSelectOption>
-                    )
-                  )
-                )}
+                platformLorem.map((item: any) => (
+                  <IonSelectOption key={item.code} value={item.code}>
+                    {item.code}
+                  </IonSelectOption>
+                ))}
             </IonSelect>
           </IonItem>
           <IonItem>
