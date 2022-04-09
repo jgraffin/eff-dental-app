@@ -5,7 +5,7 @@ const coneMorseBrands: any = [
     specifications: [
       {
         id: "0",
-        name: "",
+        name: "Undefined",
         implant: "3.0",
         platform: "3.0",
         smp: "K3.1",
@@ -47,7 +47,7 @@ const coneMorseBrands: any = [
       {
         id: "2",
         name: "Pilar Synocta &reg",
-        implant: "",
+        implant: "Undefined",
         platform: "4.1/4.8/6.5",
         smp: "",
       },
@@ -89,7 +89,7 @@ const coneMorseBrands: any = [
       {
         id: "8",
         name: "Pilar SRA",
-        implant: "",
+        implant: "Undefined",
         platform: "3.5/4.5/4.6",
         smp: "",
       },
