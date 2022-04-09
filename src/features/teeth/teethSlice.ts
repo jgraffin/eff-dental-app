@@ -10,6 +10,7 @@ export type TeethType = {
   platform: string;
   specification: string;
   implant: string;
+  smp: string;
   unionImplant: boolean;
   position: string;
   isSelected: boolean;
@@ -41,6 +42,7 @@ const teethSlice = createSlice({
         platform,
         specification,
         implant,
+        smp,
         unionImplant,
         position,
         isSelected,
@@ -55,6 +57,7 @@ const teethSlice = createSlice({
         existingItem.platform = platform;
         existingItem.specification = specification;
         existingItem.implant = implant;
+        existingItem.smp = smp;
         existingItem.unionImplant = unionImplant;
         existingItem.position = position;
         existingItem.isSelected = isSelected;
@@ -69,6 +72,7 @@ const teethSlice = createSlice({
           platform,
           specification,
           implant,
+          smp,
           unionImplant,
           position,
           isSelected,

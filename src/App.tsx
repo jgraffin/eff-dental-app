@@ -56,6 +56,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [specification, setSpecification] = useState(data.specification);
   const [implant, setImplant] = useState(data.implant);
   const [platform, setPlatform] = useState(data.platform);
+  const [smp, setSmp] = useState(data.smp);
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
   const [position, setPosition] = useState(data.position);
   const [isSelected] = useState(data.isSelected);
@@ -76,6 +77,11 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLSelectElement;
     setPlatform(field.value);
+  };
+
+  const onSmpChanged = (event: CustomEvent<InputChangeEventDetail>) => {
+    const field = event.target as HTMLSelectElement;
+    setSmp(field.value);
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
@@ -110,6 +116,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           brand,
           specification,
           implant,
+          smp,
           platform,
           unionImplant,
           position,
@@ -128,6 +135,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         brand: "",
         specification: "",
         implant: "",
+        smp: "",
         platform: "",
         unionImplant: false,
         position: "",
@@ -137,9 +145,10 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     history.push(`/`);
   };
 
-  console.log("brand:", brand);
-  console.log("specification:", specification);
-  console.log("implant:", implant);
+  const onRemoveSpecialCharacters = (char: string) => {
+    const noSpecialCharacters = char.replace(/[^a-zA-Z0-9 ]/g, "");
+    return noSpecialCharacters;
+  };
 
   return (
     <Modal>
@@ -170,7 +179,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           </IonItem>
 
           {catalog === "Cone Morse" && (
-            // ---------------------------------------------------- BRAND
             <>
               <IonItem>
                 <IonLabel position="floating">Marca do Implante</IonLabel>
@@ -197,7 +205,9 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                   >
                     {coneMorseBrands
                       .filter((application: any) => {
-                        if (application.id === brand) {
+                        if (
+                          application.id === onRemoveSpecialCharacters(brand)
+                        ) {
                           return true;
                         }
                         return false;
@@ -303,6 +313,38 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                           </IonSelectOption>
                         )
                       );
+                    })}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              {platform && (
+                <IonItem>
+                  <IonLabel position="floating">Família EFF</IonLabel>
+                  <IonSelect
+                    value={smp}
+                    placeholder="Selecione"
+                    onIonChange={onSmpChanged}
+                  >
+                    {coneMorseBrands.map((sub: any) => {
+                      const smpList = sub.specifications.filter(
+                        (values: any) => {
+                          if (
+                            values.implant === implant &&
+                            values.name === specification &&
+                            values.platform === platform
+                          ) {
+                            return true;
+                          }
+                          return false;
+                        }
+                      );
+
+                      return smpList.map((item: any) => (
+                        <IonSelectOption key={item.smp} value={item.smp}>
+                          {item.smp}
+                        </IonSelectOption>
+                      ));
                     })}
                   </IonSelect>
                 </IonItem>
