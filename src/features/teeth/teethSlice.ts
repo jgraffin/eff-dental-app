@@ -3,14 +3,16 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export type TeethType = {
-  id: number;
+  id: string;
+  catalog: string;
+  toothNumber: string;
   brand: string;
-  connectionName: string;
   platform: string;
+  specification: string;
+  implant: string;
+  unionImplant: boolean;
   position: string;
   isSelected: boolean;
-  toothNumber: number;
-  unionImplant: boolean;
 };
 
 const initialState = {
@@ -33,10 +35,12 @@ const teethSlice = createSlice({
     itemUpdated(state: RootState, action: PayloadAction<TeethType>) {
       const {
         id,
+        catalog,
         toothNumber,
         brand,
-        connectionName,
         platform,
+        specification,
+        implant,
         unionImplant,
         position,
         isSelected,
@@ -45,10 +49,12 @@ const teethSlice = createSlice({
         (item: TeethType) => item.id === id
       );
       if (existingItem) {
+        existingItem.catalog = catalog;
         existingItem.toothNumber = toothNumber;
         existingItem.brand = brand;
-        existingItem.connectionName = connectionName;
         existingItem.platform = platform;
+        existingItem.specification = specification;
+        existingItem.implant = implant;
         existingItem.unionImplant = unionImplant;
         existingItem.position = position;
         existingItem.isSelected = isSelected;
@@ -57,10 +63,12 @@ const teethSlice = createSlice({
       axios.put(
         `https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth/${id}`,
         {
+          catalog,
           toothNumber,
           brand,
-          connectionName,
           platform,
+          specification,
+          implant,
           unionImplant,
           position,
           isSelected,

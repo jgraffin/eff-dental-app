@@ -149,10 +149,13 @@ export const List = styled.div`
 
       a {
         align-items: flex-end;
+        border-radius: 90px;
         color: var(--ion-color-dark);
+        font-family: var(--font-family-light);
         display: flex;
         height: 100%;
         justify-content: center;
+        overflow: hidden;
         padding-bottom: 1rem;
         position: relative;
         text-decoration: none;
@@ -160,27 +163,39 @@ export const List = styled.div`
         z-index: 2;
 
         &::after {
-          content: "";
           background-image: url("./assets/images/sprite.png");
-          background-repeat: no-repeat;
           background-position: left top;
-          position: absolute;
-          left: 0;
-          top: 0;
-          margin: 1.6rem 0 0 0.5rem;
-          width: 2rem;
+          background-repeat: no-repeat;
+          content: "";
           height: 3.5rem;
+          left: 0;
+          margin: 1.6rem 0 0 0.5rem;
+          position: absolute;
+          top: 0;
+          width: 2rem;
+          z-index: -1;
         }
       }
 
       &.is-selected {
         border: 1px dashed var(--ion-color-tertiary);
+
+        a {
+          color: var(--ion-color-tertiary);
+          font-family: var(--font-family-bold);
+
+          &::after {
+            background-image: url("./assets/images/sprite-marked.png");
+          }
+        }
       }
 
       &.tooth-list__item--18 {
-        &::before {
-          background-position: -2px -24px;
-          background-size: 469px;
+        a {
+          &::after {
+            background-position: -2px -24px;
+            background-size: 469px;
+          }
         }
       }
     }

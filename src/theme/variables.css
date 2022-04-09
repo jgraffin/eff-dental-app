@@ -302,8 +302,19 @@ html.md {
 
 .item,
 .item-has-focus {
-  --border-color: var(--ion-color-secondary-contrast);
+  --border-color: #2c8880;
   --padding-start: 0;
+}
+
+.item[aria-disabled="true"] {
+  --border-color: transparent;
+  transform: translateY(10px);
+  transition: ease-in-out 0.4s;
+}
+
+.item[aria-disabled="false"] {
+  transform: translateY(0);
+  transition: ease-in-out 0.4s;
 }
 
 .item:last-of-type {

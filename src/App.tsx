@@ -1,10 +1,10 @@
+/* eslint-disable no-restricted-globals */
 import { Link, Redirect, Route, Switch, useHistory } from "react-router-dom";
 import {
   InputChangeEventDetail,
   IonApp,
   IonButton,
   IonCheckbox,
-  IonInput,
   IonItem,
   IonLabel,
   IonList,
@@ -36,10 +36,11 @@ import "./theme/variables.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./app/store";
 import { itemUpdated, TeethType } from "./features/teeth/teethSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, ModalClose } from "./styles/App";
 import { TeethList } from "./features/teeth/TeethList";
-import { platformConeMorse, platformLorem } from "./mock/platforms";
+import { coneMorseBrands } from "./mock/manualSpecifications";
+import { current } from "@reduxjs/toolkit";
 
 setupIonicReact();
 
@@ -49,9 +50,11 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     state.teeth.items.find((item: TeethType) => String(item.id) === String(id))
   );
 
+  const [catalog, setCatalog] = useState(data.catalog);
   const [toothNumber] = useState(data.toothNumber);
   const [brand, setBrand] = useState(data.brand);
-  const [connectionName, setConnectionName] = useState(data.connectionName);
+  const [specification, setSpecification] = useState(data.specification);
+  const [implant, setImplant] = useState(data.implant);
   const [platform, setPlatform] = useState(data.platform);
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
   const [position, setPosition] = useState(data.position);
@@ -60,19 +63,14 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const onCatalogChanged = (event: CustomEvent<InputChangeEventDetail>) => {
+    const field = event.target as HTMLInputElement;
+    setCatalog(field.value);
+  };
+
   const onBrandChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLInputElement;
     setBrand(field.value);
-  };
-
-  const onUnionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.detail as HTMLIonCheckboxElement;
-    setUnionImplant(field.checked);
-  };
-
-  const onConnectionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
-    setConnectionName(field.value);
   };
 
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
@@ -85,14 +83,33 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     setPosition(field.value);
   };
 
+  const onUnionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
+    const field = event.detail as HTMLIonCheckboxElement;
+    setUnionImplant(field.checked);
+  };
+
+  const onSpecificationChanged = (
+    event: CustomEvent<InputChangeEventDetail>
+  ) => {
+    const field = event.target as HTMLSelectElement;
+    setSpecification(field.value);
+  };
+
+  const onImplantChanged = (event: CustomEvent<InputChangeEventDetail>) => {
+    const field = event.target as HTMLSelectElement;
+    setImplant(field.value);
+  };
+
   const onSaveEdit = () => {
     if (brand) {
       dispatch(
         itemUpdated({
           id: id,
+          catalog,
           toothNumber,
           brand,
-          connectionName,
+          specification,
+          implant,
           platform,
           unionImplant,
           position,
@@ -107,9 +124,11 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     dispatch(
       itemUpdated({
         ...data,
+        catalog: "",
         brand: "",
-        connectionName,
-        platform,
+        specification: "",
+        implant: "",
+        platform: "",
         unionImplant: false,
         position: "",
         isSelected: false,
@@ -117,6 +136,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     );
     history.push(`/`);
   };
+
+  console.log(implant);
 
   return (
     <Modal>
@@ -130,68 +151,146 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         </ModalClose>
         <IonList>
           <IonItem>
-            <IonLabel position="floating">Marca do Implante</IonLabel>
-            <IonInput
-              value={brand}
-              onIonChange={onBrandChanged}
-              type="text"
-              autocapitalize="true"
-            ></IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Conexão</IonLabel>
+            <IonLabel position="floating">Catálogo</IonLabel>
             <IonSelect
-              value={connectionName}
+              value={catalog}
               placeholder="Selecione"
-              onIonChange={onConnectionChanged}
+              onIonChange={onCatalogChanged}
             >
               <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
-              <IonSelectOption value="Lorem Ipsum">Lorem Ipsum</IonSelectOption>
-              <IonSelectOption value="Whatever">Whatever</IonSelectOption>
+              <IonSelectOption value="Hexagono Externo">
+                Hexágono Externo
+              </IonSelectOption>
+              <IonSelectOption value="Hexagono Interno">
+                Hexágono Interno
+              </IonSelectOption>
             </IonSelect>
           </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Plataforma</IonLabel>
-            <IonSelect
-              value={platform}
-              placeholder="Selecione"
-              onIonChange={onPlatformChanged}
-            >
-              {connectionName === "Cone Morse" &&
-                platformConeMorse.map((item: any) => (
-                  <IonSelectOption key={item.code} value={item.code}>
-                    {item.code}
-                  </IonSelectOption>
-                ))}
 
-              {connectionName === "Lorem Ipsum" &&
-                platformLorem.map((item: any) => (
-                  <IonSelectOption key={item.code} value={item.code}>
-                    {item.code}
-                  </IonSelectOption>
-                ))}
-            </IonSelect>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Posicionamento</IonLabel>
-            <IonSelect
-              value={position}
-              placeholder="Selecione"
-              onIonChange={onPositionChanged}
-            >
-              <IonSelectOption value="well-positioned">
-                Favorável
-              </IonSelectOption>
-              <IonSelectOption value="bad-positioned">
-                Desfavorável
-              </IonSelectOption>
-              <IonSelectOption value="">Nenhum</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-          <IonItem>
-            <IonLabel>Múltiplas?</IonLabel>
-            <IonCheckbox checked={unionImplant} onIonChange={onUnionChanged} />
-          </IonItem>
+          {catalog === "Cone Morse" && (
+            // ---------------------------------------------------- BRAND
+            <>
+              <IonItem>
+                <IonLabel position="floating">Marca do Implante</IonLabel>
+                <IonSelect
+                  value={brand}
+                  placeholder="Selecione"
+                  onIonChange={onBrandChanged}
+                >
+                  {coneMorseBrands.map((item: any) => (
+                    <IonSelectOption key={item.id} value={item.id}>
+                      {item.name}
+                    </IonSelectOption>
+                  ))}
+                </IonSelect>
+              </IonItem>
+
+              {brand && (
+                <IonItem>
+                  <IonLabel position="floating">Especificação</IonLabel>
+                  <IonSelect
+                    value={specification}
+                    placeholder="Selecione"
+                    onIonChange={onSpecificationChanged}
+                  >
+                    {coneMorseBrands
+                      .filter((application: any) => {
+                        if (application.id === brand) {
+                          return true;
+                        }
+                        return false;
+                      })
+                      .map((item: any) => {
+                        return item.specifications.map((value: any) =>
+                          value.name !== "" ? (
+                            <IonSelectOption
+                              key={value.name}
+                              value={value.name}
+                            >
+                              {value.name}
+                            </IonSelectOption>
+                          ) : (
+                            <IonSelectOption
+                              key={value.name}
+                              value={value.name}
+                            >
+                              Não possui
+                            </IonSelectOption>
+                          )
+                        );
+                      })}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              <IonItem>
+                <IonLabel position="floating">Implante</IonLabel>
+                <IonSelect
+                  value={implant}
+                  placeholder="Selecione"
+                  onIonChange={onImplantChanged}
+                >
+                  {coneMorseBrands.map((sub: any) => {
+                    return sub.specifications
+                      .filter((values: any) => {
+                        if (values.name === specification) {
+                          return true;
+                        }
+                        return false;
+                      })
+                      .map((item: any) => {
+                        console.log(item);
+                        return (
+                          <IonSelectOption
+                            key={item.implant}
+                            value={item.implant}
+                          >
+                            {item.implant}
+                          </IonSelectOption>
+                        );
+                      });
+                  })}
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Plataforma Protética</IonLabel>
+                <IonSelect
+                  value={platform}
+                  placeholder="Selecione"
+                  onIonChange={onPlatformChanged}
+                >
+                  {coneMorseBrands.map((sub: any) => {
+                    return sub.specifications
+                      .filter((values: any) => {
+                        console.log(
+                          values.implant === implant,
+                          values.implant,
+                          implant
+                        );
+                        if (values.implant === implant) {
+                          return true;
+                        }
+                        return false;
+                      })
+                      .map((item: any) => {
+                        if (item.platform !== "") {
+                          return (
+                            <IonSelectOption
+                              key={item.platform}
+                              value={item.platform}
+                            >
+                              {item.platform}
+                            </IonSelectOption>
+                          );
+                        }
+                        return null;
+                      });
+                  })}
+                </IonSelect>
+              </IonItem>
+            </>
+          )}
         </IonList>
         {!isSelected ? (
           <IonButton
