@@ -275,80 +275,79 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 </IonItem>
               )}
 
-              {implant && (
-                <IonItem>
-                  <IonLabel position="floating">Plataforma Protética</IonLabel>
-                  <IonSelect
-                    value={platform}
-                    placeholder="Selecione"
-                    onIonChange={onPlatformChanged}
-                  >
-                    {coneMorseBrands.map((sub: any) => {
-                      const platformsList = sub.specifications.filter(
-                        (values: any) => {
-                          if (
-                            values.implant === implant &&
-                            values.name === specification
-                          ) {
-                            return true;
-                          }
-                          return false;
-                        }
-                      );
+              {coneMorseBrands.map((sub: any) => {
+                const platformsList = sub.specifications.filter(
+                  (values: any) => {
+                    if (
+                      values.implant === implant &&
+                      values.name === specification
+                    ) {
+                      return true;
+                    }
+                    return false;
+                  }
+                );
 
-                      return platformsList.map((item: any) =>
-                        item.platform !== "Undefined" ? (
-                          <IonSelectOption
-                            key={item.platform}
-                            value={item.platform}
-                          >
-                            {item.platform}
-                          </IonSelectOption>
-                        ) : (
-                          <IonSelectOption
-                            key={item.platform}
-                            value={item.platform}
-                          >
-                            Não possui
-                          </IonSelectOption>
-                        )
-                      );
-                    })}
-                  </IonSelect>
-                </IonItem>
-              )}
-
-              {platform && (
-                <IonItem>
-                  <IonLabel position="floating">Família EFF</IonLabel>
-                  <IonSelect
-                    value={smp}
-                    placeholder="Selecione"
-                    onIonChange={onSmpChanged}
-                  >
-                    {coneMorseBrands.map((sub: any) => {
-                      const smpList = sub.specifications.filter(
-                        (values: any) => {
-                          if (
-                            values.implant === implant &&
-                            values.name === specification &&
-                            values.platform === platform
-                          ) {
-                            return true;
-                          }
-                          return false;
-                        }
-                      );
-
-                      return smpList.map((item: any) => (
-                        <IonSelectOption key={item.smp} value={item.smp}>
-                          {item.smp}
+                return platformsList.map((item: any) => (
+                  <IonItem key={item.id}>
+                    <IonLabel position="floating">
+                      Plataforma Protética
+                    </IonLabel>
+                    <IonSelect
+                      value={platform}
+                      placeholder="Selecione"
+                      onIonChange={onPlatformChanged}
+                    >
+                      {item.platform !== "Undefined" ? (
+                        <IonSelectOption
+                          key={item.platform}
+                          value={item.platform}
+                        >
+                          {item.platform}
                         </IonSelectOption>
-                      ));
-                    })}
-                  </IonSelect>
-                </IonItem>
-              )}
+                      ) : (
+                        <IonSelectOption
+                          key={item.platform}
+                          value={item.platform}
+                        >
+                          Não possui
+                        </IonSelectOption>
+                      )}
+                    </IonSelect>
+                  </IonItem>
+                ));
+              })}
+
+              {coneMorseBrands.map((sub: any) => {
+                if (sub.id === brand) {
+                  return sub.specifications
+                    .filter((item: any) => {
+                      if (
+                        item.name === specification &&
+                        item.platform === platform &&
+                        item.implant === implant
+                      ) {
+                        return true;
+                      }
+                      return false;
+                    })
+                    .map((i: any) => (
+                      <IonItem key={i.id}>
+                        <IonLabel position="floating">Família EFF</IonLabel>
+                        <IonSelect
+                          value={smp}
+                          placeholder="Selecione"
+                          onIonChange={onSmpChanged}
+                        >
+                          <IonSelectOption value={i.smp}>
+                            {i.smp}
+                          </IonSelectOption>
+                        </IonSelect>
+                      </IonItem>
+                    ));
+                }
+                return null;
+              })}
             </>
           )}
         </IonList>

@@ -35,7 +35,7 @@ const coneMorseBrands: any = [
         name: "CM",
         implant: "3.5/3.75/4.0/4.3/5.0",
         platform: "3.5/3.75/4.0/4.3/5.0",
-        smp: "J3.7",
+        smp: "A3.1",
       },
       {
         id: "1",
