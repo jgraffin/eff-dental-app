@@ -195,6 +195,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 </IonSelect>
               </IonItem>
 
+              {/*-------------------------------------------------- SPECIFICATION */}
               {brand && (
                 <IonItem>
                   <IonLabel position="floating">Especificação</IonLabel>
@@ -235,95 +236,100 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 </IonItem>
               )}
 
+              {/*-------------------------------------------------- IMPLANT */}
               {coneMorseBrands.map((sub: any) => {
-                const implantsList = sub.specifications.filter(
-                  (values: any) => {
-                    if (values.name === specification) {
-                      return true;
-                    }
-                    return false;
-                  }
-                );
-
-                return implantsList.map((item: any) => (
-                  <IonItem key={item.id}>
-                    <IonLabel position="floating">Implante</IonLabel>
-                    <IonSelect
-                      value={implant}
-                      placeholder="Selecione"
-                      onIonChange={onImplantChanged}
-                    >
-                      {item.implant !== "Undefined" ? (
-                        <IonSelectOption
-                          key={item.implant}
-                          value={item.implant}
+                if (sub.id === brand) {
+                  return sub.specifications
+                    .filter((values: any) => {
+                      if (values.name === specification) {
+                        return true;
+                      }
+                      return false;
+                    })
+                    .map((item: any) => (
+                      <IonItem key={item.id}>
+                        <IonLabel position="floating">Implante</IonLabel>
+                        <IonSelect
+                          value={implant}
+                          placeholder="Selecione"
+                          onIonChange={onImplantChanged}
                         >
-                          {item.implant}
-                        </IonSelectOption>
-                      ) : (
-                        <IonSelectOption
-                          key={item.implant}
-                          value={item.implant}
-                        >
-                          Não possui
-                        </IonSelectOption>
-                      )}
-                    </IonSelect>
-                  </IonItem>
-                ));
+                          {item.implant !== "Undefined" ? (
+                            <IonSelectOption
+                              key={item.implant}
+                              value={item.implant}
+                            >
+                              {item.implant}
+                            </IonSelectOption>
+                          ) : (
+                            <IonSelectOption
+                              key={item.implant}
+                              value={item.implant}
+                            >
+                              Não possui
+                            </IonSelectOption>
+                          )}
+                        </IonSelect>
+                      </IonItem>
+                    ));
+                }
+                return null;
               })}
 
+              {/*-------------------------------------------------- PLATFORM */}
               {coneMorseBrands.map((sub: any) => {
-                const platformsList = sub.specifications.filter(
-                  (values: any) => {
-                    if (
-                      values.implant === implant &&
-                      values.name === specification
-                    ) {
-                      return true;
-                    }
-                    return false;
-                  }
-                );
-
-                return platformsList.map((item: any) => (
-                  <IonItem key={item.id}>
-                    <IonLabel position="floating">
-                      Plataforma Protética
-                    </IonLabel>
-                    <IonSelect
-                      value={platform}
-                      placeholder="Selecione"
-                      onIonChange={onPlatformChanged}
-                    >
-                      {item.platform !== "Undefined" ? (
-                        <IonSelectOption
-                          key={item.platform}
-                          value={item.platform}
+                if (sub.id === brand) {
+                  return sub.specifications
+                    .filter((values: any) => {
+                      if (
+                        values.name === specification &&
+                        values.implant === implant
+                      ) {
+                        return true;
+                      }
+                      return false;
+                    })
+                    .map((item: any) => (
+                      <IonItem key={item.id}>
+                        <IonLabel position="floating">
+                          Plataforma Protética
+                        </IonLabel>
+                        <IonSelect
+                          value={platform}
+                          placeholder="Selecione"
+                          onIonChange={onPlatformChanged}
                         >
-                          {item.platform}
-                        </IonSelectOption>
-                      ) : (
-                        <IonSelectOption
-                          key={item.platform}
-                          value={item.platform}
-                        >
-                          Não possui
-                        </IonSelectOption>
-                      )}
-                    </IonSelect>
-                  </IonItem>
-                ));
+                          {item.platform !== "Undefined" ? (
+                            <IonSelectOption
+                              key={item.platform}
+                              value={item.platform}
+                            >
+                              {item.platform}
+                            </IonSelectOption>
+                          ) : (
+                            <IonSelectOption
+                              key={item.platform}
+                              value={item.platform}
+                            >
+                              Não possui
+                            </IonSelectOption>
+                          )}
+                        </IonSelect>
+                      </IonItem>
+                    ));
+                }
+                return null;
               })}
 
+              {/*-------------------------------------------------- SMP */}
               {coneMorseBrands.map((sub: any) => {
                 if (sub.id === brand) {
                   return sub.specifications
                     .filter((item: any) => {
                       if (
                         item.name === specification &&
-                        item.platform === platform &&
-                        item.implant === implant
+                        item.implant === implant &&
+                        item.platform === platform
                       ) {
                         return true;
                       }
