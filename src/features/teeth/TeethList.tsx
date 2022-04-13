@@ -1,8 +1,14 @@
-import { IonContent, IonRippleEffect, IonSpinner } from "@ionic/react";
+import {
+  IonContent,
+  IonFooter,
+  IonRippleEffect,
+  IonSpinner,
+} from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../../app/store";
+import { NextButton } from "../../styles/App";
 
 import { fetchPosts, selectAllItems, TeethType } from "../teeth/teethSlice";
 
@@ -36,6 +42,7 @@ export const TeethList = () => {
   const error = useSelector((state: RootState) => state.teeth.error);
   const [hasUnionTopLine, setHasUnionTopLine] = useState(false);
   const [hasUnionBottomLine, setHasUnionBottomLine] = useState(false);
+  const [selection, setSelection] = useState(false);
 
   useEffect(() => {
     if (postStatus === "idle") {
@@ -60,7 +67,13 @@ export const TeethList = () => {
         union.unionImplant ?? union
     );
 
-    console.log(hasUnionImplantTopLine);
+    const itemSelected = posts.filter(
+      (item: { isSelected: boolean }) => item.isSelected
+    );
+
+    if (itemSelected.length > 0) {
+      setSelection(true);
+    }
 
     if (hasUnionImplantTopLine.length > 1) {
       setHasUnionTopLine(true);
@@ -88,16 +101,30 @@ export const TeethList = () => {
   }
 
   return (
-    <IonContent>
-      <Wrapper>
-        <List
-          className={`${hasUnionTopLine ? "has-union-top-items" : ""} ${
-            hasUnionBottomLine ? "has-union-bottom-items" : ""
-          }`}
-        >
-          <ul className="tooth-list">{content}</ul>
-        </List>
-      </Wrapper>
-    </IonContent>
+    <>
+      <IonContent>
+        <Wrapper>
+          <List
+            className={`${hasUnionTopLine ? "has-union-top-items" : ""} ${
+              hasUnionBottomLine ? "has-union-bottom-items" : ""
+            }`}
+          >
+            <ul className="tooth-list">{content}</ul>
+          </List>
+        </Wrapper>
+      </IonContent>
+      <IonFooter className="ion-no-border">
+        <NextButton className={`${selection ? "" : "disabled"}`}>
+          <Link
+            className={`ion-activatable ripple-parent `}
+            to={{
+              pathname: `/list`,
+            }}
+          >
+            PROSSEGUIR
+          </Link>
+        </NextButton>
+      </IonFooter>
+    </>
   );
 };

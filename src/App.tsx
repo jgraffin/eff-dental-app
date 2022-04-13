@@ -1,9 +1,10 @@
 /* eslint-disable no-restricted-globals */
-import { Link, Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { Link, Redirect, Route, useHistory } from "react-router-dom";
 import {
   InputChangeEventDetail,
   IonApp,
   IonButton,
+  IonContent,
   IonItem,
   IonLabel,
   IonList,
@@ -34,8 +35,13 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./app/store";
-import { itemUpdated, TeethType } from "./features/teeth/teethSlice";
-import { useEffect, useState } from "react";
+import {
+  itemUpdated,
+  fetchPosts,
+  selectAllItems,
+  TeethType,
+} from "./features/teeth/teethSlice";
+import { useEffect, useRef, useState } from "react";
 import { Modal, ModalClose } from "./styles/App";
 import { TeethList } from "./features/teeth/TeethList";
 import {
@@ -62,7 +68,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
   const [position, setPosition] = useState(data.position);
   const [isSelected] = useState(data.isSelected);
-
+  const dataRef = useRef(null) as any;
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -79,11 +85,10 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLSelectElement;
     setPlatform(field.value);
-  };
 
-  const onSmpChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
-    setSmp(field.value);
+    if (dataRef.current) {
+      setSmp(dataRef.current.innerText);
+    }
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
@@ -151,8 +156,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     const noSpecialCharacters = char.replace(/[^a-zA-Z0-9 ]/g, "");
     return noSpecialCharacters;
   };
-
-  useEffect(() => {}, [catalog]);
 
   return (
     <Modal>
@@ -335,20 +338,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                       }
                       return false;
                     })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Família EFF</IonLabel>
-                        <IonSelect
-                          value={smp}
-                          placeholder="Selecione"
-                          onIonChange={onSmpChanged}
-                        >
-                          <IonSelectOption value={value.smp}>
-                            {value.smp}
-                          </IonSelectOption>
-                        </IonSelect>
-                      </IonItem>
-                    ));
+                    .map((value: any) => {
+                      return (
+                        <h2 key={value.id} ref={dataRef}>
+                          {value.smp}
+                        </h2>
+                      );
+                    });
                   return smpValues;
                 }
                 return null;
@@ -509,20 +505,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                       }
                       return false;
                     })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Família EFF</IonLabel>
-                        <IonSelect
-                          value={smp}
-                          placeholder="Selecione"
-                          onIonChange={onSmpChanged}
-                        >
-                          <IonSelectOption value={value.smp}>
-                            {value.smp}
-                          </IonSelectOption>
-                        </IonSelect>
-                      </IonItem>
-                    ));
+                    .map((value: any) => {
+                      return (
+                        <h2 key={value.id} ref={dataRef}>
+                          {value.smp}
+                        </h2>
+                      );
+                    });
                   return smpValues;
                 }
                 return null;
@@ -683,20 +672,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                       }
                       return false;
                     })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Família EFF</IonLabel>
-                        <IonSelect
-                          value={smp}
-                          placeholder="Selecione"
-                          onIonChange={onSmpChanged}
-                        >
-                          <IonSelectOption value={value.smp}>
-                            {value.smp}
-                          </IonSelectOption>
-                        </IonSelect>
-                      </IonItem>
-                    ));
+                    .map((value: any) => {
+                      return (
+                        <h2 key={value.id} ref={dataRef}>
+                          {value.smp}
+                        </h2>
+                      );
+                    });
                   return smpValues;
                 }
                 return null;
@@ -742,6 +724,74 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   );
 };
 
+const List = () => {
+  let history = useHistory();
+  const dispatch = useDispatch();
+  const data = useSelector(selectAllItems);
+  const postStatus = useSelector((state: RootState) => state.teeth.status);
+  const error = useSelector((state: RootState) => state.teeth.error);
+
+  console.log(data);
+
+  useEffect(() => {
+    if (postStatus === "idle") {
+      dispatch(fetchPosts());
+    }
+  }, [postStatus, dispatch]);
+
+  return (
+    <IonContent>
+      <>
+        <IonButton onClick={history.goBack}>VOLTAR</IonButton>
+
+        {postStatus === "loading" && (
+          <IonSpinner className="loading" name="crescent" color="primary" />
+        )}
+
+        {postStatus === "succeeded" &&
+          data.map(
+            (item: any) =>
+              item.isSelected && (
+                <>
+                  <div key={item.id}>
+                    <p>
+                      <strong>Marca:</strong> {item.brand}
+                    </p>
+                    <p>
+                      <strong>Catálogo:</strong> {item.catalog}
+                    </p>
+                    <p>
+                      <strong>Implante:</strong>{" "}
+                      {item.implant !== "Undefined"
+                        ? item.implant
+                        : "Não possui"}
+                    </p>
+                    <p>
+                      <strong>Plataforma:</strong>{" "}
+                      {item.platform ? item.platform : "Não possui"}
+                    </p>
+                    <p>
+                      <strong>Especificação:</strong>{" "}
+                      {item.specification ? item.specification : "Não possui"}
+                    </p>
+                    <p>
+                      <strong>Múltiplos:</strong>{" "}
+                      {item.unionImplant ? "Sim" : "Não"}
+                    </p>
+                    <p>
+                      <strong>Família:</strong> {item.smp}
+                    </p>
+                  </div>
+                </>
+              )
+          )}
+
+        {postStatus === "error" && error}
+      </>
+    </IonContent>
+  );
+};
+
 const App: React.FC = () => {
   const postStatus = useSelector((state: RootState) => state.teeth.status);
 
@@ -750,15 +800,14 @@ const App: React.FC = () => {
       <IonReactRouter>
         <>
           {postStatus !== "loading" ? (
-            <TeethList />
+            <Route exact path="/" component={TeethList} />
           ) : (
             <IonSpinner className="loading" name="crescent" color="primary" />
           )}
         </>
-        <Switch>
-          <Route path="/edit/:id" component={Edit} />
-          <Redirect to="/" />
-        </Switch>
+        <Route exact path="/edit/:id" component={Edit} />
+        <Route exact path="/list" component={List} />
+        <Redirect to="/" />
       </IonReactRouter>
     </IonApp>
   );

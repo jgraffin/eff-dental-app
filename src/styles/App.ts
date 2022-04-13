@@ -83,3 +83,36 @@ export const ModalClose = styled.div`
     }
   }
 `;
+
+export const NextButton = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  a {
+    width: 20rem;
+    height: 4rem;
+    border-radius: 90px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-bold);
+    background-image: linear-gradient(
+      50deg,
+      #1d847b 44%,
+      #3c8a67 99%,
+      #6d893b 100%
+    );
+    text-decoration: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    a {
+      background-color: gray;
+      background-image: none;
+    }
+  }
+`;

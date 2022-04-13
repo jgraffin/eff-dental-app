@@ -355,3 +355,7 @@ ion-checkbox[aria-checked="false"] {
 .md body {
   --ion-background-color: #f4f4f4;
 }
+
+ion-footer {
+  padding: 2rem;
+}
