@@ -19,7 +19,9 @@ const Tooth = ({ post }: TeethType | any) => {
     <li
       className={`tooth-list__item tooth-list__item--${post.toothNumber} ${
         post.isSelected ? "is-selected" : ""
-      } ${post.unionImplant ? "has-union" : ""}`}
+      } ${post.unionImplant ? "has-union" : ""} 
+        ${post.position ? "favorable" : "unfavorable"}
+        ${post.hasImplant ? "has-implant" : ""}`}
       key={post.id}
     >
       <Link

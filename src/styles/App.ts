@@ -21,7 +21,7 @@ const fadeIn = keyframes`
 `;
 
 export const Modal = styled.div`
-  animation: ${fadeIn} ease-in-out 1s forwards;
+  animation: ${fadeIn} ease-in-out 0.6s forwards;
   align-items: flex-end;
   background: rgba(255, 255, 255, 0.8);
   bottom: 0;
@@ -47,6 +47,15 @@ export const Modal = styled.div`
     z-index: 99;
     padding: 2rem;
     position: relative;
+
+    .smp-name {
+      animation: ${slideIn} ease-in-out 0.3s forwards;
+      font-size: 2rem;
+      font-family: var(--font-family-bold);
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
 
     &__buttons {
       display: flex;

@@ -5,6 +5,7 @@ import {
   IonApp,
   IonButton,
   IonContent,
+  IonIcon,
   IonItem,
   IonLabel,
   IonList,
@@ -340,7 +341,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                     })
                     .map((value: any) => {
                       return (
-                        <h2 key={value.id} ref={dataRef}>
+                        <h2 className="smp-name" key={value.id} ref={dataRef}>
                           {value.smp}
                         </h2>
                       );
@@ -689,13 +690,15 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 
         {!isSelected ? (
           <IonButton
+            className="button-add ion-no-shadow"
+            color="dark"
             expand="block"
             size="large"
             shape="round"
             type="button"
             onClick={onSaveEdit}
           >
-            Selecionar
+            <strong>Adicionar</strong>
           </IonButton>
         ) : (
           <div className="container__buttons">
@@ -768,11 +771,15 @@ const List = () => {
                     </p>
                     <p>
                       <strong>Plataforma:</strong>{" "}
-                      {item.platform ? item.platform : "Não possui"}
+                      {item.platform !== "Undefined"
+                        ? item.platform
+                        : "Não possui"}
                     </p>
                     <p>
                       <strong>Especificação:</strong>{" "}
-                      {item.specification ? item.specification : "Não possui"}
+                      {item.specification !== "Undefined"
+                        ? item.specification
+                        : "Não possui"}
                     </p>
                     <p>
                       <strong>Múltiplos:</strong>{" "}

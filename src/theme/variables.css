@@ -82,7 +82,7 @@
   --ion-color-danger-tint: #ed576b;
 
   /** dark **/
-  --ion-color-dark: #222428;
+  --ion-color-dark: #111111;
   --ion-color-dark-rgb: 34, 36, 40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
@@ -269,6 +269,28 @@
   }
 }
 
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slidedown {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 html.ios,
 html.md {
   --ion-default-font: var(--font-family-regular);
@@ -306,19 +328,21 @@ html.md {
   --padding-start: 0;
 }
 
-.item[aria-disabled="true"] {
-  --border-color: transparent;
-  transform: translateY(10px);
-  transition: ease-in-out 0.4s;
+.item-interactive.item-has-focus {
+  --highlight-background: transparent;
 }
 
-.item[aria-disabled="false"] {
-  transform: translateY(0);
-  transition: ease-in-out 0.4s;
+.item-interactive.item-select {
+  will-change: contents;
+}
+
+.item-interactive.item-select {
+  animation: slidein ease-in-out 0.6s forwards;
 }
 
 .item:last-of-type {
   --border-color: transparent;
+  margin-bottom: 1rem;
 }
 
 .md.in-item.interactive {
@@ -358,4 +382,33 @@ ion-checkbox[aria-checked="false"] {
 
 ion-footer {
   padding: 2rem;
+}
+
+ion-button {
+  font-size: 0.9rem;
+  height: 50px;
+  --box-shadow: none;
+}
+
+.button-add {
+  animation: slidedown ease-in-out 0.8s forwards;
+}
+
+.button-add strong {
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.button-add strong:before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  background: url("../../public/assets/icon/plus.svg") no-repeat center center;
+  background-size: 22px;
+  vertical-align: middle;
+  position: absolute;
+  left: -2rem;
+  top: -0.5rem;
+  z-index: 1;
 }
