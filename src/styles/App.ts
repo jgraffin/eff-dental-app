@@ -58,7 +58,9 @@ export const Modal = styled.div`
     }
 
     &__buttons {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
     }
   }
 `;

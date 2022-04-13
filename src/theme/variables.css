@@ -390,8 +390,12 @@ ion-button {
   --box-shadow: none;
 }
 
-.button-add {
+.button-add, .button-save, .button-remove {
   animation: slidedown ease-in-out 0.8s forwards;
+}
+
+.button-remove {
+  color: var(--ion-color-dark);
 }
 
 .button-add strong {

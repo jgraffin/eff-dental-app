@@ -703,18 +703,19 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         ) : (
           <div className="container__buttons">
             <IonButton
+              className="button-save"
               expand="block"
               shape="round"
-              color="light"
+              color="dark"
               type="button"
               onClick={onSaveEdit}
             >
               Salvar
             </IonButton>
             <IonButton
+              className="button-remove"
               expand="block"
               shape="round"
-              color="warning"
               type="button"
               onClick={onRemove}
             >
