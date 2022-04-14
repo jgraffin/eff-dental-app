@@ -165,8 +165,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     return noSpecialCharacters;
   };
 
-  console.log(data);
-
   return (
     <Modal>
       <div className="container">

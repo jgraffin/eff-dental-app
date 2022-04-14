@@ -85,6 +85,7 @@ export const List = styled.div`
 
           &::after {
             background-image: url("./assets/images/sprite-marked.png");
+            background-size: 469px;
           }
         }
       }
@@ -93,7 +94,6 @@ export const List = styled.div`
         a {
           &::after {
             background-position: -2px -24px;
-            background-size: 469px;
           }
         }
       }
@@ -101,8 +101,319 @@ export const List = styled.div`
       &--17 {
         a {
           &::after {
-            background-position: -34px -24px;
-            background-size: 469px;
+            background-position: -30px -21px;
+          }
+        }
+      }
+
+      &--16 {
+        a {
+          &::after {
+            background-position: -60px -19px;
+            height: 3.5rem;
+            top: -1px;
+          }
+        }
+      }
+
+      &--15 {
+        a {
+          &::after {
+            background-position: -90px -13px;
+            height: 4rem;
+            left: 3px;
+            top: -6px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--14 {
+        a {
+          &::after {
+            background-position: -113px -7px;
+            height: 4.5rem;
+            left: 2px;
+            top: -11px;
+            width: 1.6rem;
+          }
+        }
+      }
+
+      &--13 {
+        a {
+          &::after {
+            background-position: -138px -3px;
+            height: 5rem;
+            left: -1px;
+            top: -17px;
+          }
+        }
+      }
+
+      &--12 {
+        a {
+          &::after {
+            background-position: -170px -11px;
+            height: 4.2rem;
+            left: 5px;
+            top: -8px;
+            width: 1.3rem;
+          }
+        }
+      }
+
+      &--11 {
+        a {
+          &::after {
+            background-position: -189px -10px;
+            height: 4.2rem;
+            top: -8px;
+          }
+        }
+      }
+
+      &--21 {
+        a {
+          &::after {
+            background-position: -221px -11px;
+            height: 4rem;
+            left: -2px;
+            top: -6px;
+          }
+        }
+      }
+
+      &--22 {
+        a {
+          &::after {
+            background-position: -250px -11px;
+            height: 4rem;
+            left: 3px;
+            top: -7px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--23 {
+        a {
+          &::after {
+            background-position: -274px -3px;
+            height: 5rem;
+            left: 3px;
+            top: -15px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--24 {
+        a {
+          &::after {
+            background-position: -302px -7px;
+            height: 4.5rem;
+            left: 3px;
+            top: -9px;
+            width: 1.4rem;
+          }
+        }
+      }
+
+      &--25 {
+        a {
+          &::after {
+            background-position: -325px -15px;
+            height: 4rem;
+            left: 2px;
+            top: -2px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--26 {
+        a {
+          &::after {
+            background-position: -348px -18px;
+            height: 4rem;
+          }
+        }
+      }
+
+      &--27 {
+        a {
+          &::after {
+            background-position: -378px -20px;
+            left: -2px;
+            top: 2px;
+          }
+        }
+      }
+
+      &--28 {
+        a {
+          &::after {
+            background-position: -408px -24px;
+            left: 1px;
+            top: 5px;
+          }
+        }
+      }
+
+      &--48 {
+        a {
+          &::after {
+            background-position: 0 -143px;
+            left: -3px;
+            top: 0px;
+          }
+        }
+      }
+
+      &--47 {
+        a {
+          &::after {
+            background-position: -34px -143px;
+            left: -1px;
+            top: 0px;
+          }
+        }
+      }
+
+      &--46 {
+        a {
+          &::after {
+            background-position: -67px -143px;
+            height: 4rem;
+            left: -1px;
+            top: -1px;
+          }
+        }
+      }
+
+      &--45,
+      &--44 {
+        a {
+          &::after {
+            background-position: -99px -143px;
+            height: 4rem;
+            left: 1px;
+            top: -1px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--44 {
+        a {
+          &::after {
+            background-position: -124px -143px;
+          }
+        }
+      }
+
+      &--43,
+      &--42,
+      &--41,
+      &--31,
+      &--32,
+      &--33,
+      &--34,
+      &--35 {
+        a {
+          &::after {
+            background-position: -150px -142px;
+            height: 5rem;
+            left: 3px;
+            top: -14px;
+            width: 1.5rem;
+          }
+        }
+      }
+
+      &--42 {
+        a {
+          &::after {
+            background-position: -174px -142px;
+          }
+        }
+      }
+
+      &--41 {
+        a {
+          &::after {
+            background-position: -195px -142px;
+          }
+        }
+      }
+
+      &--31 {
+        a {
+          &::after {
+            background-position: -221px -142px;
+          }
+        }
+      }
+
+      &--32 {
+        a {
+          &::after {
+            background-position: -242px -142px;
+          }
+        }
+      }
+
+      &--33 {
+        a {
+          &::after {
+            background-position: -266px -142px;
+          }
+        }
+      }
+
+      &--34 {
+        a {
+          &::after {
+            background-position: -291px -142px;
+          }
+        }
+      }
+
+      &--35 {
+        a {
+          &::after {
+            background-position: -317px -142px;
+          }
+        }
+      }
+
+      &--36,
+      &--37,
+      &--38 {
+        a {
+          &::after {
+            background-position: -343px -142px;
+            height: 5rem;
+            left: 0px;
+            top: -14px;
+            width: 1.9rem;
+          }
+        }
+      }
+
+      &--37 {
+        a {
+          &::after {
+            background-position: -377px -142px;
+          }
+        }
+      }
+
+      &--38 {
+        a {
+          &::after {
+            background-position: -408px -142px;
           }
         }
       }
