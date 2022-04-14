@@ -20,14 +20,15 @@ const Tooth = ({ post }: TeethType | any) => {
       className={`tooth-list__item tooth-list__item--${post.toothNumber} ${
         post.isSelected ? "is-selected" : ""
       } ${post.unionImplant ? "has-union" : ""} 
-        ${post.position ? "favorable" : "unfavorable"}
-        ${post.hasImplant ? "has-implant" : ""}`}
+        ${post.position ? "unfavorable" : ""}
+        ${post.implant !== "Undefined" ? "has-implant" : ""}`}
       key={post.id}
     >
       <Link
         className={`ion-activatable ripple-parent `}
         to={{
           pathname: `/edit/${post.id}`,
+          state: { from: post.implant },
         }}
       >
         <span>{post.toothNumber}</span>

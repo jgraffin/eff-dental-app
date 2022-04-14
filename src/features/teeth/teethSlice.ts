@@ -12,7 +12,7 @@ export type TeethType = {
   implant: string;
   smp: string;
   unionImplant: boolean;
-  position: string;
+  position: boolean;
   isSelected: boolean;
 };
 

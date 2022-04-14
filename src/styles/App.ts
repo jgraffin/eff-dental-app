@@ -45,16 +45,26 @@ export const Modal = styled.div`
     left: 0;
     width: 100%;
     z-index: 99;
-    padding: 2rem;
+    padding: 1rem 1rem 2rem 1rem;
     position: relative;
+
+    ion-list {
+      width: 100%;
+    }
 
     .smp-name {
       animation: ${slideIn} ease-in-out 0.3s forwards;
       font-size: 2rem;
       font-family: var(--font-family-bold);
       display: block;
-      text-align: center;
       width: 100%;
+    }
+
+    &__columns {
+      display: flex;
+      grid-gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
     }
 
     &__buttons {

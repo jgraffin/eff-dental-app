@@ -353,6 +353,7 @@ html.md {
 
 ion-checkbox[aria-checked="false"] {
   --background: transparent;
+  --border-color: rgba(255, 255, 255, 0.4);
 }
 
 .item.sc-ion-label-md-h,
@@ -390,12 +391,17 @@ ion-button {
   --box-shadow: none;
 }
 
-.button-add, .button-save, .button-remove {
+.button-add,
+.button-save,
+.button-remove {
   animation: slidedown ease-in-out 0.8s forwards;
 }
 
 .button-remove {
   color: var(--ion-color-dark);
+  border: 1px solid var(--ion-color-dark);
+  border-radius: 90px;
+  --background: transparent;
 }
 
 .button-add strong {

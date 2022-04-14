@@ -1,11 +1,17 @@
 /* eslint-disable no-restricted-globals */
-import { Link, Redirect, Route, useHistory } from "react-router-dom";
+import {
+  Link,
+  Redirect,
+  Route,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import {
   InputChangeEventDetail,
   IonApp,
   IonButton,
+  IonCheckbox,
   IonContent,
-  IonIcon,
   IonItem,
   IonLabel,
   IonList,
@@ -50,6 +56,7 @@ import {
   catalogHexExt,
   catalogHexInt,
 } from "./mock/manualSpecifications";
+import ToothScheme from "./components/ToothScheme";
 
 setupIonicReact();
 
@@ -93,8 +100,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
-    setPosition(field.value);
+    const field = event.detail as HTMLIonCheckboxElement;
+    setPosition(field.checked);
   };
 
   const onUnionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
@@ -142,11 +149,11 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         catalog: "",
         brand: "",
         specification: "",
-        implant: "",
+        implant: "Undefined",
         smp: "",
         platform: "",
         unionImplant: false,
-        position: "",
+        position: false,
         isSelected: false,
       })
     );
@@ -158,6 +165,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     return noSpecialCharacters;
   };
 
+  console.log(data);
+
   return (
     <Modal>
       <div className="container">
@@ -168,525 +177,262 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
             }}
           ></Link>
         </ModalClose>
-        <IonList>
-          <IonItem>
-            <IonLabel position="floating">Catálogo</IonLabel>
-            <IonSelect
-              value={catalog}
-              placeholder="Selecione"
-              onIonChange={onCatalogChanged}
-            >
-              <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
-              <IonSelectOption value="Hexagono Externo">
-                Hexágono Externo
-              </IonSelectOption>
-              <IonSelectOption value="Hexagono Interno">
-                Hexágono Interno
-              </IonSelectOption>
-            </IonSelect>
-          </IonItem>
 
-          {catalog === "Cone Morse" && (
-            <>
-              <IonItem>
-                <IonLabel position="floating">Marca do Implante</IonLabel>
-                <IonSelect
-                  value={brand}
-                  placeholder="Selecione"
-                  onIonChange={onBrandChanged}
-                >
-                  {catalogConeMorse.map((item: any) => (
-                    <IonSelectOption key={item.id} value={item.id}>
-                      {item.brandName}
-                    </IonSelectOption>
-                  ))}
-                </IonSelect>
-              </IonItem>
+        <div className="container__columns">
+          <ToothScheme
+            tooth={toothNumber}
+            implant={implant}
+            position={position}
+            isSelected={isSelected}
+            unionImplant={unionImplant}
+          />
+          <IonList>
+            <IonItem>
+              <IonLabel position="floating">Catálogo</IonLabel>
+              <IonSelect
+                value={catalog}
+                placeholder="Selecione"
+                onIonChange={onCatalogChanged}
+              >
+                <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
+                <IonSelectOption value="Hexagono Externo">
+                  Hexágono Externo
+                </IonSelectOption>
+                <IonSelectOption value="Hexagono Interno">
+                  Hexágono Interno
+                </IonSelectOption>
+              </IonSelect>
+            </IonItem>
 
-              {brand && (
+            {catalog === "Cone Morse" && (
+              <>
                 <IonItem>
-                  <IonLabel position="floating">Especificação</IonLabel>
+                  <IonLabel position="floating">Marca do Implante</IonLabel>
                   <IonSelect
-                    value={specification}
+                    value={brand}
                     placeholder="Selecione"
-                    onIonChange={onSpecificationChanged}
+                    onIonChange={onBrandChanged}
                   >
-                    {catalogConeMorse
-                      .filter((brandName: any) => {
-                        if (brandName.id === onRemoveSpecialCharacters(brand)) {
+                    {catalogConeMorse.map((item: any) => (
+                      <IonSelectOption key={item.id} value={item.id}>
+                        {item.brandName}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+
+                {brand && (
+                  <IonItem>
+                    <IonLabel position="floating">Especificação</IonLabel>
+                    <IonSelect
+                      value={specification}
+                      placeholder="Selecione"
+                      onIonChange={onSpecificationChanged}
+                    >
+                      {catalogConeMorse
+                        .filter((brandName: any) => {
+                          if (
+                            brandName.id === onRemoveSpecialCharacters(brand)
+                          ) {
+                            return true;
+                          }
+                          return false;
+                        })
+                        .map((items: any) => {
+                          return items.manual.map((value: any) =>
+                            value.specification !== "Undefined" ? (
+                              <IonSelectOption
+                                key={value.id}
+                                value={value.specification}
+                              >
+                                {value.specification}
+                              </IonSelectOption>
+                            ) : (
+                              <IonSelectOption
+                                key={value.id}
+                                value={value.specification}
+                              >
+                                Não possui
+                              </IonSelectOption>
+                            )
+                          );
+                        })}
+                    </IonSelect>
+                  </IonItem>
+                )}
+
+                {catalogConeMorse.map((items: any) => {
+                  if (items.id === brand) {
+                    const implantValues = items.manual
+                      .filter((value: any) => {
+                        if (value.specification === specification) {
                           return true;
                         }
                         return false;
                       })
-                      .map((items: any) => {
-                        return items.manual.map((value: any) =>
-                          value.specification !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              {value.specification}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )
-                        );
-                      })}
-                  </IonSelect>
-                </IonItem>
-              )}
+                      .map((value: any) => (
+                        <IonItem key={value.id}>
+                          <IonLabel position="floating">Implante</IonLabel>
+                          <IonSelect
+                            value={implant}
+                            placeholder="Selecione"
+                            onIonChange={onImplantChanged}
+                          >
+                            {value.implant !== "Undefined" ? (
+                              <IonSelectOption
+                                key={value.implant}
+                                value={value.implant}
+                              >
+                                {value.implant}
+                              </IonSelectOption>
+                            ) : (
+                              <IonSelectOption
+                                key={value.implant}
+                                value={value.implant}
+                              >
+                                Não possui
+                              </IonSelectOption>
+                            )}
+                          </IonSelect>
+                        </IonItem>
+                      ));
+                    return implantValues;
+                  }
+                  return null;
+                })}
 
-              {catalogConeMorse.map((items: any) => {
-                if (items.id === brand) {
-                  const implantValues = items.manual
-                    .filter((value: any) => {
-                      if (value.specification === specification) {
-                        return true;
+                {catalogConeMorse.map((items: any) => {
+                  if (items.id === brand) {
+                    const implantValues = items.manual.filter((value: any) => {
+                      if (value.implant !== "Undefined") {
+                        if (
+                          value.specification === specification &&
+                          value.implant === implant
+                        ) {
+                          return true;
+                        }
                       }
                       return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Implante</IonLabel>
-                        <IonSelect
-                          value={implant}
-                          placeholder="Selecione"
-                          onIonChange={onImplantChanged}
-                        >
-                          {value.implant !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              {value.implant}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return implantValues;
-                }
-                return null;
-              })}
-
-              {catalogConeMorse.map((items: any) => {
-                if (items.id === brand) {
-                  const platformValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">
-                          Plataforma Protética
-                        </IonLabel>
-                        <IonSelect
-                          value={platform}
-                          placeholder="Selecione"
-                          onIonChange={onPlatformChanged}
-                        >
-                          {value.platform !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              {value.platform}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return platformValues;
-                }
-                return null;
-              })}
-
-              {catalogConeMorse.map((items: any) => {
-                if (items.id === brand) {
-                  const smpValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant &&
-                        value.platform === platform
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => {
-                      return (
-                        <h2 className="smp-name" key={value.id} ref={dataRef}>
-                          {value.smp}
-                        </h2>
-                      );
                     });
-                  return smpValues;
-                }
-                return null;
-              })}
-            </>
-          )}
 
-          {catalog === "Hexagono Externo" && (
-            <>
-              <IonItem>
-                <IonLabel position="floating">Marca do Implante</IonLabel>
-                <IonSelect
-                  value={brand}
-                  placeholder="Selecione"
-                  onIonChange={onBrandChanged}
-                >
-                  {catalogHexExt.map((item: any) => (
-                    <IonSelectOption key={item.id} value={item.id}>
-                      {item.brandName}
-                    </IonSelectOption>
-                  ))}
-                </IonSelect>
-              </IonItem>
+                    if (implantValues.length > 0) {
+                      return (
+                        <IonItem key={items.id}>
+                          <IonLabel>Desfavorável?</IonLabel>
+                          <IonCheckbox
+                            value={position}
+                            checked={position}
+                            onIonChange={onPositionChanged}
+                            slot="end"
+                            color="primary"
+                          />
+                        </IonItem>
+                      );
+                    }
+                  }
+                  return null;
+                })}
 
-              {brand && (
-                <IonItem>
-                  <IonLabel position="floating">Especificação</IonLabel>
-                  <IonSelect
-                    value={specification}
-                    placeholder="Selecione"
-                    onIonChange={onSpecificationChanged}
-                  >
-                    {catalogHexExt
-                      .filter((brandName: any) => {
-                        if (brandName.id === onRemoveSpecialCharacters(brand)) {
+                {catalogConeMorse.map((items: any) => {
+                  if (items.id === brand) {
+                    const platformValues = items.manual
+                      .filter((value: any) => {
+                        if (
+                          value.specification === specification &&
+                          value.implant === implant
+                        ) {
                           return true;
                         }
                         return false;
                       })
-                      .map((items: any) => {
-                        return items.manual.map((value: any) =>
-                          value.specification !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              {value.specification}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )
-                        );
-                      })}
-                  </IonSelect>
-                </IonItem>
-              )}
+                      .map((value: any) => (
+                        <IonItem key={value.id}>
+                          <IonLabel position="floating">
+                            Plataforma Protética
+                          </IonLabel>
+                          <IonSelect
+                            value={platform}
+                            placeholder="Selecione"
+                            onIonChange={onPlatformChanged}
+                          >
+                            {value.platform !== "Undefined" ? (
+                              <IonSelectOption
+                                key={value.platform}
+                                value={value.platform}
+                              >
+                                {value.platform}
+                              </IonSelectOption>
+                            ) : (
+                              <IonSelectOption
+                                key={value.platform}
+                                value={value.platform}
+                              >
+                                Não possui
+                              </IonSelectOption>
+                            )}
+                          </IonSelect>
+                        </IonItem>
+                      ));
+                    return platformValues;
+                  }
+                  return null;
+                })}
 
-              {catalogHexExt.map((items: any) => {
-                if (items.id === brand) {
-                  const implantValues = items.manual
-                    .filter((value: any) => {
-                      if (value.specification === specification) {
+                {catalogConeMorse.map((items: any) => {
+                  if (items.id === brand) {
+                    const platformValues = items.manual.filter((value: any) => {
+                      if (value.platform === platform) {
                         return true;
                       }
                       return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Implante</IonLabel>
-                        <IonSelect
-                          value={implant}
-                          placeholder="Selecione"
-                          onIonChange={onImplantChanged}
-                        >
-                          {value.implant !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              {value.implant}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return implantValues;
-                }
-                return null;
-              })}
-
-              {catalogHexExt.map((items: any) => {
-                if (items.id === brand) {
-                  const platformValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">
-                          Plataforma Protética
-                        </IonLabel>
-                        <IonSelect
-                          value={platform}
-                          placeholder="Selecione"
-                          onIonChange={onPlatformChanged}
-                        >
-                          {value.platform !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              {value.platform}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return platformValues;
-                }
-                return null;
-              })}
-
-              {catalogHexExt.map((items: any) => {
-                if (items.id === brand) {
-                  const smpValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant &&
-                        value.platform === platform
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => {
-                      return (
-                        <h2 key={value.id} ref={dataRef}>
-                          {value.smp}
-                        </h2>
-                      );
                     });
-                  return smpValues;
-                }
-                return null;
-              })}
-            </>
-          )}
 
-          {catalog === "Hexagono Interno" && (
-            <>
-              <IonItem>
-                <IonLabel position="floating">Marca do Implante</IonLabel>
-                <IonSelect
-                  value={brand}
-                  placeholder="Selecione"
-                  onIonChange={onBrandChanged}
-                >
-                  {catalogHexInt.map((item: any) => (
-                    <IonSelectOption key={item.id} value={item.id}>
-                      {item.brandName}
-                    </IonSelectOption>
-                  ))}
-                </IonSelect>
-              </IonItem>
+                    if (platformValues.length > 0) {
+                      return (
+                        <IonItem key={items.id}>
+                          <IonLabel>Múltipla?</IonLabel>
+                          <IonCheckbox
+                            value={unionImplant}
+                            checked={unionImplant}
+                            onIonChange={onUnionChanged}
+                            slot="end"
+                            color="primary"
+                          />
+                        </IonItem>
+                      );
+                    }
+                  }
+                  return null;
+                })}
 
-              {brand && (
-                <IonItem>
-                  <IonLabel position="floating">Especificação</IonLabel>
-                  <IonSelect
-                    value={specification}
-                    placeholder="Selecione"
-                    onIonChange={onSpecificationChanged}
-                  >
-                    {catalogHexInt
-                      .filter((brandName: any) => {
-                        if (brandName.id === onRemoveSpecialCharacters(brand)) {
+                {catalogConeMorse.map((items: any) => {
+                  if (items.id === brand) {
+                    const smpValues = items.manual
+                      .filter((value: any) => {
+                        if (
+                          value.specification === specification &&
+                          value.implant === implant &&
+                          value.platform === platform
+                        ) {
                           return true;
                         }
                         return false;
                       })
-                      .map((items: any) => {
-                        return items.manual.map((value: any) =>
-                          value.specification !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              {value.specification}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.id}
-                              value={value.specification}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )
+                      .map((value: any) => {
+                        return (
+                          <h2 className="smp-name" key={value.id} ref={dataRef}>
+                            {value.smp}
+                          </h2>
                         );
-                      })}
-                  </IonSelect>
-                </IonItem>
-              )}
-
-              {catalogHexInt.map((items: any) => {
-                if (items.id === brand) {
-                  const implantValues = items.manual
-                    .filter((value: any) => {
-                      if (value.specification === specification) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">Implante</IonLabel>
-                        <IonSelect
-                          value={implant}
-                          placeholder="Selecione"
-                          onIonChange={onImplantChanged}
-                        >
-                          {value.implant !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              {value.implant}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.implant}
-                              value={value.implant}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return implantValues;
-                }
-                return null;
-              })}
-
-              {catalogHexInt.map((items: any) => {
-                if (items.id === brand) {
-                  const platformValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => (
-                      <IonItem key={value.id}>
-                        <IonLabel position="floating">
-                          Plataforma Protética
-                        </IonLabel>
-                        <IonSelect
-                          value={platform}
-                          placeholder="Selecione"
-                          onIonChange={onPlatformChanged}
-                        >
-                          {value.platform !== "Undefined" ? (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              {value.platform}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={value.platform}
-                              value={value.platform}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )}
-                        </IonSelect>
-                      </IonItem>
-                    ));
-                  return platformValues;
-                }
-                return null;
-              })}
-
-              {catalogHexInt.map((items: any) => {
-                if (items.id === brand) {
-                  const smpValues = items.manual
-                    .filter((value: any) => {
-                      if (
-                        value.specification === specification &&
-                        value.implant === implant &&
-                        value.platform === platform
-                      ) {
-                        return true;
-                      }
-                      return false;
-                    })
-                    .map((value: any) => {
-                      return (
-                        <h2 key={value.id} ref={dataRef}>
-                          {value.smp}
-                        </h2>
-                      );
-                    });
-                  return smpValues;
-                }
-                return null;
-              })}
-            </>
-          )}
-        </IonList>
+                      });
+                    return smpValues;
+                  }
+                  return null;
+                })}
+              </>
+            )}
+          </IonList>
+        </div>
 
         {!isSelected ? (
           <IonButton
