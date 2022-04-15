@@ -1,4 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadein = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(25deg);
+  }
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -40,18 +58,12 @@ export const List = styled.div`
       position: relative;
       z-index: 5;
 
-      &.ripple-parent {
-        position: relative;
-        overflow: hidden;
-        border-radius: 90px;
-      }
-
       a {
         align-items: flex-end;
         border-radius: 90px;
         color: var(--ion-color-dark);
-        font-family: var(--font-family-light);
         display: flex;
+        font-family: var(--font-family-light);
         height: 100%;
         justify-content: center;
         overflow: hidden;
@@ -76,6 +88,36 @@ export const List = styled.div`
         }
       }
 
+      &.has-implant {
+        a {
+          &::before {
+            animation: ${fadein} ease-in-out 0.6s forwards;
+            background-image: url("./assets/images/implant-graphic-top.png");
+            background-repeat: no-repeat;
+            background-size: 16px;
+            content: "";
+            height: 2.2rem;
+            position: absolute;
+            transition: ease-in-out 0.6s;
+            width: 1rem;
+          }
+        }
+      }
+
+      &.unfavorable {
+        a {
+          &::before {
+            animation: ${rotate} ease-in-out 0.6s forwards;
+          }
+        }
+      }
+
+      &.ripple-parent {
+        position: relative;
+        overflow: hidden;
+        border-radius: 90px;
+      }
+
       &.is-selected {
         border: 1px dashed var(--ion-color-tertiary);
 
@@ -85,7 +127,14 @@ export const List = styled.div`
 
           &::after {
             background-image: url("./assets/images/sprite-marked.png");
-            background-size: 469px;
+          }
+        }
+
+        &.tooth-list__item--46 {
+          a {
+            &::after {
+              background-position: -67px -143px;
+            }
           }
         }
       }
@@ -93,7 +142,27 @@ export const List = styled.div`
       &--18 {
         a {
           &::after {
-            background-position: -2px -24px;
+            background-position: -1px -24px;
+            left: -2px;
+            top: 2px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 27px;
+              left: 14px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 27px;
+              left: 19px;
+            }
           }
         }
       }
@@ -104,6 +173,24 @@ export const List = styled.div`
             background-position: -30px -21px;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 27px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 27px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--16 {
@@ -112,6 +199,24 @@ export const List = styled.div`
             background-position: -60px -19px;
             height: 3.5rem;
             top: -1px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 28px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 28px;
+              left: 19px;
+            }
           }
         }
       }
@@ -126,6 +231,24 @@ export const List = styled.div`
             width: 1.5rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 28px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 28px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--14 {
@@ -138,6 +261,24 @@ export const List = styled.div`
             width: 1.6rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 28px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 28px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--13 {
@@ -147,6 +288,24 @@ export const List = styled.div`
             height: 5rem;
             left: -1px;
             top: -17px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 25px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 25px;
+              left: 19px;
+            }
           }
         }
       }
@@ -161,6 +320,24 @@ export const List = styled.div`
             width: 1.3rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 25px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 25px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--11 {
@@ -169,6 +346,24 @@ export const List = styled.div`
             background-position: -189px -10px;
             height: 4.2rem;
             top: -8px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 25px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 25px;
+              left: 19px;
+            }
           }
         }
       }
@@ -180,6 +375,24 @@ export const List = styled.div`
             height: 4rem;
             left: -2px;
             top: -6px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 26px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 26px;
+              left: 19px;
+            }
           }
         }
       }
@@ -194,6 +407,24 @@ export const List = styled.div`
             width: 1.5rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 26px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 26px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--23 {
@@ -204,6 +435,24 @@ export const List = styled.div`
             left: 3px;
             top: -15px;
             width: 1.5rem;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 26px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 26px;
+              left: 19px;
+            }
           }
         }
       }
@@ -218,6 +467,24 @@ export const List = styled.div`
             width: 1.4rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 26px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 27px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--25 {
@@ -230,6 +497,24 @@ export const List = styled.div`
             width: 1.5rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 26px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 27px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--26 {
@@ -237,6 +522,24 @@ export const List = styled.div`
           &::after {
             background-position: -348px -18px;
             height: 4rem;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 30px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 30px;
+              left: 19px;
+            }
           }
         }
       }
@@ -249,6 +552,24 @@ export const List = styled.div`
             top: 2px;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 30px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 30px;
+              left: 19px;
+            }
+          }
+        }
       }
 
       &--28 {
@@ -259,14 +580,66 @@ export const List = styled.div`
             top: 5px;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 30px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 30px;
+              left: 19px;
+            }
+          }
+        }
       }
 
-      &--48 {
+      &--48,
+      &--47,
+      &--46,
+      &--45,
+      &--44,
+      &--43,
+      &--42,
+      &--41,
+      &--31,
+      &--32,
+      &--33,
+      &--34,
+      &--35,
+      &--36,
+      &--37,
+      &--38 {
         a {
           &::after {
             background-position: 0 -143px;
             left: -3px;
-            top: 0px;
+            top: -14px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              background-image: url("./assets/images/implant-graphic-bottom.png");
+              left: 15px;
+              top: 31px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 31px;
+              left: 10px;
+            }
           }
         }
       }
@@ -276,7 +649,7 @@ export const List = styled.div`
           &::after {
             background-position: -34px -143px;
             left: -1px;
-            top: 0px;
+            top: -14px;
           }
         }
       }
@@ -287,7 +660,7 @@ export const List = styled.div`
             background-position: -67px -143px;
             height: 4rem;
             left: -1px;
-            top: -1px;
+            top: -14px;
           }
         }
       }
@@ -299,16 +672,26 @@ export const List = styled.div`
             background-position: -99px -143px;
             height: 4rem;
             left: 1px;
-            top: -1px;
+            top: -14px;
             width: 1.5rem;
           }
         }
-      }
 
-      &--44 {
-        a {
-          &::after {
-            background-position: -124px -143px;
+        &.has-implant {
+          a {
+            &::before {
+              top: 34px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 33px;
+              left: 10px;
+            }
           }
         }
       }
@@ -330,6 +713,52 @@ export const List = styled.div`
             width: 1.5rem;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 34px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 38px;
+              left: 10px;
+            }
+          }
+        }
+      }
+
+      &--44 {
+        a {
+          &::after {
+            background-position: -124px -143px;
+          }
+        }
+      }
+
+      &--43 {
+        &.has-implant {
+          a {
+            &::before {
+              top: 37px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 36px;
+              left: 10px;
+            }
+          }
+        }
       }
 
       &--42 {
@@ -346,12 +775,30 @@ export const List = styled.div`
             background-position: -195px -142px;
           }
         }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 34px;
+              left: 10px;
+            }
+          }
+        }
       }
 
       &--31 {
         a {
           &::after {
             background-position: -221px -142px;
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 34px;
+              left: 10px;
+            }
           }
         }
       }
@@ -370,6 +817,24 @@ export const List = styled.div`
             background-position: -266px -142px;
           }
         }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 36px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 36px;
+              left: 9px;
+            }
+          }
+        }
       }
 
       &--34 {
@@ -378,12 +843,30 @@ export const List = styled.div`
             background-position: -291px -142px;
           }
         }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 34px;
+              left: 9px;
+            }
+          }
+        }
       }
 
       &--35 {
         a {
           &::after {
             background-position: -317px -142px;
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 33px;
+              left: 9px;
+            }
           }
         }
       }
@@ -398,6 +881,24 @@ export const List = styled.div`
             left: 0px;
             top: -14px;
             width: 1.9rem;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 32px;
+              left: 15px;
+            }
+          }
+        }
+
+        &.unfavorable {
+          a {
+            &::before {
+              top: 32px;
+              left: 10px;
+            }
           }
         }
       }
@@ -444,7 +945,7 @@ export const List = styled.div`
             &--27,
             &--28 {
               &.is-selected {
-                border: 2px solid var(--ion-color-tertiary);
+                border: 1px solid var(--ion-color-tertiary);
                 transform: translateY(-8px);
               }
 
@@ -457,7 +958,7 @@ export const List = styled.div`
                 position: absolute;
                 top: -28px;
                 transition: ease-in-out 0.3s;
-                width: 2px;
+                width: 3px;
               }
             }
           }
@@ -490,7 +991,7 @@ export const List = styled.div`
             &--37,
             &--38 {
               &.is-selected {
-                border: 2px solid var(--ion-color-tertiary);
+                border: 1px solid var(--ion-color-tertiary);
                 transform: translateY(16px);
               }
 
