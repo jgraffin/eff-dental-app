@@ -52,6 +52,7 @@ export const TeethList = () => {
   const [hasUnionTopLine, setHasUnionTopLine] = useState(false);
   const [hasUnionBottomLine, setHasUnionBottomLine] = useState(false);
   const [selection, setSelection] = useState(false);
+  const [itemSelectedList, setItemSelectedList] = useState(true);
 
   const onRemoveAll = () => {
     posts.filter(
@@ -102,6 +103,10 @@ export const TeethList = () => {
       (item: { isSelected: boolean }) => item.isSelected
     );
 
+    let itemSelectedLength = itemSelected.length > 1;
+
+    setItemSelectedList(itemSelectedLength);
+
     if (itemSelected.length > 0) {
       setSelection(true);
     }
@@ -135,26 +140,30 @@ export const TeethList = () => {
     <>
       <IonContent>
         <Wrapper>
-          <IonButton
-            className="button-remove"
-            expand="block"
-            shape="round"
-            type="button"
-            onClick={onRemoveAll}
-          >
-            Remover todas as marcações
-          </IonButton>
           <List
             className={`${hasUnionTopLine ? "has-union-top-items" : ""} ${
               hasUnionBottomLine ? "has-union-bottom-items" : ""
             }`}
           >
+            {itemSelectedList && (
+              <IonButton
+                className="button-remove"
+                expand="block"
+                shape="round"
+                type="button"
+                onClick={onRemoveAll}
+              >
+                Remover marcações
+              </IonButton>
+            )}
             <ul className="tooth-list">{content}</ul>
           </List>
         </Wrapper>
       </IonContent>
       <IonFooter className="ion-no-border">
-        <NextButton className={`${selection ? "" : "disabled"}`}>
+        <NextButton
+          className={`${selection && itemSelectedList ? "" : "disabled"}`}
+        >
           <Link
             className={`ion-activatable ripple-parent `}
             to={{

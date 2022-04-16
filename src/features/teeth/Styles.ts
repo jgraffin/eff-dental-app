@@ -23,6 +23,13 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  position: relative;
+
+  .button-remove {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 `;
 
 export const List = styled.div`
@@ -620,7 +627,12 @@ export const List = styled.div`
           &::after {
             background-position: 0 -143px;
             left: -3px;
-            top: -14px;
+            top: 26px;
+          }
+
+          span {
+            position: absolute;
+            top: 14px;
           }
         }
 
@@ -629,7 +641,7 @@ export const List = styled.div`
             &::before {
               background-image: url("./assets/images/implant-graphic-bottom.png");
               left: 15px;
-              top: 31px;
+              top: 72px;
             }
           }
         }
@@ -637,7 +649,6 @@ export const List = styled.div`
         &.unfavorable {
           a {
             &::before {
-              top: 31px;
               left: 10px;
             }
           }
@@ -649,7 +660,6 @@ export const List = styled.div`
           &::after {
             background-position: -34px -143px;
             left: -1px;
-            top: -14px;
           }
         }
       }
@@ -660,7 +670,6 @@ export const List = styled.div`
             background-position: -67px -143px;
             height: 4rem;
             left: -1px;
-            top: -14px;
           }
         }
       }
@@ -672,7 +681,6 @@ export const List = styled.div`
             background-position: -99px -143px;
             height: 4rem;
             left: 1px;
-            top: -14px;
             width: 1.5rem;
           }
         }
@@ -680,7 +688,6 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 34px;
               left: 15px;
             }
           }
@@ -689,7 +696,6 @@ export const List = styled.div`
         &.unfavorable {
           a {
             &::before {
-              top: 33px;
               left: 10px;
             }
           }
@@ -709,7 +715,6 @@ export const List = styled.div`
             background-position: -150px -142px;
             height: 5rem;
             left: 3px;
-            top: -14px;
             width: 1.5rem;
           }
         }
@@ -879,7 +884,6 @@ export const List = styled.div`
             background-position: -343px -142px;
             height: 5rem;
             left: 0px;
-            top: -14px;
             width: 1.9rem;
           }
         }
@@ -922,7 +926,7 @@ export const List = styled.div`
   }
 
   &.has-union-top-items {
-    border-top: 3px solid var(--ion-color-tertiary);
+    border-top: 2px solid var(--ion-color-tertiary);
 
     .tooth-list {
       &__item {
@@ -958,7 +962,7 @@ export const List = styled.div`
                 position: absolute;
                 top: -28px;
                 transition: ease-in-out 0.3s;
-                width: 3px;
+                width: 2px;
               }
             }
           }
@@ -968,7 +972,7 @@ export const List = styled.div`
   }
 
   &.has-union-bottom-items {
-    border-bottom: 3px solid var(--ion-color-tertiary);
+    border-bottom: 2px solid var(--ion-color-tertiary);
 
     .tooth-list {
       &__item {
@@ -1000,10 +1004,10 @@ export const List = styled.div`
                 content: "";
                 height: 1.7rem;
                 left: 50%;
-                margin-left: -2px;
+                margin-left: -1px;
                 position: absolute;
                 bottom: -28px;
-                width: 4px;
+                width: 2px;
                 top: auto;
                 transition: ease-in-out 0.3s;
               }

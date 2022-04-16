@@ -111,21 +111,22 @@ export const NextButton = styled.div`
   justify-content: center;
 
   a {
-    width: 20rem;
-    height: 4rem;
-    border-radius: 90px;
-    color: white;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: var(--font-family-bold);
+    border-radius: 90px;
     background-image: linear-gradient(
       50deg,
       #1d847b 44%,
       #3c8a67 99%,
       #6d893b 100%
     );
+    color: white;
+    display: flex;
+    font-family: var(--font-family-bold);
+    height: 4rem;
+    justify-content: center;
+    letter-spacing: 0.1rem;
     text-decoration: none;
+    width: 20rem;
   }
 
   &.disabled {
