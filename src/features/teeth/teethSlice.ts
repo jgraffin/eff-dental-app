@@ -50,6 +50,9 @@ const teethSlice = createSlice({
       const existingItem = state.items.find(
         (item: TeethType) => item.id === id
       );
+
+      console.log("existingItem", existingItem);
+
       if (existingItem) {
         existingItem.catalog = catalog;
         existingItem.toothNumber = toothNumber;

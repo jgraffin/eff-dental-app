@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonContent,
   IonFooter,
   IonRippleEffect,
@@ -10,7 +11,12 @@ import { Link } from "react-router-dom";
 import { RootState } from "../../app/store";
 import { NextButton } from "../../styles/App";
 
-import { fetchPosts, selectAllItems, TeethType } from "../teeth/teethSlice";
+import {
+  fetchPosts,
+  itemUpdated,
+  selectAllItems,
+  TeethType,
+} from "../teeth/teethSlice";
 
 import { List, Wrapper } from "./Styles";
 
@@ -46,6 +52,28 @@ export const TeethList = () => {
   const [hasUnionTopLine, setHasUnionTopLine] = useState(false);
   const [hasUnionBottomLine, setHasUnionBottomLine] = useState(false);
   const [selection, setSelection] = useState(false);
+
+  const onRemoveAll = () => {
+    posts.filter(
+      (item: any) =>
+        item.isSelected &&
+        dispatch(
+          itemUpdated({
+            id: item.id,
+            catalog: "",
+            brand: "",
+            specification: "",
+            toothNumber: item.toothNumber,
+            implant: "Undefined",
+            smp: "",
+            platform: "",
+            unionImplant: false,
+            position: false,
+            isSelected: !item.isSelected,
+          })
+        )
+    );
+  };
 
   useEffect(() => {
     if (postStatus === "idle") {
@@ -107,6 +135,15 @@ export const TeethList = () => {
     <>
       <IonContent>
         <Wrapper>
+          <IonButton
+            className="button-remove"
+            expand="block"
+            shape="round"
+            type="button"
+            onClick={onRemoveAll}
+          >
+            Remover todas as marcações
+          </IonButton>
           <List
             className={`${hasUnionTopLine ? "has-union-top-items" : ""} ${
               hasUnionBottomLine ? "has-union-bottom-items" : ""
