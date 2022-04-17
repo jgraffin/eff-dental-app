@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
 export const List = styled.div`
   background: var(--ion-color-primary-contrast);
   border-radius: 20px 0 0 20px;
-  box-shadow: 0 15px 47px 0 rgba(29, 132, 123, 0.14);
+  box-shadow: 0 15px 47px 0 rgba(127, 127, 255, 0.14);
   display: block;
   height: 325px;
   margin: 3rem 0 0 1rem;

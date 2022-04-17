@@ -11,10 +11,13 @@ import {
   IonApp,
   IonButton,
   IonCheckbox,
+  IonCol,
   IonContent,
+  IonGrid,
   IonItem,
   IonLabel,
   IonList,
+  IonRow,
   IonSelect,
   IonSelectOption,
   IonSpinner,
@@ -49,7 +52,7 @@ import {
   TeethType,
 } from "./features/teeth/teethSlice";
 import { useEffect, useRef, useState } from "react";
-import { Modal, ModalClose } from "./styles/App";
+import { Modal, ModalClose, WrapperComponents } from "./styles/App";
 import { TeethList } from "./features/teeth/TeethList";
 import {
   catalogConeMorse,
@@ -177,6 +180,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         </ModalClose>
 
         <div className="container__columns">
+          {!isSelected ? <h1>Configurações</h1> : <h1>Editar Configurações</h1>}
+
           <ToothScheme
             tooth={toothNumber}
             implant={implant}
@@ -489,57 +494,72 @@ const List = () => {
 
   return (
     <IonContent>
-      <>
-        <IonButton onClick={history.goBack}>VOLTAR</IonButton>
-
+      <IonButton onClick={history.goBack}>VOLTAR</IonButton>
+      <WrapperComponents>
         {postStatus === "loading" && (
           <IonSpinner className="loading" name="crescent" color="primary" />
         )}
 
-        {postStatus === "succeeded" &&
-          data.map(
-            (item: any) =>
-              item.isSelected && (
-                <>
-                  <div key={item.id}>
-                    <p>
-                      <strong>Marca:</strong> {item.brand}
-                    </p>
-                    <p>
-                      <strong>Catálogo:</strong> {item.catalog}
-                    </p>
-                    <p>
-                      <strong>Implante:</strong>{" "}
+        <IonGrid>
+          <IonRow className="table-head">
+            <IonCol className="ion-no-padding">&nbsp;</IonCol>
+            <IonCol className="ion-no-padding" size="2">
+              Marca
+            </IonCol>
+            <IonCol className="ion-no-padding" size="3">
+              Implante
+            </IonCol>
+            <IonCol className="ion-no-padding">Plataforma</IonCol>
+            <IonCol className="ion-no-padding">Especificação</IonCol>
+            <IonCol className="ion-no-padding">Múltipla</IonCol>
+            <IonCol className="ion-no-padding">Família</IonCol>
+          </IonRow>
+          {postStatus === "succeeded" &&
+            data.map(
+              (item: any) =>
+                item.isSelected && (
+                  <IonRow className="table-row" key={item.id}>
+                    <IonCol className="ion-no-padding">
+                      <IonButton
+                        className="button-add ion-no-shadow"
+                        color="dark"
+                        expand="block"
+                        size="large"
+                        shape="round"
+                        type="button"
+                      >
+                        +ADD
+                      </IonButton>
+                    </IonCol>
+                    <IonCol className="ion-no-padding" size="2">
+                      {item.brand}
+                    </IonCol>
+                    <IonCol className="ion-no-padding" size="3">
                       {item.implant !== "Undefined"
                         ? item.implant
                         : "Não possui"}
-                    </p>
-                    <p>
-                      <strong>Plataforma:</strong>{" "}
+                    </IonCol>
+                    <IonCol className="ion-no-padding">
                       {item.platform !== "Undefined"
                         ? item.platform
                         : "Não possui"}
-                    </p>
-                    <p>
-                      <strong>Especificação:</strong>{" "}
+                    </IonCol>
+                    <IonCol className="ion-no-padding">
                       {item.specification !== "Undefined"
                         ? item.specification
                         : "Não possui"}
-                    </p>
-                    <p>
-                      <strong>Múltiplos:</strong>{" "}
+                    </IonCol>
+                    <IonCol className="ion-no-padding">
                       {item.unionImplant ? "Sim" : "Não"}
-                    </p>
-                    <p>
-                      <strong>Família:</strong> {item.smp}
-                    </p>
-                  </div>
-                </>
-              )
-          )}
+                    </IonCol>
+                    <IonCol className="ion-no-padding">{item.smp}</IonCol>
+                  </IonRow>
+                )
+            )}
+        </IonGrid>
 
         {postStatus === "error" && error}
-      </>
+      </WrapperComponents>
     </IonContent>
   );
 };

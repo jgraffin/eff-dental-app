@@ -34,19 +34,15 @@ export const Modal = styled.div`
 
   .container {
     animation: ${slideIn} ease-in-out 0.3s forwards;
-    background-image: linear-gradient(
-      50deg,
-      #1d847b 44%,
-      #3c8a67 99%,
-      #6d893b 100%
-    );
+    background: #aaf9ae;
     border-radius: 30px 30px 0 0;
     bottom: 0;
+    box-shadow: 0px 0px 36px 15px rgba(0, 0, 0, 0.3);
     left: 0;
-    width: 100%;
-    z-index: 99;
     padding: 1rem 1rem 2rem 1rem;
     position: relative;
+    width: 100%;
+    z-index: 99;
 
     ion-list {
       width: 100%;
@@ -65,6 +61,16 @@ export const Modal = styled.div`
       grid-gap: 1rem;
       justify-content: space-between;
       margin-bottom: 2rem;
+
+      h1 {
+        color: black;
+        font-family: var(--font-family-light);
+        font-size: 1.1rem;
+        left: 1rem;
+        position: absolute;
+        text-transform: uppercase;
+        top: -3.5rem;
+      }
     }
 
     &__buttons {
@@ -135,6 +141,74 @@ export const NextButton = styled.div`
     a {
       background-color: gray;
       background-image: none;
+    }
+  }
+`;
+
+export const WrapperComponents = styled.div`
+  background: var(--ion-color-primary-contrast);
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0 15px 47px 0 rgb(109, 137, 60, 0.4);
+  display: block;
+  min-height: 200px;
+  margin: 3rem 0 0 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+
+  ion-grid {
+    width: 700px;
+    border-collapse: collapse;
+    border-style: hidden;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    ion-row {
+      padding: 0.5rem 0 0.5rem 0.5rem;
+
+      &:first-child {
+        background-color: #6d893c;
+        border-top-left-radius: 10px;
+      }
+
+      &:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      ion-col {
+        border-bottom: 0;
+        border-right: 0;
+      }
+    }
+
+    .table-head,
+    .table-row {
+      ion-col {
+        font-size: 0.6rem;
+        font-family: var(--font-family-bold);
+        font-weight: normal;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        color: white;
+
+        ion-button {
+          height: 30px;
+          border-radius: 90px;
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .table-row {
+      ion-col {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-family: var(--font-family-light);
+        color: black;
+      }
     }
   }
 `;
