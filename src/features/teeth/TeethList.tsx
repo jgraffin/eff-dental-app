@@ -27,14 +27,13 @@ const Tooth = ({ post }: TeethType | any) => {
         post.isSelected ? "is-selected" : ""
       } ${post.unionImplant ? "has-union" : ""} 
         ${post.position ? "unfavorable" : ""}
-        ${post.implant !== "Undefined" ? "has-implant" : ""}`}
+        ${post.isSelected && post.implant ? "has-implant" : ""}`}
       key={post.id}
     >
       <Link
         className={`ion-activatable ripple-parent `}
         to={{
           pathname: `/edit/${post.id}`,
-          state: { from: post.implant },
         }}
       >
         <span>{post.toothNumber}</span>
@@ -111,13 +110,13 @@ export const TeethList = () => {
       setSelection(true);
     }
 
-    if (hasUnionImplantTopLine.length > 1) {
+    if (hasUnionImplantTopLine.length > 0) {
       setHasUnionTopLine(true);
     } else {
       setHasUnionTopLine(false);
     }
 
-    if (hasUnionImplantBottomLine.length > 1) {
+    if (hasUnionImplantBottomLine.length > 0) {
       setHasUnionBottomLine(true);
     } else {
       setHasUnionBottomLine(false);

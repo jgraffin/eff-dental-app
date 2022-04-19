@@ -43,6 +43,91 @@ const catalogConeMorse = [
         implant: "3.5/3.75/4.0/4.3/5.0",
         platform: "3.0",
         smp: "A3.2",
+        components: [
+          {
+            screwed: true,
+            prosthesis: [
+              {
+                name: "Pilar EGM Reto",
+                image: "pilar-egm-reto",
+                legend: "Torque 20Ncm",
+                mode: "Perfil Ø 4.8",
+                sizes: [
+                  {
+                    value: "EFF1105.29.3A.CJcinta0.8mm",
+                  },
+                  {
+                    value: "EFF1105.29.3B.CJcinta1.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.3C.CJcinta2.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.3D.CJcinta3.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.3E.CJcinta4.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.3F.CJcinta5.5mm",
+                  },
+                ],
+              },
+              {
+                name: "Mini Pilar Reto",
+                image: "mini-pilar-reto",
+                legend: "Torque 20Ncm",
+                mode: "Perfil Ø 4.8",
+                sizes: [
+                  {
+                    value: "EFF1105.29A.CJcinta0.8mm",
+                  },
+                  {
+                    value: "EFF1105.29B.CJcinta1.5mm",
+                  },
+                  {
+                    value: "EFF1105.29C.CJcinta2.5mm",
+                  },
+                  {
+                    value: "EFF1105.29D.CJcinta3.5mm",
+                  },
+                  {
+                    value: "EFF 1105 . 29E . CJ cinta 4.5mm",
+                  },
+                  {
+                    value: "EFF 1105 . 29F . CJ cinta 5.5mm",
+                  },
+                ],
+              },
+              {
+                name: "Micro Pilar EGM",
+                image: "micro-pilar-egm",
+                legend: "Torque 20Ncm",
+                mode: "Perfil Ø 3.5",
+                sizes: [
+                  {
+                    value: "EFF1105.29.4A.CJcinta0.8mm",
+                  },
+                  {
+                    value: "EFF1105.29.4B.CJcinta1.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.4C.CJcinta2.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.4D.CJcinta3.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.4E.CJcinta4.5mm",
+                  },
+                  {
+                    value: "EFF1105.29.4F.CJcinta5.5mm",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: "2",
@@ -396,5 +481,7 @@ const catalogHexInt = [
     ],
   },
 ];
+
+const components = [];
 
 export { catalogConeMorse, catalogHexExt, catalogHexInt };

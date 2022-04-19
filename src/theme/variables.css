@@ -319,7 +319,7 @@ html.md {
 
 .item-interactive.item-has-focus
   .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating {
-  color: var(--ion-color-secondary-contrast);
+  color: var(--ion-color-dark);
 }
 
 .item,
@@ -358,13 +358,13 @@ ion-checkbox[aria-checked="false"] {
 
 .item.sc-ion-label-md-h,
 .item .sc-ion-label-md-h {
-  --color: var(--ion-color-secondary-contrast);
+  --color: var(--ion-color-dark);
 }
 
 .native-input.sc-ion-input-md,
 .item-select,
 .item-has-focus {
-  color: var(--ion-color-secondary-contrast);
+  color: var(--ion-color-dark);
 }
 
 .list-md,

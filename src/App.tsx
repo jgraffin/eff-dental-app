@@ -79,7 +79,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [unionImplant, setUnionImplant] = useState(data.unionImplant);
   const [position, setPosition] = useState(data.position);
   const [isSelected] = useState(data.isSelected);
-  const dataRef = useRef(null) as any;
+  const dataImplantRef = useRef(null) as any;
+  const dataSmpRef = useRef(null) as any;
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -97,8 +98,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     const field = event.target as HTMLSelectElement;
     setPlatform(field.value);
 
-    if (dataRef.current) {
-      setSmp(dataRef.current.innerText);
+    if (dataSmpRef.current) {
+      setSmp(dataSmpRef.current.innerText);
     }
   };
 
@@ -122,6 +123,10 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const onImplantChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLSelectElement;
     setImplant(field.value);
+
+    if (dataImplantRef.current) {
+      setImplant(dataSmpRef.current.innerText);
+    }
   };
 
   const onSaveEdit = () => {
@@ -273,32 +278,33 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                         }
                         return false;
                       })
-                      .map((value: any) => (
-                        <IonItem key={value.id}>
-                          <IonLabel position="floating">Implante</IonLabel>
-                          <IonSelect
-                            value={implant}
-                            placeholder="Selecione"
-                            onIonChange={onImplantChanged}
-                          >
-                            {value.implant !== "Undefined" ? (
+                      .map((value: any) =>
+                        value.implant !== "Undefined" ? (
+                          <IonItem key={value.id}>
+                            <IonLabel position="floating">Implante</IonLabel>
+                            <IonSelect
+                              value={implant}
+                              placeholder="Selecione"
+                              onIonChange={onImplantChanged}
+                            >
                               <IonSelectOption
                                 key={value.implant}
                                 value={value.implant}
                               >
                                 {value.implant}
                               </IonSelectOption>
-                            ) : (
-                              <IonSelectOption
-                                key={value.implant}
-                                value={value.implant}
-                              >
-                                Não possui
-                              </IonSelectOption>
-                            )}
-                          </IonSelect>
-                        </IonItem>
-                      ));
+                            </IonSelect>
+                          </IonItem>
+                        ) : (
+                          <span
+                            className="implant-name ion-hide"
+                            key={value.id}
+                            ref={dataImplantRef}
+                          >
+                            {value.smp}
+                          </span>
+                        )
+                      );
                     return implantValues;
                   }
                   return null;
@@ -423,7 +429,11 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                       })
                       .map((value: any) => {
                         return (
-                          <h2 className="smp-name" key={value.id} ref={dataRef}>
+                          <h2
+                            className="smp-name"
+                            key={value.id}
+                            ref={dataSmpRef}
+                          >
                             {value.smp}
                           </h2>
                         );
@@ -484,7 +494,51 @@ const List = () => {
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const error = useSelector((state: RootState) => state.teeth.error);
 
-  console.log(data);
+  const [content, setContent] = useState<any>(null);
+  const [newSmp, setNewSmp] = useState("");
+
+  const onToothSelectComponents = (currentSmp: any) => {
+    console.log("onToothSelectComponents", currentSmp);
+
+    let content = catalogConeMorse.map((item: any) => {
+      return item.manual
+        .filter((otherItem: any) => {
+          if (otherItem.smp === currentSmp) {
+            console.log("filter", otherItem.smp, currentSmp);
+            return true;
+          }
+          return false;
+        })
+        .map((item: any) =>
+          item.components.map(
+            (item: any) =>
+              item.screwed &&
+              item.prosthesis.map((item: any) => (
+                <>
+                  <h2>{item.name}</h2>
+                  <img
+                    src={`./assets/images/prosthesis/${item.image}.png`}
+                    alt=""
+                    width="40px"
+                  />
+                  <p>
+                    <strong>{item.mode}</strong>
+                  </p>
+                  <p>{item.legend}</p>
+                  <ul>
+                    {item.sizes.map((size: any) => (
+                      <li key={size.value}>{size.value}</li>
+                    ))}
+                  </ul>
+                </>
+              ))
+          )
+        );
+    });
+
+    setNewSmp(currentSmp);
+    setContent(content);
+  };
 
   useEffect(() => {
     if (postStatus === "idle") {
@@ -502,57 +556,33 @@ const List = () => {
 
         <IonGrid>
           <IonRow className="table-head">
-            <IonCol className="ion-no-padding">&nbsp;</IonCol>
+            <IonCol className="ion-no-padding" size="1">
+              Nº Dente
+            </IonCol>
             <IonCol className="ion-no-padding" size="2">
-              Marca
+              Família
             </IonCol>
-            <IonCol className="ion-no-padding" size="3">
-              Implante
-            </IonCol>
-            <IonCol className="ion-no-padding">Plataforma</IonCol>
-            <IonCol className="ion-no-padding">Especificação</IonCol>
-            <IonCol className="ion-no-padding">Múltipla</IonCol>
-            <IonCol className="ion-no-padding">Família</IonCol>
+            <IonCol className="ion-no-padding">&nbsp;</IonCol>
           </IonRow>
           {postStatus === "succeeded" &&
             data.map(
               (item: any) =>
                 item.isSelected && (
                   <IonRow className="table-row" key={item.id}>
-                    <IonCol className="ion-no-padding">
-                      <IonButton
-                        className="button-add ion-no-shadow"
-                        color="dark"
-                        expand="block"
-                        size="large"
-                        shape="round"
-                        type="button"
-                      >
-                        +ADD
-                      </IonButton>
+                    <IonCol className="ion-no-padding" size="1">
+                      {item.toothNumber}
                     </IonCol>
                     <IonCol className="ion-no-padding" size="2">
-                      {item.brand}
-                    </IonCol>
-                    <IonCol className="ion-no-padding" size="3">
-                      {item.implant !== "Undefined"
-                        ? item.implant
-                        : "Não possui"}
+                      {item.smp}
                     </IonCol>
                     <IonCol className="ion-no-padding">
-                      {item.platform !== "Undefined"
-                        ? item.platform
-                        : "Não possui"}
+                      <IonButton
+                        onClick={() => onToothSelectComponents(item.smp)}
+                      >
+                        Selecionar
+                      </IonButton>
                     </IonCol>
-                    <IonCol className="ion-no-padding">
-                      {item.specification !== "Undefined"
-                        ? item.specification
-                        : "Não possui"}
-                    </IonCol>
-                    <IonCol className="ion-no-padding">
-                      {item.unionImplant ? "Sim" : "Não"}
-                    </IonCol>
-                    <IonCol className="ion-no-padding">{item.smp}</IonCol>
+                    <div>{item.smp === newSmp && content}</div>
                   </IonRow>
                 )
             )}
