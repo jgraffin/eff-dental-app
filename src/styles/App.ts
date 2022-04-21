@@ -208,6 +208,17 @@ export const WrapperComponents = styled.div`
         text-transform: uppercase;
         font-family: var(--font-family-light);
         color: black;
+        display: flex;
+        align-items: flex-start;
+      }
+    }
+
+    .component-content {
+      &__container {
+        /* height: 3rem; */
+        width: 100%;
+        overflow: hidden;
+        display: block;
       }
     }
   }

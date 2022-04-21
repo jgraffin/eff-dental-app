@@ -23,11 +23,11 @@ import { List, Wrapper } from "./Styles";
 const Tooth = ({ post }: TeethType | any) => {
   return (
     <li
-      className={`tooth-list__item tooth-list__item--${post.toothNumber} ${
-        post.isSelected ? "is-selected" : ""
-      } ${post.unionImplant ? "has-union" : ""} 
-        ${post.position ? "unfavorable" : ""}
-        ${post.isSelected && post.implant ? "has-implant" : ""}`}
+      className={`tooth-list__item tooth-list__item--${post.dente} 
+        ${post.selecionado ? "is-selected" : ""} 
+        ${post.uniaoImplante ? "has-union" : ""} 
+        ${post.posicao ? "unfavorable" : ""}
+        ${post.selecionado && post.implante ? "has-implant" : ""}`}
       key={post.id}
     >
       <Link
@@ -36,7 +36,7 @@ const Tooth = ({ post }: TeethType | any) => {
           pathname: `/edit/${post.id}`,
         }}
       >
-        <span>{post.toothNumber}</span>
+        <span>{post.dente}</span>
         <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
       </Link>
     </li>
@@ -48,6 +48,7 @@ export const TeethList = () => {
   const posts = useSelector(selectAllItems);
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const error = useSelector((state: RootState) => state.teeth.error);
+
   const [hasUnionTopLine, setHasUnionTopLine] = useState(false);
   const [hasUnionBottomLine, setHasUnionBottomLine] = useState(false);
   const [selection, setSelection] = useState(false);
@@ -55,21 +56,21 @@ export const TeethList = () => {
 
   const onRemoveAll = () => {
     posts.filter(
-      (item: any) =>
-        item.isSelected &&
+      (item: TeethType) =>
+        item.selecionado &&
         dispatch(
           itemUpdated({
             id: item.id,
-            catalog: "",
-            brand: "",
-            specification: "",
-            toothNumber: item.toothNumber,
-            implant: "Undefined",
-            smp: "",
-            platform: "",
-            unionImplant: false,
-            position: false,
-            isSelected: !item.isSelected,
+            catalogo: "",
+            marca: "",
+            especificacao: "",
+            dente: item.dente,
+            implante: "Undefined",
+            familia: "",
+            plataforma: "",
+            uniaoImplante: false,
+            posicao: false,
+            selecionado: !item.selecionado,
           })
         )
     );
@@ -81,26 +82,22 @@ export const TeethList = () => {
     }
 
     const filterTeethNumberTopRange = posts.filter(
-      (tooth: { id: number }) => tooth.id >= 1 && tooth.id <= 16
+      (val: { id: number }) => val.id >= 1 && val.id <= 16
     );
 
     const hasUnionImplantTopLine = filterTeethNumberTopRange.filter(
-      (union: { unionImplant: { unionImplant: boolean } }) =>
-        union.unionImplant ?? union
+      (val: TeethType) => val.uniaoImplante ?? val
     );
 
     const filterTeethNumberBottomRange = posts.filter(
-      (tooth: { id: number }) => tooth.id >= 17
+      (val: { id: number }) => val.id >= 17
     );
 
     const hasUnionImplantBottomLine = filterTeethNumberBottomRange.filter(
-      (union: { unionImplant: { unionImplant: boolean } }) =>
-        union.unionImplant ?? union
+      (val: TeethType) => val.uniaoImplante ?? val
     );
 
-    const itemSelected = posts.filter(
-      (item: { isSelected: boolean }) => item.isSelected
-    );
+    const itemSelected = posts.filter((val: TeethType) => val.selecionado);
 
     let itemSelectedLength = itemSelected.length > 1;
 
@@ -152,7 +149,7 @@ export const TeethList = () => {
                 type="button"
                 onClick={onRemoveAll}
               >
-                Remover marcações
+                Desmarcar todos
               </IonButton>
             )}
             <ul className="tooth-list">{content}</ul>
@@ -169,7 +166,7 @@ export const TeethList = () => {
               pathname: `/list`,
             }}
           >
-            PROSSEGUIR
+            CONTINUAR
           </Link>
         </NextButton>
       </IonFooter>

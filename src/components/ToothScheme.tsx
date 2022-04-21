@@ -1,24 +1,24 @@
+import { TeethType } from "../features/teeth/teethSlice";
 import { ToothSchemeWrapper } from "./ToothSchemeStyles";
 
 const ToothScheme = ({
-  tooth,
-  implant,
-  position,
-  isSelected,
-  unionImplant,
-}: any) => {
-  console.log(tooth);
+  dente,
+  implante,
+  posicao,
+  selecionado,
+  uniaoImplante,
+}: TeethType) => {
   return (
     <ToothSchemeWrapper>
       <div
-        className={`tooth-scheme tooth-scheme--${tooth} ${
-          implant !== "Undefined" ? "has-implant" : ""
-        } ${position ? "unfavorable" : ""} ${isSelected ? "is-selected" : ""} ${
-          unionImplant ? "has-union" : ""
-        }`}
+        className={`tooth-scheme tooth-scheme--${dente} 
+          ${implante !== "Undefined" ? "has-implant" : ""} 
+          ${posicao ? "unfavorable" : ""} 
+          ${selecionado ? "is-selected" : ""} 
+          ${uniaoImplante ? "has-union" : ""}`}
       >
         <div className="tooth-scheme__image"></div>
-        <div className="tooth-scheme__number">{tooth}</div>
+        <div className="tooth-scheme__number">{dente}</div>
       </div>
     </ToothSchemeWrapper>
   );

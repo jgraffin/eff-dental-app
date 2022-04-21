@@ -3,17 +3,17 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export type TeethType = {
-  id: string;
-  catalog: string;
-  toothNumber: string;
-  brand: string;
-  platform: string;
-  specification: string;
-  implant: string;
-  smp: string;
-  unionImplant: boolean;
-  position: boolean;
-  isSelected: boolean;
+  id?: string;
+  catalogo?: string;
+  dente?: string;
+  marca?: string;
+  especificacao?: string;
+  implante?: string;
+  plataforma?: string;
+  uniaoImplante?: boolean;
+  posicao?: boolean;
+  selecionado?: boolean;
+  familia?: string;
 };
 
 const initialState = {
@@ -36,49 +36,47 @@ const teethSlice = createSlice({
     itemUpdated(state: RootState, action: PayloadAction<TeethType>) {
       const {
         id,
-        catalog,
-        toothNumber,
-        brand,
-        platform,
-        specification,
-        implant,
-        smp,
-        unionImplant,
-        position,
-        isSelected,
+        catalogo,
+        dente,
+        marca,
+        plataforma,
+        especificacao,
+        implante,
+        familia,
+        uniaoImplante,
+        posicao,
+        selecionado,
       } = action.payload;
       const existingItem = state.items.find(
         (item: TeethType) => item.id === id
       );
 
-      console.log("existingItem", existingItem);
-
       if (existingItem) {
-        existingItem.catalog = catalog;
-        existingItem.toothNumber = toothNumber;
-        existingItem.brand = brand;
-        existingItem.platform = platform;
-        existingItem.specification = specification;
-        existingItem.implant = implant;
-        existingItem.smp = smp;
-        existingItem.unionImplant = unionImplant;
-        existingItem.position = position;
-        existingItem.isSelected = isSelected;
+        existingItem.catalogo = catalogo;
+        existingItem.dente = dente;
+        existingItem.marca = marca;
+        existingItem.plataforma = plataforma;
+        existingItem.especificacao = especificacao;
+        existingItem.implante = implante;
+        existingItem.familia = familia;
+        existingItem.uniaoImplante = uniaoImplante;
+        existingItem.posicao = posicao;
+        existingItem.selecionado = selecionado;
       }
 
       axios.put(
         `https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth/${id}`,
         {
-          catalog,
-          toothNumber,
-          brand,
-          platform,
-          specification,
-          implant,
-          smp,
-          unionImplant,
-          position,
-          isSelected,
+          catalogo,
+          dente,
+          marca,
+          plataforma,
+          especificacao,
+          implante,
+          familia,
+          uniaoImplante,
+          posicao,
+          selecionado,
         }
       );
     },
