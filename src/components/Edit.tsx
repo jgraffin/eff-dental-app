@@ -14,7 +14,7 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { RootState } from "../app/store";
 import { TeethType, itemUpdated } from "../features/teeth/teethSlice";
-import { CatalogoConeMorse } from "../mock/manualSpecifications";
+import { Catalogos } from "../mock/manualSpecifications";
 import { Modal, ModalClose } from "../styles/App";
 import ToothScheme from "./ToothScheme";
 
@@ -81,10 +81,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const onImplantChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.target as HTMLSelectElement;
     setImplante(field.value);
-
-    if (dataImplanteRef.current) {
-      setImplante(dataFamiliaRef.current.innerText);
-    }
   };
 
   const onSaveEdit = () => {
@@ -115,7 +111,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         catalogo: "",
         marca: "",
         especificacao: "",
-        implante: "Undefined",
+        implante: "",
         familia: "",
         plataforma: "",
         uniaoImplante: false,
@@ -124,11 +120,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
       })
     );
     history.push(`/`);
-  };
-
-  const onRemoveSpecialCharacters = (char: string) => {
-    const noSpecialCharacters = char.replace(/[^a-zA-Z0-9 ]/g, "");
-    return noSpecialCharacters;
   };
 
   return (
@@ -159,7 +150,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 
           <IonList>
             <IonItem>
-              <IonLabel position="floating">Catálogo</IonLabel>
+              <IonLabel position="floating">Catálogos</IonLabel>
               <IonSelect
                 value={catalogo}
                 placeholder="Selecione"
@@ -175,228 +166,186 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               </IonSelect>
             </IonItem>
 
-            {catalogo === "Cone Morse" && (
-              <>
-                <IonItem>
-                  <IonLabel position="floating">Marca do Implante</IonLabel>
-                  <IonSelect
-                    value={marca}
-                    placeholder="Selecione"
-                    onIonChange={onBrandChanged}
-                  >
-                    {CatalogoConeMorse.map((item) => (
-                      <IonSelectOption key={item.id} value={item.id}>
-                        {item.marca}
-                      </IonSelectOption>
-                    ))}
-                  </IonSelect>
-                </IonItem>
+            {catalogo && (
+              <IonItem>
+                <IonLabel position="floating">Marca do Implante</IonLabel>
+                <IonSelect
+                  value={marca}
+                  placeholder="Selecione"
+                  onIonChange={onBrandChanged}
+                >
+                  {Catalogos.map(
+                    (item) =>
+                      item.name === catalogo &&
+                      item.opcoes.map((item) => (
+                        <IonSelectOption key={item.id} value={item.marca}>
+                          {item.marca}
+                        </IonSelectOption>
+                      ))
+                  )}
+                </IonSelect>
+              </IonItem>
+            )}
 
-                {marca && (
-                  <IonItem>
-                    <IonLabel position="floating">Especificação</IonLabel>
-                    <IonSelect
-                      value={especificacao}
-                      placeholder="Selecione"
-                      onIonChange={onSpecificationChanged}
-                    >
-                      {CatalogoConeMorse.filter((val) => {
-                        return (
-                          val.id === onRemoveSpecialCharacters(marca) ?? true
-                        );
-                      }).map((item) => {
-                        return item.manual.map((item) =>
-                          item.especificacao !== "Undefined" ? (
-                            <IonSelectOption
-                              key={item.id}
-                              value={item.especificacao}
-                            >
-                              {item.especificacao}
-                            </IonSelectOption>
-                          ) : (
-                            <IonSelectOption
-                              key={item.id}
-                              value={item.especificacao}
-                            >
-                              Não possui
-                            </IonSelectOption>
-                          )
-                        );
-                      })}
-                    </IonSelect>
-                  </IonItem>
-                )}
-
-                {CatalogoConeMorse.map((item) => {
-                  if (item.id === marca) {
-                    const implantValues = item.manual
-                      .filter((val) => {
-                        return val.especificacao === especificacao ?? true;
-                      })
-                      .map((item) =>
-                        item.implante !== "Undefined" ? (
-                          <IonItem key={item.id}>
-                            <IonLabel position="floating">Implante</IonLabel>
-                            <IonSelect
-                              value={implante}
-                              placeholder="Selecione"
-                              onIonChange={onImplantChanged}
-                            >
+            {catalogo && marca && (
+              <IonItem>
+                <IonLabel position="floating">Especificação</IonLabel>
+                <IonSelect
+                  value={especificacao}
+                  placeholder="Selecione"
+                  onIonChange={onSpecificationChanged}
+                >
+                  {Catalogos.map(
+                    (item) =>
+                      item.name === catalogo &&
+                      item.opcoes
+                        .filter((val) => val.marca === marca ?? true)
+                        .map((item) =>
+                          item.manual.map((item) =>
+                            item.especificacao !== "Undefined" ? (
                               <IonSelectOption
-                                key={item.implante}
-                                value={item.implante}
+                                key={item.id}
+                                value={item.especificacao}
                               >
-                                {item.implante}
+                                {item.especificacao}
                               </IonSelectOption>
-                            </IonSelect>
-                          </IonItem>
-                        ) : (
-                          <span
-                            className="implant-name ion-hide"
-                            key={item.id}
-                            ref={dataImplanteRef}
-                          >
-                            {item.familia}
-                          </span>
-                        )
-                      );
-                    return implantValues;
-                  }
-                  return null;
-                })}
-
-                {CatalogoConeMorse.map((item) => {
-                  if (item.id === marca) {
-                    const positionValues = item.manual.filter((val) => {
-                      if (val.implante !== "Undefined") {
-                        if (
-                          val.especificacao === especificacao &&
-                          val.implante === implante
-                        ) {
-                          return true;
-                        }
-                      }
-                      return false;
-                    });
-
-                    if (positionValues.length > 0) {
-                      return (
-                        <IonItem key={item.id}>
-                          <IonLabel>Desfavorável?</IonLabel>
-                          <IonCheckbox
-                            value={posicao}
-                            checked={posicao}
-                            onIonChange={onPositionChanged}
-                            slot="end"
-                            color="primary"
-                          />
-                        </IonItem>
-                      );
-                    }
-                  }
-                  return null;
-                })}
-
-                {CatalogoConeMorse.map((item) => {
-                  if (item.id === marca) {
-                    const platformValues = item.manual
-                      .filter((val) => {
-                        if (
-                          val.especificacao === especificacao &&
-                          val.implante === implante
-                        ) {
-                          return true;
-                        }
-                        return false;
-                      })
-                      .map((item) => (
-                        <IonItem key={item.id}>
-                          <IonLabel position="floating">
-                            Plataforma Protética
-                          </IonLabel>
-                          <IonSelect
-                            value={plataforma}
-                            placeholder="Selecione"
-                            onIonChange={onPlatformChanged}
-                          >
-                            {item.plataforma !== "Undefined" ? (
+                            ) : (
                               <IonSelectOption
-                                key={item.plataforma}
+                                key={item.id}
+                                value={item.especificacao}
+                              >
+                                Não Possui
+                              </IonSelectOption>
+                            )
+                          )
+                        )
+                  )}
+                </IonSelect>
+              </IonItem>
+            )}
+
+            {catalogo && marca && especificacao && (
+              <IonItem>
+                <IonLabel position="floating">Implante</IonLabel>
+                <IonSelect
+                  value={implante}
+                  placeholder="Selecione"
+                  onIonChange={onImplantChanged}
+                >
+                  {Catalogos.map(
+                    (item) =>
+                      item.name === catalogo &&
+                      item.opcoes.map(
+                        (item) =>
+                          item.marca === marca &&
+                          item.manual
+                            .filter(
+                              (val) =>
+                                val.especificacao === especificacao ?? true
+                            )
+                            .map((item) =>
+                              item.implante !== "Undefined" ? (
+                                <IonSelectOption
+                                  key={item.id}
+                                  value={item.implante}
+                                >
+                                  {item.implante}
+                                </IonSelectOption>
+                              ) : (
+                                <IonSelectOption
+                                  key={item.id}
+                                  value={item.implante}
+                                >
+                                  Não Possui
+                                </IonSelectOption>
+                              )
+                            )
+                      )
+                  )}
+                </IonSelect>
+              </IonItem>
+            )}
+
+            {catalogo && marca && especificacao && implante && (
+              <IonItem>
+                <IonLabel position="floating">Plataforma Protética</IonLabel>
+                <IonSelect
+                  value={plataforma}
+                  placeholder="Selecione"
+                  onIonChange={onPlatformChanged}
+                >
+                  {Catalogos.map(
+                    (item) =>
+                      item.name === catalogo &&
+                      item.opcoes.map(
+                        (item) =>
+                          item.marca === marca &&
+                          item.manual
+                            .filter(
+                              (val) =>
+                                (val.implante === implante &&
+                                  val.especificacao === especificacao) ??
+                                true
+                            )
+                            .map((item) => (
+                              <IonSelectOption
+                                key={item.id}
                                 value={item.plataforma}
                               >
                                 {item.plataforma}
                               </IonSelectOption>
-                            ) : (
-                              <IonSelectOption
-                                key={item.plataforma}
-                                value={item.plataforma}
-                              >
-                                Não possui
-                              </IonSelectOption>
-                            )}
-                          </IonSelect>
-                        </IonItem>
-                      ));
-                    return platformValues;
-                  }
-                  return null;
-                })}
+                            ))
+                      )
+                  )}
+                </IonSelect>
+              </IonItem>
+            )}
 
-                {CatalogoConeMorse.map((item) => {
-                  if (item.id === marca) {
-                    const unionImplantValues = item.manual.filter(
-                      (val: any) => {
-                        return val.plataforma === plataforma ? true : false;
-                      }
-                    );
+            {catalogo && marca && especificacao && implante && plataforma && (
+              <>
+                <IonItem>
+                  <IonLabel>Desfavorável</IonLabel>
+                  <IonCheckbox
+                    value={posicao}
+                    checked={posicao}
+                    onIonChange={onPositionChanged}
+                    slot="end"
+                    color="primary"
+                  />
+                </IonItem>
 
-                    if (unionImplantValues.length > 0) {
-                      return (
-                        <IonItem key={item.id}>
-                          <IonLabel>Múltipla?</IonLabel>
-                          <IonCheckbox
-                            value={uniaoImplante}
-                            checked={uniaoImplante}
-                            onIonChange={onUnionChanged}
-                            slot="end"
-                            color="primary"
-                          />
-                        </IonItem>
-                      );
-                    }
-                  }
-                  return null;
-                })}
-
-                {CatalogoConeMorse.map((item) => {
-                  if (item.id === marca) {
-                    const smpValues = item.manual
-                      .filter((val) => {
-                        if (
-                          val.especificacao === especificacao &&
-                          val.implante === implante &&
-                          val.plataforma === plataforma
-                        ) {
-                          return true;
-                        }
-                        return false;
-                      })
-                      .map((item) => {
-                        return (
-                          <h2
-                            className="smp-name"
-                            key={item.id}
-                            ref={dataFamiliaRef}
-                          >
-                            {item.familia}
-                          </h2>
-                        );
-                      });
-                    return smpValues;
-                  }
-                  return null;
-                })}
+                <IonItem>
+                  <IonLabel>Múltiplas?</IonLabel>
+                  <IonCheckbox
+                    value={uniaoImplante}
+                    checked={uniaoImplante}
+                    onIonChange={onUnionChanged}
+                    slot="end"
+                    color="primary"
+                  />
+                </IonItem>
               </>
+            )}
+
+            {Catalogos.map(
+              (item) =>
+                item.name === catalogo &&
+                item.opcoes.map(
+                  (item) =>
+                    item.marca === marca &&
+                    item.manual
+                      .filter(
+                        (val) =>
+                          (val.implante === implante &&
+                            val.plataforma === plataforma) ??
+                          true
+                      )
+                      .map((item) => (
+                        <h2 key={item.id} ref={dataFamiliaRef}>
+                          {item.familia}
+                        </h2>
+                      ))
+                )
             )}
           </IonList>
         </div>

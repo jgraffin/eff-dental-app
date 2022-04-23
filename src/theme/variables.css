@@ -301,6 +301,14 @@ html.md {
 .md.in-item,
 .md.button {
   font-family: var(--font-family-bold);
+  font-size: 0.8rem;
+  --padding-bottom: 4px;
+  --padding-top: 4px;
+}
+
+.list-md {
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 .item-interactive.item-has-focus {

@@ -39,7 +39,7 @@ export const Modal = styled.div`
     bottom: 0;
     box-shadow: 0px 0px 36px 15px rgba(0, 0, 0, 0.3);
     left: 0;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 1rem;
     position: relative;
     width: 100%;
     z-index: 99;
@@ -60,7 +60,7 @@ export const Modal = styled.div`
       display: flex;
       grid-gap: 1rem;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
 
       h1 {
         color: black;
@@ -89,7 +89,7 @@ export const ModalClose = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -1.2rem;
+  top: -1.4rem;
   border-radius: 90px;
   background: var(--ion-color-dark);
   z-index: 30;

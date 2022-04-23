@@ -83,7 +83,7 @@ const teethSlice = createSlice({
   },
   extraReducers(builder: any) {
     builder
-      .addCase(fetchPosts.pending, (state: RootState, action: any) => {
+      .addCase(fetchPosts.pending, (state: RootState) => {
         state.status = "loading";
       })
       .addCase(
