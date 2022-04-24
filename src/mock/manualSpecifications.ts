@@ -156,8 +156,8 @@ const Catalogos: CatalogType[] = [
     name: "Hexagono Externo",
     opcoes: [
       {
-        id: "Nobel Biocare gg",
-        marca: "Nobel Biocare®",
+        id: "fddsf",
+        marca: "hueah ehaue",
         manual: [
           {
             id: "0",
