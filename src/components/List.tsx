@@ -21,7 +21,7 @@ import {
   fetchPosts,
   TeethType,
 } from "../features/teeth/teethSlice";
-import { SistemaMultiplataforma } from "../mock/manualSpecifications";
+import { SistemaMultiplataforma, SmpType } from "../mock/manualSpecifications";
 import { WrapperComponents } from "../styles/App";
 
 const List = () => {
@@ -48,27 +48,29 @@ const List = () => {
     console.log(field.value);
   };
 
-  const onToothSelectComponents = (currentSmp: any) => {
-    console.log("onToothSelectComponents", currentSmp);
-
-    let content = SistemaMultiplataforma.filter((item: any) => {
-      if (item.smp === currentSmp) {
+  const onToothSelectComponents = (familia: TeethType) => {
+    let content = SistemaMultiplataforma.filter((item: SmpType) => {
+      console.log("smp:", item.familia, "currentSmp:", familia);
+      if (item.familia === familia) {
         return true;
       }
       return false;
-    }).map((item: any) =>
-      item.components.map((item: any) => (
-        <div className="component-content__container" key={item.name}>
-          <h2>{item.name}</h2>
+    }).map((item) =>
+      item.componentes.map((item) => (
+        <div className="component-content__container" key={item.nome}>
+          <h2>{item.nome}</h2>
           <img
-            src={`./assets/images/prosthesis/${item.image}.png`}
+            src={`./assets/images/prosthesis/${item.imagem}.png`}
             alt=""
             width="40px"
           />
-          <p>
-            <strong>{item.mode}</strong>
-          </p>
-          <p>{item.legend}</p>
+          {item.caracteristicas.map((item) => (
+            <p>
+              <strong>{item.perfil}</strong>
+              <strong>{item.tipoRotacao}</strong>
+            </p>
+          ))}
+
           <IonItem key={item.name}>
             <IonSelect
               value={size}

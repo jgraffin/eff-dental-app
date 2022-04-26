@@ -37,7 +37,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [selecionado] = useState(data.selecionado);
 
   const dataImplanteRef = useRef(null);
-  const dataFamiliaRef = useRef<any>(null);
+  const familiaRef = useRef<any>(null);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -56,8 +56,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     const field = event.target as HTMLSelectElement;
     setPlataforma(field.value);
 
-    if (dataFamiliaRef.current) {
-      setFamilia(dataFamiliaRef.current.innerText);
+    if (familiaRef.current) {
+      setFamilia(familiaRef.current.innerText);
     }
   };
 
@@ -350,7 +350,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
             {catalogo && marca && especificacao && implante && plataforma && (
               <>
                 <IonItem>
-                  <IonLabel>Desfavorável</IonLabel>
+                  <IonLabel>{posicao ? "Desfavorável" : "Favorável"}</IonLabel>
                   <IonCheckbox
                     value={posicao}
                     checked={posicao}
@@ -361,7 +361,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 </IonItem>
 
                 <IonItem>
-                  <IonLabel>Múltiplas?</IonLabel>
+                  <IonLabel>{uniaoImplante ? "Múltiplo" : "Unitário"}</IonLabel>
                   <IonCheckbox
                     value={uniaoImplante}
                     checked={uniaoImplante}
@@ -387,7 +387,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                           true
                       )
                       .map((item) => (
-                        <h2 key={item.id} ref={dataFamiliaRef}>
+                        <h2 key={item.id} ref={familiaRef}>
                           {item.familia}
                         </h2>
                       ))

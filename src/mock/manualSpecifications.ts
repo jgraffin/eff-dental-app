@@ -1,4 +1,4 @@
-type CatalogType = {
+export type CatalogType = {
   id: string;
   name: string;
   opcoes: Array<{
@@ -10,6 +10,19 @@ type CatalogType = {
       implante: string;
       plataforma: string;
       familia: string;
+    }>;
+  }>;
+};
+
+export type SmpType = {
+  familia: string;
+  componentes: Array<{
+    nome: string;
+    imagem: string;
+    caracteristicas: Array<{
+      perfil: string;
+      tipoRotacao: string;
+      tamanho: string;
     }>;
   }>;
 };
@@ -425,34 +438,92 @@ const Catalogos: CatalogType[] = [
   },
 ];
 
-const SistemaMultiplataforma = [
+const SistemaMultiplataforma: SmpType[] = [
   {
-    familia: "K3.1",
-    components: [
+    familia: "K3.2",
+    componentes: [
       {
-        name: "Transfer Moldeira Aberta",
-        image: "mini-pilar-reto",
-        sizes: [
+        nome: "Tapa Implante",
+        imagem: "",
+        caracteristicas: [
           {
-            value: "EFF 205 . 15A . CJ",
+            perfil: "",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06A cinta 3.0mm",
           },
         ],
       },
       {
-        name: "Transfer Moldeira Fechada",
-        image: "mini-pilar-reto",
-        sizes: [
+        nome: "Cicatrizador",
+        imagem: "",
+        caracteristicas: [
           {
-            value: "EFF 205 . 15B . CJ",
+            perfil: "Perfil Reto Ø3.50mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06A cinta 3.0mm",
+          },
+          {
+            perfil: "Perfil Reto Ø3.50mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06B cinta 5.0mm",
+          },
+          {
+            perfil: "Perfil Reto Ø3.50mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06C cinta 7.0mm",
+          },
+          {
+            perfil: "Perfil Divergente Ø5.0mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06 . 6A cinta 3.0mm",
+          },
+          {
+            perfil: "Perfil Divergente Ø5.0mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06 . 6B cinta 5.0mm",
+          },
+          {
+            perfil: "Perfil Divergente Ø5.0mm",
+            tipoRotacao: "",
+            tamanho: "EFF 105 . 06 . 6C cinta 7.0mm",
           },
         ],
       },
       {
-        name: "Análogo do Implante",
-        image: "mini-pilar-reto",
-        sizes: [
+        nome: "Transfer Moldeira Aberta",
+        imagem: "",
+        caracteristicas: [
           {
-            value: "EFF 305 . 15",
+            perfil: "",
+            tipoRotacao: "Anti Rotacional",
+            tamanho: "EFF 205 . 06A . CJ",
+          },
+          {
+            perfil: "",
+            tipoRotacao: "Rotacional",
+            tamanho: "EFF 205 . 06A . 1 . CJ",
+          },
+        ],
+      },
+      {
+        nome: "Transfer Moldeira Fechada",
+        imagem: "",
+        caracteristicas: [
+          {
+            perfil: "",
+            tipoRotacao: "Anti Rotacional",
+            tamanho: "EFF 205 . 06B . CJ",
+          },
+        ],
+      },
+      {
+        nome: "Análogo do Implante",
+        imagem: "",
+        caracteristicas: [
+          {
+            perfil: "",
+            tipoRotacao: "",
+            tamanho: "EFF 205 . 06B . CJ",
           },
         ],
       },
