@@ -19,6 +19,8 @@ export type SmpType = {
   componentes: Array<{
     nome: string;
     imagem: string;
+    perfil: string;
+    torque: string;
     caracteristicas: Array<{
       perfil: string;
       tipoRotacao: string;
@@ -444,7 +446,9 @@ const SistemaMultiplataforma: SmpType[] = [
     componentes: [
       {
         nome: "Tapa Implante",
-        imagem: "",
+        imagem: "tapa-implante",
+        perfil: "",
+        torque: "",
         caracteristicas: [
           {
             perfil: "",
@@ -455,35 +459,37 @@ const SistemaMultiplataforma: SmpType[] = [
       },
       {
         nome: "Cicatrizador",
-        imagem: "",
+        imagem: "cicatrizador",
+        perfil: "Reto/Divergente",
+        torque: "Torque 20Ncm",
         caracteristicas: [
           {
-            perfil: "Perfil Reto Ø3.50mm",
+            perfil: "Reto Ø3.50mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06A cinta 3.0mm",
           },
           {
-            perfil: "Perfil Reto Ø3.50mm",
+            perfil: "Reto Ø3.50mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06B cinta 5.0mm",
           },
           {
-            perfil: "Perfil Reto Ø3.50mm",
+            perfil: "Reto Ø3.50mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06C cinta 7.0mm",
           },
           {
-            perfil: "Perfil Divergente Ø5.0mm",
+            perfil: "Divergente Ø5.0mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06 . 6A cinta 3.0mm",
           },
           {
-            perfil: "Perfil Divergente Ø5.0mm",
+            perfil: "Divergente Ø5.0mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06 . 6B cinta 5.0mm",
           },
           {
-            perfil: "Perfil Divergente Ø5.0mm",
+            perfil: "Divergente Ø5.0mm",
             tipoRotacao: "",
             tamanho: "EFF 105 . 06 . 6C cinta 7.0mm",
           },
@@ -492,6 +498,8 @@ const SistemaMultiplataforma: SmpType[] = [
       {
         nome: "Transfer Moldeira Aberta",
         imagem: "",
+        perfil: "",
+        torque: "",
         caracteristicas: [
           {
             perfil: "",
@@ -508,6 +516,8 @@ const SistemaMultiplataforma: SmpType[] = [
       {
         nome: "Transfer Moldeira Fechada",
         imagem: "",
+        perfil: "",
+        torque: "",
         caracteristicas: [
           {
             perfil: "",
@@ -519,6 +529,8 @@ const SistemaMultiplataforma: SmpType[] = [
       {
         nome: "Análogo do Implante",
         imagem: "",
+        perfil: "",
+        torque: "",
         caracteristicas: [
           {
             perfil: "",

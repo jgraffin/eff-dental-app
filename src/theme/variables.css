@@ -311,6 +311,11 @@ html.md {
   padding-top: 0;
 }
 
+.component-size .alert-radio-label.sc-ion-alert-md {
+  font-size: 12px;
+  white-space: inherit;
+}
+
 .item-interactive.item-has-focus {
   --highlight-background: var(--ion-color-secondary-contrast);
 }

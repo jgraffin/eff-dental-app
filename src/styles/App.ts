@@ -215,10 +215,56 @@ export const WrapperComponents = styled.div`
 
     .component-content {
       &__container {
-        /* height: 3rem; */
         width: 100%;
         overflow: hidden;
         display: block;
+
+        .component-dropdown {
+          align-items: center;
+          grid-gap: 0.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          height: 3.3rem;
+          overflow: hidden;
+          width: 100%;
+          background-color: #aaf9ae;
+          border-radius: 0.5rem;
+          padding: 0.4rem;
+          margin-bottom: 0.2rem;
+
+          &__image {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            background-color: #ffffff;
+            overflow: hidden;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              display: block;
+              max-width: 100%;
+              object-fit: cover;
+              height: auto;
+            }
+          }
+
+          &__name {
+            h2 {
+              font-size: 0.8rem;
+              font-family: var(--font-family-bold);
+              padding: 0;
+              margin: 0;
+            }
+
+            p {
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
       }
     }
   }

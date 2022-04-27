@@ -12,7 +12,7 @@ import {
   IonSelect,
   IonSelectOption,
 } from "@ionic/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { RootState } from "../app/store";
@@ -32,7 +32,7 @@ const List = () => {
   const error = useSelector((state: RootState) => state.teeth.error);
 
   const [content, setContent] = useState<any>(null);
-  const [newSmp, setNewSmp] = useState("");
+  const [newSmp, setNewSmp] = useState<string | undefined>("");
 
   const [size, setSize] = useState<any>("");
   const [quantity, setQuantity] = useState<any>("");
@@ -48,52 +48,59 @@ const List = () => {
     console.log(field.value);
   };
 
-  const onToothSelectComponents = (familia: TeethType) => {
-    let content = SistemaMultiplataforma.filter((item: SmpType) => {
-      console.log("smp:", item.familia, "currentSmp:", familia);
-      if (item.familia === familia) {
-        return true;
-      }
-      return false;
-    }).map((item) =>
+  const onToothSelectComponents = (familia: string | undefined) => {
+    let content = SistemaMultiplataforma.filter(
+      (item: SmpType) => item.familia === familia ?? true
+    ).map((item) =>
       item.componentes.map((item) => (
         <div className="component-content__container" key={item.nome}>
-          <h2>{item.nome}</h2>
-          <img
-            src={`./assets/images/prosthesis/${item.imagem}.png`}
-            alt=""
-            width="40px"
-          />
-          {item.caracteristicas.map((item) => (
-            <p>
-              <strong>{item.perfil}</strong>
-              <strong>{item.tipoRotacao}</strong>
-            </p>
-          ))}
-
-          <IonItem key={item.name}>
-            <IonSelect
-              value={size}
-              placeholder="Selecione"
-              onIonChange={() => onSizeChanged(item.name, item.target)}
-            >
-              <IonLabel position="floating">Tamanho</IonLabel>
-              {item.sizes.map((size: any) => (
-                <IonSelectOption key={size.value} value={size.value}>
-                  {size.value}
-                </IonSelectOption>
-              ))}
-            </IonSelect>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Quantidade</IonLabel>
-            <IonInput type="number" onIonChange={onQuantityChanged}></IonInput>
-          </IonItem>
+          <div className="component-dropdown">
+            <div className="component-dropdown__image">
+              <img
+                src={`./assets/images/prosthesis/${item.imagem}.png`}
+                alt={item.nome}
+              />
+            </div>
+            <div className="component-dropdown__name">
+              <h2>{item.nome}</h2>
+              <p>
+                {item.perfil && <span>{item.perfil}</span>}
+                {item.torque && <span>{item.torque}</span>}
+              </p>
+            </div>
+            <IonItem className="component-dropdown__size" key={item.nome}>
+              <IonSelect
+                value={size}
+                placeholder="Selecione"
+                onIonChange={() => onSizeChanged(item.nome, item)}
+              >
+                <IonLabel position="floating">Tamanho</IonLabel>
+                {item.caracteristicas.map((item) => (
+                  <IonSelectOption key={item.tamanho} value={item.tamanho}>
+                    {item.perfil ? (
+                      <>
+                        {item.perfil} - {item.tamanho}
+                      </>
+                    ) : (
+                      <>{item.tamanho}</>
+                    )}
+                  </IonSelectOption>
+                ))}
+              </IonSelect>
+            </IonItem>
+            <IonItem className="component-dropdown__quantity">
+              <IonLabel position="floating">Quantidade</IonLabel>
+              <IonInput
+                type="number"
+                onIonChange={onQuantityChanged}
+              ></IonInput>
+            </IonItem>
+          </div>
         </div>
       ))
     );
 
-    setNewSmp(currentSmp);
+    setNewSmp(familia);
     setContent(content);
   };
 
