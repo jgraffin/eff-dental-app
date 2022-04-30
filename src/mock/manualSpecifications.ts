@@ -19,12 +19,13 @@ export type SmpType = {
   componentes: Array<{
     nome: string;
     imagem: string;
-    perfil: string;
     torque: string;
     caracteristicas: Array<{
-      perfil: string;
-      tipoRotacao: string;
-      tamanho: string;
+      tipo: string;
+      opcoes: Array<{
+        sku: string;
+        alturaGengival: string;
+      }>;
     }>;
   }>;
 };
@@ -447,95 +448,114 @@ const SistemaMultiplataforma: SmpType[] = [
       {
         nome: "Tapa Implante",
         imagem: "tapa-implante",
-        perfil: "",
         torque: "",
         caracteristicas: [
           {
-            perfil: "",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06A cinta 3.0mm",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "155.06",
+                alturaGengival: "",
+              },
+            ],
           },
         ],
       },
       {
         nome: "Cicatrizador",
         imagem: "cicatrizador",
-        perfil: "Reto/Divergente",
-        torque: "Torque 20Ncm",
+        torque: "",
         caracteristicas: [
           {
-            perfil: "Reto Ø3.50mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06A cinta 3.0mm",
+            tipo: "Perfil Reto Ø3.50mm",
+            opcoes: [
+              {
+                sku: "105.06A",
+                alturaGengival: "3.0mm",
+              },
+              {
+                sku: "105.06B",
+                alturaGengival: "5.0mm",
+              },
+              {
+                sku: "105.06C",
+                alturaGengival: "7.0mm",
+              },
+            ],
           },
           {
-            perfil: "Reto Ø3.50mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06B cinta 5.0mm",
-          },
-          {
-            perfil: "Reto Ø3.50mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06C cinta 7.0mm",
-          },
-          {
-            perfil: "Divergente Ø5.0mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06 . 6A cinta 3.0mm",
-          },
-          {
-            perfil: "Divergente Ø5.0mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06 . 6B cinta 5.0mm",
-          },
-          {
-            perfil: "Divergente Ø5.0mm",
-            tipoRotacao: "",
-            tamanho: "EFF 105 . 06 . 6C cinta 7.0mm",
+            tipo: "Perfil Divergente Ø5.0mm",
+            opcoes: [
+              {
+                sku: "105.06.6A",
+                alturaGengival: "3.0mm",
+              },
+              {
+                sku: "105.06.6B",
+                alturaGengival: "5.0mm",
+              },
+              {
+                sku: "105.06.6C",
+                alturaGengival: "7.0mm",
+              },
+            ],
           },
         ],
       },
       {
-        nome: "Transfer Moldeira Aberta",
-        imagem: "",
-        perfil: "",
+        nome: "Transfer M.a P/Implante",
+        imagem: "transfer-moldeira-aberta",
         torque: "",
         caracteristicas: [
           {
-            perfil: "",
-            tipoRotacao: "Anti Rotacional",
-            tamanho: "EFF 205 . 06A . CJ",
+            tipo: "Anti Rotacional",
+            opcoes: [
+              {
+                sku: "205.06A.CJ",
+                alturaGengival: "",
+              },
+            ],
           },
           {
-            perfil: "",
-            tipoRotacao: "Rotacional",
-            tamanho: "EFF 205 . 06A . 1 . CJ",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "205.06A.1.CJ",
+                alturaGengival: "",
+              },
+            ],
           },
         ],
       },
       {
-        nome: "Transfer Moldeira Fechada",
-        imagem: "",
-        perfil: "",
+        nome: "Transfer M.f. P/Implante",
+        imagem: "transfer-moldeira-fechada",
         torque: "",
         caracteristicas: [
           {
-            perfil: "",
-            tipoRotacao: "Anti Rotacional",
-            tamanho: "EFF 205 . 06B . CJ",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "205.06B.CJ",
+                alturaGengival: "",
+              },
+            ],
           },
         ],
       },
       {
         nome: "Análogo do Implante",
-        imagem: "",
-        perfil: "",
+        imagem: "analogo-do-implante",
         torque: "",
         caracteristicas: [
           {
-            perfil: "",
-            tipoRotacao: "",
-            tamanho: "EFF 205 . 06B . CJ",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "305.06",
+                alturaGengival: "",
+              },
+            ],
           },
         ],
       },

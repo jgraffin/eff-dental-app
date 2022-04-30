@@ -316,9 +316,9 @@ html.md {
   white-space: inherit;
 }
 
-.item-interactive.item-has-focus {
+/* .item-interactive.item-has-focus {
   --highlight-background: var(--ion-color-secondary-contrast);
-}
+} */
 
 .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating,
 .item-label {
@@ -341,9 +341,9 @@ html.md {
   --padding-start: 0;
 }
 
-.item-interactive.item-has-focus {
+/* .item-interactive.item-has-focus {
   --highlight-background: transparent;
-}
+} */
 
 .item-interactive.item-select {
   will-change: contents;
@@ -353,8 +353,7 @@ html.md {
   animation: slidein ease-in-out 0.6s forwards;
 }
 
-.item:last-of-type {
-  --border-color: transparent;
+.item {
   margin-bottom: 1rem;
 }
 

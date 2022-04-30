@@ -71,6 +71,10 @@ export const Modal = styled.div`
         text-transform: uppercase;
         top: -3.5rem;
       }
+
+      .item {
+        margin-bottom: 0;
+      }
     }
 
     &__buttons {
@@ -157,7 +161,7 @@ export const WrapperComponents = styled.div`
   width: 100%;
 
   ion-grid {
-    width: 700px;
+    width: 100%;
     border-collapse: collapse;
     border-style: hidden;
     padding-inline-start: 0;
@@ -166,15 +170,25 @@ export const WrapperComponents = styled.div`
     padding-top: 0;
 
     ion-row {
-      padding: 0.5rem 0 0.5rem 0.5rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #dadada;
+      padding: 0.5rem 0 0.5rem 1rem;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
 
       &:first-child {
-        background-color: #6d893c;
+        background-color: #1d837a;
         border-top-left-radius: 10px;
       }
 
-      &:nth-child(even) {
-        background-color: #dddddd;
+      &.table-head {
+        padding: 1rem 0 1rem 1rem;
+      }
+
+      &.table-row {
+        align-items: center;
       }
 
       ion-col {
@@ -221,16 +235,22 @@ export const WrapperComponents = styled.div`
 
         .component-dropdown {
           align-items: center;
-          grid-gap: 0.5rem;
+          grid-gap: 0 0.5rem;
           display: flex;
           flex-wrap: wrap;
-          height: 3.3rem;
-          overflow: hidden;
+          /* height: 3.3rem; */
+          /* overflow: hidden; */
           width: 100%;
           background-color: #aaf9ae;
           border-radius: 0.5rem;
           padding: 0.4rem;
           margin-bottom: 0.2rem;
+          position: relative;
+
+          ion-item-group {
+            display: flex;
+            grid-gap: 1rem;
+          }
 
           &__image {
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -242,10 +262,11 @@ export const WrapperComponents = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0.2rem;
 
             img {
               display: block;
-              max-width: 100%;
+              max-width: 46px;
               object-fit: cover;
               height: auto;
             }
@@ -253,16 +274,108 @@ export const WrapperComponents = styled.div`
 
           &__name {
             h2 {
-              font-size: 0.8rem;
               font-family: var(--font-family-bold);
-              padding: 0;
+              font-size: 0.9rem;
               margin: 0;
+              text-transform: none;
+              color: #125953;
+            }
+          }
+
+          &__fields {
+            padding-left: 3rem;
+            width: 90%;
+
+            .item {
+              margin-bottom: 0;
+              --border-color: rgba(0, 0, 0, 0.2);
             }
 
-            p {
-              margin: 0;
-              padding: 0;
+            ion-item-group {
+              &:last-of-type {
+                .item {
+                  --border-color: rgba(0, 0, 0, 0);
+                }
+              }
             }
+          }
+
+          &__button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 0.8rem 3rem;
+          }
+
+          &__sku,
+          &__quantity {
+            width: 40%;
+            --inner-padding-end: 0;
+
+            .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating,
+            .sc-ion-label-md-h.sc-ion-label-md-s.md.label-stacked,
+            .item-label {
+              text-transform: capitalize;
+              letter-spacing: normal;
+              font-size: 0.9rem;
+            }
+
+            ion-select {
+              letter-spacing: normal;
+              text-transform: capitalize;
+            }
+          }
+
+          &__quantity {
+            padding-bottom: 0;
+
+            ion-label {
+              padding-top: 0.3rem;
+            }
+
+            .sc-ion-input-ios-h,
+            .native-input.sc-ion-input-md,
+            .md.in-item,
+            .md.button {
+              --padding-top: 8px;
+            }
+          }
+
+          &__sku {
+            width: 50%;
+
+            &__title {
+              font-family: var(--font-family-bold);
+              font-size: 0.6rem;
+              letter-spacing: 0.02rem;
+              margin-bottom: 0;
+              margin-top: 0.5rem;
+              position: relative;
+              padding-left: 0.5rem;
+              color: #125953;
+
+              &:before {
+                content: "";
+                width: 0.3rem;
+                border-radius: 90px;
+                height: 0.3rem;
+                position: absolute;
+                left: 0;
+                top: 3px;
+                background: #125953;
+              }
+            }
+          }
+
+          .item-interactive.item-select {
+            animation: none;
+          }
+
+          .sc-ion-input-ios-h,
+          .native-input.sc-ion-input-md,
+          .md.in-item,
+          .md.button {
+            --padding-start: 0;
           }
         }
       }
