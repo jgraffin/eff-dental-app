@@ -218,7 +218,7 @@ export const WrapperComponents = styled.div`
 
     .table-row {
       ion-col {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
         font-family: var(--font-family-light);
         color: black;

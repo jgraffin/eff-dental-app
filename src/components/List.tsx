@@ -12,6 +12,8 @@ import {
   IonSelect,
   IonSelectOption,
   IonItemGroup,
+  IonIcon,
+  IonToggle,
 } from "@ionic/react";
 import { useState, useEffect, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,6 +42,16 @@ const List = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [number, setNumber] = useState<number>();
 
+  const [isScrewed, setIsScrewed] = useState("cimentado");
+
+  const onScrewToggle = () => {
+    if (isScrewed !== "cimentado") {
+      setIsScrewed("cimentado");
+    } else {
+      setIsScrewed("parafusado");
+    }
+  };
+
   const onSizeChanged = (name: any, current: any) => {
     console.log("onSizeChanged", name);
     console.log("current", current);
@@ -56,11 +68,15 @@ const List = () => {
       (item: SmpType) => item.familia === familia ?? true
     ).map((item) =>
       item.componentes.map((item) => (
-        <div className="component-content__container" key={item.nome}>
+        <div
+          className="component-content__container"
+          id={item.id}
+          key={item.id}
+        >
           <div className="component-dropdown">
             <div className="component-dropdown__image">
               <img
-                src={`./assets/images/prosthesis/${item.imagem}.png`}
+                src={`./assets/images/proteses/${item.imagem}.png`}
                 alt={item.nome}
               />
             </div>
@@ -76,7 +92,7 @@ const List = () => {
                         <IonItemGroup>
                           <IonItem
                             className="component-dropdown__sku"
-                            key={item.tipo}
+                            key={item.id}
                           >
                             <IonLabel position="floating">{item.tipo}</IonLabel>
                             <IonSelect value={size} placeholder="Selecione">
@@ -91,10 +107,7 @@ const List = () => {
                             </IonSelect>
                           </IonItem>
 
-                          <IonItem
-                            className="component-dropdown__quantity"
-                            key={item.tipo}
-                          >
+                          <IonItem className="component-dropdown__quantity">
                             <IonLabel position="stacked">Quantidade</IonLabel>
                             <IonInput
                               type="number"
@@ -121,27 +134,22 @@ const List = () => {
                         <IonItemGroup>
                           <IonItem
                             className="component-dropdown__sku"
-                            key={item.tipo}
+                            key={item.id}
                           >
-                            <IonLabel position="floating">
-                              Altura Gengival
-                            </IonLabel>
+                            <IonLabel position="floating">SKU</IonLabel>
                             <IonSelect value={size} placeholder="Selecione">
                               {item.opcoes.map((item) => (
                                 <IonSelectOption
                                   key={item.sku}
                                   value={item.sku}
                                 >
-                                  {item.alturaGengival}
+                                  {item.sku}
                                 </IonSelectOption>
                               ))}
                             </IonSelect>
                           </IonItem>
 
-                          <IonItem
-                            className="component-dropdown__quantity"
-                            key={item.tipo}
-                          >
+                          <IonItem className="component-dropdown__quantity">
                             <IonLabel position="stacked">Quantidade</IonLabel>
                             <IonInput
                               type="number"
@@ -168,27 +176,22 @@ const List = () => {
                         <IonItemGroup>
                           <IonItem
                             className="component-dropdown__sku"
-                            key={item.tipo}
+                            key={item.id}
                           >
-                            <IonLabel position="floating">
-                              Altura Gengival
-                            </IonLabel>
+                            <IonLabel position="floating">SKU</IonLabel>
                             <IonSelect value={size} placeholder="Selecione">
                               {item.opcoes.map((item) => (
                                 <IonSelectOption
                                   key={item.sku}
                                   value={item.sku}
                                 >
-                                  {item.alturaGengival}
+                                  {item.sku}
                                 </IonSelectOption>
                               ))}
                             </IonSelect>
                           </IonItem>
 
-                          <IonItem
-                            className="component-dropdown__quantity"
-                            key={item.tipo}
-                          >
+                          <IonItem className="component-dropdown__quantity">
                             <IonLabel position="stacked">Quantidade</IonLabel>
                             <IonInput
                               type="number"
@@ -211,7 +214,7 @@ const List = () => {
                       <IonItemGroup>
                         <IonItem
                           className="component-dropdown__sku"
-                          key={item.tipo}
+                          key={item.id}
                         >
                           <IonLabel position="floating">{item.tipo}</IonLabel>
                           <IonSelect value={size} placeholder="Selecione">
@@ -223,10 +226,7 @@ const List = () => {
                           </IonSelect>
                         </IonItem>
 
-                        <IonItem
-                          className="component-dropdown__quantity"
-                          key={item.tipo}
-                        >
+                        <IonItem className="component-dropdown__quantity">
                           <IonLabel position="stacked">Quantidade</IonLabel>
                           <IonInput
                             type="number"
@@ -248,7 +248,7 @@ const List = () => {
                       <IonItemGroup>
                         <IonItem
                           className="component-dropdown__sku"
-                          key={item.tipo}
+                          key={item.id}
                         >
                           <IonLabel position="floating">{item.tipo}</IonLabel>
                           <IonSelect value={size} placeholder="Selecione">
@@ -260,10 +260,7 @@ const List = () => {
                           </IonSelect>
                         </IonItem>
 
-                        <IonItem
-                          className="component-dropdown__quantity"
-                          key={item.tipo}
-                        >
+                        <IonItem className="component-dropdown__quantity">
                           <IonLabel position="stacked">Quantidade</IonLabel>
                           <IonInput
                             type="number"
@@ -295,14 +292,20 @@ const List = () => {
 
   return (
     <IonContent>
-      <IonButton onClick={history.goBack}>VOLTAR</IonButton>
+      <IonButton onClick={history.goBack}>Voltar</IonButton>
+
+      <IonItem>
+        <IonLabel>{isScrewed}</IonLabel>
+        <IonToggle value={isScrewed} onIonChange={onScrewToggle} />
+      </IonItem>
+
       <WrapperComponents>
         {postStatus === "loading" && (
           <IonSpinner className="loading" name="crescent" color="primary" />
         )}
 
         <IonGrid>
-          <IonRow className="table-head">
+          <IonRow className="table-head" id="0" key="0">
             <IonCol className="ion-no-padding" size="2">
               Nº Dente
             </IonCol>
@@ -316,7 +319,7 @@ const List = () => {
               (item: TeethType) =>
                 item.selecionado && (
                   <>
-                    <IonRow className="table-row" key={item.id}>
+                    <IonRow className="table-row" id={item.id} key={item.id}>
                       <IonCol className="ion-no-padding" size="2">
                         {item.dente}
                       </IonCol>

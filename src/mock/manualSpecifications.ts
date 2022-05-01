@@ -15,18 +15,24 @@ export type CatalogType = {
 };
 
 export type SmpType = {
+  id: string;
   familia: string;
   componentes: Array<{
+    id: string;
     nome: string;
     imagem: string;
-    torque: string;
+    torque?: string;
+    cimentado: boolean;
     caracteristicas: Array<{
+      id: string;
       tipo: string;
       opcoes: Array<{
         sku: string;
-        alturaGengival: string;
       }>;
     }>;
+    parafuso?: {
+      sku: string;
+    };
   }>;
 };
 
@@ -443,117 +449,301 @@ const Catalogos: CatalogType[] = [
 
 const SistemaMultiplataforma: SmpType[] = [
   {
+    id: "0",
+    familia: "K3.1",
+    componentes: [
+      {
+        id: "0",
+        nome: "Tapa Implante",
+        imagem: "tapa-implante",
+        cimentado: false,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "155.15",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "1",
+        nome: "Cicatrizador",
+        imagem: "cicatrizador",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "105.15A 3.0mm",
+              },
+              {
+                sku: "105.15B 5.0mm",
+              },
+              {
+                sku: "105.15C 7.0mm",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "2",
+        nome: "Transfer M.a P/Implante",
+        imagem: "transfer-moldeira-aberta",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "205.15A.CJ",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "3",
+        nome: "Transfer M.f P/Implante",
+        imagem: "transfer-moldeira-fechada",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "205.15B.CJ",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "4",
+        nome: "Análogo do Implante",
+        imagem: "analogo-do-implante",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "305.15",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "5",
+        nome: "Munhão Provisório",
+        imagem: "munhao-provisorio",
+        torque: "",
+        cimentado: false,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "Anti Rotacional",
+            opcoes: [
+              {
+                sku: "405.15A",
+              },
+            ],
+          },
+          {
+            id: "1",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "405.15B",
+              },
+            ],
+          },
+        ],
+        parafuso: {
+          sku: "2101.06C",
+        },
+      },
+    ],
+  },
+  {
+    id: "1",
     familia: "K3.2",
     componentes: [
       {
+        id: "0",
         nome: "Tapa Implante",
         imagem: "tapa-implante",
-        torque: "",
+        cimentado: true,
         caracteristicas: [
           {
+            id: "0",
             tipo: "SKU",
             opcoes: [
               {
                 sku: "155.06",
-                alturaGengival: "",
               },
             ],
           },
         ],
       },
       {
+        id: "1",
         nome: "Cicatrizador",
         imagem: "cicatrizador",
         torque: "",
+        cimentado: true,
         caracteristicas: [
           {
+            id: "0",
             tipo: "Perfil Reto Ø3.50mm",
             opcoes: [
               {
-                sku: "105.06A",
-                alturaGengival: "3.0mm",
+                sku: "105.06A 3.0mm",
               },
               {
-                sku: "105.06B",
-                alturaGengival: "5.0mm",
+                sku: "105.06B 5.0mm",
               },
               {
-                sku: "105.06C",
-                alturaGengival: "7.0mm",
+                sku: "105.06C 7.0mm",
               },
             ],
           },
           {
+            id: "1",
             tipo: "Perfil Divergente Ø5.0mm",
             opcoes: [
               {
-                sku: "105.06.6A",
-                alturaGengival: "3.0mm",
+                sku: "105.06.6A 3.0mm",
               },
               {
-                sku: "105.06.6B",
-                alturaGengival: "5.0mm",
+                sku: "105.06.6B 5.0mm",
               },
               {
-                sku: "105.06.6C",
-                alturaGengival: "7.0mm",
+                sku: "105.06.6C 7.0mm",
               },
             ],
           },
         ],
       },
       {
+        id: "2",
         nome: "Transfer M.a P/Implante",
         imagem: "transfer-moldeira-aberta",
         torque: "",
+        cimentado: true,
         caracteristicas: [
           {
+            id: "0",
             tipo: "Anti Rotacional",
             opcoes: [
               {
                 sku: "205.06A.CJ",
-                alturaGengival: "",
               },
             ],
           },
           {
+            id: "1",
             tipo: "Rotacional",
             opcoes: [
               {
                 sku: "205.06A.1.CJ",
-                alturaGengival: "",
               },
             ],
           },
         ],
       },
       {
+        id: "3",
         nome: "Transfer M.f. P/Implante",
         imagem: "transfer-moldeira-fechada",
         torque: "",
+        cimentado: true,
         caracteristicas: [
           {
+            id: "0",
             tipo: "Rotacional",
             opcoes: [
               {
                 sku: "205.06B.CJ",
-                alturaGengival: "",
               },
             ],
           },
         ],
       },
       {
+        id: "4",
         nome: "Análogo do Implante",
         imagem: "analogo-do-implante",
         torque: "",
+        cimentado: true,
         caracteristicas: [
           {
+            id: "0",
             tipo: "SKU",
             opcoes: [
               {
                 sku: "305.06",
-                alturaGengival: "",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "5",
+        nome: "Munhão Cimentável",
+        imagem: "munhao-cimentavel",
+        torque: "",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "SKU",
+            opcoes: [
+              {
+                sku: "505.06.1A 1.5mm",
+              },
+              {
+                sku: "505.06.1B 2.5mm",
+              },
+              {
+                sku: "505.06.1C 3.5mm",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "6",
+        nome: "Ucla Plástica base CrCo",
+        imagem: "ucla-plastica-base-crco",
+        torque: "",
+        cimentado: true,
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "Anti Rotacional",
+            opcoes: [
+              {
+                sku: "805.06A.CJ",
+              },
+            ],
+          },
+          {
+            id: "1",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "805.06B.CJ",
               },
             ],
           },
