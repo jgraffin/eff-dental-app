@@ -286,6 +286,8 @@ export const WrapperComponents = styled.div`
           }
 
           &__name {
+            flex-direction: column;
+
             h2 {
               font-family: var(--font-family-bold);
               font-size: 0.9rem;
@@ -397,6 +399,24 @@ export const WrapperComponents = styled.div`
         }
       }
     }
+  }
+
+  .favoravel,
+  .desfavoravel {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 0.6rem;
+  }
+
+  .favoravel {
+    background-color: #125953;
+    color: white;
+  }
+
+  .desfavoravel {
+    background-color: #f00;
+    color: black;
   }
 
   .filter-button {

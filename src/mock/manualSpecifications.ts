@@ -454,7 +454,7 @@ const SistemaMultiplataforma: SmpType[] = [
     componentes: [
       {
         id: "0",
-        nome: "Tapa Implante",
+        nome: "Tapa Implante Oi",
         imagem: "tapa-implante",
         cimentado: true,
         caracteristicas: [
@@ -473,7 +473,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "1",
         nome: "Cicatrizador",
         imagem: "cicatrizador",
-        cimentado: false,
+        cimentado: true,
         caracteristicas: [
           {
             id: "0",
@@ -581,7 +581,7 @@ const SistemaMultiplataforma: SmpType[] = [
     componentes: [
       {
         id: "0",
-        nome: "Tapa Implante",
+        nome: "Tapa Implante oi 2",
         imagem: "tapa-implante",
         cimentado: true,
         caracteristicas: [

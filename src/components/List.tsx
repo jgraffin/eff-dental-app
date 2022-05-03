@@ -94,7 +94,11 @@ const List = () => {
                         <IonButton color="dark">Selecionar</IonButton>
                       </IonCol>
                     </IonRow>
-
+                    <span
+                      className={item.posicao ? "desfavoravel" : "favoravel"}
+                    >
+                      {item.posicao ? "Desfavorável" : "Favorável"}
+                    </span>
                     {item.posicao
                       ? SistemaMultiplataforma.filter(
                           (val) => val.familia === item.familia ?? true
@@ -125,291 +129,223 @@ const List = () => {
                                             </div>
                                             <div className="component-dropdown__name">
                                               {item.caracteristicas.map(
-                                                (item) =>
-                                                  item.tipo === "SKU" && (
-                                                    <IonItemGroup>
-                                                      <IonItem
-                                                        className="component-dropdown__sku"
-                                                        key={item.id}
-                                                      >
-                                                        <IonLabel position="floating">
-                                                          {item.tipo}
-                                                        </IonLabel>
-                                                        <IonSelect
-                                                          value="0"
-                                                          placeholder="Selecione"
+                                                (item) => (
+                                                  <>
+                                                    {item.tipo === "SKU" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
                                                         >
-                                                          {item.opcoes.map(
-                                                            (item) => (
-                                                              <IonSelectOption
-                                                                key={item.sku}
-                                                                value={item.sku}
-                                                              >
-                                                                {item.sku}
-                                                              </IonSelectOption>
-                                                            )
-                                                          )}
-                                                        </IonSelect>
-                                                      </IonItem>
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
 
-                                                      <IonItem className="component-dropdown__quantity">
-                                                        <IonLabel position="stacked">
-                                                          Quantidade
-                                                        </IonLabel>
-                                                        <IonInput
-                                                          type="number"
-                                                          value="0"
-                                                          placeholder="0"
-                                                        ></IonInput>
-                                                      </IonItem>
-                                                    </IonItemGroup>
-                                                  )
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Perfil Reto Ø3.50mm" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Perfil Divergente Ø5.0mm" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Rotacional" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Anti Rotacional" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+                                                  </>
+                                                )
                                               )}
                                             </div>
                                           </div>
                                         </div>
                                       ))}
-
-                                    {/* {item.caracteristicas.map(
-                                        (item) =>
-                                          item.tipo === "SKU" && (
-                                            <>
-                                              <IonItemGroup>
-                                                <IonItem
-                                                  className="component-dropdown__sku"
-                                                  key={item.id}
-                                                >
-                                                  <IonLabel position="floating">
-                                                    {item.tipo}
-                                                  </IonLabel>
-                                                  <IonSelect
-                                                    value={size}
-                                                    placeholder="Selecione"
-                                                  >
-                                                    {item.opcoes.map((item) => (
-                                                      <IonSelectOption
-                                                        key={item.sku}
-                                                        value={item.sku}
-                                                      >
-                                                        {item.sku}
-                                                      </IonSelectOption>
-                                                    ))}
-                                                  </IonSelect>
-                                                </IonItem>
-
-                                                <IonItem className="component-dropdown__quantity">
-                                                  <IonLabel position="stacked">
-                                                    Quantidade
-                                                  </IonLabel>
-                                                  <IonInput
-                                                    type="number"
-                                                    value={number}
-                                                    placeholder="0"
-                                                    onIonChange={(e) =>
-                                                      setNumber(
-                                                        parseInt(e.detail.value!, 10)
-                                                      )
-                                                    }
-                                                  ></IonInput>
-                                                </IonItem>
-                                              </IonItemGroup>
-                                            </>
-                                          )
-                                      )} */}
-
-                                    {/* {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Perfil Reto Ø3.50mm" && (
-                                          <>
-                                            <h3 className="component-dropdown__sku__title">
-                                              {item.tipo}
-                                            </h3>
-                                            <IonItemGroup>
-                                              <IonItem
-                                                className="component-dropdown__sku"
-                                                key={item.id}
-                                              >
-                                                <IonLabel position="floating">
-                                                  SKU
-                                                </IonLabel>
-                                                <IonSelect
-                                                  value={size}
-                                                  placeholder="Selecione"
-                                                >
-                                                  {item.opcoes.map((item) => (
-                                                    <IonSelectOption
-                                                      key={item.sku}
-                                                      value={item.sku}
-                                                    >
-                                                      {item.sku}
-                                                    </IonSelectOption>
-                                                  ))}
-                                                </IonSelect>
-                                              </IonItem>
-
-                                              <IonItem className="component-dropdown__quantity">
-                                                <IonLabel position="stacked">
-                                                  Quantidade
-                                                </IonLabel>
-                                                <IonInput
-                                                  type="number"
-                                                  value={number}
-                                                  placeholder="0"
-                                                  onIonChange={(e) =>
-                                                    setNumber(
-                                                      parseInt(e.detail.value!, 10)
-                                                    )
-                                                  }
-                                                ></IonInput>
-                                              </IonItem>
-                                            </IonItemGroup>
-                                          </>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Perfil Divergente Ø5.0mm" && (
-                                          <>
-                                            <h3 className="component-dropdown__sku__title">
-                                              {item.tipo}
-                                            </h3>
-                                            <IonItemGroup>
-                                              <IonItem
-                                                className="component-dropdown__sku"
-                                                key={item.id}
-                                              >
-                                                <IonLabel position="floating">
-                                                  SKU
-                                                </IonLabel>
-                                                <IonSelect
-                                                  value={size}
-                                                  placeholder="Selecione"
-                                                >
-                                                  {item.opcoes.map((item) => (
-                                                    <IonSelectOption
-                                                      key={item.sku}
-                                                      value={item.sku}
-                                                    >
-                                                      {item.sku}
-                                                    </IonSelectOption>
-                                                  ))}
-                                                </IonSelect>
-                                              </IonItem>
-
-                                              <IonItem className="component-dropdown__quantity">
-                                                <IonLabel position="stacked">
-                                                  Quantidade
-                                                </IonLabel>
-                                                <IonInput
-                                                  type="number"
-                                                  value={number}
-                                                  placeholder="0"
-                                                  onIonChange={(e) =>
-                                                    setNumber(
-                                                      parseInt(e.detail.value!, 10)
-                                                    )
-                                                  }
-                                                ></IonInput>
-                                              </IonItem>
-                                            </IonItemGroup>
-                                          </>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Rotacional" && (
-                                          <IonItemGroup>
-                                            <IonItem
-                                              className="component-dropdown__sku"
-                                              key={item.id}
-                                            >
-                                              <IonLabel position="floating">
-                                                {item.tipo}
-                                              </IonLabel>
-                                              <IonSelect
-                                                value={size}
-                                                placeholder="Selecione"
-                                              >
-                                                {item.opcoes.map((item) => (
-                                                  <IonSelectOption
-                                                    key={item.sku}
-                                                    value={item.sku}
-                                                  >
-                                                    {item.sku}
-                                                  </IonSelectOption>
-                                                ))}
-                                              </IonSelect>
-                                            </IonItem>
-
-                                            <IonItem className="component-dropdown__quantity">
-                                              <IonLabel position="stacked">
-                                                Quantidade
-                                              </IonLabel>
-                                              <IonInput
-                                                type="number"
-                                                value={number}
-                                                placeholder="0"
-                                                onIonChange={(e) =>
-                                                  setNumber(
-                                                    parseInt(e.detail.value!, 10)
-                                                  )
-                                                }
-                                              ></IonInput>
-                                            </IonItem>
-                                          </IonItemGroup>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Anti Rotacional" && (
-                                          <IonItemGroup>
-                                            <IonItem
-                                              className="component-dropdown__sku"
-                                              key={item.id}
-                                            >
-                                              <IonLabel position="floating">
-                                                {item.tipo}
-                                              </IonLabel>
-                                              <IonSelect
-                                                value={size}
-                                                placeholder="Selecione"
-                                              >
-                                                {item.opcoes.map((item) => (
-                                                  <IonSelectOption
-                                                    key={item.sku}
-                                                    value={item.sku}
-                                                  >
-                                                    {item.sku}
-                                                  </IonSelectOption>
-                                                ))}
-                                              </IonSelect>
-                                            </IonItem>
-
-                                            <IonItem className="component-dropdown__quantity">
-                                              <IonLabel position="stacked">
-                                                Quantidade
-                                              </IonLabel>
-                                              <IonInput
-                                                type="number"
-                                                value={number}
-                                                placeholder="0"
-                                                onIonChange={(e) =>
-                                                  setNumber(
-                                                    parseInt(e.detail.value!, 10)
-                                                  )
-                                                }
-                                              ></IonInput>
-                                            </IonItem>
-                                          </IonItemGroup>
-                                        )
-                                    )} */}
                                   </div>
                                 </div>
                               </div>
@@ -430,10 +366,7 @@ const List = () => {
                                           val.cimentado === cimentado ?? true
                                       )
                                       .map((item) => (
-                                        <div
-                                          className="component-dropdown__fields"
-                                          key={item.id}
-                                        >
+                                        <div className="component-dropdown__fields">
                                           <div className="component-dropdown__wrapper__product">
                                             <div>
                                               <div className="component-dropdown__image">
@@ -448,287 +381,223 @@ const List = () => {
                                             </div>
                                             <div className="component-dropdown__name">
                                               {item.caracteristicas.map(
-                                                (item) =>
-                                                  item.tipo === "SKU" && (
-                                                    <IonItemGroup>
-                                                      <IonItem
-                                                        className="component-dropdown__sku"
-                                                        key={item.id}
-                                                      >
-                                                        <IonLabel position="floating">
-                                                          {item.tipo}
-                                                        </IonLabel>
-                                                        <IonSelect
-                                                          value="0"
-                                                          placeholder="Selecione"
+                                                (item) => (
+                                                  <>
+                                                    {item.tipo === "SKU" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
                                                         >
-                                                          {item.opcoes.map(
-                                                            (item) => (
-                                                              <IonSelectOption
-                                                                key={item.sku}
-                                                                value={item.sku}
-                                                              >
-                                                                {item.sku}
-                                                              </IonSelectOption>
-                                                            )
-                                                          )}
-                                                        </IonSelect>
-                                                      </IonItem>
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
 
-                                                      <IonItem className="component-dropdown__quantity">
-                                                        <IonLabel position="stacked">
-                                                          Quantidade
-                                                        </IonLabel>
-                                                        <IonInput
-                                                          type="number"
-                                                          value="0"
-                                                          placeholder="0"
-                                                        ></IonInput>
-                                                      </IonItem>
-                                                    </IonItemGroup>
-                                                  )
-                                              )}
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
 
-                                              {item.caracteristicas.map(
-                                                (item) =>
-                                                  item.tipo ===
-                                                    "Perfil Reto Ø3.50mm" && (
-                                                    <IonItemGroup>
-                                                      <IonItem
-                                                        className="component-dropdown__sku"
-                                                        key={item.id}
-                                                      >
-                                                        <IonLabel position="floating">
-                                                          SKU
-                                                        </IonLabel>
-                                                        <IonSelect
-                                                          value="0"
-                                                          placeholder="Selecione"
+                                                    {item.tipo ===
+                                                      "Perfil Reto Ø3.50mm" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
                                                         >
-                                                          {item.opcoes.map(
-                                                            (item) => (
-                                                              <IonSelectOption
-                                                                key={item.sku}
-                                                                value={item.sku}
-                                                              >
-                                                                {item.sku}
-                                                              </IonSelectOption>
-                                                            )
-                                                          )}
-                                                        </IonSelect>
-                                                      </IonItem>
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
 
-                                                      <IonItem className="component-dropdown__quantity">
-                                                        <IonLabel position="stacked">
-                                                          Quantidade
-                                                        </IonLabel>
-                                                        <IonInput
-                                                          type="number"
-                                                          value="0"
-                                                          placeholder="0"
-                                                        ></IonInput>
-                                                      </IonItem>
-                                                    </IonItemGroup>
-                                                  )
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Perfil Divergente Ø5.0mm" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Rotacional" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+
+                                                    {item.tipo ===
+                                                      "Anti Rotacional" && (
+                                                      <IonItemGroup>
+                                                        <IonItem
+                                                          className="component-dropdown__sku"
+                                                          key={item.id}
+                                                        >
+                                                          <IonLabel position="floating">
+                                                            {item.tipo}
+                                                          </IonLabel>
+                                                          <IonSelect
+                                                            value="0"
+                                                            placeholder="Selecione"
+                                                          >
+                                                            {item.opcoes.map(
+                                                              (item) => (
+                                                                <IonSelectOption
+                                                                  key={item.sku}
+                                                                  value={
+                                                                    item.sku
+                                                                  }
+                                                                >
+                                                                  {item.sku}
+                                                                </IonSelectOption>
+                                                              )
+                                                            )}
+                                                          </IonSelect>
+                                                        </IonItem>
+
+                                                        <IonItem className="component-dropdown__quantity">
+                                                          <IonLabel position="stacked">
+                                                            Quantidade
+                                                          </IonLabel>
+                                                          <IonInput
+                                                            type="number"
+                                                            value="0"
+                                                            placeholder="0"
+                                                          ></IonInput>
+                                                        </IonItem>
+                                                      </IonItemGroup>
+                                                    )}
+                                                  </>
+                                                )
                                               )}
                                             </div>
                                           </div>
                                         </div>
                                       ))}
-
-                                    {/* {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Perfil Reto Ø3.50mm" && (
-                                          <>
-                                            <h3 className="component-dropdown__sku__title">
-                                              {item.tipo}
-                                            </h3>
-                                            <IonItemGroup>
-                                              <IonItem
-                                                className="component-dropdown__sku"
-                                                key={item.id}
-                                              >
-                                                <IonLabel position="floating">
-                                                  SKU
-                                                </IonLabel>
-                                                <IonSelect
-                                                  value={size}
-                                                  placeholder="Selecione"
-                                                >
-                                                  {item.opcoes.map((item) => (
-                                                    <IonSelectOption
-                                                      key={item.sku}
-                                                      value={item.sku}
-                                                    >
-                                                      {item.sku}
-                                                    </IonSelectOption>
-                                                  ))}
-                                                </IonSelect>
-                                              </IonItem>
-
-                                              <IonItem className="component-dropdown__quantity">
-                                                <IonLabel position="stacked">
-                                                  Quantidade
-                                                </IonLabel>
-                                                <IonInput
-                                                  type="number"
-                                                  value={number}
-                                                  placeholder="0"
-                                                  onIonChange={(e) =>
-                                                    setNumber(
-                                                      parseInt(e.detail.value!, 10)
-                                                    )
-                                                  }
-                                                ></IonInput>
-                                              </IonItem>
-                                            </IonItemGroup>
-                                          </>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Perfil Divergente Ø5.0mm" && (
-                                          <>
-                                            <h3 className="component-dropdown__sku__title">
-                                              {item.tipo}
-                                            </h3>
-                                            <IonItemGroup>
-                                              <IonItem
-                                                className="component-dropdown__sku"
-                                                key={item.id}
-                                              >
-                                                <IonLabel position="floating">
-                                                  SKU
-                                                </IonLabel>
-                                                <IonSelect
-                                                  value={size}
-                                                  placeholder="Selecione"
-                                                >
-                                                  {item.opcoes.map((item) => (
-                                                    <IonSelectOption
-                                                      key={item.sku}
-                                                      value={item.sku}
-                                                    >
-                                                      {item.sku}
-                                                    </IonSelectOption>
-                                                  ))}
-                                                </IonSelect>
-                                              </IonItem>
-
-                                              <IonItem className="component-dropdown__quantity">
-                                                <IonLabel position="stacked">
-                                                  Quantidade
-                                                </IonLabel>
-                                                <IonInput
-                                                  type="number"
-                                                  value={number}
-                                                  placeholder="0"
-                                                  onIonChange={(e) =>
-                                                    setNumber(
-                                                      parseInt(e.detail.value!, 10)
-                                                    )
-                                                  }
-                                                ></IonInput>
-                                              </IonItem>
-                                            </IonItemGroup>
-                                          </>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Rotacional" && (
-                                          <IonItemGroup>
-                                            <IonItem
-                                              className="component-dropdown__sku"
-                                              key={item.id}
-                                            >
-                                              <IonLabel position="floating">
-                                                {item.tipo}
-                                              </IonLabel>
-                                              <IonSelect
-                                                value={size}
-                                                placeholder="Selecione"
-                                              >
-                                                {item.opcoes.map((item) => (
-                                                  <IonSelectOption
-                                                    key={item.sku}
-                                                    value={item.sku}
-                                                  >
-                                                    {item.sku}
-                                                  </IonSelectOption>
-                                                ))}
-                                              </IonSelect>
-                                            </IonItem>
-
-                                            <IonItem className="component-dropdown__quantity">
-                                              <IonLabel position="stacked">
-                                                Quantidade
-                                              </IonLabel>
-                                              <IonInput
-                                                type="number"
-                                                value={number}
-                                                placeholder="0"
-                                                onIonChange={(e) =>
-                                                  setNumber(
-                                                    parseInt(e.detail.value!, 10)
-                                                  )
-                                                }
-                                              ></IonInput>
-                                            </IonItem>
-                                          </IonItemGroup>
-                                        )
-                                    )}
-
-                                  {item.caracteristicas.length > 0 &&
-                                    item.caracteristicas.map(
-                                      (item) =>
-                                        item.tipo === "Anti Rotacional" && (
-                                          <IonItemGroup>
-                                            <IonItem
-                                              className="component-dropdown__sku"
-                                              key={item.id}
-                                            >
-                                              <IonLabel position="floating">
-                                                {item.tipo}
-                                              </IonLabel>
-                                              <IonSelect
-                                                value={size}
-                                                placeholder="Selecione"
-                                              >
-                                                {item.opcoes.map((item) => (
-                                                  <IonSelectOption
-                                                    key={item.sku}
-                                                    value={item.sku}
-                                                  >
-                                                    {item.sku}
-                                                  </IonSelectOption>
-                                                ))}
-                                              </IonSelect>
-                                            </IonItem>
-
-                                            <IonItem className="component-dropdown__quantity">
-                                              <IonLabel position="stacked">
-                                                Quantidade
-                                              </IonLabel>
-                                              <IonInput
-                                                type="number"
-                                                value={number}
-                                                placeholder="0"
-                                                onIonChange={(e) =>
-                                                  setNumber(
-                                                    parseInt(e.detail.value!, 10)
-                                                  )
-                                                }
-                                              ></IonInput>
-                                            </IonItem>
-                                          </IonItemGroup>
-                                        )
-                                    )} */}
                                   </div>
                                 </div>
                               </div>
