@@ -456,7 +456,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "0",
         nome: "Tapa Implante",
         imagem: "tapa-implante",
-        cimentado: false,
+        cimentado: true,
         caracteristicas: [
           {
             id: "0",
@@ -473,7 +473,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "1",
         nome: "Cicatrizador",
         imagem: "cicatrizador",
-        cimentado: true,
+        cimentado: false,
         caracteristicas: [
           {
             id: "0",
@@ -496,7 +496,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "2",
         nome: "Transfer M.a P/Implante",
         imagem: "transfer-moldeira-aberta",
-        cimentado: true,
+        cimentado: false,
         caracteristicas: [
           {
             id: "0",
@@ -513,7 +513,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "3",
         nome: "Transfer M.f P/Implante",
         imagem: "transfer-moldeira-fechada",
-        cimentado: true,
+        cimentado: false,
         caracteristicas: [
           {
             id: "0",
@@ -530,7 +530,7 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "4",
         nome: "Análogo do Implante",
         imagem: "analogo-do-implante",
-        cimentado: true,
+        cimentado: false,
         caracteristicas: [
           {
             id: "0",
@@ -601,7 +601,7 @@ const SistemaMultiplataforma: SmpType[] = [
         nome: "Cicatrizador",
         imagem: "cicatrizador",
         torque: "",
-        cimentado: true,
+        cimentado: false,
         caracteristicas: [
           {
             id: "0",
@@ -630,120 +630,6 @@ const SistemaMultiplataforma: SmpType[] = [
               },
               {
                 sku: "105.06.6C 7.0mm",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "2",
-        nome: "Transfer M.a P/Implante",
-        imagem: "transfer-moldeira-aberta",
-        torque: "",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Anti Rotacional",
-            opcoes: [
-              {
-                sku: "205.06A.CJ",
-              },
-            ],
-          },
-          {
-            id: "1",
-            tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "205.06A.1.CJ",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "3",
-        nome: "Transfer M.f. P/Implante",
-        imagem: "transfer-moldeira-fechada",
-        torque: "",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "205.06B.CJ",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "4",
-        nome: "Análogo do Implante",
-        imagem: "analogo-do-implante",
-        torque: "",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "305.06",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "5",
-        nome: "Munhão Cimentável",
-        imagem: "munhao-cimentavel",
-        torque: "",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "505.06.1A 1.5mm",
-              },
-              {
-                sku: "505.06.1B 2.5mm",
-              },
-              {
-                sku: "505.06.1C 3.5mm",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "6",
-        nome: "Ucla Plástica base CrCo",
-        imagem: "ucla-plastica-base-crco",
-        torque: "",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Anti Rotacional",
-            opcoes: [
-              {
-                sku: "805.06A.CJ",
-              },
-            ],
-          },
-          {
-            id: "1",
-            tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "805.06B.CJ",
               },
             ],
           },

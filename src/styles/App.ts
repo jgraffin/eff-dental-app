@@ -184,7 +184,7 @@ export const WrapperComponents = styled.div`
       }
 
       &.table-head {
-        padding: 1rem 0 1rem 1rem;
+        padding: 0.5rem 0 0.5rem 1rem;
       }
 
       &.table-row {
@@ -241,15 +241,28 @@ export const WrapperComponents = styled.div`
           /* height: 3.3rem; */
           /* overflow: hidden; */
           width: 100%;
-          background-color: #aaf9ae;
           border-radius: 0.5rem;
-          padding: 0.4rem;
+          padding: 0.4rem 0;
           margin-bottom: 0.2rem;
           position: relative;
 
           ion-item-group {
             display: flex;
             grid-gap: 1rem;
+          }
+
+          &__wrapper__product {
+            > div {
+              align-items: center;
+              display: flex;
+
+              h2 {
+                font-size: 0.7rem;
+                font-family: var(--font-family-bold);
+                margin: 0;
+                padding: 0 0.5rem;
+              }
+            }
           }
 
           &__image {
@@ -285,6 +298,10 @@ export const WrapperComponents = styled.div`
           &__fields {
             padding-left: 3rem;
             width: 90%;
+            background-color: #aaf9ae;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
 
             .item {
               margin-bottom: 0;
@@ -379,6 +396,23 @@ export const WrapperComponents = styled.div`
           }
         }
       }
+    }
+  }
+
+  .filter-button {
+    position: relative;
+    width: 6rem;
+
+    ion-toggle {
+      padding: 3px 0 4px 0;
+      transform: translate(0, 3px);
+    }
+
+    ion-label {
+      position: absolute;
+      right: -11px;
+      top: 0.34rem;
+      font-size: 0.6rem !important;
     }
   }
 `;
