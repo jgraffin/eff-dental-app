@@ -1,4 +1,4 @@
-export type CatalogType = {
+export interface ICatalogo {
   id: string;
   name: string;
   opcoes: Array<{
@@ -12,33 +12,38 @@ export type CatalogType = {
       familia: string;
     }>;
   }>;
-};
+}
 
-export type SmpType = {
-  id: string;
-  familia: string;
+export interface ISmp {
+  id?: string;
+  familia?: string;
   componentes: Array<{
     id: string;
     nome: string;
     imagem: string;
     torque?: string;
     cimentado: boolean;
+    tipo: string;
     caracteristicas: Array<{
       id: string;
-      tipo: string;
+      tipo?: string;
       opcoes: Array<{
+        value?: string;
         sku: string;
       }>;
     }>;
-    parafuso?: {
+    quantidade?: number;
+    adicionais?: Array<{
+      tipo: string;
+      imagem?: string;
       sku: string;
-    };
+    }>;
   }>;
-};
+}
 
-const Catalogos: CatalogType[] = [
+const Catalogos: ICatalogo[] = [
   {
-    id: "1",
+    id: "0",
     name: "Cone Morse",
     opcoes: [
       {
@@ -174,7 +179,7 @@ const Catalogos: CatalogType[] = [
     ],
   },
   {
-    id: "2",
+    id: "1",
     name: "Hexagono Externo",
     opcoes: [
       {
@@ -310,7 +315,7 @@ const Catalogos: CatalogType[] = [
     ],
   },
   {
-    id: "3",
+    id: "2",
     name: "Hexagono Interno",
     opcoes: [
       {
@@ -447,25 +452,65 @@ const Catalogos: CatalogType[] = [
   },
 ];
 
-const SistemaMultiplataforma: SmpType[] = [
+const Smp: ISmp[] = [
   {
     id: "0",
-    familia: "K3.1",
+    familia: "A3.1",
     componentes: [
       {
         id: "0",
-        nome: "Tapa Implante Oi",
-        imagem: "tapa-implante",
-        cimentado: true,
+        nome: "Munhão Provisório",
+        imagem: "munhao-provisorio-a31",
+        cimentado: false,
+        tipo: "rotacionalAntiRotacional",
         caracteristicas: [
           {
             id: "0",
-            tipo: "SKU",
+            tipo: "Anti Rotacional",
             opcoes: [
               {
-                sku: "155.15",
+                sku: "405.05A.1h0.8mm",
+              },
+              {
+                sku: "405.05A.2h1.5mm",
+              },
+              {
+                sku: "405.05A.3h2.5mm",
+              },
+              {
+                sku: "405.05A.4h3.5mm",
               },
             ],
+          },
+          {
+            id: "1",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "405.05B.1h0.8mm",
+              },
+              {
+                sku: "405.05B.2h1.5mm",
+              },
+              {
+                sku: "405.05B.3h2.5mm",
+              },
+              {
+                sku: "405.05B.4h3.5mm",
+              },
+            ],
+          },
+        ],
+        quantidade: 0,
+        adicionais: [
+          {
+            tipo: "h.0.80/1.50/2.50mm",
+            imagem: "",
+            sku: "2103.22A",
+          },
+          {
+            tipo: "h.3.50/4.50mm",
+            sku: "2103.22A.1",
           },
         ],
       },
@@ -473,11 +518,12 @@ const SistemaMultiplataforma: SmpType[] = [
         id: "1",
         nome: "Cicatrizador",
         imagem: "cicatrizador",
-        cimentado: true,
+        torque: "",
+        cimentado: false,
+        tipo: "",
         caracteristicas: [
           {
             id: "0",
-            tipo: "SKU",
             opcoes: [
               {
                 sku: "105.15A 3.0mm",
@@ -491,121 +537,19 @@ const SistemaMultiplataforma: SmpType[] = [
             ],
           },
         ],
+        quantidade: 0,
       },
       {
         id: "2",
-        nome: "Transfer M.a P/Implante",
-        imagem: "transfer-moldeira-aberta",
-        cimentado: false,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "205.15A.CJ",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "3",
-        nome: "Transfer M.f P/Implante",
-        imagem: "transfer-moldeira-fechada",
-        cimentado: false,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "205.15B.CJ",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "4",
-        nome: "Análogo do Implante",
-        imagem: "analogo-do-implante",
-        cimentado: false,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "305.15",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "5",
-        nome: "Munhão Provisório",
-        imagem: "munhao-provisorio",
+        nome: "blah blah HUE",
+        imagem: "blah",
         torque: "",
         cimentado: false,
+        tipo: "rotacionalAntiRotacional",
         caracteristicas: [
           {
             id: "0",
-            tipo: "Anti Rotacional",
-            opcoes: [
-              {
-                sku: "405.15A",
-              },
-            ],
-          },
-          {
-            id: "1",
             tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "405.15B",
-              },
-            ],
-          },
-        ],
-        parafuso: {
-          sku: "2101.06C",
-        },
-      },
-    ],
-  },
-  {
-    id: "1",
-    familia: "K3.2",
-    componentes: [
-      {
-        id: "0",
-        nome: "Tapa Implante oi 2",
-        imagem: "tapa-implante",
-        cimentado: true,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "SKU",
-            opcoes: [
-              {
-                sku: "155.06",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "1",
-        nome: "Cicatrizador",
-        imagem: "cicatrizador",
-        torque: "",
-        cimentado: false,
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Perfil Reto Ø3.50mm",
             opcoes: [
               {
                 sku: "105.06A 3.0mm",
@@ -620,7 +564,7 @@ const SistemaMultiplataforma: SmpType[] = [
           },
           {
             id: "1",
-            tipo: "Perfil Divergente Ø5.0mm",
+            tipo: "Anti Rotacional",
             opcoes: [
               {
                 sku: "105.06.6A 3.0mm",
@@ -634,9 +578,100 @@ const SistemaMultiplataforma: SmpType[] = [
             ],
           },
         ],
+        quantidade: 0,
+      },
+    ],
+  },
+  {
+    id: "1",
+    familia: "K3.1",
+    componentes: [
+      {
+        id: "0",
+        nome: "Tapa Implante",
+        imagem: "tapa-implante",
+        cimentado: false,
+        tipo: "",
+        caracteristicas: [
+          {
+            id: "0",
+            opcoes: [
+              {
+                sku: "155.15",
+              },
+            ],
+          },
+        ],
+        quantidade: 0,
+      },
+      {
+        id: "1",
+        nome: "Cicatrizador",
+        imagem: "cicatrizador",
+        torque: "",
+        cimentado: false,
+        tipo: "",
+        caracteristicas: [
+          {
+            id: "0",
+            opcoes: [
+              {
+                sku: "105.15A 3.0mm",
+              },
+              {
+                sku: "105.15B 5.0mm",
+              },
+              {
+                sku: "105.15C 7.0mm",
+              },
+            ],
+          },
+        ],
+        quantidade: 0,
+      },
+      {
+        id: "2",
+        nome: "blah blah",
+        imagem: "blah",
+        torque: "",
+        cimentado: false,
+        tipo: "rotacionalAntiRotacional",
+        caracteristicas: [
+          {
+            id: "0",
+            tipo: "Rotacional",
+            opcoes: [
+              {
+                sku: "105.06A 3.0mm",
+              },
+              {
+                sku: "105.06B 5.0mm",
+              },
+              {
+                sku: "105.06C 7.0mm",
+              },
+            ],
+          },
+          {
+            id: "1",
+            tipo: "Anti Rotacional",
+            opcoes: [
+              {
+                sku: "105.06.6A 3.0mm",
+              },
+              {
+                sku: "105.06.6B 5.0mm",
+              },
+              {
+                sku: "105.06.6C 7.0mm",
+              },
+            ],
+          },
+        ],
+        quantidade: 0,
       },
     ],
   },
 ];
 
-export { Catalogos, SistemaMultiplataforma };
+export { Catalogos, Smp };
