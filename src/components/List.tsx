@@ -38,7 +38,9 @@ const List = () => {
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const error = useSelector((state: RootState) => state.teeth.error);
   const formRef = useRef<any>(null);
+  const denteRef = useRef<any>(null);
   const [cimentado, setCimentado] = useState(false);
+  const [currentItem, setCurrentItem] = useState("");
 
   const onScrewToggle = () => {
     if (cimentado) {
@@ -56,6 +58,8 @@ const List = () => {
     if (postStatus === "idle") {
       dispatch(fetchPosts());
     }
+
+    setCurrentItem(denteRef.current.id);
   }, [postStatus, dispatch]);
 
   return (
@@ -89,10 +93,19 @@ const List = () => {
             </IonRow>
 
             {postStatus === "succeeded" &&
-              store.map(
-                (item: TeethType) =>
-                  item.selecionado && (
-                    <IonRow className="table-row" key={item.id}>
+              store
+                .filter(
+                  (item: TeethType) =>
+                    (item.selecionado && item.marca !== "") ?? true
+                )
+                .map((item: any) => (
+                  <Scope path={item.dente} key={item.dente}>
+                    <IonRow
+                      className="table-row"
+                      ref={denteRef}
+                      key={item.dente}
+                      id={item.dente}
+                    >
                       <IonCol className="ion-no-padding" size="2">
                         <div>
                           <h2>{item.dente}</h2>
@@ -108,6 +121,7 @@ const List = () => {
                             ).map((item) => (
                               <Produtos
                                 key={item.id}
+                                id={currentItem}
                                 componentes={item.componentes}
                               />
                             ))}
@@ -118,8 +132,8 @@ const List = () => {
                         </div>
                       </IonCol>
                     </IonRow>
-                  )
-              )}
+                  </Scope>
+                ))}
           </IonGrid>
 
           {postStatus === "error" && error}

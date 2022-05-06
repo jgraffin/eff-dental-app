@@ -435,4 +435,8 @@ export const WrapperComponents = styled.div`
       font-size: 0.6rem !important;
     }
   }
+
+  .select-action {
+    z-index: 10;
+  }
 `;

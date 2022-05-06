@@ -20,21 +20,22 @@ export interface ISmp {
   componentes: Array<{
     id: string;
     nome: string;
+    slug: string;
     imagem: string;
     torque?: string;
     cimentado: boolean;
-    tipo: string;
+    tipoConexao: string;
     caracteristicas: Array<{
       id: string;
-      tipo?: string;
+      tipoConexao?: string;
       opcoes: Array<{
         value?: string;
-        sku: string;
+        label?: string;
+        sku?: string;
       }>;
     }>;
-    quantidade?: number;
     adicionais?: Array<{
-      tipo: string;
+      tipoConexao: string;
       imagem?: string;
       sku: string;
     }>;
@@ -460,56 +461,64 @@ const Smp: ISmp[] = [
       {
         id: "0",
         nome: "Munhão Provisório",
+        slug: "munhao-provisorio",
         imagem: "munhao-provisorio-a31",
         cimentado: false,
-        tipo: "rotacionalAntiRotacional",
+        tipoConexao: "rotacionalAntiRotacional",
         caracteristicas: [
           {
             id: "0",
-            tipo: "Anti Rotacional",
+            tipoConexao: "Anti Rotacional",
             opcoes: [
               {
+                label: "405.05A.1h0.8mm",
                 sku: "405.05A.1h0.8mm",
               },
               {
+                label: "405.05A.2h1.5mm",
                 sku: "405.05A.2h1.5mm",
               },
               {
+                label: "405.05A.3h2.5mm",
                 sku: "405.05A.3h2.5mm",
               },
               {
+                label: "405.05A.4h3.5mm",
                 sku: "405.05A.4h3.5mm",
               },
             ],
           },
           {
             id: "1",
-            tipo: "Rotacional",
+            tipoConexao: "Rotacional",
             opcoes: [
               {
+                label: "405.05B.1h0.8mm",
                 sku: "405.05B.1h0.8mm",
               },
               {
+                label: "405.05B.2h1.5mm",
                 sku: "405.05B.2h1.5mm",
               },
               {
+                label: "405.05B.3h2.5mm",
                 sku: "405.05B.3h2.5mm",
               },
               {
+                label: "405.05B.4h3.5mm",
                 sku: "405.05B.4h3.5mm",
               },
             ],
           },
         ],
-        quantidade: 0,
         adicionais: [
           {
-            tipo: "h.0.80/1.50/2.50mm",
+            tipoConexao: "h.0.80/1.50/2.50mm",
             imagem: "",
             sku: "2103.22A",
           },
           {
-            tipo: "h.3.50/4.50mm",
+            tipoConexao: "h.3.50/4.50mm",
             sku: "2103.22A.1",
           },
         ],
@@ -517,68 +526,30 @@ const Smp: ISmp[] = [
       {
         id: "1",
         nome: "Cicatrizador",
+        slug: "cicatrizador",
         imagem: "cicatrizador",
         torque: "",
         cimentado: false,
-        tipo: "",
+        tipoConexao: "",
         caracteristicas: [
           {
             id: "0",
             opcoes: [
               {
+                label: "105.15A 3.0mm",
                 sku: "105.15A 3.0mm",
               },
               {
+                label: "105.15B 5.0mm",
                 sku: "105.15B 5.0mm",
               },
               {
+                label: "105.15C 7.0mm",
                 sku: "105.15C 7.0mm",
               },
             ],
           },
         ],
-        quantidade: 0,
-      },
-      {
-        id: "2",
-        nome: "blah blah HUE",
-        imagem: "blah",
-        torque: "",
-        cimentado: false,
-        tipo: "rotacionalAntiRotacional",
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "105.06A 3.0mm",
-              },
-              {
-                sku: "105.06B 5.0mm",
-              },
-              {
-                sku: "105.06C 7.0mm",
-              },
-            ],
-          },
-          {
-            id: "1",
-            tipo: "Anti Rotacional",
-            opcoes: [
-              {
-                sku: "105.06.6A 3.0mm",
-              },
-              {
-                sku: "105.06.6B 5.0mm",
-              },
-              {
-                sku: "105.06.6C 7.0mm",
-              },
-            ],
-          },
-        ],
-        quantidade: 0,
       },
     ],
   },
@@ -589,86 +560,49 @@ const Smp: ISmp[] = [
       {
         id: "0",
         nome: "Tapa Implante",
+        slug: "tapa-implante",
         imagem: "tapa-implante",
         cimentado: false,
-        tipo: "",
+        tipoConexao: "",
         caracteristicas: [
           {
             id: "0",
             opcoes: [
               {
+                label: "155.15",
                 sku: "155.15",
               },
             ],
           },
         ],
-        quantidade: 0,
       },
       {
         id: "1",
         nome: "Cicatrizador",
+        slug: "cicatrizador",
         imagem: "cicatrizador",
         torque: "",
         cimentado: false,
-        tipo: "",
+        tipoConexao: "",
         caracteristicas: [
           {
             id: "0",
             opcoes: [
               {
+                label: "105.15A 3.0mm",
                 sku: "105.15A 3.0mm",
               },
               {
+                label: "105.15B 5.0mm",
                 sku: "105.15B 5.0mm",
               },
               {
+                label: "105.15C 7.0mm",
                 sku: "105.15C 7.0mm",
               },
             ],
           },
         ],
-        quantidade: 0,
-      },
-      {
-        id: "2",
-        nome: "blah blah",
-        imagem: "blah",
-        torque: "",
-        cimentado: false,
-        tipo: "rotacionalAntiRotacional",
-        caracteristicas: [
-          {
-            id: "0",
-            tipo: "Rotacional",
-            opcoes: [
-              {
-                sku: "105.06A 3.0mm",
-              },
-              {
-                sku: "105.06B 5.0mm",
-              },
-              {
-                sku: "105.06C 7.0mm",
-              },
-            ],
-          },
-          {
-            id: "1",
-            tipo: "Anti Rotacional",
-            opcoes: [
-              {
-                sku: "105.06.6A 3.0mm",
-              },
-              {
-                sku: "105.06.6B 5.0mm",
-              },
-              {
-                sku: "105.06.6C 7.0mm",
-              },
-            ],
-          },
-        ],
-        quantidade: 0,
       },
     ],
   },

@@ -9,7 +9,7 @@ interface Props extends SelectProps<any> {
 export default function Select({ name, ...rest }: Props) {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
-
+  console.log(name);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -31,6 +31,7 @@ export default function Select({ name, ...rest }: Props) {
 
   return (
     <ReactSelect
+      name={name}
       defaultValue={defaultValue}
       ref={selectRef}
       classNamePrefix="react-select"
