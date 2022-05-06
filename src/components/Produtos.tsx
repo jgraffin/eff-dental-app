@@ -1,16 +1,22 @@
-import { IonItem, IonLabel, IonSelect, IonSelectOption } from "@ionic/react";
+import {
+  IonButton,
+  IonItem,
+  IonLabel,
+  IonSelect,
+  IonSelectOption,
+} from "@ionic/react";
 import { useEffect, useState } from "react";
 import ReactSelect from "react-select";
 import { ISmp } from "../mock/manualSpecifications";
 import Input from "./forms/Input";
+import { addToCart } from "../features/cart/CartSlice";
+import { useAppDispatch } from "../app/hooks";
 
 const Produtos = ({ componentes }: ISmp) => {
-  const [valueSelect, setValueSelect] = useState({});
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: any) => {
     console.log(event);
-
-    setValueSelect({ sku: event.value, label: event.label });
   };
 
   return (
@@ -34,8 +40,9 @@ const Produtos = ({ componentes }: ISmp) => {
                   key={`altura-${item.slug}`}
                 />
                 <IonItem>
-                  <IonLabel>Quantidade</IonLabel>
-                  <Input nome={`qtd-${item.slug}`} />
+                  <IonButton onClick={() => dispatch(addToCart(item.id))}>
+                    Add to Cart
+                  </IonButton>
                 </IonItem>
               </div>
             </div>
@@ -85,8 +92,9 @@ const Produtos = ({ componentes }: ISmp) => {
                 ))}
               </div>
               <IonItem>
-                <IonLabel>Quantidade</IonLabel>
-                <Input nome={`qtd-${item.slug}`} />
+                <IonButton onClick={() => dispatch(addToCart(item.id))}>
+                  Add to Cart
+                </IonButton>
               </IonItem>
             </div>
           )
@@ -135,8 +143,9 @@ const Produtos = ({ componentes }: ISmp) => {
                 ))}
               </div>
               <IonItem>
-                <IonLabel>Quantidade</IonLabel>
-                <Input nome={`qtd-${item.slug}`} />
+                <IonButton onClick={() => dispatch(addToCart(item.id))}>
+                  Add to Cart
+                </IonButton>
               </IonItem>
               {item.adicionais?.length && (
                 <div>
