@@ -12,8 +12,9 @@ import Input from "./forms/Input";
 import { addToCart } from "../features/cart/CartSlice";
 import { useAppDispatch } from "../app/hooks";
 
-const Produtos = ({ componentes }: ISmp) => {
+const Produtos = ({ id, componentes }: ISmp) => {
   const dispatch = useAppDispatch();
+  console.log(componentes, id);
 
   const handleChange = (event: any) => {
     console.log(event);
@@ -23,8 +24,8 @@ const Produtos = ({ componentes }: ISmp) => {
     <>
       {componentes.map(
         (item) =>
-          item.tipoConexao === "" && (
-            <div key={item.id}>
+          item.tipoConexao === "rotacionalAntiRotacional" && (
+            <div key={item.id} id={item.id}>
               <div>
                 <img
                   src={`/assets/images/proteses/${item.imagem}.png`}
@@ -39,11 +40,15 @@ const Produtos = ({ componentes }: ISmp) => {
                   options={item.caracteristicas.map((item) => item.opcoes)}
                   key={`altura-${item.slug}`}
                 />
-                <IonItem>
-                  <IonButton onClick={() => dispatch(addToCart(item.id))}>
-                    Add to Cart
-                  </IonButton>
-                </IonItem>
+                {item.caracteristicas.map((item) =>
+                  item.opcoes.map((item: any) => (
+                    <IonItem>
+                      <IonButton onClick={() => dispatch(addToCart(item.id))}>
+                        Add to Cart
+                      </IonButton>
+                    </IonItem>
+                  ))
+                )}
               </div>
             </div>
           )
@@ -74,6 +79,13 @@ const Produtos = ({ componentes }: ISmp) => {
                           options={item.opcoes}
                           key={`altura-${item.id}`}
                         />
+                        <IonItem>
+                          <IonButton
+                            onClick={() => dispatch(addToCart(item.id))}
+                          >
+                            Add to Cart
+                          </IonButton>
+                        </IonItem>
                       </div>
                     ) : (
                       <div>
@@ -86,16 +98,18 @@ const Produtos = ({ componentes }: ISmp) => {
                           options={item.opcoes}
                           key={`altura-${item.id}`}
                         />
+                        <IonItem>
+                          <IonButton
+                            onClick={() => dispatch(addToCart(item.id))}
+                          >
+                            Add to Cart
+                          </IonButton>
+                        </IonItem>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-              <IonItem>
-                <IonButton onClick={() => dispatch(addToCart(item.id))}>
-                  Add to Cart
-                </IonButton>
-              </IonItem>
             </div>
           )
       )}
@@ -104,6 +118,7 @@ const Produtos = ({ componentes }: ISmp) => {
         (item) =>
           item.tipoConexao === "rotacionalAntiRotacional" && (
             <div key={item.id}>
+              testeeeeee
               <div>
                 <img
                   src={`/assets/images/proteses/${item.imagem}.png`}
@@ -125,6 +140,13 @@ const Produtos = ({ componentes }: ISmp) => {
                           options={item.opcoes}
                           key={`altura-${item.id}`}
                         />
+                        <IonItem>
+                          <IonButton
+                            onClick={() => dispatch(addToCart(item.id))}
+                          >
+                            Add to Cart
+                          </IonButton>
+                        </IonItem>
                       </div>
                     ) : (
                       <div>
@@ -137,16 +159,18 @@ const Produtos = ({ componentes }: ISmp) => {
                           options={item.opcoes}
                           key={`altura-${item.id}`}
                         />
+                        <IonItem>
+                          <IonButton
+                            onClick={() => dispatch(addToCart(item.id))}
+                          >
+                            Add to Cart
+                          </IonButton>
+                        </IonItem>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-              <IonItem>
-                <IonButton onClick={() => dispatch(addToCart(item.id))}>
-                  Add to Cart
-                </IonButton>
-              </IonItem>
               {item.adicionais?.length && (
                 <div>
                   {item.adicionais?.map((item) => (

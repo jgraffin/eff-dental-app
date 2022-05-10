@@ -12,9 +12,6 @@ import {
   IonSelectOption,
   IonItemGroup,
   IonToggle,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
 import React, { useRef } from "react";
 import { Form } from "@unform/web";
@@ -22,7 +19,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { RootState } from "../app/store";
-import { getNumItems, getMemoizedNumItems } from "../features/cart/CartSlice";
 import {
   selectAllItems,
   fetchPosts,
@@ -34,12 +30,9 @@ import Fields from "./forms/fields";
 import Input from "./forms/Input";
 import { Scope } from "@unform/core";
 import Produtos from "./Produtos";
-import { Link } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
 
 const List = () => {
   let history = useHistory();
-  const numItems = useAppSelector(getMemoizedNumItems);
   const dispatch = useDispatch();
   const store = useSelector(selectAllItems);
   const postStatus = useSelector((state: RootState) => state.teeth.status);
@@ -70,96 +63,81 @@ const List = () => {
   }, [postStatus, dispatch]);
 
   return (
-    <>
-      <IonHeader className="ion-no-border">
-        <IonToolbar>
-          <IonButton onClick={history.goBack}>Voltar</IonButton>
-          <Link
-            to={{
-              pathname: `/cart`,
-            }}
-          >
-            🛒 {numItems ? numItems : "Cart"}
-          </Link>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <Form ref={formRef} onSubmit={handleFormSubmit}>
-          <WrapperComponents>
-            {postStatus === "loading" && (
-              <IonSpinner className="loading" name="crescent" color="primary" />
-            )}
+    <IonContent>
+      <IonButton onClick={history.goBack}>Voltar</IonButton>
 
-            <IonGrid>
-              <IonRow className="table-head">
-                <IonCol className="ion-no-padding" size="2">
-                  Dente
-                </IonCol>
-                <IonCol className="ion-no-padding" size="2">
-                  Família
-                  <div className="filter-button">
-                    <IonLabel color={cimentado ? "dark" : "light"}>
-                      {cimentado ? "cimentado" : "parafusado"}
-                    </IonLabel>
-                    <IonToggle
-                      color="dark"
-                      value={cimentado ? "cimentado" : "parafusado"}
-                      onIonChange={onScrewToggle}
-                    />
-                  </div>
-                </IonCol>
-              </IonRow>
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
+        <WrapperComponents>
+          {postStatus === "loading" && (
+            <IonSpinner className="loading" name="crescent" color="primary" />
+          )}
 
-              {postStatus === "succeeded" &&
-                store
-                  .filter(
-                    (item: TeethType) =>
-                      (item.selecionado && item.marca !== "") ?? true
+          <IonGrid>
+            <IonRow className="table-head">
+              <IonCol className="ion-no-padding" size="2">
+                Dente
+              </IonCol>
+              <IonCol className="ion-no-padding" size="2">
+                Família
+                <div className="filter-button">
+                  <IonLabel color={cimentado ? "dark" : "light"}>
+                    {cimentado ? "cimentado" : "parafusado"}
+                  </IonLabel>
+                  <IonToggle
+                    color="dark"
+                    value={cimentado ? "cimentado" : "parafusado"}
+                    onIonChange={onScrewToggle}
+                  />
+                </div>
+              </IonCol>
+            </IonRow>
+
+            {postStatus === "succeeded" &&
+              store.map(
+                (item: TeethType) =>
+                  item.selecionado && (
+                    <IonRow
+                      className="table-row"
+                      ref={denteRef}
+                      key={item.dente}
+                      id={item.dente}
+                    >
+                      <IonCol className="ion-no-padding" size="2">
+                        <div>
+                          <h2>{item.dente}</h2>
+                        </div>
+                      </IonCol>
+                      <IonCol className="ion-no-padding" size="2">
+                        <div>
+                          <h2>{item.familia}</h2>
+                          <strong>Componentes</strong>
+                          <ul>
+                            {Smp.map(
+                              (val) =>
+                                val.familia === item.familia && (
+                                  <Produtos
+                                    key={val.id}
+                                    id={currentItem}
+                                    componentes={val.componentes}
+                                  />
+                                )
+                            )}
+                          </ul>
+                        </div>
+                        <div>
+                          <IonButton color="dark">Selecionar</IonButton>
+                        </div>
+                      </IonCol>
+                    </IonRow>
                   )
-                  .map((item: any) => (
-                    <Scope path={item.dente} key={item.dente}>
-                      <IonRow
-                        className="table-row"
-                        ref={denteRef}
-                        key={item.dente}
-                        id={item.dente}
-                      >
-                        <IonCol className="ion-no-padding" size="2">
-                          <div>
-                            <h2>{item.dente}</h2>
-                          </div>
-                        </IonCol>
-                        <IonCol className="ion-no-padding" size="2">
-                          <div>
-                            <h2>{item.familia}</h2>
-                            <strong>Componentes</strong>
-                            <ul>
-                              {Smp.filter(
-                                (val) => val.familia === item.familia ?? true
-                              ).map((item) => (
-                                <Produtos
-                                  key={item.id}
-                                  id={currentItem}
-                                  componentes={item.componentes}
-                                />
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <IonButton color="dark">Selecionar</IonButton>
-                          </div>
-                        </IonCol>
-                      </IonRow>
-                    </Scope>
-                  ))}
-            </IonGrid>
+              )}
+          </IonGrid>
 
-            {postStatus === "error" && error}
-          </WrapperComponents>
-          <IonButton type="submit">submit</IonButton>
-        </Form>
-      </IonContent>
-    </>
+          {postStatus === "error" && error}
+        </WrapperComponents>
+        <IonButton type="submit">submit</IonButton>
+      </Form>
+    </IonContent>
   );
 };
 

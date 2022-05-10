@@ -29,6 +29,7 @@ export interface ISmp {
       id: string;
       tipoConexao?: string;
       opcoes: Array<{
+        id?: string;
         value?: string;
         label?: string;
         sku?: string;
@@ -460,11 +461,11 @@ const Smp: ISmp[] = [
     componentes: [
       {
         id: "0",
-        nome: "Munhão Provisório",
+        nome: "Munhão Provisório blah",
         slug: "munhao-provisorio",
         imagem: "munhao-provisorio-a31",
         cimentado: false,
-        tipoConexao: "rotacionalAntiRotacional",
+        tipoConexao: "",
         caracteristicas: [
           {
             id: "0",
@@ -555,7 +556,7 @@ const Smp: ISmp[] = [
   },
   {
     id: "1",
-    familia: "K3.1",
+    familia: "K3.2",
     componentes: [
       {
         id: "0",

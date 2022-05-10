@@ -1,0 +1,154 @@
+[
+  {
+    "id": "0",
+    "familia": "A3.1",
+    "componentes": [
+      {
+        "id": "0",
+        "nome": "Munhão Provisório",
+        "slug": "munhao-provisorio",
+        "imagem": "munhao-provisorio-a31",
+        "cimentado": false,
+        "tipoConexao": "rotacionalAntiRotacional",
+        "caracteristicas": [
+          {
+            "id": "0",
+            "tipoConexao": "Anti Rotacional",
+            "opcoes": [
+              {
+                "label": "405.05A.1h0.8mm",
+                "sku": "405.05A.1h0.8mm"
+              },
+              {
+                "label": "405.05A.2h1.5mm",
+                "sku": "405.05A.2h1.5mm"
+              },
+              {
+                "label": "405.05A.3h2.5mm",
+                "sku": "405.05A.3h2.5mm"
+              },
+              {
+                "label": "405.05A.4h3.5mm",
+                "sku": "405.05A.4h3.5mm"
+              }
+            ]
+          },
+          {
+            "id": "1",
+            "tipoConexao": "Rotacional",
+            "opcoes": [
+              {
+                "label": "405.05B.1h0.8mm",
+                "sku": "405.05B.1h0.8mm"
+              },
+              {
+                "label": "405.05B.2h1.5mm",
+                "sku": "405.05B.2h1.5mm"
+              },
+              {
+                "label": "405.05B.3h2.5mm",
+                "sku": "405.05B.3h2.5mm"
+              },
+              {
+                "label": "405.05B.4h3.5mm",
+                "sku": "405.05B.4h3.5mm"
+              }
+            ]
+          }
+        ],
+        "adicionais": [
+          {
+            "tipoConexao": "h.0.80/1.50/2.50mm",
+            "imagem": "",
+            "sku": "2103.22A"
+          },
+          {
+            "tipoConexao": "h.3.50/4.50mm",
+            "sku": "2103.22A.1"
+          }
+        ]
+      },
+      {
+        "id": "1",
+        "nome": "Cicatrizador",
+        "slug": "cicatrizador",
+        "imagem": "cicatrizador",
+        "torque": "",
+        "cimentado": false,
+        "tipoConexao": "",
+        "caracteristicas": [
+          {
+            "id": "0",
+            "opcoes": [
+              {
+                "label": "105.15A 3.0mm",
+                "sku": "105.15A 3.0mm"
+              },
+              {
+                "label": "105.15B 5.0mm",
+                "sku": "105.15B 5.0mm"
+              },
+              {
+                "label": "105.15C 7.0mm",
+                "sku": "105.15C 7.0mm"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "familia": "K3.2",
+    "componentes": [
+      {
+        "id": "0",
+        "nome": "Tapa Implante",
+        "slug": "tapa-implante",
+        "imagem": "tapa-implante",
+        "cimentado": false,
+        "tipoConexao": "",
+        "caracteristicas": [
+          {
+            "id": "0",
+            "opcoes": [
+              {
+                "label": "155.15",
+                "sku": "155.15"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1",
+        "nome": "Cicatrizador",
+        "slug": "cicatrizador",
+        "imagem": "cicatrizador",
+        "torque": "",
+        "cimentado": false,
+        "tipoConexao": "",
+        "caracteristicas": [
+          {
+            "id": "0",
+            "opcoes": [
+              {
+                "label": "105.15A 3.0mm",
+                "sku": "105.15A 3.0mm"
+              },
+              {
+                "label": "105.15B 5.0mm",
+                "sku": "105.15B 5.0mm"
+              },
+              {
+                "label": "105.15C 7.0mm",
+                "sku": "105.15C 7.0mm"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

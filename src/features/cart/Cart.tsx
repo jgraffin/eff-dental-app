@@ -14,9 +14,9 @@ import { getMemoizedNumItems } from "./CartSlice";
 const Cart = () => {
   let history = useHistory();
   const numItems = useAppSelector(getMemoizedNumItems);
-  const products = useSelector((state: RootState) => state.teeth.items);
+  const products = useSelector((state: RootState) => state.products.products);
   const items = useAppSelector((state) => state.cart.items);
-  console.log(products);
+
   return (
     <>
       <IonHeader className="ion-no-border">
@@ -26,11 +26,14 @@ const Cart = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <h2>Shopping Cart</h2>
         <ul>
           {Object.entries(items).map(([id, quantity]: any) => (
             <li>
-              <strong>{products[id].marca}</strong>
+              <strong>{products[id].nome}</strong>
+
               <br />
+
               <IonInput type="text" value={quantity}></IonInput>
             </li>
           ))}

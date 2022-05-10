@@ -41,8 +41,6 @@ export function getNumItems(state: RootState) {
 export const getMemoizedNumItems: any = createSelector(
   (state: RootState) => state.cart.items,
   (items) => {
-    console.log("calling getMemoizedNumItems");
-
     let numItems = 0;
     for (let id in items) {
       numItems += items[id];

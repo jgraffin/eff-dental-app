@@ -163,7 +163,7 @@ export const TeethList = () => {
           <Link
             className={`ion-activatable ripple-parent `}
             to={{
-              pathname: `/list`,
+              pathname: `/products`,
             }}
           >
             CONTINUAR

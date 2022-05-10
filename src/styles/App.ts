@@ -188,7 +188,7 @@ export const WrapperComponents = styled.div`
       }
 
       &.table-row {
-        align-items: center;
+        align-items: flex-start;
       }
 
       ion-col {
