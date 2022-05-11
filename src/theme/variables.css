@@ -291,6 +291,17 @@
   }
 }
 
+.svgIcon path,
+.svgIcon {
+  color: white;
+  fill: white;
+  stroke: white;
+}
+
+.svgIcon {
+  width: 20px;
+}
+
 html.ios,
 html.md {
   --ion-default-font: var(--font-family-regular);

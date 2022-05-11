@@ -48,7 +48,6 @@ const Products = () => {
   }, [dispatch]);
 
   const products = useAppSelector((state) => state.products.products);
-  console.log(products);
 
   return (
     <>
@@ -116,42 +115,14 @@ const Products = () => {
                                 (val: any) =>
                                   val.familia === itemLevel1.familia ?? true
                               )
-                              .map(
-                                (itemLevel2: any) =>
-                                  itemLevel2.tipoConexao === "" && (
-                                    <div
-                                      key={itemLevel2.id}
-                                      style={{
-                                        background: "#dadada",
-                                        marginBottom: "4px",
-                                      }}
-                                    >
-                                      <strong>{itemLevel2.nome}</strong>
-                                      <br />
-                                      <strong>
-                                        Familia = {itemLevel2.familia}
-                                      </strong>
-
-                                      <h4>CARACTERISTICAS</h4>
-                                      {itemLevel2.caracteristicas.map(
-                                        (itemLevel3: any) =>
-                                          itemLevel3.opcoes.map(
-                                            (itemLevel4: any) => (
-                                              <p>{itemLevel4.sku}</p>
-                                            )
-                                          )
-                                      )}
-
-                                      <IonButton
-                                        onClick={() =>
-                                          dispatch(addToCart(itemLevel2.id))
-                                        }
-                                      >
-                                        Add to Cart
-                                      </IonButton>
-                                    </div>
-                                  )
-                              )}
+                              .map((itemLevel2: any) => (
+                                <Produtos
+                                  tipoConexao={itemLevel2.tipoConexao}
+                                  id={itemLevel2.id}
+                                  nome={itemLevel2.nome}
+                                  caracteristicas={itemLevel2.caracteristicas}
+                                />
+                              ))}
                           </div>
                         </div>
                       </IonCol>
