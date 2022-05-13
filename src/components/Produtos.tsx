@@ -5,7 +5,7 @@ import {
   IonSelect,
   IonSelectOption,
 } from "@ionic/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactSelect from "react-select";
 import { ISmp } from "../mock/manualSpecifications";
 import Input from "./forms/Input";
@@ -13,18 +13,36 @@ import { addToCart, getSelectedValues } from "../features/cart/CartSlice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { useDispatch } from "react-redux";
 import { mdiCart } from "@mdi/js";
+import { SuccessAdded, WrapperButtonAddToCart } from "../styles/App";
 
 const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
+  const [successAdded, setSuccessAdded] = useState(false);
+
+  useEffect(() => {
+    console.log(sku);
+  }, [sku]);
 
   function onAddingToCart() {
     dispatch(addToCart(id));
     dispatch(getSelectedValues(sku));
+    setSku("");
+    setSuccessAdded(true);
+
+    setTimeout(() => {
+      setSuccessAdded(false);
+    }, 1500);
   }
 
   return (
     <>
+      {successAdded && (
+        <SuccessAdded>
+          <p>Item adicionado!</p>
+        </SuccessAdded>
+      )}
+
       {tipoConexao === "" && (
         <div
           key={id}
@@ -59,7 +77,11 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
           ))}
 
           {sku && (
-            <IonButton onClick={onAddingToCart}>Adicionar {sku}</IonButton>
+            <WrapperButtonAddToCart>
+              <IonButton className="add-button" onClick={onAddingToCart}>
+                Adicionar {sku}
+              </IonButton>
+            </WrapperButtonAddToCart>
           )}
         </div>
       )}
@@ -119,7 +141,11 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
           ))}
 
           {sku && (
-            <IonButton onClick={onAddingToCart}>Adicionar {sku}</IonButton>
+            <WrapperButtonAddToCart>
+              <IonButton className="add-button" onClick={onAddingToCart}>
+                Adicionar {sku}
+              </IonButton>
+            </WrapperButtonAddToCart>
           )}
         </div>
       )}
@@ -179,7 +205,11 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
           ))}
 
           {sku && (
-            <IonButton onClick={onAddingToCart}>Adicionar {sku}</IonButton>
+            <WrapperButtonAddToCart>
+              <IonButton className="add-button" onClick={onAddingToCart}>
+                Adicionar {sku}
+              </IonButton>
+            </WrapperButtonAddToCart>
           )}
         </div>
       )}

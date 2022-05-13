@@ -9,6 +9,17 @@ const fadein = keyframes`
   }
 `;
 
+const slideinAdd = keyframes`
+  from {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
 const rotate = keyframes`
   from {
     transform: rotate(0);
@@ -498,6 +509,44 @@ export const WrapperComponents = styled.div`
 
   .select-action {
     z-index: 10;
+  }
+`;
+
+export const WrapperButtonAddToCart = styled.div`
+  align-items: center;
+  animation: ${slideinAdd} ease-in-out 0.4s forwards;
+  background-color: var(--ion-color-success);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  bottom: 0;
+  box-shadow: 0 0 28px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+
+  .add-button {
+  }
+`;
+
+export const SuccessAdded = styled.div`
+  background: var(--ion-color-success);
+  left: 50%;
+  padding: 0.5rem;
+  margin-left: -45%;
+  position: fixed;
+  text-align: center;
+  bottom: 20%;
+  width: 90%;
+  z-index: 99;
+  border-radius: 10px;
+
+  p {
+    font-family: var(--font-family-bold);
+    font-size: 1rem;
   }
 `;
 
