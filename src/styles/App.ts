@@ -508,7 +508,7 @@ export const List = styled.div`
   box-shadow: 0 15px 47px 0 rgba(127, 127, 255, 0.14);
   display: block;
   height: 325px;
-  margin: 3rem 0 0 1rem;
+  margin: 0 0 0 1rem;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 1rem 0 1rem;

@@ -74,12 +74,12 @@
   --ion-color-warning-tint: #ffca22;
 
   /** danger **/
-  --ion-color-danger: #eb445a;
-  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger: #e74c3c;
+  --ion-color-danger-rgb: 231, 76, 60;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #cf3c4f;
-  --ion-color-danger-tint: #ed576b;
+  --ion-color-danger-shade: #cb4335;
+  --ion-color-danger-tint: #e95e50;
 
   /** dark **/
   --ion-color-dark: #111111;
@@ -302,6 +302,34 @@
   width: 20px;
 }
 
+.header-actions {
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.header-actions-cart {
+  align-items: center;
+  border-radius: 90px;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  position: relative;
+  width: 3rem;
+}
+
+.header-actions-cart span {
+  background: var(--ion-color-danger);
+  border-radius: 90px;
+  color: var(--ion-color-light-contrast);
+  font-family: var(--font-family-bold);
+  font-size: 0.6rem;
+  min-width: 1rem;
+  padding: 0.1rem 0.4rem;
+  position: absolute;
+  right: 1.6rem;
+  top: 0.4rem;
+}
+
 html.ios,
 html.md {
   --ion-default-font: var(--font-family-regular);
@@ -326,10 +354,6 @@ html.md {
   font-size: 12px;
   white-space: inherit;
 }
-
-/* .item-interactive.item-has-focus {
-  --highlight-background: var(--ion-color-secondary-contrast);
-} */
 
 .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating,
 .item-label {
@@ -404,8 +428,23 @@ ion-checkbox[aria-checked="false"] {
   --ion-background-color: #f4f4f4;
 }
 
+ion-header.home-header ion-toolbar:first-child {
+  border-bottom: 1px dashed var(--ion-color-light);
+}
+
+ion-header ion-toolbar:last-child {
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+ion-title {
+  font-family: var(--font-family-bold);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 ion-footer {
-  padding: 2rem;
+  padding: 0 0 2rem 0;
 }
 
 ion-button {

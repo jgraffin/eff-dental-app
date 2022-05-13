@@ -1,32 +1,34 @@
 import {
-  IonButton,
+  IonBackButton,
+  IonButtons,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
-  IonItem,
-  IonLabel,
+  IonRippleEffect,
   IonRow,
   IonSpinner,
-  IonToggle,
+  IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getProducts } from "../../app/api";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import store, { RootState } from "../../app/store";
-import Produtos from "../../components/Produtos";
-import { Smp } from "../../mock/manualSpecifications";
+import { RootState } from "../../app/store";
 import { WrapperComponents } from "../../styles/App";
-import { addToCart, getMemoizedNumItems } from "../cart/CartSlice";
+import { getMemoizedNumItems } from "../cart/CartSlice";
 import { selectAllItems, TeethType } from "../teeth/teethSlice";
 import { receivedProducts } from "./ProductsSlice";
+import { LogoWrapper } from "./Styles";
+
+import Cart from "../../images/cart-outline.svg";
+import Logo from "../../images/logo.png";
+import Produtos from "../../components/Produtos";
 
 const Products = () => {
-  let history = useHistory();
-  const numItems = useAppSelector(getMemoizedNumItems);
+  const numItems = useAppSelector<string>(getMemoizedNumItems);
   const dispatch = useAppDispatch();
   const store = useSelector(selectAllItems);
 
@@ -51,22 +53,34 @@ const Products = () => {
 
   return (
     <>
-      <IonHeader className="ion-no-border">
+      <IonHeader className="">
         <IonToolbar>
-          <IonButton onClick={history.goBack}>Voltar</IonButton>
-          <Link
-            style={{ position: "absolute", right: "0", margin: "1rem" }}
-            to={{
-              pathname: `/cart`,
-            }}
-          >
-            🛒 {numItems ? numItems : "Cart"}
-          </Link>
+          <IonButtons className="header-actions">
+            <IonBackButton defaultHref="/" />
+            <LogoWrapper>
+              <img src={Logo} alt="Eff Dental" />
+            </LogoWrapper>
+            <Link
+              className="header-actions-cart"
+              to={{
+                pathname: `/cart`,
+              }}
+            >
+              <img src={Cart} alt="Cart Shopping" />
+              {numItems ? <span>{numItems}</span> : ""}
+              <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
+            </Link>
+          </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
+          <IonTitle>
+            Selecione a(s) família(s) correspondente(s)
+            <br />e escolha o componente desejado
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <h2>Products</h2>
 
+      <IonContent>
         <WrapperComponents>
           {postStatus === "loading" && (
             <IonSpinner className="loading" name="crescent" color="primary" />

@@ -1,15 +1,21 @@
 import {
+  IonBackButton,
   IonButton,
+  IonButtons,
   IonContent,
   IonFooter,
+  IonHeader,
   IonRippleEffect,
   IonSpinner,
+  IonTitle,
+  IonToolbar,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../../app/store";
 import { List, NextButton } from "../../styles/App";
+import { LogoWrapper } from "../products/Styles";
 
 import {
   fetchPosts,
@@ -19,6 +25,8 @@ import {
 } from "../teeth/teethSlice";
 
 import { Wrapper } from "./Styles";
+
+import Logo from "../../images/logo.png";
 
 export const Tooth = ({ post }: TeethType | any) => {
   return (
@@ -134,6 +142,21 @@ export const TeethList = () => {
 
   return (
     <>
+      <IonHeader className="ion-no-border home-header">
+        <IonToolbar>
+          <LogoWrapper>
+            <img src={Logo} alt="Eff Dental" />
+          </LogoWrapper>
+        </IonToolbar>
+        <IonToolbar>
+          <IonTitle>
+            Marque abaixo a região
+            <br />
+            do implante
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
       <IonContent>
         <Wrapper>
           <List
@@ -141,7 +164,7 @@ export const TeethList = () => {
               hasUnionBottomLine ? "has-union-bottom-items" : ""
             }`}
           >
-            {itemSelectedList && (
+            {/* {itemSelectedList && (
               <IonButton
                 className="button-remove"
                 expand="block"
@@ -151,7 +174,7 @@ export const TeethList = () => {
               >
                 Desmarcar todos
               </IonButton>
-            )}
+            )} */}
             <ul className="tooth-list">{content}</ul>
           </List>
         </Wrapper>
