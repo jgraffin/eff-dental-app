@@ -39,9 +39,9 @@ const Cart = () => {
       <IonContent>
         <h2>Shopping Cart</h2>
         <ul>
-          {Object.entries(items).map(([id, quantity, value]: any) => (
+          {Object.entries(items).map(([id, quantity]: any) => (
             <li>
-              <strong>{products[id].nome}</strong>
+              <strong>Nome: {products[id].nome}</strong>
 
               <br />
 

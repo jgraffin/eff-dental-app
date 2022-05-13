@@ -3,32 +3,38 @@ import { RootState } from "../../app/store";
 
 export interface CartState {
   items: {
-    [productID: string]: number;
+    [id: string]: number;
   };
+  values: [];
 }
 
 const initialState: CartState = {
   items: {},
+  values: [],
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action: PayloadAction<string>) {
+    addToCart(state: RootState, action: PayloadAction<string>) {
       const id = action.payload;
-      console.log(id);
       if (state.items[id]) {
         state.items[id]++;
       } else {
         state.items[id] = 1;
       }
     },
-    removeFromCart(state, action: PayloadAction<string>) {
+    getSelectedValues(state: RootState, action: PayloadAction<string>) {
+      const value = action.payload;
+      console.log(value);
+      state.values.push(value);
+    },
+    removeFromCart(state: RootState, action: PayloadAction<string>) {
       delete state.items[action.payload];
     },
     updateQuantity(
-      state,
+      state: RootState,
       action: PayloadAction<{ id: string; quantity: number }>
     ) {
       const { id, quantity } = action.payload;
@@ -37,7 +43,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+export const { addToCart, getSelectedValues, removeFromCart, updateQuantity } =
+  cartSlice.actions;
 export default cartSlice.reducer;
 
 export function getNumItems(state: RootState) {

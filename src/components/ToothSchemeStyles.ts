@@ -9,15 +9,6 @@ const fadein = keyframes`
   }
 `;
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(25deg);
-  }
-`;
-
 export const ToothSchemeWrapper = styled.div`
   .tooth-scheme {
     align-items: center;
@@ -32,17 +23,17 @@ export const ToothSchemeWrapper = styled.div`
     height: 122px;
     justify-content: center;
     position: relative;
-    width: 82px;
+    width: 70px;
 
     &::after {
-      background-color: #7575f8;
+      background-color: var(--ion-color-primary);
       border-radius: 90px;
       bottom: 10px;
       content: "";
       height: 4px;
       opacity: 0;
       position: absolute;
-      transition: ease-in-out 0.6s;
+      transition: ease-in-out 0.4s;
       width: 0;
       left: 50%;
       margin-left: -25px;
@@ -58,7 +49,7 @@ export const ToothSchemeWrapper = styled.div`
     }
 
     &__number {
-      color: #7575f8;
+      color: var(--ion-color-primary);
       font-family: var(--font-family-bold);
     }
 
@@ -72,18 +63,8 @@ export const ToothSchemeWrapper = styled.div`
           content: "";
           height: 2.2rem;
           position: absolute;
-          transition: ease-in-out 0.6s;
+          transition: ease-in-out 0.2s;
           width: 1rem;
-        }
-      }
-    }
-
-    &.unfavorable {
-      &.has-implant {
-        .tooth-scheme__image {
-          &::before {
-            animation: ${rotate} ease-in-out 0.6s forwards;
-          }
         }
       }
     }
@@ -116,7 +97,8 @@ export const ToothSchemeWrapper = styled.div`
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
-              left: 0.65rem;
+              left: 0.2rem;
+              transform: rotate(-18deg);
             }
           }
         }
@@ -140,7 +122,8 @@ export const ToothSchemeWrapper = styled.div`
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
-              left: 0.65rem;
+              left: 0;
+              transform: rotate(-28deg);
             }
           }
         }
@@ -595,7 +578,7 @@ export const ToothSchemeWrapper = styled.div`
       &.has-implant {
         .tooth-scheme__image {
           &::before {
-            top: 18px;
+            top: 20px;
             left: 0.45rem;
           }
         }
@@ -604,8 +587,8 @@ export const ToothSchemeWrapper = styled.div`
       &.unfavorable {
         .tooth-scheme__image {
           &::before {
-            top: 18px;
-            left: 0.2rem;
+            left: 0.25rem;
+            transform: rotate(20deg);
           }
         }
       }

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../../app/store";
-import { NextButton } from "../../styles/App";
+import { List, NextButton } from "../../styles/App";
 
 import {
   fetchPosts,
@@ -18,9 +18,9 @@ import {
   TeethType,
 } from "../teeth/teethSlice";
 
-import { List, Wrapper } from "./Styles";
+import { Wrapper } from "./Styles";
 
-const Tooth = ({ post }: TeethType | any) => {
+export const Tooth = ({ post }: TeethType | any) => {
   return (
     <li
       className={`tooth-list__item tooth-list__item--${post.dente} 

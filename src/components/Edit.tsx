@@ -5,8 +5,8 @@ import {
   IonLabel,
   IonSelect,
   IonSelectOption,
-  IonCheckbox,
   IonButton,
+  IonToggle,
 } from "@ionic/react";
 import { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,7 +36,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [dente] = useState(data.dente);
   const [selecionado] = useState(data.selecionado);
 
-  const dataImplanteRef = useRef(null);
+  const implanteRef = useRef<any>(null);
+  const plataformaRef = useRef<any>(null);
   const familiaRef = useRef<any>(null);
 
   const dispatch = useDispatch();
@@ -52,15 +53,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     setMarca(field.value);
   };
 
-  const onPlatformChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
-    setPlataforma(field.value);
-
-    if (familiaRef.current) {
-      setFamilia(familiaRef.current.innerText);
-    }
-  };
-
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.detail as HTMLIonCheckboxElement;
     setPosicao(field.checked);
@@ -68,6 +60,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 
   const onUnionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
     const field = event.detail as HTMLIonCheckboxElement;
+    console.log(event);
     setUniaoImplante(field.checked);
   };
 
@@ -76,15 +69,23 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   ) => {
     const field = event.target as HTMLSelectElement;
     setEspecificacao(field.value);
-  };
 
-  const onImplantChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.target as HTMLSelectElement;
-    setImplante(field.value);
+    if (implanteRef.current && plataformaRef.current && familiaRef.current) {
+      setImplante(implanteRef.current.innerText);
+      setPlataforma(plataformaRef.current.innerText);
+      setFamilia(familiaRef.current.innerText);
+    }
   };
 
   const onSaveEdit = () => {
-    if (catalogo && marca && familia && plataforma) {
+    if (
+      catalogo &&
+      marca &&
+      especificacao &&
+      implante &&
+      plataforma &&
+      familia
+    ) {
       dispatch(
         itemUpdated({
           id: id,
@@ -101,6 +102,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         })
       );
       history.push(`/`);
+    } else {
+      alert("Preencha os campos obrigatórios");
     }
   };
 
@@ -125,9 +128,8 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   useEffect(() => {
     setCatalogo(catalogo);
     setMarca(marca);
-    console.log("catalogo", catalogo);
-    console.log("marca", marca);
-  }, [catalogo, marca]);
+    console.log(uniaoImplante);
+  }, [catalogo, marca, uniaoImplante]);
 
   return (
     <Modal>
@@ -245,47 +247,35 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                     item.marca === marca &&
                     item.manual.map(
                       (item) =>
-                        item.especificacao === especificacao && (
-                          <IonItem key={item.id}>
-                            <IonLabel position="floating">Implante</IonLabel>
-                            <IonSelect
-                              value={implante}
-                              placeholder="Selecione"
-                              onIonChange={onImplantChanged}
-                            >
-                              {Catalogos.map(
-                                (item) =>
-                                  item.name === catalogo &&
-                                  item.opcoes.map(
-                                    (item) =>
-                                      item.marca === marca &&
-                                      item.manual
-                                        .filter(
-                                          (val) =>
-                                            val.especificacao ===
-                                              especificacao ?? true
-                                        )
-                                        .map((item) =>
-                                          item.implante !== "Undefined" ? (
-                                            <IonSelectOption
-                                              key={item.id}
-                                              value={item.implante}
-                                            >
-                                              {item.implante}
-                                            </IonSelectOption>
-                                          ) : (
-                                            <IonSelectOption
-                                              key={item.id}
-                                              value={item.implante}
-                                            >
-                                              Não Possui
-                                            </IonSelectOption>
-                                          )
-                                        )
+                        item.especificacao === especificacao &&
+                        Catalogos.map(
+                          (item) =>
+                            item.name === catalogo &&
+                            item.opcoes.map(
+                              (item) =>
+                                item.marca === marca &&
+                                item.manual
+                                  .filter(
+                                    (val) =>
+                                      val.especificacao === especificacao ??
+                                      true
                                   )
-                              )}
-                            </IonSelect>
-                          </IonItem>
+                                  .map((item) =>
+                                    item.implante !== "Undefined" ? (
+                                      <>
+                                        <strong>Implante</strong>
+                                        <h2 key={item.id} ref={implanteRef}>
+                                          {item.implante}
+                                        </h2>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <strong>Implante</strong>
+                                        <h2 key={item.id}>Não Possui</h2>
+                                      </>
+                                    )
+                                  )
+                            )
                         )
                     )
                 )
@@ -297,78 +287,59 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 item.opcoes.map(
                   (item) =>
                     item.marca === marca &&
-                    item.manual
-                      .filter((val) => {
-                        if (
-                          val.especificacao === especificacao &&
-                          val.implante === implante
-                        ) {
-                          return true;
-                        }
-                        return false;
-                      })
-                      .map((item) => (
-                        <IonItem key={item.id}>
-                          <IonLabel position="floating">
-                            Plataforma Protética
-                          </IonLabel>
-                          <IonSelect
-                            value={plataforma}
-                            placeholder="Selecione"
-                            onIonChange={onPlatformChanged}
-                          >
-                            {Catalogos.map(
+                    item.manual.map(
+                      (item) =>
+                        item.especificacao === especificacao &&
+                        Catalogos.map(
+                          (item) =>
+                            item.name === catalogo &&
+                            item.opcoes.map(
                               (item) =>
-                                item.name === catalogo &&
-                                item.opcoes.map(
-                                  (item) =>
-                                    item.marca === marca &&
-                                    item.manual
-                                      .filter(
-                                        (val) =>
-                                          (val.implante === implante &&
-                                            val.especificacao ===
-                                              especificacao) ??
-                                          true
-                                      )
-                                      .map((item) => (
-                                        <IonSelectOption
-                                          key={item.id}
-                                          value={item.plataforma}
-                                        >
-                                          {item.plataforma}
-                                        </IonSelectOption>
-                                      ))
-                                )
-                            )}
-                          </IonSelect>
-                        </IonItem>
-                      ))
+                                item.marca === marca &&
+                                item.manual
+                                  .filter(
+                                    (val) =>
+                                      val.especificacao === especificacao ??
+                                      true
+                                  )
+                                  .map((item) => (
+                                    <>
+                                      <strong>Plataforma</strong>
+                                      <h2 key={item.id} ref={plataformaRef}>
+                                        {item.plataforma}
+                                      </h2>
+                                    </>
+                                  ))
+                            )
+                        )
+                    )
                 )
             )}
 
             {catalogo && marca && especificacao && implante && plataforma && (
               <>
                 <IonItem>
-                  <IonLabel>{posicao ? "Desfavorável" : "Favorável"}</IonLabel>
-                  <IonCheckbox
+                  <IonLabel>Desfavorável</IonLabel>
+                  <IonToggle
+                    color="primary"
                     value={posicao}
                     checked={posicao}
                     onIonChange={onPositionChanged}
-                    slot="end"
-                    color="primary"
                   />
+                  <span className="toggle-text">{posicao ? "Sim" : "Não"}</span>
                 </IonItem>
 
                 <IonItem>
-                  <IonLabel>{uniaoImplante ? "Múltiplo" : "Unitário"}</IonLabel>
-                  <IonCheckbox
+                  <IonLabel>Múltiplo</IonLabel>
+                  <IonToggle
+                    color="primary"
                     value={uniaoImplante}
                     checked={uniaoImplante}
                     onIonChange={onUnionChanged}
-                    slot="end"
-                    color="primary"
                   />
+                  <span className="toggle-text">
+                    {uniaoImplante ? "Sim" : "Não"}
+                  </span>
                 </IonItem>
               </>
             )}
@@ -379,18 +350,32 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 item.opcoes.map(
                   (item) =>
                     item.marca === marca &&
-                    item.manual
-                      .filter(
-                        (val) =>
-                          (val.implante === implante &&
-                            val.plataforma === plataforma) ??
-                          true
-                      )
-                      .map((item) => (
-                        <h2 key={item.id} ref={familiaRef}>
-                          {item.familia}
-                        </h2>
-                      ))
+                    item.manual.map(
+                      (item) =>
+                        item.especificacao === especificacao &&
+                        Catalogos.map(
+                          (item) =>
+                            item.name === catalogo &&
+                            item.opcoes.map(
+                              (item) =>
+                                item.marca === marca &&
+                                item.manual
+                                  .filter(
+                                    (val) =>
+                                      val.especificacao === especificacao ??
+                                      true
+                                  )
+                                  .map((item) => (
+                                    <>
+                                      <strong>Família</strong>
+                                      <h2 key={item.id} ref={familiaRef}>
+                                        {item.familia}
+                                      </h2>
+                                    </>
+                                  ))
+                            )
+                        )
+                    )
                 )
             )}
           </IonList>
