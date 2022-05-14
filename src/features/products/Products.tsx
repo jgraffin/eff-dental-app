@@ -60,15 +60,17 @@ const Products = () => {
             <LogoWrapper>
               <img src={Logo} alt="Eff Dental" />
             </LogoWrapper>
+
             <Link
-              className="header-actions-cart"
+              className={`header-actions-cart ${
+                Number(numItems) === 0 ? "disabled" : ""
+              }`}
               to={{
                 pathname: `/cart`,
               }}
             >
               <img src={Cart} alt="Cart Shopping" />
               {numItems ? <span>{numItems}</span> : ""}
-              <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
             </Link>
           </IonButtons>
         </IonToolbar>

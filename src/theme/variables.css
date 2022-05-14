@@ -317,6 +317,10 @@
   width: 3rem;
 }
 
+.header-actions-cart.disabled {
+  pointer-events: none;
+}
+
 .header-actions-cart span {
   background: var(--ion-color-danger);
   border-radius: 90px;
@@ -362,7 +366,7 @@ html.md {
 }
 
 .sc-ion-label-md-h.sc-ion-label-md-s.md {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .item-interactive.item-has-focus
@@ -375,10 +379,6 @@ html.md {
   --border-color: rgba(0, 0, 0, 0.1);
   --padding-start: 0;
 }
-
-/* .item-interactive.item-has-focus {
-  --highlight-background: transparent;
-} */
 
 .item-interactive.item-select {
   will-change: contents;
@@ -428,12 +428,27 @@ ion-checkbox[aria-checked="false"] {
   --ion-background-color: #f4f4f4;
 }
 
+.backdrop {
+  background: rgba(0, 0, 0, 0);
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+ion-header {
+  padding-top: 0.5rem;
+}
+
 ion-header.home-header ion-toolbar:first-child {
   border-bottom: 1px dashed var(--ion-color-light);
 }
 
 ion-header ion-toolbar:last-child {
-  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
@@ -451,6 +466,12 @@ ion-button {
   font-size: 0.9rem;
   height: 50px;
   --box-shadow: none;
+}
+
+h2 {
+  font-size: 1rem;
+  font-family: var(--font-family-light);
+  margin: 1rem 0;
 }
 
 .button-add,

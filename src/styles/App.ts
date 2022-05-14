@@ -20,6 +20,39 @@ const slideinAdd = keyframes`
   }
 `;
 
+const scaleIcon = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const showMessage = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const hideMessage = keyframes`
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+`;
+
 const rotate = keyframes`
   from {
     transform: rotate(0);
@@ -223,10 +256,10 @@ export const NextButton = styled.div`
 export const WrapperComponents = styled.div`
   background: var(--ion-color-primary-contrast);
   border-radius: 20px 0 0 20px;
-  box-shadow: 0 15px 47px 0 rgb(109, 137, 60, 0.4);
+  box-shadow: 0 15px 47px 0 rgba(127, 127, 255, 0.14);
   display: block;
   min-height: 200px;
-  margin: 3rem 0 0 1rem;
+  margin: 2rem 0 2rem 1rem;
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
@@ -250,12 +283,12 @@ export const WrapperComponents = styled.div`
       }
 
       &:first-child {
-        background-color: #1d837a;
+        background-color: var(--ion-color-primary);
         border-top-left-radius: 10px;
       }
 
       &.table-head {
-        padding: 0.5rem 0 0.5rem 1rem;
+        padding: 0.8rem 0 0.8rem 1rem;
       }
 
       &.table-row {
@@ -271,19 +304,13 @@ export const WrapperComponents = styled.div`
     .table-head,
     .table-row {
       ion-col {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         font-family: var(--font-family-bold);
         font-weight: normal;
         text-transform: uppercase;
         display: flex;
         align-items: center;
         color: white;
-
-        ion-button {
-          height: 30px;
-          border-radius: 90px;
-          font-size: 0.7rem;
-        }
       }
     }
 
@@ -303,191 +330,21 @@ export const WrapperComponents = styled.div`
         width: 100%;
         overflow: hidden;
         display: block;
-
-        .component-dropdown {
-          align-items: center;
-          grid-gap: 0 0.5rem;
-          display: flex;
-          flex-wrap: wrap;
-          /* height: 3.3rem; */
-          /* overflow: hidden; */
-          width: 100%;
-          border-radius: 0.5rem;
-          padding: 0.4rem 0;
-          margin-bottom: 0.2rem;
-          position: relative;
-
-          ion-item-group {
-            display: flex;
-            grid-gap: 1rem;
-          }
-
-          &__wrapper__product {
-            > div {
-              align-items: center;
-              display: flex;
-
-              h2 {
-                font-size: 0.7rem;
-                font-family: var(--font-family-bold);
-                margin: 0;
-                padding: 0 0.5rem;
-              }
-            }
-          }
-
-          &__image {
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-            background-color: #ffffff;
-            overflow: hidden;
-            height: 40px;
-            width: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.2rem;
-
-            img {
-              display: block;
-              max-width: 46px;
-              object-fit: cover;
-              height: auto;
-            }
-          }
-
-          &__name {
-            flex-direction: column;
-
-            h2 {
-              font-family: var(--font-family-bold);
-              font-size: 0.9rem;
-              margin: 0;
-              text-transform: none;
-              color: #125953;
-            }
-          }
-
-          &__fields {
-            padding-left: 3rem;
-            width: 90%;
-            background-color: #aaf9ae;
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            border-radius: 4px;
-
-            .item {
-              margin-bottom: 0;
-              --border-color: rgba(0, 0, 0, 0.2);
-            }
-
-            ion-item-group {
-              &:last-of-type {
-                .item {
-                  --border-color: rgba(0, 0, 0, 0);
-                }
-              }
-            }
-          }
-
-          &__button {
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: 0.8rem 3rem;
-          }
-
-          &__sku,
-          &__quantity {
-            width: 40%;
-            --inner-padding-end: 0;
-
-            .sc-ion-label-md-h.sc-ion-label-md-s.md.label-floating,
-            .sc-ion-label-md-h.sc-ion-label-md-s.md.label-stacked,
-            .item-label {
-              text-transform: capitalize;
-              letter-spacing: normal;
-              font-size: 0.9rem;
-            }
-
-            ion-select {
-              letter-spacing: normal;
-              text-transform: capitalize;
-            }
-          }
-
-          &__quantity {
-            padding-bottom: 0;
-
-            ion-label {
-              padding-top: 0.3rem;
-            }
-
-            .sc-ion-input-ios-h,
-            .native-input.sc-ion-input-md,
-            .md.in-item,
-            .md.button {
-              --padding-top: 8px;
-            }
-          }
-
-          &__sku {
-            width: 50%;
-
-            &__title {
-              font-family: var(--font-family-bold);
-              font-size: 0.6rem;
-              letter-spacing: 0.02rem;
-              margin-bottom: 0;
-              margin-top: 0.5rem;
-              position: relative;
-              padding-left: 0.5rem;
-              color: #125953;
-
-              &:before {
-                content: "";
-                width: 0.3rem;
-                border-radius: 90px;
-                height: 0.3rem;
-                position: absolute;
-                left: 0;
-                top: 3px;
-                background: #125953;
-              }
-            }
-          }
-
-          .item-interactive.item-select {
-            animation: none;
-          }
-
-          .sc-ion-input-ios-h,
-          .native-input.sc-ion-input-md,
-          .md.in-item,
-          .md.button {
-            --padding-start: 0;
-          }
-        }
       }
     }
-  }
 
-  .favoravel,
-  .desfavoravel {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 2px;
-    font-size: 0.6rem;
-  }
+    .form-product {
+      margin-bottom: 4px;
+      padding: 0 0 1rem 0;
+      width: 16rem;
 
-  .favoravel {
-    background-color: #125953;
-    color: white;
-  }
-
-  .desfavoravel {
-    background-color: #f00;
-    color: black;
+      h3 {
+        font-size: 1.2rem;
+        font-family: var(--font-family-bold);
+        text-transform: capitalize;
+        letter-spacing: 0.15rem;
+      }
+    }
   }
 
   .filter-button {
@@ -515,7 +372,7 @@ export const WrapperComponents = styled.div`
 export const WrapperButtonAddToCart = styled.div`
   align-items: center;
   animation: ${slideinAdd} ease-in-out 0.4s forwards;
-  background-color: var(--ion-color-success);
+  background-color: #aaf9ae;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   bottom: 0;
@@ -529,24 +386,42 @@ export const WrapperButtonAddToCart = styled.div`
   z-index: 10;
 
   .add-button {
+    border-radius: 90px;
+    height: 50px;
   }
 `;
 
 export const SuccessAdded = styled.div`
+  animation: ${showMessage} ease-in-out 0.2s forwards;
   background: var(--ion-color-success);
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.4rem;
+  bottom: 20%;
   left: 50%;
-  padding: 0.5rem;
-  margin-left: -45%;
+  margin-left: -20%;
+  padding: 1rem 0.5rem;
   position: fixed;
   text-align: center;
-  bottom: 20%;
-  width: 90%;
+  width: 40%;
   z-index: 99;
-  border-radius: 10px;
 
   p {
+    color: var(--ion-color-success-contrast);
     font-family: var(--font-family-bold);
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  img {
+    animation: ${scaleIcon} ease-in-out 0.4s forwards;
+    display: block;
+    margin: 0 auto 0.5rem auto;
+    width: 2.5rem;
+  }
+
+  &.hide-message {
+    animation: ${hideMessage} ease-in-out 0.4s forwards;
   }
 `;
 

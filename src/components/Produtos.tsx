@@ -5,56 +5,45 @@ import {
   IonSelect,
   IonSelectOption,
 } from "@ionic/react";
-import { useEffect, useRef, useState } from "react";
-import ReactSelect from "react-select";
-import { ISmp } from "../mock/manualSpecifications";
-import Input from "./forms/Input";
+import { useState } from "react";
 import { addToCart, getSelectedValues } from "../features/cart/CartSlice";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { useDispatch } from "react-redux";
-import { mdiCart } from "@mdi/js";
 import { SuccessAdded, WrapperButtonAddToCart } from "../styles/App";
+import SuccessAddedImage from "../images/check-circle-outline.svg";
 
 const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
-
-  useEffect(() => {
-    console.log(sku);
-  }, [sku]);
+  const [hideMessage, setHideMessage] = useState(false);
 
   function onAddingToCart() {
     dispatch(addToCart(id));
     dispatch(getSelectedValues(sku));
-    setSku("");
     setSuccessAdded(true);
 
     setTimeout(() => {
-      setSuccessAdded(false);
-    }, 1500);
+      setHideMessage(true);
+
+      setTimeout(() => {
+        setSuccessAdded(false);
+        setHideMessage(false);
+      }, 500);
+    }, 1800);
   }
 
   return (
     <>
       {successAdded && (
-        <SuccessAdded>
+        <SuccessAdded className={`${hideMessage ? "hide-message" : ""}`}>
+          <img src={SuccessAddedImage} alt="Adicionado ao carrinho!" />
           <p>Item adicionado!</p>
         </SuccessAdded>
       )}
 
       {tipoConexao === "" && (
-        <div
-          key={id}
-          style={{
-            background: "#dadada",
-            marginBottom: "4px",
-            borderRadius: "6px",
-            padding: "20px",
-            width: "240px",
-          }}
-        >
-          <strong>{nome}</strong>
+        <div key={id} className="form-product">
+          <h3>{nome}</h3>
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               <IonItem>
@@ -78,7 +67,14 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
           {sku && (
             <WrapperButtonAddToCart>
-              <IonButton className="add-button" onClick={onAddingToCart}>
+              <IonButton
+                className="add-button"
+                expand="block"
+                shape="round"
+                color="dark"
+                type="button"
+                onClick={onAddingToCart}
+              >
                 Adicionar {sku}
               </IonButton>
             </WrapperButtonAddToCart>
@@ -87,17 +83,8 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
       )}
 
       {tipoConexao === "rotacionalAntiRotacional" && (
-        <div
-          key={id}
-          style={{
-            background: "#dadada",
-            marginBottom: "4px",
-            borderRadius: "6px",
-            padding: "20px",
-            width: "240px",
-          }}
-        >
-          <strong>{nome}</strong>
+        <div key={id} className="form-product">
+          <h3>{nome}</h3>
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               {item.tipoConexao === "Anti Rotacional" && (
@@ -142,7 +129,14 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
           {sku && (
             <WrapperButtonAddToCart>
-              <IonButton className="add-button" onClick={onAddingToCart}>
+              <IonButton
+                className="add-button"
+                expand="block"
+                shape="round"
+                color="dark"
+                type="button"
+                onClick={onAddingToCart}
+              >
                 Adicionar {sku}
               </IonButton>
             </WrapperButtonAddToCart>
@@ -151,17 +145,8 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
       )}
 
       {tipoConexao === "perfilRetoOuDivergente" && (
-        <div
-          key={id}
-          style={{
-            background: "#dadada",
-            marginBottom: "4px",
-            borderRadius: "6px",
-            padding: "20px",
-            width: "240px",
-          }}
-        >
-          <strong>{nome}</strong>
+        <div key={id} className="form-product">
+          <h3>{nome}</h3>
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               {item.tipoConexao === "Perfil Reto Ø3.50mm" && (
@@ -206,12 +191,24 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
           {sku && (
             <WrapperButtonAddToCart>
-              <IonButton className="add-button" onClick={onAddingToCart}>
+              <IonButton
+                className="add-button"
+                expand="block"
+                shape="round"
+                color="dark"
+                type="button"
+                onClick={onAddingToCart}
+              >
                 Adicionar {sku}
               </IonButton>
             </WrapperButtonAddToCart>
           )}
         </div>
+      )}
+
+      {sku && <div className="backdrop" onClick={() => setSku("")}></div>}
+      {successAdded && (
+        <div className="backdrop" onClick={() => setSku("")}></div>
       )}
     </>
   );

@@ -25,7 +25,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
 import { TeethList } from "./features/teeth/TeethList";
 import Edit from "./components/Edit";
-import List from "./components/List";
 import Cart from "./features/cart/Cart";
 import Products from "./features/products/Products";
 
