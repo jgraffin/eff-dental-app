@@ -293,6 +293,12 @@ export const WrapperComponents = styled.div`
 
       &.table-row {
         align-items: flex-start;
+
+        h2 {
+          color: var(--ion-color-primary);
+          font-family: var(--font-family-bold);
+          font-size: 0.9rem;
+        }
       }
 
       ion-col {
@@ -334,15 +340,58 @@ export const WrapperComponents = styled.div`
     }
 
     .form-product {
-      margin-bottom: 4px;
-      padding: 0 0 1rem 0;
-      width: 16rem;
+      border: 0.1rem solid var(--ion-color-light);
+      border-radius: 0.4rem;
+      box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      padding: 1rem 1rem 0 1rem;
+      width: 18rem;
 
-      h3 {
-        font-size: 1.2rem;
+      &__title {
+        align-items: center;
+        display: flex;
+
+        img {
+          height: auto;
+          margin-left: -1.2rem;
+          margin-right: 1rem;
+          width: 4rem;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+          font-family: var(--font-family-bold);
+          text-transform: capitalize;
+          letter-spacing: 0.15rem;
+          margin: 0;
+        }
+      }
+
+      .additional-field {
+        margin-left: 1rem;
+        padding-left: 1rem;
+        border-left: 0.2rem solid var(--ion-color-primary);
+      }
+
+      .additional-torque {
+        color: var(--ion-color-primary);
         font-family: var(--font-family-bold);
-        text-transform: capitalize;
-        letter-spacing: 0.15rem;
+        font-size: 0.8rem;
+        display: block;
+        padding-left: 2.3rem;
+      }
+
+      h6.additional-title {
+        font-family: var(--font-family-bold);
+        font-size: 0.7rem;
+        color: var(--ion-color-primary);
+        display: inline-block;
+      }
+
+      img.additional-image {
+        display: inline-block;
+        width: 1.5rem;
       }
     }
   }
@@ -388,6 +437,15 @@ export const WrapperButtonAddToCart = styled.div`
   .add-button {
     border-radius: 90px;
     height: 50px;
+
+    span {
+      margin-right: 0.3rem;
+    }
+
+    strong {
+      color: #aaf9ae;
+      margin-left: 0.3rem;
+    }
   }
 `;
 

@@ -90,8 +90,8 @@ const Products = () => {
 
           <IonGrid>
             <IonRow className="table-head">
-              <IonCol className="ion-no-padding" size="2">
-                Dente
+              <IonCol className="ion-no-padding" size="1">
+                Nº
               </IonCol>
               <IonCol className="ion-no-padding" size="2">
                 Família
@@ -117,7 +117,7 @@ const Products = () => {
                       key={itemLevel1.dente}
                       id={itemLevel1.dente}
                     >
-                      <IonCol className="ion-no-padding" size="2">
+                      <IonCol className="ion-no-padding" size="1">
                         <div>
                           <h2>{itemLevel1.dente}</h2>
                         </div>
@@ -136,7 +136,10 @@ const Products = () => {
                                   tipoConexao={itemLevel2.tipoConexao}
                                   id={itemLevel2.id}
                                   nome={itemLevel2.nome}
+                                  imagem={itemLevel2.imagem}
                                   caracteristicas={itemLevel2.caracteristicas}
+                                  adicionais={itemLevel2.adicionais}
+                                  torque={itemLevel2.torque}
                                 />
                               ))}
                           </div>

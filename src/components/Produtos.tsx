@@ -11,7 +11,15 @@ import { useDispatch } from "react-redux";
 import { SuccessAdded, WrapperButtonAddToCart } from "../styles/App";
 import SuccessAddedImage from "../images/check-circle-outline.svg";
 
-const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
+const Produtos = ({
+  tipoConexao,
+  id,
+  nome,
+  imagem,
+  caracteristicas,
+  adicionais,
+  torque,
+}: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
@@ -43,7 +51,10 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
       {tipoConexao === "" && (
         <div key={id} className="form-product">
-          <h3>{nome}</h3>
+          <div className="form-product__title">
+            <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+            <h3>{nome}</h3>
+          </div>
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               <IonItem>
@@ -75,7 +86,8 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
                 type="button"
                 onClick={onAddingToCart}
               >
-                Adicionar {sku}
+                <span>Adicionar</span>
+                <strong>{sku}</strong>
               </IonButton>
             </WrapperButtonAddToCart>
           )}
@@ -84,7 +96,11 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
       {tipoConexao === "rotacionalAntiRotacional" && (
         <div key={id} className="form-product">
-          <h3>{nome}</h3>
+          <div className="form-product__title">
+            <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+            <h3>{nome}</h3>
+          </div>
+
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               {item.tipoConexao === "Anti Rotacional" && (
@@ -127,6 +143,58 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
             </div>
           ))}
 
+          {adicionais?.length && (
+            <h6 className="additional-title">Adicionais:</h6>
+          )}
+
+          {adicionais?.length &&
+            adicionais?.map((item: any) => (
+              <div key={item.id}>
+                {item.tipoConexao === "h.0.80/1.50/2.50mm" && (
+                  <IonItem className="additional-field">
+                    <img
+                      src={`../assets/images/proteses/${item.imagem}.png`}
+                      alt={item.tipoConexao}
+                      className="additional-image"
+                    />
+                    <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    </IonSelect>
+                  </IonItem>
+                )}
+
+                {item.tipoConexao === "h.3.50/4.50mm" && (
+                  <IonItem className="additional-field">
+                    <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    </IonSelect>
+                  </IonItem>
+                )}
+              </div>
+            ))}
+
+          {adicionais?.length && (
+            <p className="additional-torque">{torque ? "Torque 20Ncm" : ""}</p>
+          )}
+
           {sku && (
             <WrapperButtonAddToCart>
               <IonButton
@@ -137,7 +205,8 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
                 type="button"
                 onClick={onAddingToCart}
               >
-                Adicionar {sku}
+                <span>Adicionar</span>
+                <strong>{sku}</strong>
               </IonButton>
             </WrapperButtonAddToCart>
           )}
@@ -146,10 +215,13 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
 
       {tipoConexao === "perfilRetoOuDivergente" && (
         <div key={id} className="form-product">
-          <h3>{nome}</h3>
+          <div className="form-product__title">
+            <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+            <h3>{nome}</h3>
+          </div>
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
-              {item.tipoConexao === "Perfil Reto Ø3.50mm" && (
+              {item.tipoConexao === "Perfil Reto Ø3.30mm" && (
                 <IonItem>
                   <IonLabel position="floating">{item.tipoConexao}</IonLabel>
                   <IonSelect
@@ -199,7 +271,8 @@ const Produtos = ({ tipoConexao, id, nome, caracteristicas }: any) => {
                 type="button"
                 onClick={onAddingToCart}
               >
-                Adicionar {sku}
+                <span>Adicionar</span>
+                <strong>{sku}</strong>
               </IonButton>
             </WrapperButtonAddToCart>
           )}
