@@ -26,7 +26,7 @@ import { selectAllItems, TeethType } from "../teeth/teethSlice";
 import { receivedProducts } from "./ProductsSlice";
 import { LogoWrapper } from "./Styles";
 
-import Cart from "../../images/cart-outline.svg";
+import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
 import Produtos from "../../components/Produtos";
 
@@ -56,7 +56,7 @@ const Products = () => {
 
   return (
     <>
-      <IonHeader className="">
+      <IonHeader>
         <IonToolbar>
           <IonButtons className="header-actions">
             <IonBackButton defaultHref="/" />
@@ -72,7 +72,7 @@ const Products = () => {
                 pathname: `/cart`,
               }}
             >
-              <img src={Cart} alt="Cart Shopping" />
+              <img src={ShoppingCartIcon} alt="Cart Shopping" />
               {numItems ? <span>{numItems}</span> : ""}
             </Link>
           </IonButtons>

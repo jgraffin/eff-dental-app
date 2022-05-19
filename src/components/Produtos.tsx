@@ -12,7 +12,6 @@ import { SuccessAdded, WrapperButtonAddToCart } from "../styles/App";
 import SuccessAddedImage from "../images/check-circle-outline.svg";
 
 const Produtos = ({
-  cimentado,
   tipoConexao,
   id,
   nome,

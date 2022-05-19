@@ -4,22 +4,29 @@ import {
   IonButton,
   IonContent,
   IonInput,
+  IonBackButton,
+  IonButtons,
+  IonTitle,
 } from "@ionic/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
+import { LogoWrapper } from "../products/Styles";
 import {
   getMemoizedNumItems,
   removeFromCart,
   updateQuantity,
 } from "./CartSlice";
+import ShoppingCartIcon from "../../images/cart-outline.svg";
+import Logo from "../../images/logo.png";
 
 const Cart = () => {
   let history = useHistory();
   const dispatch = useAppDispatch();
-  const numItems = useAppSelector(getMemoizedNumItems);
+  const numItems = useAppSelector<any>(getMemoizedNumItems);
   const products = useSelector((state: RootState) => state.products.products);
   const items = useAppSelector((state) => state.cart.items);
 
@@ -30,10 +37,33 @@ const Cart = () => {
 
   return (
     <>
-      <IonHeader className="ion-no-border">
+      <IonHeader>
         <IonToolbar>
-          <IonButton onClick={history.goBack}>Voltar</IonButton>
-          <div>🛒 {numItems ? numItems : "Cart"}</div>
+          <IonButtons className="header-actions">
+            <IonBackButton defaultHref="/" />
+            <LogoWrapper>
+              <img src={Logo} alt="Eff Dental" />
+            </LogoWrapper>
+
+            <Link
+              className={`header-actions-cart ${
+                Number(numItems) === 0 ? "disabled" : ""
+              }`}
+              to={{
+                pathname: `/cart`,
+              }}
+            >
+              <img src={ShoppingCartIcon} alt="Cart Shopping" />
+              {numItems ? <span>{numItems}</span> : ""}
+            </Link>
+          </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
+          <IonTitle>
+            Produtos adicionados ao
+            <br />
+            carrinho de compras
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
