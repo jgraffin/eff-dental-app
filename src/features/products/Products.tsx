@@ -129,24 +129,37 @@ const Products = () => {
                       </IonCol>
                       <IonCol className="ion-no-padding" size="2">
                         <div>
-                          <h2>{itemLevel1.familia}</h2>
+                          <h2>
+                            {itemLevel1.familia}{" "}
+                            <span className="table-row__union-type">
+                              {itemLevel1.uniaoImplante
+                                ? "Múltiplo"
+                                : "Unitário"}
+                            </span>
+                          </h2>
                           <div>
                             {Object.values(products)
                               .filter(
                                 (val: any) =>
                                   val.familia === itemLevel1.familia ?? true
                               )
-                              .map((itemLevel2: any) => (
-                                <Produtos
-                                  tipoConexao={itemLevel2.tipoConexao}
-                                  id={itemLevel2.id}
-                                  nome={itemLevel2.nome}
-                                  imagem={itemLevel2.imagem}
-                                  caracteristicas={itemLevel2.caracteristicas}
-                                  adicionais={itemLevel2.adicionais}
-                                  torque={itemLevel2.torque}
-                                />
-                              ))}
+                              .map(
+                                (itemLevel2: any) =>
+                                  itemLevel2.cimentado === cimentado && (
+                                    <Produtos
+                                      tipoConexao={itemLevel2.tipoConexao}
+                                      id={itemLevel2.id}
+                                      nome={itemLevel2.nome}
+                                      imagem={itemLevel2.imagem}
+                                      caracteristicas={
+                                        itemLevel2.caracteristicas
+                                      }
+                                      adicionais={itemLevel2.adicionais}
+                                      torque={itemLevel2.torque}
+                                      cimentado={itemLevel2.cimentado}
+                                    />
+                                  )
+                              )}
                           </div>
                         </div>
                       </IonCol>

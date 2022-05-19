@@ -310,6 +310,19 @@ export const WrapperComponents = styled.div`
 
     .table-head,
     .table-row {
+      h2 {
+        .table-row__union-type {
+          color: white;
+          font-family: var(--font-family-bold);
+          font-size: 0.6rem;
+          background: var(--ion-color-tertiary);
+          border-radius: 90px;
+          padding: 0.2rem 0.6rem;
+          display: inline-block;
+          margin-left: 1rem;
+        }
+      }
+
       ion-col {
         font-size: 0.7rem;
         font-family: var(--font-family-bold);
