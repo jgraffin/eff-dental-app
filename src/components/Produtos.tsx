@@ -58,7 +58,7 @@ const Produtos = ({
           {caracteristicas.map((item: any) => (
             <div key={item.id}>
               <IonItem>
-                <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                <IonLabel position="floating">Tipo Conexão</IonLabel>
                 <IonSelect
                   value={sku}
                   cancelText="Cancelar"
@@ -241,6 +241,176 @@ const Produtos = ({
               )}
 
               {item.tipoConexao === "Perfil Divergente Ø5.0mm" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+            </div>
+          ))}
+
+          {sku && (
+            <WrapperButtonAddToCart>
+              <IonButton
+                className="add-button"
+                expand="block"
+                shape="round"
+                color="dark"
+                type="button"
+                onClick={onAddingToCart}
+              >
+                <span>Adicionar</span>
+                <strong>{sku}</strong>
+              </IonButton>
+            </WrapperButtonAddToCart>
+          )}
+        </div>
+      )}
+
+      {tipoConexao === "perfil3Ou4" && (
+        <div key={id} className="form-product">
+          <div className="form-product__title">
+            <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+            <h3>{nome}</h3>
+          </div>
+          {caracteristicas.map((item: any) => (
+            <div key={item.id}>
+              {item.tipoConexao === "Perfil Ø3.30" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              {item.tipoConexao === "Perfil Ø4.50" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+            </div>
+          ))}
+
+          {sku && (
+            <WrapperButtonAddToCart>
+              <IonButton
+                className="add-button"
+                expand="block"
+                shape="round"
+                color="dark"
+                type="button"
+                onClick={onAddingToCart}
+              >
+                <span>Adicionar</span>
+                <strong>{sku}</strong>
+              </IonButton>
+            </WrapperButtonAddToCart>
+          )}
+        </div>
+      )}
+
+      {tipoConexao === "perfil3h4mmOu3h6mm" && (
+        <div key={id} className="form-product">
+          <div className="form-product__title">
+            <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+            <h3>{nome}</h3>
+          </div>
+          {caracteristicas.map((item: any) => (
+            <div key={item.id}>
+              {item.tipoConexao === "Perfil Ø 3.30|h 4.0mm" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              {item.tipoConexao === "Perfil Ø 3.30|h 6.0mm" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              {item.tipoConexao === "Perfil Ø 4.50|h 4.0mm" && (
+                <IonItem>
+                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonSelect
+                    value={sku}
+                    cancelText="Cancelar"
+                    okText="Ok"
+                    placeholder="Selecione"
+                    onIonChange={(event) => setSku(event.detail.value)}
+                  >
+                    {item.opcoes.map((item: any) => (
+                      <IonSelectOption key={item.value} value={item.value}>
+                        {item.value}
+                      </IonSelectOption>
+                    ))}
+                  </IonSelect>
+                </IonItem>
+              )}
+
+              {item.tipoConexao === "Perfil Ø 4.50|h 6.0mm" && (
                 <IonItem>
                   <IonLabel position="floating">{item.tipoConexao}</IonLabel>
                   <IonSelect
