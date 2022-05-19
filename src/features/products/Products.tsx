@@ -5,10 +5,13 @@ import {
   IonContent,
   IonGrid,
   IonHeader,
+  IonItem,
+  IonLabel,
   IonRippleEffect,
   IonRow,
   IonSpinner,
   IonTitle,
+  IonToggle,
   IonToolbar,
 } from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
@@ -93,18 +96,20 @@ const Products = () => {
               <IonCol className="ion-no-padding" size="1">
                 Nº
               </IonCol>
-              <IonCol className="ion-no-padding" size="2">
+              <IonCol className="ion-no-padding" size="8">
                 Família
-                {/* <div className="filter-button">
-                  <IonLabel color={cimentado ? "dark" : "light"}>
-                    {cimentado ? "cimentado" : "parafusado"}
-                  </IonLabel>
+                <div className="filter-button">
+                  <strong>Cimentado?</strong>
                   <IonToggle
                     color="dark"
-                    value={cimentado ? "cimentado" : "parafusado"}
+                    value={String(cimentado)}
+                    checked={cimentado}
                     onIonChange={onScrewToggle}
                   />
-                </div> */}
+                  <span className="toggle-text">
+                    {cimentado ? "Sim" : "Não"}
+                  </span>
+                </div>
               </IonCol>
             </IonRow>
 

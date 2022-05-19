@@ -289,6 +289,7 @@ export const WrapperComponents = styled.div`
 
       &.table-head {
         padding: 0.8rem 0 0.8rem 1rem;
+        position: relative;
       }
 
       &.table-row {
@@ -362,8 +363,8 @@ export const WrapperComponents = styled.div`
         h3 {
           font-size: 1.1rem;
           font-family: var(--font-family-bold);
-          text-transform: capitalize;
-          letter-spacing: 0.15rem;
+          text-transform: initial;
+          letter-spacing: 0.1rem;
           margin: 0;
         }
       }
@@ -397,12 +398,14 @@ export const WrapperComponents = styled.div`
   }
 
   .filter-button {
-    position: relative;
-    width: 6rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    grid-gap: 0.5rem;
 
     ion-toggle {
       padding: 3px 0 4px 0;
-      transform: translate(0, 3px);
     }
 
     ion-label {
