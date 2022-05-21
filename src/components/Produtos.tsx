@@ -56,24 +56,22 @@ const Produtos = ({
             <h3>{nome}</h3>
           </div>
           {caracteristicas.map((item: any) => (
-            <div key={item.id}>
-              <IonItem>
-                <IonLabel position="floating">Tipo Conexão</IonLabel>
-                <IonSelect
-                  value={sku}
-                  cancelText="Cancelar"
-                  okText="Ok"
-                  placeholder="Selecione"
-                  onIonChange={(event) => setSku(event.detail.value)}
-                >
-                  {item.opcoes.map((item: any) => (
-                    <IonSelectOption key={item.value} value={item.value}>
-                      {item.value}
-                    </IonSelectOption>
-                  ))}
-                </IonSelect>
-              </IonItem>
-            </div>
+            <IonItem key={item.id}>
+              <IonLabel position="floating">Tipo Conexão</IonLabel>
+              <IonSelect
+                value={sku}
+                cancelText="Cancelar"
+                okText="Ok"
+                placeholder="Selecione"
+                onIonChange={(event) => setSku(event.detail.value)}
+              >
+                {item.opcoes.map((item: any) => (
+                  <IonSelectOption key={item.id} value={item.value}>
+                    {item.value}
+                  </IonSelectOption>
+                ))}
+              </IonSelect>
+            </IonItem>
           ))}
 
           {sku && (
@@ -165,7 +163,7 @@ const Produtos = ({
                       placeholder="Selecione"
                       onIonChange={(event) => setSku(event.detail.value)}
                     >
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     </IonSelect>
@@ -182,7 +180,7 @@ const Produtos = ({
                       placeholder="Selecione"
                       onIonChange={(event) => setSku(event.detail.value)}
                     >
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     </IonSelect>
@@ -232,7 +230,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -251,7 +249,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -298,7 +296,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -317,7 +315,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -364,7 +362,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -383,7 +381,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -402,7 +400,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}
@@ -421,7 +419,7 @@ const Produtos = ({
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
                     {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
+                      <IonSelectOption key={item.id} value={item.value}>
                         {item.value}
                       </IonSelectOption>
                     ))}

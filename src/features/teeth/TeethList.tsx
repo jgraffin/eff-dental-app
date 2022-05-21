@@ -31,20 +31,20 @@ import Logo from "../../images/logo.png";
 export const Tooth = ({ post }: TeethType | any) => {
   return (
     <li
-      className={`tooth-list__item tooth-list__item--${post.dente} 
-        ${post.selecionado ? "is-selected" : ""} 
-        ${post.uniaoImplante ? "has-union" : ""} 
-        ${post.posicao ? "unfavorable" : ""}
-        ${post.selecionado && post.implante ? "has-implant" : ""}`}
-      key={post.id}
+      className={`tooth-list__item tooth-list__item--${post?.dente} 
+        ${post?.selecionado ? "is-selected" : ""} 
+        ${post?.uniaoImplante ? "has-union" : ""} 
+        ${post?.posicao ? "unfavorable" : ""}
+        ${post?.selecionado && post?.implante ? "has-implant" : ""}`}
+      key={post?.id}
     >
       <Link
         className={`ion-activatable ripple-parent `}
         to={{
-          pathname: `/edit/${post.id}`,
+          pathname: `/edit/${post?.id}`,
         }}
       >
-        <span>{post.dente}</span>
+        <span>{post?.dente}</span>
         <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
       </Link>
     </li>
@@ -135,7 +135,7 @@ export const TeethList = () => {
   } else if (postStatus === "succeeded") {
     content =
       posts.length &&
-      posts.map((post: any) => <Tooth key={post.id} post={post} />);
+      posts.map((post: TeethType) => <Tooth key={post?.id} post={post} />);
   } else if (postStatus === "failed") {
     content = <div>{error}</div>;
   }

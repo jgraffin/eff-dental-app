@@ -7,6 +7,7 @@ import {
   IonBackButton,
   IonButtons,
   IonTitle,
+  IonFooter,
 } from "@ionic/react";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -22,6 +23,7 @@ import {
 } from "./CartSlice";
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
+import { CartList } from "./Styles";
 
 const Cart = () => {
   let history = useHistory();
@@ -67,26 +69,48 @@ const Cart = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <h2>Shopping Cart</h2>
-        <ul>
-          {Object.entries(items).map(([id, quantity]: any) => (
-            <li>
-              <strong>Nome: {products[id].nome}</strong>
-
-              <br />
-
-              <IonInput
-                type="number"
-                onIonBlur={(event) => onQuantityChanged(event, id)}
-                value={quantity}
-              ></IonInput>
-              <IonButton onClick={() => dispatch(removeFromCart(id))}>
-                X
-              </IonButton>
-            </li>
-          ))}
-        </ul>
+        <CartList>
+          {Object.entries(items).length > 0 ? (
+            Object.entries(items).map(([id, quantity]: any) => (
+              <li>
+                <div className="cart-list__image">
+                  <img
+                    src={`./assets/images/proteses/${products[id].imagem}.png`}
+                    alt={products[id].nome}
+                  />
+                </div>
+                <div className="cart-list__title">
+                  <h2>{products[id].nome}</h2>
+                </div>
+                <div className="cart-list__field">
+                  <IonInput
+                    type="number"
+                    onIonBlur={(event) => onQuantityChanged(event, id)}
+                    value={quantity}
+                  ></IonInput>
+                  <IonButton
+                    className="cart-list__field-delete"
+                    onClick={() => dispatch(removeFromCart(id))}
+                  ></IonButton>
+                </div>
+              </li>
+            ))
+          ) : (
+            <li className="cart-list__empty">Seu carrinho está vazio</li>
+          )}
+        </CartList>
       </IonContent>
+      <IonFooter className="ion-no-border">
+        <IonButton
+          className="button-save"
+          expand="block"
+          shape="round"
+          color="dark"
+          type="button"
+        >
+          Checkout
+        </IonButton>
+      </IonFooter>
     </>
   );
 };

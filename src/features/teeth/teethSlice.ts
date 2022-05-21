@@ -28,8 +28,12 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
       "https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth"
     );
     return response.data;
-  } catch (err) {
-    console.log("aquii", err);
+  } catch (err: any) {
+    let message =
+      typeof err.response !== "undefined"
+        ? err.response.data.message
+        : err.message;
+    console.warn("error", message);
   }
 });
 

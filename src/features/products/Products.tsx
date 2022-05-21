@@ -113,41 +113,34 @@ const Products = () => {
               </IonCol>
             </IonRow>
 
-            {postStatus === "succeeded" &&
-              store.map(
-                (itemLevel1: TeethType) =>
-                  itemLevel1.selecionado && (
-                    <IonRow
-                      className="table-row"
-                      key={itemLevel1.dente}
-                      id={itemLevel1.dente}
-                    >
-                      <IonCol className="ion-no-padding" size="1">
+            {store.map(
+              (itemLevel1: TeethType) =>
+                itemLevel1?.selecionado && (
+                  <IonRow className="table-row" key={itemLevel1?.id}>
+                    <IonCol className="ion-no-padding" size="1">
+                      <div>
+                        <h2>{itemLevel1?.dente}</h2>
+                      </div>
+                    </IonCol>
+                    <IonCol className="ion-no-padding" size="2">
+                      <div>
+                        <h2>
+                          {itemLevel1?.familia}{" "}
+                          <span className="table-row__union-type">
+                            {itemLevel1?.uniaoImplante
+                              ? "Múltiplo"
+                              : "Unitário"}
+                          </span>
+                        </h2>
                         <div>
-                          <h2>{itemLevel1.dente}</h2>
-                        </div>
-                      </IonCol>
-                      <IonCol className="ion-no-padding" size="2">
-                        <div>
-                          <h2>
-                            {itemLevel1.familia}{" "}
-                            <span className="table-row__union-type">
-                              {itemLevel1.uniaoImplante
-                                ? "Múltiplo"
-                                : "Unitário"}
-                            </span>
-                          </h2>
-                          <div>
-                            {Object.values(products)
-                              .filter(
-                                (val: any) =>
-                                  val.familia === itemLevel1.familia ?? true
-                              )
-                              .map(
+                          {Object.values(products).length > 0
+                            ? Object.values(products).map(
                                 (itemLevel2: any) =>
+                                  itemLevel2.familia === itemLevel1?.familia &&
                                   itemLevel2.cimentado === cimentado && (
                                     <Produtos
                                       tipoConexao={itemLevel2.tipoConexao}
+                                      key={itemLevel2.id}
                                       id={itemLevel2.id}
                                       nome={itemLevel2.nome}
                                       imagem={itemLevel2.imagem}
@@ -159,13 +152,14 @@ const Products = () => {
                                       cimentado={itemLevel2.cimentado}
                                     />
                                   )
-                              )}
-                          </div>
+                              )
+                            : "Nada aqui"}
                         </div>
-                      </IonCol>
-                    </IonRow>
-                  )
-              )}
+                      </div>
+                    </IonCol>
+                  </IonRow>
+                )
+            )}
           </IonGrid>
         </WrapperComponents>
       </IonContent>
