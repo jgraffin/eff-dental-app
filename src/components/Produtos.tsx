@@ -12,18 +12,21 @@ import { SuccessAdded, WrapperButtonAddToCart } from "../styles/App";
 import SuccessAddedImage from "../images/check-circle-outline.svg";
 
 const Produtos = ({
+  posicao,
   tipoConexao,
   id,
   nome,
   imagem,
   caracteristicas,
-  adicionais,
+  subitem,
   torque,
+  uniaoImplante
 }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
   const [hideMessage, setHideMessage] = useState(false);
+  
 
   function onAddingToCart() {
     dispatch(addToCart(id));
@@ -54,6 +57,7 @@ const Produtos = ({
           <div className="form-product__title">
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
+            <small>{posicao ? "Desfavorável" : "Favorável"}</small>
           </div>
           {caracteristicas.map((item: any) => (
             <IonItem key={item.id}>
@@ -93,14 +97,15 @@ const Produtos = ({
       )}
 
       {tipoConexao === "rotacionalAntiRotacional" && (
-        <div key={id} className="form-product">
+        <div key={id} className="form-product" id={id}>
           <div className="form-product__title">
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
+            <small>{posicao === 'desfavoravel' ? "Desfavorável" : "Favorável"}</small>
           </div>
 
           {caracteristicas.map((item: any) => (
-            <div key={item.id}>
+            <div key={item.id} id={item.id}>
               {item.tipoConexao === "Anti Rotacional" && (
                 <IonItem>
                   <IonLabel position="floating">{item.tipoConexao}</IonLabel>
@@ -141,12 +146,12 @@ const Produtos = ({
             </div>
           ))}
 
-          {adicionais?.length && (
-            <h6 className="additional-title">Adicionais:</h6>
+          {subitem?.length && (
+            <h6 className="additional-title">Acessórios:</h6>
           )}
 
-          {adicionais?.length &&
-            adicionais?.map((item: any) => (
+          {subitem?.length &&
+            subitem?.map((item: any) => (
               <div key={item.id}>
                 {item.tipoConexao === "h.0.80/1.50/2.50mm" && (
                   <IonItem className="additional-field">
@@ -189,7 +194,7 @@ const Produtos = ({
               </div>
             ))}
 
-          {adicionais?.length && (
+          {subitem?.length && (
             <p className="additional-torque">{torque ? "Torque 20Ncm" : ""}</p>
           )}
 

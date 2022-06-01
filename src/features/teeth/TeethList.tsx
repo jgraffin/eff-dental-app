@@ -33,11 +33,13 @@ export const Tooth = ({ post }: TeethType | any) => {
     <li
       className={`tooth-list__item tooth-list__item--${post?.dente} 
         ${post?.selecionado ? "is-selected" : ""} 
-        ${post?.uniaoImplante ? "has-union" : ""} 
-        ${post?.posicao ? "unfavorable" : ""}
+        ${post?.uniaoImplante === 'unitario' ? "unitario" : "multiplo"} 
+        ${post?.posicao === 'favoravel' ? "favoravel" : "desfavoravel"}
         ${post?.selecionado && post?.implante ? "has-implant" : ""}`}
       key={post?.id}
     >
+      {console.log('UNIAO', post?.uniaoImplante)}
+      {console.log('POSICAO', post?.posicao)}
       <Link
         className={`ion-activatable ripple-parent `}
         to={{
@@ -62,27 +64,27 @@ export const TeethList = () => {
   const [selection, setSelection] = useState(false);
   const [itemSelectedList, setItemSelectedList] = useState(true);
 
-  const onRemoveAll = () => {
-    posts.filter(
-      (item: TeethType) =>
-        item.selecionado &&
-        dispatch(
-          itemUpdated({
-            id: item.id,
-            catalogo: "",
-            marca: "",
-            especificacao: "",
-            dente: item.dente,
-            implante: "Undefined",
-            familia: "",
-            plataforma: "",
-            uniaoImplante: false,
-            posicao: false,
-            selecionado: !item.selecionado,
-          })
-        )
-    );
-  };
+  // const onRemoveAll = () => {
+  //   posts.filter(
+  //     (item: TeethType) =>
+  //       item.selecionado &&
+  //       dispatch(
+  //         itemUpdated({
+  //           id: item.id,
+  //           catalogo: "",
+  //           marca: "",
+  //           especificacao: "",
+  //           dente: item.dente,
+  //           implante: "Undefined",
+  //           familia: "",
+  //           plataforma: "",
+  //           uniaoImplante: false,
+  //           posicao: false,
+  //           selecionado: !item.selecionado,
+  //         })
+  //       )
+  //   );
+  // };
 
   useEffect(() => {
     if (postStatus === "idle") {
@@ -100,14 +102,14 @@ export const TeethList = () => {
     const filterTeethNumberBottomRange = posts.filter(
       (val: { id: number }) => val.id >= 17
     );
-
+    
     const hasUnionImplantBottomLine = filterTeethNumberBottomRange.filter(
       (val: TeethType) => val.uniaoImplante ?? val
     );
 
     const itemSelected = posts.filter((val: TeethType) => val.selecionado);
 
-    let itemSelectedLength = itemSelected.length > 1;
+    let itemSelectedLength = itemSelected.length > 0;
 
     setItemSelectedList(itemSelectedLength);
 

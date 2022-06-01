@@ -32,6 +32,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [familia, setFamilia] = useState(data.familia);
   const [uniaoImplante, setUniaoImplante] = useState(data.uniaoImplante);
   const [posicao, setPosicao] = useState(data.posicao);
+  console.log('dsd', data.uniaoImplante);
 
   const [dente] = useState(data.dente);
   const [selecionado] = useState(data.selecionado);
@@ -54,14 +55,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   };
 
   const onPositionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.detail as HTMLIonCheckboxElement;
-    setPosicao(field.checked);
+    const field = event.target as HTMLInputElement;
+    setPosicao(field.value);
   };
 
   const onUnionChanged = (event: CustomEvent<InputChangeEventDetail>) => {
-    const field = event.detail as HTMLIonCheckboxElement;
-    console.log(event);
-    setUniaoImplante(field.checked);
+    const field = event.target as HTMLInputElement;
+    setUniaoImplante(field.value);
   };
 
   const onSpecificationChanged = (
@@ -117,18 +117,19 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         implante: "",
         familia: "",
         plataforma: "",
-        uniaoImplante: false,
-        posicao: false,
+        uniaoImplante: 'unitario',
+        posicao: 'favoravel',
         selecionado: false,
       })
     );
     history.push(`/`);
   };
 
+  
+
   useEffect(() => {
     setCatalogo(catalogo);
     setMarca(marca);
-    console.log(uniaoImplante);
   }, [catalogo, marca, uniaoImplante]);
 
   return (
@@ -152,7 +153,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           <ToothScheme
             dente={dente}
             implante={implante}
-            posicao={posicao}
+            posicao={posicao ? 'desfavoravel' : 'favoravel' }
             selecionado={selecionado}
             uniaoImplante={uniaoImplante}
           />
@@ -319,27 +320,19 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
             {catalogo && marca && especificacao && implante && plataforma && (
               <>
                 <IonItem>
-                  <IonLabel>Desfavorável</IonLabel>
-                  <IonToggle
-                    color="primary"
-                    value={posicao}
-                    checked={posicao}
-                    onIonChange={onPositionChanged}
-                  />
-                  <span className="toggle-text">{posicao ? "Sim" : "Não"}</span>
+                  <IonLabel position="floating">Posição</IonLabel>
+                  <IonSelect value={posicao} onIonChange={onPositionChanged}>
+                    <IonSelectOption value="favoravel">Favorável</IonSelectOption>
+                    <IonSelectOption value="desfavoravel">Desfavorável</IonSelectOption>
+                  </IonSelect>
                 </IonItem>
 
                 <IonItem>
-                  <IonLabel>Múltiplo</IonLabel>
-                  <IonToggle
-                    color="primary"
-                    value={uniaoImplante}
-                    checked={uniaoImplante}
-                    onIonChange={onUnionChanged}
-                  />
-                  <span className="toggle-text">
-                    {uniaoImplante ? "Sim" : "Não"}
-                  </span>
+                  <IonLabel position="floating">Seleção</IonLabel>
+                  <IonSelect value={uniaoImplante} onIonChange={onUnionChanged}>
+                    <IonSelectOption value="unitario">Unitário</IonSelectOption>
+                    <IonSelectOption value="multiplo">Múltiplo</IonSelectOption>
+                  </IonSelect>
                 </IonItem>
               </>
             )}

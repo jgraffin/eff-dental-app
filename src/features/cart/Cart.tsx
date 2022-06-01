@@ -9,7 +9,6 @@ import {
   IonTitle,
   IonFooter,
 } from "@ionic/react";
-import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -17,13 +16,15 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { LogoWrapper } from "../products/Styles";
 import {
+  checkoutCart,
   getMemoizedNumItems,
   removeFromCart,
   updateQuantity,
 } from "./CartSlice";
+import { CartList } from "./Styles";
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
-import { CartList } from "./Styles";
+import React, { useEffect } from "react";
 
 const Cart = () => {
   let history = useHistory();
@@ -31,11 +32,34 @@ const Cart = () => {
   const numItems = useAppSelector<any>(getMemoizedNumItems);
   const products = useSelector((state: RootState) => state.products.products);
   const items = useAppSelector((state) => state.cart.items);
+  const checkoutState = useAppSelector((state) => state.cart.checkoutState);
+  const errorMessage = useAppSelector((state) => state.cart.errorMessage);
 
   function onQuantityChanged(event: any, id: string) {
     const quantity = Number(event.target.value) || 0;
     dispatch(updateQuantity({ id, quantity }));
   }
+
+  function onCheckout(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    dispatch(checkoutCart(items) as any);
+  }
+
+  function onCheckoutState() {
+    if (checkoutState === "LOADING") {
+      return "checkout-loading";
+    } else if (checkoutState === "READY") {
+      return "checkout-ready";
+    } else if (checkoutState === "ERROR") {
+      return "checkout-error";
+    } else {
+      return "";
+    }
+  }
+
+  useEffect(() => {
+    onCheckoutState();
+  }, []);
 
   return (
     <>
@@ -69,7 +93,7 @@ const Cart = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <CartList>
+        <CartList className={`${onCheckoutState()}`}>
           {Object.entries(items).length > 0 ? (
             Object.entries(items).map(([id, quantity]: any) => (
               <li>
@@ -101,15 +125,20 @@ const Cart = () => {
         </CartList>
       </IonContent>
       <IonFooter className="ion-no-border">
-        <IonButton
-          className="button-save"
-          expand="block"
-          shape="round"
-          color="dark"
-          type="button"
-        >
-          Checkout
-        </IonButton>
+        <form onSubmit={onCheckout}>
+          {checkoutState === "ERROR" && errorMessage ? (
+            <p>{errorMessage}</p>
+          ) : null}
+          <IonButton
+            className="button-save"
+            expand="block"
+            shape="round"
+            color="dark"
+            type="submit"
+          >
+            Checkout
+          </IonButton>
+        </form>
       </IonFooter>
     </>
   );

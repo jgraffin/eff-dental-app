@@ -4,9 +4,12 @@ export const CartList = styled.ul`
   display: flex;
   height: auto;
   padding: 0 1rem;
-  width: 100%;
+  width: 92%;
   list-style-type: none;
   flex-direction: column;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  border: 2px solid transparent;
 
   li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -23,6 +26,21 @@ export const CartList = styled.ul`
     &.cart-list__empty {
       border-bottom: 0;
       justify-content: center;
+    }
+  }
+
+  &.checkout {
+    &-loading {
+      opacity: 0.3;
+    }
+
+    &-ready {
+      opacity: 1;
+    }
+
+    &-error {
+      border: 2px solid var(--ion-color-danger);
+      opacity: 1;
     }
   }
 

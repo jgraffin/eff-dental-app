@@ -9,6 +9,8 @@ import {
   IonLabel,
   IonRippleEffect,
   IonRow,
+  IonSelect,
+  IonSelectOption,
   IonSpinner,
   IonTitle,
   IonToggle,
@@ -29,6 +31,7 @@ import { LogoWrapper } from "./Styles";
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
 import Produtos from "../../components/Produtos";
+import { Catalogos } from "../../mock/manualSpecifications";
 
 const Products = () => {
   const numItems = useAppSelector<string>(getMemoizedNumItems);
@@ -36,13 +39,19 @@ const Products = () => {
   const store = useSelector(selectAllItems);
 
   const postStatus = useSelector((state: RootState) => state.teeth.status);
-  const [cimentado, setCimentado] = useState(false);
+  const [fixacao, setFixacao] = useState("cimentado");
+  const [posicao, setPosicao] = useState("favoravel");
 
-  const onScrewToggle = () => {
-    if (cimentado) {
-      setCimentado(false);
+  const onScrewToggle = () =>
+    fixacao === "cimentado"
+      ? setFixacao("parafusado")
+      : setFixacao("cimentado");
+
+  const onPositionToggle = () => {
+    if (posicao === "favoravel") {
+      setPosicao("desfavoravel");
     } else {
-      setCimentado(true);
+      setPosicao("favoravel");
     }
   };
 
@@ -53,6 +62,29 @@ const Products = () => {
   }, [dispatch]);
 
   const products = useAppSelector((state) => state.products.products);
+
+  let array_filtrado = function filtrarArray(ar_dados: any, obj_filtro: any){
+    return ar_dados.filter(function(item: any){
+      for(let obj in obj_filtro){
+        if(obj_filtro[obj] !== item[obj]){
+          return false;
+        }
+      }
+      return true;
+    }).map((product: any) => (
+      <Produtos
+        tipoConexao={product.tipoConexao}
+        key={product.id}
+        id={product.id}
+        nome={product.nome}
+        imagem={product.imagem}
+        caracteristicas={product.caracteristicas}
+        subitem={product.subitem}
+        torque={product.torque}
+        posicao={product.posicao}
+      />
+    ))
+  }
 
   return (
     <>
@@ -99,61 +131,65 @@ const Products = () => {
               <IonCol className="ion-no-padding" size="8">
                 Família
                 <div className="filter-button">
-                  <strong>Cimentado?</strong>
-                  <IonToggle
-                    color="dark"
-                    value={String(cimentado)}
-                    checked={cimentado}
+                  <IonSelect
+                    value={fixacao}
+                    placeholder={fixacao}
                     onIonChange={onScrewToggle}
-                  />
-                  <span className="toggle-text">
-                    {cimentado ? "Sim" : "Não"}
-                  </span>
+                  >
+                    <IonSelectOption value="cimentado">
+                      Cimentado
+                    </IonSelectOption>
+                    <IonSelectOption value="parafusado">
+                      Parafusado
+                    </IonSelectOption>
+                  </IonSelect>
+                  {/* <IonSelect
+                    value={posicao}
+                    placeholder={posicao}
+                    onIonChange={onPositionToggle}
+                  >
+                    <IonSelectOption value="favoravel">
+                      Favorável
+                    </IonSelectOption>
+                    <IonSelectOption value="desfavoravel">
+                      Desfavorável
+                    </IonSelectOption>
+                  </IonSelect> */}
                 </div>
               </IonCol>
             </IonRow>
 
             {store.map(
-              (itemLevel1: TeethType) =>
-                itemLevel1?.selecionado && (
-                  <IonRow className="table-row" key={itemLevel1?.id}>
+              (item: TeethType) =>
+                item.selecionado && (
+                  <IonRow className="table-row" key={item?.id}>
                     <IonCol className="ion-no-padding" size="1">
                       <div>
-                        <h2>{itemLevel1?.dente}</h2>
+                        <h2>{item.dente}</h2>
                       </div>
                     </IonCol>
                     <IonCol className="ion-no-padding" size="2">
                       <div>
                         <h2>
-                          {itemLevel1?.familia}{" "}
+                          {item?.familia}{" "}
                           <span className="table-row__union-type">
-                            {itemLevel1?.uniaoImplante
-                              ? "Múltiplo"
-                              : "Unitário"}
+                            {item?.uniaoImplante === 'multiplo' ? "Múltiplo" : "Unitário"}
+                          </span>
+                          <span className="table-row__union-type">
+                            {item?.posicao === 'favoravel' ? "Favorável" : "Desfavorável"}
                           </span>
                         </h2>
                         <div>
-                          {Object.values(products).length > 0
-                            ? Object.values(products).map(
-                                (itemLevel2: any) =>
-                                  itemLevel2.familia === itemLevel1?.familia &&
-                                  itemLevel2.cimentado === cimentado && (
-                                    <Produtos
-                                      tipoConexao={itemLevel2.tipoConexao}
-                                      key={itemLevel2.id}
-                                      id={itemLevel2.id}
-                                      nome={itemLevel2.nome}
-                                      imagem={itemLevel2.imagem}
-                                      caracteristicas={
-                                        itemLevel2.caracteristicas
-                                      }
-                                      adicionais={itemLevel2.adicionais}
-                                      torque={itemLevel2.torque}
-                                      cimentado={itemLevel2.cimentado}
-                                    />
-                                  )
-                              )
-                            : "Nada aqui"}
+                          {array_filtrado(Object.values(products), {
+                            posicao: item.posicao,
+                            fixacao: fixacao,
+                            uniaoImplante: item?.uniaoImplante
+                          })}
+                          {console.log('fixacao:', fixacao)}
+                          {console.log('---------------------')}
+                          {console.log('posicao:', item?.posicao)}
+                          {console.log('---------------------')}
+                          {console.log('uniaoImplante:', item?.uniaoImplante)}
                         </div>
                       </div>
                     </IonCol>

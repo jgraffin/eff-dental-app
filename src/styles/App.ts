@@ -317,9 +317,9 @@ export const WrapperComponents = styled.div`
           font-size: 0.6rem;
           background: var(--ion-color-tertiary);
           border-radius: 90px;
-          padding: 0.2rem 0.6rem;
+          padding: 0.2rem 0.4rem;
           display: inline-block;
-          margin-left: 1rem;
+          margin-left: 0.5rem;
         }
       }
 
@@ -363,6 +363,7 @@ export const WrapperComponents = styled.div`
       width: 18rem;
 
       &__title {
+        position: relative;
         align-items: center;
         display: flex;
 
@@ -379,6 +380,14 @@ export const WrapperComponents = styled.div`
           text-transform: initial;
           letter-spacing: 0.1rem;
           margin: 0;
+        }
+
+        small {
+          color: var(--ion-color-tertiary);
+          font-family: var(--font-family-bold);
+          position: absolute;
+          right: 0;
+          top: -6px;
         }
       }
 

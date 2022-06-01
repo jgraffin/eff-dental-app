@@ -10,8 +10,8 @@ export type TeethType = {
   especificacao?: string;
   implante?: string;
   plataforma?: string;
-  uniaoImplante?: boolean;
-  posicao?: boolean;
+  uniaoImplante?: string;
+  posicao?: string;
   selecionado?: boolean;
   familia?: string;
 };
