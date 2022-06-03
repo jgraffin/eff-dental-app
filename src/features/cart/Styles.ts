@@ -12,11 +12,11 @@ export const CartList = styled.ul`
   border: 2px solid transparent;
 
   li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     display: flex;
     align-items: center;
     grid-gap: 1rem;
-    padding: 0.6rem 0;
+    padding: 0.8rem 0;
     width: 100%;
 
     &:last-of-type {

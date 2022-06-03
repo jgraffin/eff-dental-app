@@ -96,7 +96,7 @@ const Cart = () => {
         <CartList className={`${onCheckoutState()}`}>
           {Object.entries(items).length > 0 ? (
             Object.entries(items).map(([id, quantity]: any) => (
-              <li>
+              <li key={id} id={id}>
                 <div className="cart-list__image">
                   <img
                     src={`./assets/images/proteses/${products[id].imagem}.png`}

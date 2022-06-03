@@ -63,28 +63,30 @@ const Products = () => {
 
   const products = useAppSelector((state) => state.products.products);
 
-  let array_filtrado = function filtrarArray(ar_dados: any, obj_filtro: any){
-    return ar_dados.filter(function(item: any){
-      for(let obj in obj_filtro){
-        if(obj_filtro[obj] !== item[obj]){
-          return false;
+  let array_filtrado = function filtrarArray(ar_dados: any, obj_filtro: any) {
+    return ar_dados
+      .filter(function (item: any) {
+        for (let obj in obj_filtro) {
+          if (obj_filtro[obj] !== item[obj]) {
+            return false;
+          }
         }
-      }
-      return true;
-    }).map((product: any) => (
-      <Produtos
-        tipoConexao={product.tipoConexao}
-        key={product.id}
-        id={product.id}
-        nome={product.nome}
-        imagem={product.imagem}
-        caracteristicas={product.caracteristicas}
-        subitem={product.subitem}
-        torque={product.torque}
-        posicao={product.posicao}
-      />
-    ))
-  }
+        return true;
+      })
+      .map((product: any) => (
+        <Produtos
+          tipoConexao={product.tipoConexao}
+          key={product.id}
+          id={product.id}
+          nome={product.nome}
+          imagem={product.imagem}
+          caracteristicas={product.caracteristicas}
+          subitem={product.subitem}
+          torque={product.torque}
+          posicao={product.posicao}
+        />
+      ));
+  };
 
   return (
     <>
@@ -173,23 +175,22 @@ const Products = () => {
                         <h2>
                           {item?.familia}{" "}
                           <span className="table-row__union-type">
-                            {item?.uniaoImplante === 'multiplo' ? "Múltiplo" : "Unitário"}
+                            {item?.uniaoImplante === "multiplo"
+                              ? "Múltiplo"
+                              : "Unitário"}
                           </span>
                           <span className="table-row__union-type">
-                            {item?.posicao === 'favoravel' ? "Favorável" : "Desfavorável"}
+                            {item?.posicao === "favoravel"
+                              ? "Favorável"
+                              : "Desfavorável"}
                           </span>
                         </h2>
                         <div>
                           {array_filtrado(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,
-                            uniaoImplante: item?.uniaoImplante
+                            uniaoImplante: item?.uniaoImplante,
                           })}
-                          {console.log('fixacao:', fixacao)}
-                          {console.log('---------------------')}
-                          {console.log('posicao:', item?.posicao)}
-                          {console.log('---------------------')}
-                          {console.log('uniaoImplante:', item?.uniaoImplante)}
                         </div>
                       </div>
                     </IonCol>

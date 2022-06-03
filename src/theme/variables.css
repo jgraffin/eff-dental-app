@@ -187,6 +187,7 @@ html.md {
 .md.button {
   font-family: var(--font-family-bold);
   font-size: 0.8rem;
+  text-transform: capitalize;
   --padding-bottom: 4px;
   --padding-top: 4px;
 }

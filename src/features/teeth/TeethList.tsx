@@ -33,13 +33,11 @@ export const Tooth = ({ post }: TeethType | any) => {
     <li
       className={`tooth-list__item tooth-list__item--${post?.dente} 
         ${post?.selecionado ? "is-selected" : ""} 
-        ${post?.uniaoImplante === 'unitario' ? "unitario" : "multiplo"} 
-        ${post?.posicao === 'favoravel' ? "favoravel" : "desfavoravel"}
+        ${post?.uniaoImplante === "unitario" ? "unitario" : "multiplo"} 
+        ${post?.posicao === "favoravel" ? "favoravel" : "desfavoravel"}
         ${post?.selecionado && post?.implante ? "has-implant" : ""}`}
       key={post?.id}
     >
-      {console.log('UNIAO', post?.uniaoImplante)}
-      {console.log('POSICAO', post?.posicao)}
       <Link
         className={`ion-activatable ripple-parent `}
         to={{
@@ -102,7 +100,7 @@ export const TeethList = () => {
     const filterTeethNumberBottomRange = posts.filter(
       (val: { id: number }) => val.id >= 17
     );
-    
+
     const hasUnionImplantBottomLine = filterTeethNumberBottomRange.filter(
       (val: TeethType) => val.uniaoImplante ?? val
     );

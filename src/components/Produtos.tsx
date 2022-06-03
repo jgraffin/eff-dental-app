@@ -20,13 +20,11 @@ const Produtos = ({
   caracteristicas,
   subitem,
   torque,
-  uniaoImplante
 }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
   const [hideMessage, setHideMessage] = useState(false);
-  
 
   function onAddingToCart() {
     dispatch(addToCart(id));
@@ -71,7 +69,7 @@ const Produtos = ({
               >
                 {item.opcoes.map((item: any) => (
                   <IonSelectOption key={item.id} value={item.value}>
-                    {item.value}
+                    {item.label}
                   </IonSelectOption>
                 ))}
               </IonSelect>
@@ -101,14 +99,18 @@ const Produtos = ({
           <div className="form-product__title">
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
-            <small>{posicao === 'desfavoravel' ? "Desfavorável" : "Favorável"}</small>
+            <small>
+              {posicao === "desfavoravel" ? "Desfavorável" : "Favorável"}
+            </small>
           </div>
 
-          {caracteristicas.map((item: any) => (
-            <div key={item.id} id={item.id}>
-              {item.tipoConexao === "Anti Rotacional" && (
+          {caracteristicas.map((caracteristica: any) => (
+            <div key={caracteristica.id} id={caracteristica.id}>
+              {caracteristica.tipoConexao === "Anti Rotacional" && (
                 <IonItem>
-                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonLabel position="floating">
+                    {caracteristica.tipoConexao}
+                  </IonLabel>
                   <IonSelect
                     value={sku}
                     cancelText="Cancelar"
@@ -116,18 +118,20 @@ const Produtos = ({
                     placeholder="Selecione"
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
-                    {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
-                        {item.value}
+                    {caracteristica.opcoes.map((opcao: any) => (
+                      <IonSelectOption key={opcao.value} value={opcao.value}>
+                        {opcao.label}
                       </IonSelectOption>
                     ))}
                   </IonSelect>
                 </IonItem>
               )}
 
-              {item.tipoConexao === "Rotacional" && (
+              {caracteristica.tipoConexao === "Rotacional" && (
                 <IonItem>
-                  <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                  <IonLabel position="floating">
+                    {caracteristica.tipoConexao}
+                  </IonLabel>
                   <IonSelect
                     value={sku}
                     cancelText="Cancelar"
@@ -135,9 +139,9 @@ const Produtos = ({
                     placeholder="Selecione"
                     onIonChange={(event) => setSku(event.detail.value)}
                   >
-                    {item.opcoes.map((item: any) => (
-                      <IonSelectOption key={item.value} value={item.value}>
-                        {item.value}
+                    {caracteristica.opcoes.map((opcao: any) => (
+                      <IonSelectOption key={opcao.value} value={opcao.value}>
+                        {opcao.label}
                       </IonSelectOption>
                     ))}
                   </IonSelect>
@@ -146,9 +150,7 @@ const Produtos = ({
             </div>
           ))}
 
-          {subitem?.length && (
-            <h6 className="additional-title">Acessórios:</h6>
-          )}
+          {subitem?.length && <h6 className="additional-title">Acessórios:</h6>}
 
           {subitem?.length &&
             subitem?.map((item: any) => (
@@ -209,7 +211,7 @@ const Produtos = ({
                 onClick={onAddingToCart}
               >
                 <span>Adicionar</span>
-                <strong>{sku}</strong>
+                <strong>{sku.substring(3)}</strong>
               </IonButton>
             </WrapperButtonAddToCart>
           )}

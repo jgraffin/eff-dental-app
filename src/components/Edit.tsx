@@ -32,7 +32,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   const [familia, setFamilia] = useState(data.familia);
   const [uniaoImplante, setUniaoImplante] = useState(data.uniaoImplante);
   const [posicao, setPosicao] = useState(data.posicao);
-  console.log('dsd', data.uniaoImplante);
 
   const [dente] = useState(data.dente);
   const [selecionado] = useState(data.selecionado);
@@ -117,15 +116,13 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         implante: "",
         familia: "",
         plataforma: "",
-        uniaoImplante: 'unitario',
-        posicao: 'favoravel',
+        uniaoImplante: "unitario",
+        posicao: "favoravel",
         selecionado: false,
       })
     );
     history.push(`/`);
   };
-
-  
 
   useEffect(() => {
     setCatalogo(catalogo);
@@ -153,7 +150,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           <ToothScheme
             dente={dente}
             implante={implante}
-            posicao={posicao ? 'desfavoravel' : 'favoravel' }
+            posicao={posicao ? "desfavoravel" : "favoravel"}
             selecionado={selecionado}
             uniaoImplante={uniaoImplante}
           />
@@ -322,8 +319,12 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 <IonItem>
                   <IonLabel position="floating">Posição</IonLabel>
                   <IonSelect value={posicao} onIonChange={onPositionChanged}>
-                    <IonSelectOption value="favoravel">Favorável</IonSelectOption>
-                    <IonSelectOption value="desfavoravel">Desfavorável</IonSelectOption>
+                    <IonSelectOption value="favoravel">
+                      Favorável
+                    </IonSelectOption>
+                    <IonSelectOption value="desfavoravel">
+                      Desfavorável
+                    </IonSelectOption>
                   </IonSelect>
                 </IonItem>
 
