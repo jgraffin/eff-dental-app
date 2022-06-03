@@ -48,7 +48,6 @@ const cartSlice = createSlice({
     },
     getSelectedValues(state: RootState, action: PayloadAction<string>) {
       const value = action.payload;
-      console.log("getSelectedValues:", value);
       state.values.push(value);
     },
     removeFromCart(state: RootState, action: PayloadAction<string>) {

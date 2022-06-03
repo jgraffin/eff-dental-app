@@ -8,3 +8,36 @@ export const LogoWrapper = styled.div`
   position: relative;
   width: 7rem;
 `;
+
+export const FamilySpecification = styled.div`
+  align-items: center;
+  display: flex;
+  grid-gap: 0.5rem;
+  width: 100%;
+
+  .table-row__union-type {
+    background: var(--ion-color-tertiary);
+    border-radius: 90px;
+    color: white;
+    display: inline-block;
+    font-family: var(--font-family-bold);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+`;
+
+export const AllProducts = styled.div`
+  &:empty {
+    &::after {
+      color: var(--ion-color-medium);
+      content: "Nenhum componente.";
+      display: block;
+      font-family: var(--font-family-bold);
+      font-size: 0.8rem;
+      height: auto;
+      letter-spacing: 0.05rem;
+      text-transform: none;
+      width: 100%;
+    }
+  }
+`;

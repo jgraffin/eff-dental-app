@@ -296,7 +296,7 @@ export const WrapperComponents = styled.div`
         align-items: flex-start;
 
         h2 {
-          color: var(--ion-color-primary);
+          color: var(--ion-color-dark);
           font-family: var(--font-family-bold);
           font-size: 0.9rem;
         }
@@ -310,19 +310,6 @@ export const WrapperComponents = styled.div`
 
     .table-head,
     .table-row {
-      h2 {
-        .table-row__union-type {
-          color: white;
-          font-family: var(--font-family-bold);
-          font-size: 0.6rem;
-          background: var(--ion-color-tertiary);
-          border-radius: 90px;
-          padding: 0.2rem 0.4rem;
-          display: inline-block;
-          margin-left: 0.5rem;
-        }
-      }
-
       ion-col {
         font-size: 0.7rem;
         font-family: var(--font-family-bold);
@@ -354,23 +341,32 @@ export const WrapperComponents = styled.div`
     }
 
     .form-product {
-      border: 0.1rem solid var(--ion-color-light);
       border-radius: 0.4rem;
+      border: 0.1rem solid var(--ion-color-light);
       box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
       margin-bottom: 1rem;
       overflow: hidden;
-      padding: 1rem 1rem 0 1rem;
       width: 18rem;
 
+      &.is-closed {
+        height: 6rem;
+      }
+
       &__title {
-        position: relative;
         align-items: center;
         display: flex;
+        padding: 1rem 1rem 0 1rem;
+        position: relative;
+
+        ion-ripple-effect {
+          opacity: 0.2;
+        }
 
         img {
           height: auto;
           margin-left: -1.2rem;
           margin-right: 1rem;
+          transform: translateY(-8px);
           width: 4rem;
         }
 
@@ -386,9 +382,13 @@ export const WrapperComponents = styled.div`
           color: var(--ion-color-tertiary);
           font-family: var(--font-family-bold);
           position: absolute;
-          right: 0;
-          top: -6px;
+          right: 10px;
+          top: 6px;
         }
+      }
+
+      &__item {
+        padding: 1rem 1rem 0 1rem;
       }
 
       .additional-field {
@@ -410,6 +410,7 @@ export const WrapperComponents = styled.div`
         font-size: 0.7rem;
         color: var(--ion-color-primary);
         display: inline-block;
+        padding-left: 1rem;
       }
 
       img.additional-image {

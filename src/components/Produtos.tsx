@@ -2,6 +2,7 @@ import {
   IonButton,
   IonItem,
   IonLabel,
+  IonRippleEffect,
   IonSelect,
   IonSelectOption,
 } from "@ionic/react";
@@ -25,6 +26,7 @@ const Produtos = ({
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
   const [hideMessage, setHideMessage] = useState(false);
+  const [isClosed, setIsClosed] = useState(true);
 
   function onAddingToCart() {
     dispatch(addToCart(id));
@@ -39,6 +41,14 @@ const Produtos = ({
         setHideMessage(false);
       }, 500);
     }, 1800);
+  }
+
+  function toggleAccordion(event: any) {
+    if (isClosed) {
+      setIsClosed(false);
+    } else {
+      setIsClosed(true);
+    }
   }
 
   return (
@@ -95,17 +105,24 @@ const Produtos = ({
       )}
 
       {tipoConexao === "rotacionalAntiRotacional" && (
-        <div key={id} className="form-product" id={id}>
-          <div className="form-product__title">
+        <div
+          key={id}
+          className={`form-product ion-activatable ripple-parent ${
+            isClosed ? "is-closed" : ""
+          }`}
+          id={id}
+        >
+          <div className="form-product__title" onClick={toggleAccordion}>
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
             <small>
               {posicao === "desfavoravel" ? "Desfavorável" : "Favorável"}
             </small>
+            <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
           </div>
 
           {caracteristicas.map((caracteristica: any) => (
-            <div key={caracteristica.id} id={caracteristica.id}>
+            <div className="form-product__item" key={caracteristica.id}>
               {caracteristica.tipoConexao === "Anti Rotacional" && (
                 <IonItem>
                   <IonLabel position="floating">
@@ -154,7 +171,7 @@ const Produtos = ({
 
           {subitem?.length &&
             subitem?.map((item: any) => (
-              <div key={item.id}>
+              <div className="form-product__item">
                 {item.tipoConexao === "h.0.80/1.50/2.50mm" && (
                   <IonItem className="additional-field">
                     <img

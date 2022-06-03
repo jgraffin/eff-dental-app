@@ -61,6 +61,14 @@ const Cart = () => {
     onCheckoutState();
   }, []);
 
+  function getArrays(array: any) {
+    let values = array.map(
+      (item: any) =>
+        item.tipoConexao === "Anti Rotacional" &&
+        item.opcoes.map((item: any) => item.value === "a1h0.8mm")
+    );
+  }
+
   return (
     <>
       <IonHeader>
@@ -103,6 +111,7 @@ const Cart = () => {
                     alt={products[id].nome}
                   />
                 </div>
+                {getArrays(products[id].caracteristicas)}
                 <div className="cart-list__title">
                   <h2>{products[id].nome}</h2>
                 </div>

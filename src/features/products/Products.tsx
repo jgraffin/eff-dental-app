@@ -26,7 +26,7 @@ import { WrapperComponents } from "../../styles/App";
 import { getMemoizedNumItems } from "../cart/CartSlice";
 import { selectAllItems, TeethType } from "../teeth/teethSlice";
 import { receivedProducts } from "./ProductsSlice";
-import { LogoWrapper } from "./Styles";
+import { AllProducts, FamilySpecification, LogoWrapper } from "./Styles";
 
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
@@ -41,6 +41,9 @@ const Products = () => {
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const [fixacao, setFixacao] = useState("cimentado");
   const [posicao, setPosicao] = useState("favoravel");
+
+  const hasComponentRef = useRef<any>(null);
+  const [hasUndefinedValue, setHasUndefinedValue] = useState(false);
 
   const onScrewToggle = () =>
     fixacao === "cimentado"
@@ -172,8 +175,8 @@ const Products = () => {
                     </IonCol>
                     <IonCol className="ion-no-padding" size="2">
                       <div>
-                        <h2>
-                          {item?.familia}{" "}
+                        <FamilySpecification>
+                          <h2>{item?.familia}</h2>
                           <span className="table-row__union-type">
                             {item?.uniaoImplante === "multiplo"
                               ? "Múltiplo"
@@ -184,14 +187,14 @@ const Products = () => {
                               ? "Favorável"
                               : "Desfavorável"}
                           </span>
-                        </h2>
-                        <div>
+                        </FamilySpecification>
+                        <AllProducts>
                           {array_filtrado(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,
                             uniaoImplante: item?.uniaoImplante,
                           })}
-                        </div>
+                        </AllProducts>
                       </div>
                     </IonCol>
                   </IonRow>
