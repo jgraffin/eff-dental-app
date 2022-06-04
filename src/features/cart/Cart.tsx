@@ -139,7 +139,7 @@ const Cart = () => {
             <p>{errorMessage}</p>
           ) : null}
           <IonButton
-            className="button-save"
+            className="button-save button-save--checkout"
             expand="block"
             shape="round"
             color="dark"

@@ -130,7 +130,7 @@ const Products = () => {
 
           <IonGrid>
             <IonRow className="table-head">
-              <IonCol className="ion-no-padding" size="1">
+              <IonCol className="ion-no-padding" size="2">
                 Nº
               </IonCol>
               <IonCol className="ion-no-padding" size="8">
@@ -148,18 +148,6 @@ const Products = () => {
                       Parafusado
                     </IonSelectOption>
                   </IonSelect>
-                  {/* <IonSelect
-                    value={posicao}
-                    placeholder={posicao}
-                    onIonChange={onPositionToggle}
-                  >
-                    <IonSelectOption value="favoravel">
-                      Favorável
-                    </IonSelectOption>
-                    <IonSelectOption value="desfavoravel">
-                      Desfavorável
-                    </IonSelectOption>
-                  </IonSelect> */}
                 </div>
               </IonCol>
             </IonRow>
@@ -168,8 +156,8 @@ const Products = () => {
               (item: TeethType) =>
                 item.selecionado && (
                   <IonRow className="table-row" key={item?.id}>
-                    <IonCol className="ion-no-padding" size="1">
-                      <div>
+                    <IonCol className="ion-no-padding" size="2">
+                      <div className="table-row__tooth">
                         <h2>{item.dente}</h2>
                       </div>
                     </IonCol>
@@ -193,6 +181,8 @@ const Products = () => {
                             posicao: item.posicao,
                             fixacao: fixacao,
                             uniaoImplante: item?.uniaoImplante,
+                            adicionais: true,
+                            familia: item?.familia,
                           })}
                         </AllProducts>
                       </div>

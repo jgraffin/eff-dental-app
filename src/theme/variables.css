@@ -323,6 +323,11 @@ h2 {
   animation: slidedown ease-in-out 0.8s forwards;
 }
 
+.button-save--checkout {
+  margin: 0 auto;
+  width: 90%;
+}
+
 .button-remove {
   color: var(--ion-color-dark);
   border: 1px solid var(--ion-color-dark);

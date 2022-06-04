@@ -300,6 +300,13 @@ export const WrapperComponents = styled.div`
           font-family: var(--font-family-bold);
           font-size: 0.9rem;
         }
+
+        .table-row__tooth {
+          h2 {
+            font-size: 1.5rem;
+            margin-top: 0.7rem;
+          }
+        }
       }
 
       ion-col {
@@ -345,11 +352,15 @@ export const WrapperComponents = styled.div`
       border: 0.1rem solid var(--ion-color-light);
       box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
       margin-bottom: 1rem;
-      overflow: hidden;
-      width: 18rem;
+      width: 16rem;
 
-      &.is-closed {
-        height: 6rem;
+      > div {
+        position: relative;
+        overflow: hidden;
+
+        &.is-closed {
+          height: 6rem;
+        }
       }
 
       &__title {
@@ -374,12 +385,12 @@ export const WrapperComponents = styled.div`
           font-size: 1.1rem;
           font-family: var(--font-family-bold);
           text-transform: initial;
-          letter-spacing: 0.1rem;
+          letter-spacing: 0.05rem;
           margin: 0;
         }
 
         small {
-          color: var(--ion-color-tertiary);
+          color: var(--ion-color-primary);
           font-family: var(--font-family-bold);
           position: absolute;
           right: 10px;
@@ -389,6 +400,49 @@ export const WrapperComponents = styled.div`
 
       &__item {
         padding: 1rem 1rem 0 1rem;
+      }
+
+      &.form-product--additionals {
+        border: 0.1rem solid rgba(117, 117, 248, 0.2);
+        border-left: 0.5rem solid rgba(117, 117, 248, 0.2);
+        margin-left: 1rem;
+        position: relative;
+        width: 94%;
+
+        h3 {
+          font-size: 0.9rem;
+          line-height: 1.4rem;
+        }
+      }
+
+      &.ion-activatable.ripple-parent:not(.form-product--additionals) {
+        + .form-product--additionals {
+          margin-top: 3rem;
+
+          &::before {
+            color: var(--ion-color-tertiary);
+            content: "ADICIONAIS";
+            display: block;
+            font-family: var(--font-family-bold);
+            font-size: 0.8rem;
+            height: 2rem;
+            left: 0;
+            position: absolute;
+            top: -2rem;
+            width: 100%;
+          }
+
+          &::after {
+            content: "";
+            background-color: var(--ion-color-tertiary);
+            display: block;
+            height: 0.1rem;
+            right: 0;
+            position: absolute;
+            top: -1.4rem;
+            width: 60%;
+          }
+        }
       }
 
       .additional-field {
@@ -423,19 +477,13 @@ export const WrapperComponents = styled.div`
   .filter-button {
     position: absolute;
     right: 0;
-    top: 0;
+    top: -0.8rem;
     display: flex;
     grid-gap: 0.5rem;
+    height: 2.7rem;
 
-    ion-toggle {
-      padding: 3px 0 4px 0;
-    }
-
-    ion-label {
-      position: absolute;
-      right: -11px;
-      top: 0.34rem;
-      font-size: 0.6rem !important;
+    ion-select {
+      font-family: var(--font-family-bold);
     }
   }
 
@@ -465,11 +513,14 @@ export const WrapperButtonAddToCart = styled.div`
     height: 50px;
 
     span {
+      font-size: 1rem;
+      font-family: var(--font-family-regular);
       margin-right: 0.3rem;
     }
 
     strong {
       color: #aaf9ae;
+      font-size: 1rem;
       margin-left: 0.3rem;
     }
   }
