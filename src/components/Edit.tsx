@@ -150,7 +150,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
           <ToothScheme
             dente={dente}
             implante={implante}
-            posicao={posicao ? "desfavoravel" : "favoravel"}
+            posicao={posicao === "favoravel" ? "favoravel" : "desfavoravel"}
             selecionado={selecionado}
             uniaoImplante={uniaoImplante}
           />

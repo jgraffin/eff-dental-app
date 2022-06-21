@@ -1069,17 +1069,17 @@
   "resolved" "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   "version" "0.2.3"
 
-"@capacitor/android@3.5.1":
-  "integrity" "sha512-rjehS0+BQBlwoN8hUyrMuzexn/9QJsONb1kmN5uXcL8JuTEbv35fa7z0tSD4x1LKwUFd+3Zeuwt60QRuwijlmw=="
-  "resolved" "https://registry.npmjs.org/@capacitor/android/-/android-3.5.1.tgz"
-  "version" "3.5.1"
+"@capacitor/android@3.4.3":
+  "integrity" "sha512-G/6+mbOde9LMWl5KvA5rB/xEQF05sKrQFMBwo8y3C8pYF+axtcrS0Dgze9rOB7nCjH4NXv/bLw58E9+q8/sQUA=="
+  "resolved" "https://registry.npmjs.org/@capacitor/android/-/android-3.4.3.tgz"
+  "version" "3.4.3"
 
 "@capacitor/app@1.1.1":
   "integrity" "sha512-8ADkldHnoE1xkWvPUsGlERVGm6/Zvcxy6hCI80AxydIKyaCG7kbDAvUclebbnw/eFRxj2zBoVatGLjmJNvTbYw=="
   "resolved" "https://registry.npmjs.org/@capacitor/app/-/app-1.1.1.tgz"
   "version" "1.1.1"
 
-"@capacitor/cli@3.4.3":
+"@capacitor/cli@^3.4.3":
   "integrity" "sha512-mu2pGoIh/OapMzWwXGXUlOmapXthW9XcHGERpZxNE45aBEYC9eTJWmbcXVlJuyx/9GFnnV+pXjGl3i0grci/Zw=="
   "resolved" "https://registry.npmjs.org/@capacitor/cli/-/cli-3.4.3.tgz"
   "version" "3.4.3"
@@ -1101,7 +1101,7 @@
     "tslib" "^2.1.0"
     "xml2js" "^0.4.23"
 
-"@capacitor/core@^3.0.0", "@capacitor/core@^3.5.0", "@capacitor/core@3.5.1":
+"@capacitor/core@^3.0.0", "@capacitor/core@^3.4.0", "@capacitor/core@^3.5.1":
   "integrity" "sha512-UTROxB7q/hZBnhDLcCN7mVsAX3SxXNMhVuPbtddsDOUCm4hExLXN62gPD7rjgmumhfHMjeXmkw/EfRzSjttL1g=="
   "resolved" "https://registry.npmjs.org/@capacitor/core/-/core-3.5.1.tgz"
   "version" "3.5.1"

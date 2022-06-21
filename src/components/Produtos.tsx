@@ -43,7 +43,7 @@ const Produtos = ({
     }, 1800);
   }
 
-  function toggleAccordion(event: any) {
+  function toggleAccordion() {
     if (isClosed) {
       setIsClosed(false);
     } else {

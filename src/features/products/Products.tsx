@@ -1,5 +1,6 @@
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonCol,
   IonContent,
@@ -40,23 +41,20 @@ const Products = () => {
 
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const [fixacao, setFixacao] = useState("cimentado");
-  const [posicao, setPosicao] = useState("favoravel");
+  const [isShown, setIsShown] = useState(true);
 
-  const hasComponentRef = useRef<any>(null);
-  const [hasUndefinedValue, setHasUndefinedValue] = useState(false);
+  function onShowContent() {
+    if (isShown) {
+      setIsShown(false);
+    } else {
+      setIsShown(true);
+    }
+  }
 
   const onScrewToggle = () =>
     fixacao === "cimentado"
       ? setFixacao("parafusado")
       : setFixacao("cimentado");
-
-  const onPositionToggle = () => {
-    if (posicao === "favoravel") {
-      setPosicao("desfavoravel");
-    } else {
-      setPosicao("favoravel");
-    }
-  };
 
   useEffect(() => {
     getProducts().then((products) => {
@@ -161,8 +159,12 @@ const Products = () => {
                         <h2>{item.dente}</h2>
                       </div>
                     </IonCol>
-                    <IonCol className="ion-no-padding" size="2">
-                      <div>
+                    <IonCol className="ion-no-padding" size="8">
+                      <div
+                        className={`table-row__item ${
+                          isShown ? "content-is-shown" : ""
+                        }`}
+                      >
                         <FamilySpecification>
                           <h2>{item?.familia}</h2>
                           <span className="table-row__union-type">
@@ -185,6 +187,11 @@ const Products = () => {
                             familia: item?.familia,
                           })}
                         </AllProducts>
+                        <IonButton
+                          className="accordion-button"
+                          type="button"
+                          onClick={onShowContent}
+                        ></IonButton>
                       </div>
                     </IonCol>
                   </IonRow>

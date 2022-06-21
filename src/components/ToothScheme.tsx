@@ -10,12 +10,13 @@ const ToothScheme = ({
 }: TeethType) => {
   return (
     <ToothSchemeWrapper>
+      {console.log("opa", posicao)}
       <div
         className={`tooth-scheme tooth-scheme--${dente} 
           ${implante !== "Undefined" ? "has-implant" : ""} 
-          ${posicao ? "unfavorable" : ""} 
+          ${posicao} 
           ${selecionado ? "is-selected" : ""} 
-          ${uniaoImplante ? "has-union" : ""}`}
+          ${uniaoImplante}`}
       >
         <div className="tooth-scheme__image"></div>
         <div className="tooth-scheme__number">{dente}</div>

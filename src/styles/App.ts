@@ -309,6 +309,32 @@ export const WrapperComponents = styled.div`
         }
       }
 
+      .table-row__item {
+        height: 40px;
+        overflow: hidden;
+        position: relative;
+
+        .accordion-button {
+          position: absolute;
+          right: 0;
+          top: 4px;
+          width: 30px;
+          height: 30px;
+          --background: transparent;
+          background: transparent;
+          background-image: url("../assets/icon/chevron-down.svg");
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 25px;
+        }
+
+        &.content-is-shown {
+          .accordion-button {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
       ion-col {
         border-bottom: 0;
         border-right: 0;
@@ -476,7 +502,7 @@ export const WrapperComponents = styled.div`
 
   .filter-button {
     position: absolute;
-    right: 0;
+    right: 0.5rem;
     top: -0.8rem;
     display: flex;
     grid-gap: 0.5rem;
@@ -685,7 +711,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 31px;
@@ -712,7 +738,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 30px;
@@ -741,7 +767,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 28px;
@@ -771,7 +797,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 28px;
@@ -801,7 +827,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 28px;
@@ -830,7 +856,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 25px;
@@ -860,7 +886,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 25px;
@@ -888,7 +914,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 25px;
@@ -917,7 +943,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 26px;
@@ -947,7 +973,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 26px;
@@ -977,7 +1003,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 26px;
@@ -1007,7 +1033,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 27px;
@@ -1037,7 +1063,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 27px;
@@ -1064,7 +1090,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 30px;
@@ -1092,7 +1118,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 30px;
@@ -1120,7 +1146,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 30px;
@@ -1169,7 +1195,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               left: 10px;
@@ -1216,7 +1242,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               left: 10px;
@@ -1251,7 +1277,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 38px;
@@ -1279,7 +1305,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 36px;
@@ -1304,7 +1330,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 34px;
@@ -1321,7 +1347,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 34px;
@@ -1355,7 +1381,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 36px;
@@ -1372,7 +1398,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 34px;
@@ -1389,7 +1415,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 33px;
@@ -1420,7 +1446,7 @@ export const List = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           a {
             &::before {
               top: 32px;
@@ -1471,7 +1497,7 @@ export const List = styled.div`
 
     .tooth-list {
       &__item {
-        &.has-union {
+        &.multiplo {
           &.tooth-list__item {
             &--18,
             &--17,
@@ -1517,7 +1543,7 @@ export const List = styled.div`
 
     .tooth-list {
       &__item {
-        &.has-union {
+        &.multiplo {
           &.tooth-list__item {
             &--48,
             &--47,

@@ -75,7 +75,7 @@ export const ToothSchemeWrapper = styled.div`
       }
     }
 
-    &.has-union {
+    &.multiplo {
       position: relative;
 
       &::after {
@@ -93,7 +93,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
@@ -118,7 +118,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
@@ -143,7 +143,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.3rem;
@@ -168,7 +168,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
@@ -196,7 +196,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.7rem;
@@ -225,7 +225,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.9rem;
@@ -254,7 +254,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
@@ -283,7 +283,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.6rem;
@@ -312,7 +312,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.5rem;
@@ -341,7 +341,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.4rem;
@@ -370,7 +370,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.9rem;
@@ -399,7 +399,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.7rem;
@@ -428,7 +428,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.3rem;
@@ -457,7 +457,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.3rem;
@@ -486,7 +486,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0.2rem;
@@ -515,7 +515,7 @@ export const ToothSchemeWrapper = styled.div`
           }
         }
 
-        &.unfavorable {
+        &.desfavoravel {
           .tooth-scheme__image {
             &::before {
               top: 0;
@@ -559,7 +559,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 22px;
@@ -584,7 +584,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             left: 0.25rem;
@@ -614,7 +614,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 19px;
@@ -639,7 +639,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 21px;
@@ -665,7 +665,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 23px;
@@ -691,7 +691,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 25px;
@@ -717,7 +717,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 23px;
@@ -743,7 +743,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 23px;
@@ -769,7 +769,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 26px;
@@ -795,7 +795,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 24px;
@@ -821,7 +821,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 22px;
@@ -847,7 +847,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 22px;
@@ -873,7 +873,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 21px;
@@ -899,7 +899,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 21px;
@@ -925,7 +925,7 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
-      &.unfavorable {
+      &.desfavoravel {
         .tooth-scheme__image {
           &::before {
             top: 21px;

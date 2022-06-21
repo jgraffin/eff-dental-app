@@ -76,8 +76,8 @@ export const TeethList = () => {
   //           implante: "Undefined",
   //           familia: "",
   //           plataforma: "",
-  //           uniaoImplante: false,
-  //           posicao: false,
+  //           uniaoImplante: "unitario",
+  //           posicao: "favoravel",
   //           selecionado: !item.selecionado,
   //         })
   //       )
@@ -111,11 +111,15 @@ export const TeethList = () => {
 
     setItemSelectedList(itemSelectedLength);
 
+    const hasMultiple = hasUnionImplantTopLine.filter(
+      (item: TeethType) => item.uniaoImplante === "multiplo"
+    );
+
     if (itemSelected.length > 0) {
       setSelection(true);
     }
 
-    if (hasUnionImplantTopLine.length > 0) {
+    if (hasMultiple.length > 1) {
       setHasUnionTopLine(true);
     } else {
       setHasUnionTopLine(false);
