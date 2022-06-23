@@ -310,8 +310,8 @@ export const WrapperComponents = styled.div`
       }
 
       .table-row__item {
-        height: 40px;
-        overflow: hidden;
+        height: auto;
+        overflow: visible;        
         position: relative;
 
         .accordion-button {
@@ -328,10 +328,13 @@ export const WrapperComponents = styled.div`
           background-size: 25px;
         }
 
-        &.content-is-shown {
+        &.content-is-closed {
           .accordion-button {
-            transform: rotate(-45deg);
+            transform: rotate(0);
           }
+
+          height: 40px;
+          overflow: hidden;
         }
       }
 
@@ -408,7 +411,7 @@ export const WrapperComponents = styled.div`
         }
 
         h3 {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-family: var(--font-family-bold);
           text-transform: initial;
           letter-spacing: 0.05rem;
@@ -431,13 +434,18 @@ export const WrapperComponents = styled.div`
       &.form-product--additionals {
         border: 0.1rem solid rgba(117, 117, 248, 0.2);
         border-left: 0.5rem solid rgba(117, 117, 248, 0.2);
-        margin-left: 1rem;
+        margin-left: 2.6rem;
         position: relative;
-        width: 94%;
+        width: 84%;
 
         h3 {
-          font-size: 0.9rem;
-          line-height: 1.4rem;
+          font-size: 0.8rem;
+          line-height: 1.2rem;
+          letter-spacing: 0.02rem;
+        }
+
+        .is-closed {
+          height: 5rem;
         }
       }
 
@@ -447,7 +455,7 @@ export const WrapperComponents = styled.div`
 
           &::before {
             color: var(--ion-color-tertiary);
-            content: "ADICIONAIS";
+            content: "ACESSÓRIOS";
             display: block;
             font-family: var(--font-family-bold);
             font-size: 0.8rem;
@@ -466,7 +474,7 @@ export const WrapperComponents = styled.div`
             right: 0;
             position: absolute;
             top: -1.4rem;
-            width: 60%;
+            width: 50%;
           }
         }
       }

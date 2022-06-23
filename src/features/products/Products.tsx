@@ -41,15 +41,10 @@ const Products = () => {
 
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const [fixacao, setFixacao] = useState("cimentado");
-  const [isShown, setIsShown] = useState(true);
 
-  function onShowContent() {
-    if (isShown) {
-      setIsShown(false);
-    } else {
-      setIsShown(true);
-    }
-  }
+  const [clicked, setClicked] = useState(0);
+
+  
 
   const onScrewToggle = () =>
     fixacao === "cimentado"
@@ -77,7 +72,6 @@ const Products = () => {
       .map((product: any) => (
         <Produtos
           tipoConexao={product.tipoConexao}
-          key={product.id}
           id={product.id}
           nome={product.nome}
           imagem={product.imagem}
@@ -160,11 +154,7 @@ const Products = () => {
                       </div>
                     </IonCol>
                     <IonCol className="ion-no-padding" size="8">
-                      <div
-                        className={`table-row__item ${
-                          isShown ? "content-is-shown" : ""
-                        }`}
-                      >
+                      <div className="table-row__item">
                         <FamilySpecification>
                           <h2>{item?.familia}</h2>
                           <span className="table-row__union-type">
@@ -187,11 +177,10 @@ const Products = () => {
                             familia: item?.familia,
                           })}
                         </AllProducts>
-                        <IonButton
+                        {/* <IonButton
                           className="accordion-button"
                           type="button"
-                          onClick={onShowContent}
-                        ></IonButton>
+                        ></IonButton> */}
                       </div>
                     </IonCol>
                   </IonRow>
