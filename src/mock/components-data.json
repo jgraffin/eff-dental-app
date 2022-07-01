@@ -1,0 +1,3654 @@
+[
+ {
+  "id": "0",
+  "nome": "Munhão Provisório",
+  "imagem": "munhao-provisorio-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "a1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "a2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "a3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "a4h3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "b1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "b2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "b3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "b4h3.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "1",
+  "nome": "Munhão Provisório",
+  "imagem": "munhao-provisorio-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "a1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "a2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "a3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "a4h3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "b1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "b2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "b3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "b4h3.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "2",
+  "nome": "Munhão Provisório",
+  "imagem": "munhao-provisorio-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "a1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "a2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "a3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "a4h3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "b1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "b2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "b3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "b4h3.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "3",
+  "nome": "Munhão Provisório",
+  "imagem": "munhao-provisorio-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "a1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "a2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "a3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "a4h3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "b1h0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "b2h1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "b3h2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "b4h3.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "4",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "5",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "6",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "7",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "8",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "9",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "10",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "11",
+  "nome": "Ucla Plástica base CrCo",
+  "imagem": "ucla-plastica-base-crco-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "rotacionalAntiRotacional",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "aJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "aJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "aJh2.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "bJh0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "bJh1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "bJh2.5mm"
+     }
+    ]
+   }
+  ],
+  "subitem": [
+   {
+    "id": "0",
+    "tipoConexao": "h.0.80/1.50/2.50mm",
+    "imagem": "munhao-provisorio-a31-subitem",
+    "value": "2103.22A"
+   },
+   {
+    "id": "1",
+    "tipoConexao": "h.3.50/4.50mm",
+    "value": "2103.22A.1"
+   }
+  ]
+ },
+ {
+  "id": "12",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "13",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "14",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "15",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "16",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "17",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "18",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "19",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5A.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "A1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "20",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "21",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "22",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "23",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "24",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "25",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "26",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "27",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.CJ",
+      "value": "5B.1.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "CJ",
+      "value": "B1.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "28",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "29",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "30",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "31",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "32",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "33",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "34",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "35",
+  "nome": "Análogo do Implante",
+  "imagem": "analogo-implante-a31",
+  "fixacao": "cimentado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "05",
+      "value": "05.05"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "36",
+  "nome": "Munhão Sólido",
+  "imagem": "munhao-solido-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "perfil330-4mm",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Perfil Ø 3.30|h 4.0mm",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "00010.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "00021.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "00032.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "00043.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Perfil Ø 3.30|h 6.0mm",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "00050.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "00061.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "00072.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "00083.5mm"
+     }
+    ]
+   },
+   {
+    "id": "2",
+    "tipoConexao": "Perfil Ø 4.50|h 4.0mm",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "0000.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "0001.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "0002.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "0003.5mm"
+     },
+     {
+      "id": "4",
+      "label": "4.5mm",
+      "value": "0004.5mm"
+     }
+    ]
+   },
+   {
+    "id": "2",
+    "tipoConexao": "Perfil Ø 4.50|h 6.0mm",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "00090.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "0221.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "0332.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "0443.5mm"
+     },
+     {
+      "id": "4",
+      "label": "4.5mm",
+      "value": "0554.5mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "37",
+  "nome": "Kit do Munhão Sólido Transfer e Coping Plástico",
+  "imagem": "kit-munhao-solido-transfer-coping-plastico-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "perfil330-450",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Perfil Ø 3.30",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "4.0mm",
+      "value": "1114.0mm"
+     },
+     {
+      "id": "1",
+      "label": "6.0mm",
+      "value": "2226.0mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Perfil Ø 4.50",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "4.0mm",
+      "value": "3334.0mm"
+     },
+     {
+      "id": "1",
+      "label": "6.0mm",
+      "value": "3336.0mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "38",
+  "nome": "Análogo do Munhão Sólido",
+  "imagem": "analogo-munhao-solido-a31",
+  "fixacao": "cimentado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Perfil Ø 3.30",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "4mm",
+      "value": "0124mm"
+     },
+     {
+      "id": "1",
+      "label": "6mm",
+      "value": "0346mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Perfil Ø 4.50",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "4mm",
+      "value": "0564mm"
+     },
+     {
+      "id": "1",
+      "label": "6mm",
+      "value": "0786mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "39",
+  "nome": "Mini Pilar Reto",
+  "imagem": "mini-pilar-reto-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "none",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "3210.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "4321.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "5432.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "8763.5mm"
+     },
+     {
+      "id": "4",
+      "label": "4.5mm",
+      "value": "7654.5mm"
+     },
+     {
+      "id": "5",
+      "label": "5.5mm",
+      "value": "6545.5mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "40",
+  "nome": "Mini Pilar Angulado",
+  "imagem": "mini-pilar-angulado-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "17-30-s-exact-c-exact",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "17-s-exact",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.5mm",
+      "value": "exa1.5mm"
+     },
+     {
+      "id": "1",
+      "label": "2.5mm",
+      "value": "exa2.5mm"
+     },
+     {
+      "id": "2",
+      "label": "3.5mm",
+      "value": "exa3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "30-s-exact",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.5mm",
+      "value": "exs1.5mm"
+     },
+     {
+      "id": "1",
+      "label": "2.5mm",
+      "value": "exs1.5mm"
+     }
+    ]
+   },
+   {
+    "id": "2",
+    "tipoConexao": "c-exact-1",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.5mm",
+      "value": "exc1.5mm"
+     },
+     {
+      "id": "1",
+      "label": "2.5mm",
+      "value": "exc2.5mm"
+     },
+     {
+      "id": "2",
+      "label": "3.5mm",
+      "value": "exc3.5mm"
+     }
+    ]
+   },
+   {
+    "id": "3",
+    "tipoConexao": "c-exact-2",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.5mm",
+      "value": "exc1.5mm"
+     },
+     {
+      "id": "1",
+      "label": "2.5mm",
+      "value": "exc2.5mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "41",
+  "nome": "Análogo",
+  "imagem": "analogo-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "311.01",
+      "value": "ana01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "42",
+  "nome": "Análogo",
+  "imagem": "analogo-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "311.01",
+      "value": "ana01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "43",
+  "nome": "Coping Provisório",
+  "imagem": "coping-provisorio-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "411.01",
+      "value": "anb01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "44",
+  "nome": "Coping Provisório",
+  "imagem": "coping-provisorio-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "411.01",
+      "value": "anb01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "45",
+  "nome": "Capa de Proteção",
+  "imagem": "capa-protecao-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "111.01.CJ",
+      "value": "111.01.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "46",
+  "nome": "Capa de Proteção",
+  "imagem": "capa-protecao-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "111.01.CJ",
+      "value": "111.01.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "47",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "000.L.CJ",
+      "value": "000.L.CJ"
+     },
+     {
+      "id": "1",
+      "label": "000.C.CJ",
+      "value": "000.C.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "48",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "000.L.CJ",
+      "value": "000.L.CJ"
+     },
+     {
+      "id": "1",
+      "label": "000.C.CJ",
+      "value": "000.C.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "49",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "00001B.CJ",
+      "value": "00001B.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "50",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "00001B.CJ",
+      "value": "00001B.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "51",
+  "nome": "Coping Plástico",
+  "imagem": "coping-plastico-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "711.01",
+      "value": "711.01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "52",
+  "nome": "Coping Plástico",
+  "imagem": "coping-plastico-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "711.01",
+      "value": "711.01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "53",
+  "nome": "Coping Plástico Base CrCo",
+  "imagem": "coping-plastico-base-a31",
+  "fixacao": "parafusado",
+  "posicao": "desfavoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "711.01",
+      "value": "711.01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "54",
+  "nome": "Coping Plástico Base CrCo",
+  "imagem": "coping-plastico-base-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "01.CJ",
+      "value": "01.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "55",
+  "nome": "Micro Pilar Reto",
+  "imagem": "micro-pilar-reto-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "none",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "4a.0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "4b.1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "4c.2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "4d.3.5mm"
+     },
+     {
+      "id": "4",
+      "label": "4.5mm",
+      "value": "4e.4.5mm"
+     },
+     {
+      "id": "5",
+      "label": "5.5mm",
+      "value": "4f.5.5mm"
+     },
+     {
+      "id": "6",
+      "label": "6.5mm",
+      "value": "4g.6.5mm"
+     },
+     {
+      "id": "7",
+      "label": "7.5mm",
+      "value": "4h.7.5mm"
+     },
+     {
+      "id": "8",
+      "label": "8.5mm",
+      "value": "4i.8.5mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "56",
+  "nome": "Micro Pilar Reto",
+  "imagem": "micro-pilar-reto-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "none",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "0.8mm",
+      "value": "4aa0.8mm"
+     },
+     {
+      "id": "1",
+      "label": "1.5mm",
+      "value": "4bb1.5mm"
+     },
+     {
+      "id": "2",
+      "label": "2.5mm",
+      "value": "4cc2.5mm"
+     },
+     {
+      "id": "3",
+      "label": "3.5mm",
+      "value": "4dd3.5mm"
+     },
+     {
+      "id": "4",
+      "label": "4.5mm",
+      "value": "4ee4.5mm"
+     },
+     {
+      "id": "5",
+      "label": "5.5mm",
+      "value": "4ff5.5mm"
+     },
+     {
+      "id": "6",
+      "label": "6.5mm",
+      "value": "4gg6.5mm"
+     },
+     {
+      "id": "7",
+      "label": "7.5mm",
+      "value": "4hh7.5mm"
+     },
+     {
+      "id": "8",
+      "label": "8.5mm",
+      "value": "4ii8.5mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "57",
+  "nome": "Coping Provisório",
+  "imagem": "coping-provisorio-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "415.01A",
+      "value": "415.01A"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "415.01B",
+      "value": "415.01B"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "58",
+  "nome": "Coping Provisório",
+  "imagem": "coping-provisorio-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "415.01A",
+      "value": "415.01A"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "415.01B",
+      "value": "415.01B"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "59",
+  "nome": "Coping Plástico Base CrCo",
+  "imagem": "coping-plastico-crco-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "815.01A.CJ",
+      "value": "815.01A.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "815.01B.CJ",
+      "value": "815.01B.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "60",
+  "nome": "Coping Plástico Base CrCo",
+  "imagem": "coping-plastico-crco-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "Anti Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "815.01A.CJ",
+      "value": "815.01A.CJ"
+     }
+    ]
+   },
+   {
+    "id": "1",
+    "tipoConexao": "Rotacional",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "815.01B.CJ",
+      "value": "815.01B.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "61",
+  "nome": "Capa de Proteção",
+  "imagem": "capa-protecao-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "11501.CJ",
+      "value": "11501.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "62",
+  "nome": "Capa de Proteção",
+  "imagem": "capa-protecao-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "11501.CJ",
+      "value": "11501.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "63",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-c-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "215.01A.CJ",
+      "value": "215.01A.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "64",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-c-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "215.01A.CJ",
+      "value": "215.01A.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "65",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-c-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "215.01A.CJ",
+      "value": "215.01A.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "66",
+  "nome": "Transfer Moldeira Fechada",
+  "imagem": "transfer-moldeira-fechada-c-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "215.01A.CJ",
+      "value": "215.01A.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "67",
+  "nome": "Análogo",
+  "imagem": "analogo-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "315.01",
+      "value": "315.01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "68",
+  "nome": "Análogo",
+  "imagem": "analogo-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "multiplo",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "315.01",
+      "value": "315.01"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "69",
+  "nome": "EsthetiOne",
+  "imagem": "esthetione-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "none",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "1.0mm",
+      "value": "sta1.0mm"
+     },
+     {
+      "id": "1",
+      "label": "2.0mm",
+      "value": "stb2.0mm"
+     },
+     {
+      "id": "3",
+      "label": "3.0mm",
+      "value": "stb3.0mm"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "70",
+  "nome": "Capa de Proteção",
+  "imagem": "capa-protecao-c-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "118.01A.CJ",
+      "value": "118.01A.CJ"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "71",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-d-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "A1.CJC/AR",
+      "value": "A1.CJC/AR"
+     },
+     {
+      "id": "1",
+      "label": "CJS/AR",
+      "value": "CJS/AR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "72",
+  "nome": "Transfer Moldeira Aberta",
+  "imagem": "transfer-moldeira-aberta-e-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "B1.CJC/AR",
+      "value": "B1.CJC/AR"
+     },
+     {
+      "id": "1",
+      "label": "BCJS/AR",
+      "value": "BCJS/AR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "73",
+  "nome": "Coping Plástico Base CrCo",
+  "imagem": "coping-plastico-base-crco-b-a31",
+  "fixacao": "parafusado",
+  "posicao": "favoravel",
+  "uniaoImplante": "unitario",
+  "adicionais": true,
+  "tipoConexao": "",
+  "familia": "A3.1",
+  "caracteristicas": [
+   {
+    "id": "0",
+    "tipoConexao": "",
+    "opcoes": [
+     {
+      "id": "0",
+      "label": "01ACJC/AR",
+      "value": "01ACJC/AR"
+     },
+     {
+      "id": "1",
+      "label": "01BCJC/AR",
+      "value": "01BCJC/AR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+    "id": "74",
+    "nome": "Munhão Provisório",
+    "imagem": "munhao-provisorio-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "none",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "2.5mm"
+       },
+       {
+        "id": "3",
+        "label": "3.5mm",
+        "value": "3.5mm"
+       },
+       {
+        "id": "4",
+        "label": "4.5mm",
+        "value": "4.5mm"
+       },
+       {
+        "id": "5",
+        "label": "5.5mm",
+        "value": "5.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "75",
+    "nome": "Munhão Provisório",
+    "imagem": "munhao-provisorio-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "none",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "2.5mm"
+       },
+       {
+        "id": "3",
+        "label": "3.5mm",
+        "value": "3.5mm"
+       },
+       {
+        "id": "4",
+        "label": "4.5mm",
+        "value": "4.5mm"
+       },
+       {
+        "id": "5",
+        "label": "5.5mm",
+        "value": "5.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "76",
+    "nome": "Munhão Provisório",
+    "imagem": "munhao-provisorio-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "none",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "2.5mm"
+       },
+       {
+        "id": "3",
+        "label": "3.5mm",
+        "value": "3.5mm"
+       },
+       {
+        "id": "4",
+        "label": "4.5mm",
+        "value": "4.5mm"
+       },
+       {
+        "id": "5",
+        "label": "5.5mm",
+        "value": "5.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "77",
+    "nome": "Munhão Provisório",
+    "imagem": "munhao-provisorio-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "none",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "2.5mm"
+       },
+       {
+        "id": "3",
+        "label": "3.5mm",
+        "value": "3.5mm"
+       },
+       {
+        "id": "4",
+        "label": "4.5mm",
+        "value": "4.5mm"
+       },
+       {
+        "id": "5",
+        "label": "5.5mm",
+        "value": "5.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "78",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "79",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "80",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "parafusado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "81",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "parafusado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "81",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "82",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "83",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "cimentado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "84",
+    "nome": "Ucla Plástica Base CrCo",
+    "imagem": "ucla-plastica-base-crco-a32",
+    "fixacao": "cimentado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "rotacionalAntiRotacional",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "Anti Rotacional",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "85",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "86",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "parafusado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "87",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "parafusado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "88",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "parafusado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "89",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "90",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "cimentado",
+    "posicao": "favoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "91",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "cimentado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "unitario",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ },
+ {
+    "id": "92",
+    "nome": "Transfer Moldeira Aberta",
+    "imagem": "transfer-moldeira-aberta-a32",
+    "fixacao": "cimentado",
+    "posicao": "desfavoravel",
+    "uniaoImplante": "multiplo",
+    "adicionais": true,
+    "tipoConexao": "",
+    "familia": "A3.2",
+    "caracteristicas": [
+     {
+      "id": "0",
+      "tipoConexao": "",
+      "opcoes": [
+       {
+        "id": "0",
+        "label": "0.8mm",
+        "value": "a0.8mm"
+       },
+       {
+        "id": "1",
+        "label": "1.5mm",
+        "value": "b1.5mm"
+       },
+       {
+        "id": "2",
+        "label": "2.5mm",
+        "value": "c2.5mm"
+       }
+      ]
+     }
+    ]
+ }
+]

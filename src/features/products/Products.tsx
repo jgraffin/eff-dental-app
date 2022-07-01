@@ -42,10 +42,6 @@ const Products = () => {
   const postStatus = useSelector((state: RootState) => state.teeth.status);
   const [fixacao, setFixacao] = useState("cimentado");
 
-  const [clicked, setClicked] = useState(0);
-
-  
-
   const onScrewToggle = () =>
     fixacao === "cimentado"
       ? setFixacao("parafusado")
@@ -59,8 +55,8 @@ const Products = () => {
 
   const products = useAppSelector((state) => state.products.products);
 
-  let array_filtrado = function filtrarArray(ar_dados: any, obj_filtro: any) {
-    return ar_dados
+  let filteredArray = (data: any, obj_filtro: any) => {
+    return data
       .filter(function (item: any) {
         for (let obj in obj_filtro) {
           if (obj_filtro[obj] !== item[obj]) {
@@ -68,7 +64,7 @@ const Products = () => {
           }
         }
         return true;
-      })
+      }, obj_filtro)
       .map((product: any) => (
         <Produtos
           tipoConexao={product.tipoConexao}
@@ -143,7 +139,6 @@ const Products = () => {
                 </div>
               </IonCol>
             </IonRow>
-
             {store.map(
               (item: TeethType) =>
                 item.selecionado && (
@@ -153,8 +148,10 @@ const Products = () => {
                         <h2>{item.dente}</h2>
                       </div>
                     </IonCol>
+
                     <IonCol className="ion-no-padding" size="8">
-                      <div className="table-row__item">
+                      <input type="checkbox" className="input-toggle" />
+                      <div className="table-row__item" id={item?.id}>
                         <FamilySpecification>
                           <h2>{item?.familia}</h2>
                           <span className="table-row__union-type">
@@ -169,7 +166,7 @@ const Products = () => {
                           </span>
                         </FamilySpecification>
                         <AllProducts>
-                          {array_filtrado(Object.values(products), {
+                          {filteredArray(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,
                             uniaoImplante: item?.uniaoImplante,
@@ -177,10 +174,6 @@ const Products = () => {
                             familia: item?.familia,
                           })}
                         </AllProducts>
-                        {/* <IonButton
-                          className="accordion-button"
-                          type="button"
-                        ></IonButton> */}
                       </div>
                     </IonCol>
                   </IonRow>

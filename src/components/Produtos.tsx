@@ -53,13 +53,6 @@ const Produtos = ({
 
   return (
     <>
-      {successAdded && (
-        <SuccessAdded className={`${hideMessage ? "hide-message" : ""}`}>
-          <img src={SuccessAddedImage} alt="Adicionado ao carrinho!" />
-          <p>Item adicionado!</p>
-        </SuccessAdded>
-      )}
-
       {tipoConexao === "rotacionalAntiRotacional" && (
         <div key={id} className="form-product ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
@@ -187,7 +180,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -306,7 +298,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -383,7 +374,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -439,7 +429,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -558,7 +547,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -786,7 +774,6 @@ const Produtos = ({
                   onClick={onAddingToCart}
                 >
                   <span>Adicionar</span>
-                  <strong>{sku.substring(3)}</strong>
                 </IonButton>
               </WrapperButtonAddToCart>
             )}
@@ -797,6 +784,13 @@ const Produtos = ({
       {sku && <div className="backdrop" onClick={() => setSku("")}></div>}
       {successAdded && (
         <div className="backdrop" onClick={() => setSku("")}></div>
+      )}
+
+      {successAdded && (
+        <SuccessAdded className={`${hideMessage ? "hide-message" : ""}`}>
+          <img src={SuccessAddedImage} alt="Adicionado ao carrinho!" />
+          <p>Item adicionado!</p>
+        </SuccessAdded>
       )}
     </>
   );

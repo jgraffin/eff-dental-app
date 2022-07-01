@@ -164,12 +164,12 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 onIonChange={onCatalogChanged}
               >
                 <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
-                <IonSelectOption value="Hexagono Externo">
+                {/* <IonSelectOption value="Hexagono Externo">
                   Hexágono Externo
                 </IonSelectOption>
                 <IonSelectOption value="Hexagono Interno">
                   Hexágono Interno
-                </IonSelectOption>
+                </IonSelectOption> */}
               </IonSelect>
             </IonItem>
 

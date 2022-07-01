@@ -310,8 +310,8 @@ export const WrapperComponents = styled.div`
       }
 
       .table-row__item {
-        height: auto;
-        overflow: visible;        
+        height: 35px;
+        overflow: hidden;
         position: relative;
 
         .accordion-button {
@@ -327,14 +327,27 @@ export const WrapperComponents = styled.div`
           background-repeat: no-repeat;
           background-size: 25px;
         }
+      }
 
-        &.content-is-closed {
-          .accordion-button {
-            transform: rotate(0);
+      .input-toggle {
+        appearance: none;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        z-index: 5;
+        background: url("../assets/icon/chevron-down.svg") no-repeat center
+          center;
+        transition: ease-in-out 0.3s;
+
+        &:checked {
+          transform: rotateX(-180deg);
+
+          + .table-row__item {
+            height: auto;
+            overflow: visible;
           }
-
-          height: 40px;
-          overflow: hidden;
         }
       }
 
@@ -446,6 +459,10 @@ export const WrapperComponents = styled.div`
 
         .is-closed {
           height: 5rem;
+        }
+
+        + .form-product.ion-activatable.ripple-parent:not(.form-product--additionals) {
+          margin-top: 4rem;
         }
       }
 
