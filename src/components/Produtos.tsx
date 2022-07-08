@@ -318,7 +318,7 @@ const Produtos = ({
             </div>
 
             {caracteristicas.map((caracteristica: any) => (
-              <div key={caracteristica.id}  className="form-product__item">
+              <div key={caracteristica.id} className="form-product__item">
                 {caracteristica.tipoConexao === "Perfil Ø 3.30" && (
                   <IonItem>
                     <IonLabel position="floating">
@@ -554,6 +554,82 @@ const Produtos = ({
         </div>
       )}
 
+      {tipoConexao === "17-30" && (
+        <div key={id} className="form-product ion-activatable ripple-parent">
+          <div className={`${isClosed ? "is-closed" : ""}`}>
+            <div className="form-product__title" onClick={toggleAccordion}>
+              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+              <h3>{nome}</h3>
+              <small>
+                {posicao === "desfavoravel" ? "Desfavorável" : "Favorável"}
+              </small>
+              <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
+            </div>
+
+            {caracteristicas.map((caracteristica: any) => (
+              <div key={caracteristica.id} className="form-product__item">
+                {caracteristica.tipoConexao === "17" && (
+                  <IonItem>
+                    <IonLabel position="floating">
+                      {caracteristica.tipoConexao}
+                    </IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      {caracteristica.opcoes.map((item: any) => (
+                        <IonSelectOption key={item.id} value={item.value}>
+                          {item.label}
+                        </IonSelectOption>
+                      ))}
+                    </IonSelect>
+                  </IonItem>
+                )}
+
+                {caracteristica.tipoConexao === "30" && (
+                  <IonItem>
+                    <IonLabel position="floating">
+                      {caracteristica.tipoConexao}
+                    </IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      {caracteristica.opcoes.map((item: any) => (
+                        <IonSelectOption key={item.id} value={item.value}>
+                          {item.label}
+                        </IonSelectOption>
+                      ))}
+                    </IonSelect>
+                  </IonItem>
+                )}
+              </div>
+            ))}
+
+            {sku && (
+              <WrapperButtonAddToCart>
+                <IonButton
+                  className="add-button"
+                  expand="block"
+                  shape="round"
+                  color="dark"
+                  type="button"
+                  onClick={onAddingToCart}
+                >
+                  <span>Adicionar</span>
+                </IonButton>
+              </WrapperButtonAddToCart>
+            )}
+          </div>
+        </div>
+      )}
+
       {tipoConexao === "perfilRetoOuDivergente" && (
         <div key={id} className="form-product">
           <div className="form-product__title">
@@ -724,6 +800,58 @@ const Produtos = ({
         </div>
       )}
 
+      {tipoConexao === "perfil48" && (
+        <div key={id} className="form-product ion-activatable ripple-parent">
+          <div className={`${isClosed ? "is-closed" : ""}`}>
+            <div className="form-product__title" onClick={toggleAccordion}>
+              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+              <h3>{nome}</h3>
+              <small>
+                {posicao === "desfavoravel" ? "Desfavorável" : "Favorável"}
+              </small>
+            </div>
+
+            {caracteristicas.map((item: any) => (
+              <div key={item.id} className="form-product__item">
+                {item.tipoConexao === "Perfil Ø 4.8" && (
+                  <IonItem>
+                    <IonLabel position="floating">{item.tipoConexao}</IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      {item.opcoes.map((item: any) => (
+                        <IonSelectOption key={item.id} value={item.value}>
+                          {item.label}
+                        </IonSelectOption>
+                      ))}
+                    </IonSelect>
+                  </IonItem>
+                )}
+              </div>
+            ))}
+
+            {sku && (
+              <WrapperButtonAddToCart>
+                <IonButton
+                  className="add-button"
+                  expand="block"
+                  shape="round"
+                  color="dark"
+                  type="button"
+                  onClick={onAddingToCart}
+                >
+                  <span>Adicionar</span>
+                </IonButton>
+              </WrapperButtonAddToCart>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Additionals ========================= */}
 
       {tipoConexao === "" && (
@@ -739,7 +867,7 @@ const Produtos = ({
             </div>
 
             {caracteristicas.map((caracteristica: any) => (
-              <div key={caracteristica.id}  className="form-product__item">
+              <div key={caracteristica.id} className="form-product__item">
                 <IonItem>
                   <IonLabel position="floating">
                     {caracteristica.tipoConexao !== ""
