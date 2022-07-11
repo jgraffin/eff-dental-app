@@ -126,6 +126,8 @@ const Products = () => {
                 <div className="filter-button">
                   <IonSelect
                     value={fixacao}
+                    cancelText="Cancelar"
+                    okText="Ok"
                     placeholder={fixacao}
                     onIonChange={onScrewToggle}
                   >

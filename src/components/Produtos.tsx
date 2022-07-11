@@ -381,6 +381,62 @@ const Produtos = ({
         </div>
       )}
 
+      {tipoConexao === "perfil35" && (
+        <div key={id} className="form-product ion-activatable ripple-parent">
+          <div className={`${isClosed ? "is-closed" : ""}`}>
+            <div className="form-product__title" onClick={toggleAccordion}>
+              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+              <h3>{nome}</h3>
+              <small>
+                {posicao === "desfavoravel" ? "Desfavorável" : "Favorável"}
+              </small>
+              <IonRippleEffect color="dark" type="bounded"></IonRippleEffect>
+            </div>
+
+            {caracteristicas.map((caracteristica: any) => (
+              <div key={caracteristica.id} className="form-product__item">
+                {caracteristica.tipoConexao === "Perfil Ø 3.5" && (
+                  <IonItem>
+                    <IonLabel position="floating">
+                      {caracteristica.tipoConexao}
+                    </IonLabel>
+                    <IonSelect
+                      value={sku}
+                      cancelText="Cancelar"
+                      okText="Ok"
+                      placeholder="Selecione"
+                      onIonChange={(event) => setSku(event.detail.value)}
+                    >
+                      {caracteristica.opcoes.map((item: any) => (
+                        <IonSelectOption key={item.id} value={item.value}>
+                          {item.label}
+                        </IonSelectOption>
+                      ))}
+                    </IonSelect>
+                  </IonItem>
+                )}
+                
+              </div>
+            ))}
+
+            {sku && (
+              <WrapperButtonAddToCart>
+                <IonButton
+                  className="add-button"
+                  expand="block"
+                  shape="round"
+                  color="dark"
+                  type="button"
+                  onClick={onAddingToCart}
+                >
+                  <span>Adicionar</span>
+                </IonButton>
+              </WrapperButtonAddToCart>
+            )}
+          </div>
+        </div>
+      )}
+
       {tipoConexao === "none" && (
         <div key={id} className="form-product ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
