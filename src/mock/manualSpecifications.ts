@@ -48,19 +48,19 @@ const Catalogos: ICatalogo[] = [
     id: "0",
     name: "Cone Morse",
     opcoes: [
-      // {
-      //   id: "Nobel Biocare",
-      //   marca: "Nobel Biocare®",
-      //   manual: [
-      //     {
-      //       id: "0",
-      //       especificacao: "NP",
-      //       implante: "3.5",
-      //       plataforma: "3.5",
-      //       familia: "K3.2",
-      //     },
-      //   ],
-      // },
+      {
+        id: "Nobel Biocare",
+        marca: "Nobel Biocare®",
+        manual: [
+          {
+            id: "0",
+            especificacao: "NP",
+            implante: "3.5",
+            plataforma: "3.5",
+            familia: "K3.2",
+          },
+        ],
+      },
       {
         id: "NEO",
         marca: "NEO",

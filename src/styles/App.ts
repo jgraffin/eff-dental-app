@@ -718,6 +718,16 @@ export const List = styled.div`
         }
       }
 
+      &--18, &--17, &--16, &--15, &--14, &--13, &--12, &--11, &--21, &--22, &--23, &--24, &--25, &--26, &--27, &--28 {
+        &.desfavoravel {
+          a {
+            &::before {
+              transform: rotate(-28deg);
+            }
+          }
+        }
+      }
+
       &--18 {
         a {
           &::after {
@@ -741,7 +751,6 @@ export const List = styled.div`
             &::before {
               top: 31px;
               left: 11px;
-              transform: rotate(-14deg);
             }
           }
         }
@@ -768,7 +777,6 @@ export const List = styled.div`
             &::before {
               top: 30px;
               left: 10px;
-              transform: rotate(-28deg);
             }
           }
         }
@@ -777,7 +785,7 @@ export const List = styled.div`
       &--16 {
         a {
           &::after {
-            background-position: -60px -19px;
+            background-position: -55px -13px;
             height: 3.5rem;
             top: -1px;
           }
@@ -786,7 +794,7 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 28px;
+              top: 31px;
               left: 15px;
             }
           }
@@ -795,8 +803,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 28px;
-              left: 19px;
+              top: 31px;
+              left: 12px;
             }
           }
         }
@@ -805,7 +813,7 @@ export const List = styled.div`
       &--15 {
         a {
           &::after {
-            background-position: -90px -13px;
+            background-position: -83px -6px;
             height: 4rem;
             left: 3px;
             top: -6px;
@@ -826,7 +834,7 @@ export const List = styled.div`
           a {
             &::before {
               top: 28px;
-              left: 19px;
+              left: 11px;
             }
           }
         }
@@ -835,7 +843,7 @@ export const List = styled.div`
       &--14 {
         a {
           &::after {
-            background-position: -113px -7px;
+            background-position: -105px -1px;
             height: 4.5rem;
             left: 2px;
             top: -11px;
@@ -847,7 +855,7 @@ export const List = styled.div`
           a {
             &::before {
               top: 28px;
-              left: 15px;
+              left: 13px;
             }
           }
         }
@@ -856,7 +864,7 @@ export const List = styled.div`
           a {
             &::before {
               top: 28px;
-              left: 19px;
+              left: 9px;
             }
           }
         }
@@ -865,7 +873,7 @@ export const List = styled.div`
       &--13 {
         a {
           &::after {
-            background-position: -138px -3px;
+            background-position: -128px 6px;
             height: 5rem;
             left: -1px;
             top: -17px;
@@ -875,8 +883,8 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 25px;
-              left: 15px;
+              top: 29px;
+              left: 14px;
             }
           }
         }
@@ -884,8 +892,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 25px;
-              left: 19px;
+              top: 29px;
+              left: 9px;
             }
           }
         }
@@ -894,7 +902,7 @@ export const List = styled.div`
       &--12 {
         a {
           &::after {
-            background-position: -170px -11px;
+            background-position: -157px -3px;
             height: 4.2rem;
             left: 5px;
             top: -8px;
@@ -905,7 +913,7 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 25px;
+              top: 28px;
               left: 15px;
             }
           }
@@ -914,8 +922,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 25px;
-              left: 19px;
+              top: 29px;
+              left: 9px;
             }
           }
         }
@@ -924,7 +932,7 @@ export const List = styled.div`
       &--11 {
         a {
           &::after {
-            background-position: -189px -10px;
+            background-position: -175px -2px;
             height: 4.2rem;
             top: -8px;
           }
@@ -933,8 +941,8 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 25px;
-              left: 15px;
+              top: 31px;
+              left: 14px;
             }
           }
         }
@@ -942,8 +950,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 25px;
-              left: 19px;
+              top: 30px;
+              left: 9px;
             }
           }
         }
@@ -952,7 +960,7 @@ export const List = styled.div`
       &--21 {
         a {
           &::after {
-            background-position: -221px -11px;
+            background-position: -204px -5px;
             height: 4rem;
             left: -2px;
             top: -6px;
@@ -962,7 +970,7 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 26px;
+              top: 29px;
               left: 15px;
             }
           }
@@ -971,8 +979,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 26px;
-              left: 19px;
+              top: 30px;
+              left: 9px;
             }
           }
         }
@@ -981,70 +989,10 @@ export const List = styled.div`
       &--22 {
         a {
           &::after {
-            background-position: -250px -11px;
+            background-position: -232px -6px;
             height: 4rem;
             left: 3px;
             top: -7px;
-            width: 1.5rem;
-          }
-        }
-
-        &.has-implant {
-          a {
-            &::before {
-              top: 26px;
-              left: 15px;
-            }
-          }
-        }
-
-        &.desfavoravel {
-          a {
-            &::before {
-              top: 26px;
-              left: 19px;
-            }
-          }
-        }
-      }
-
-      &--23 {
-        a {
-          &::after {
-            background-position: -274px -3px;
-            height: 5rem;
-            left: 3px;
-            top: -15px;
-            width: 1.5rem;
-          }
-        }
-
-        &.has-implant {
-          a {
-            &::before {
-              top: 26px;
-              left: 15px;
-            }
-          }
-        }
-
-        &.desfavoravel {
-          a {
-            &::before {
-              top: 26px;
-              left: 19px;
-            }
-          }
-        }
-      }
-
-      &--24 {
-        a {
-          &::after {
-            background-position: -302px -7px;
-            height: 4.5rem;
-            left: 3px;
-            top: -9px;
             width: 1.4rem;
           }
         }
@@ -1062,7 +1010,67 @@ export const List = styled.div`
           a {
             &::before {
               top: 27px;
-              left: 19px;
+              left: 9px;
+            }
+          }
+        }
+      }
+
+      &--23 {
+        a {
+          &::after {
+            background-position: -253px 7px;
+            height: 5rem;
+            left: 3px;
+            top: -15px;
+            width: 1.5rem;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 31px;
+              left: 16px;
+            }
+          }
+        }
+
+        &.desfavoravel {
+          a {
+            &::before {
+              top: 32px;
+              left: 11px;
+            }
+          }
+        }
+      }
+
+      &--24 {
+        a {
+          &::after {
+            background-position: -278px 1px;
+            height: 4.5rem;
+            left: 3px;
+            top: -9px;
+            width: 1.4rem;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 31px;
+              left: 17px;
+            }
+          }
+        }
+
+        &.desfavoravel {
+          a {
+            &::before {
+              top: 32px;
+              left: 12px;
             }
           }
         }
@@ -1071,19 +1079,19 @@ export const List = styled.div`
       &--25 {
         a {
           &::after {
-            background-position: -325px -15px;
+            background-position: -301px -6px;
             height: 4rem;
             left: 2px;
             top: -2px;
-            width: 1.5rem;
+            width: 1.4rem;
           }
         }
 
         &.has-implant {
           a {
             &::before {
-              top: 26px;
-              left: 15px;
+              top: 33px;
+              left: 14px;
             }
           }
         }
@@ -1091,8 +1099,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 27px;
-              left: 19px;
+              top: 33px;
+              left: 8px;
             }
           }
         }
@@ -1101,7 +1109,7 @@ export const List = styled.div`
       &--26 {
         a {
           &::after {
-            background-position: -348px -18px;
+            background-position: -322px -8px;
             height: 4rem;
           }
         }
@@ -1109,7 +1117,7 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 30px;
+              top: 37px;
               left: 15px;
             }
           }
@@ -1118,8 +1126,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 30px;
-              left: 19px;
+              top: 37px;
+              left: 11px;
             }
           }
         }
@@ -1128,7 +1136,7 @@ export const List = styled.div`
       &--27 {
         a {
           &::after {
-            background-position: -378px -20px;
+            background-position: -350px -13px;
             left: -2px;
             top: 2px;
           }
@@ -1137,8 +1145,8 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 30px;
-              left: 15px;
+              top: 33px;
+              left: 13px;
             }
           }
         }
@@ -1146,8 +1154,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 30px;
-              left: 19px;
+              top: 34px;
+              left: 9px;
             }
           }
         }
@@ -1156,7 +1164,7 @@ export const List = styled.div`
       &--28 {
         a {
           &::after {
-            background-position: -408px -24px;
+            background-position: -378px -14px;
             left: 1px;
             top: 5px;
           }
@@ -1165,7 +1173,7 @@ export const List = styled.div`
         &.has-implant {
           a {
             &::before {
-              top: 30px;
+              top: 35px;
               left: 15px;
             }
           }
@@ -1174,8 +1182,8 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 30px;
-              left: 19px;
+              top: 35px;
+              left: 10px;
             }
           }
         }

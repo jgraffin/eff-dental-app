@@ -66,16 +66,19 @@ const Products = () => {
         return true;
       }, obj_filtro)
       .map((product: any) => (
-        <Produtos
-          tipoConexao={product.tipoConexao}
-          id={product.id}
-          nome={product.nome}
-          imagem={product.imagem}
-          caracteristicas={product.caracteristicas}
-          subitem={product.subitem}
-          torque={product.torque}
-          posicao={product.posicao}
-        />
+        <>
+          <Produtos
+            tipoConexao={product.tipoConexao}
+            id={product.id}
+            nome={product.nome}
+            imagem={product.imagem}
+            caracteristicas={product.caracteristicas}
+            subitem={product.subitem}
+            torque={product.torque}
+            posicao={product.posicao}
+          />
+          <div className="classLorem"></div>
+        </>
       ));
   };
 

@@ -54,7 +54,7 @@ const Produtos = ({
   return (
     <>
       {tipoConexao === "rotacionalAntiRotacional" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -188,7 +188,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfil330-4mm" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -306,7 +306,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfil330-450" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -382,7 +382,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfil35" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -438,7 +438,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "none" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -493,7 +493,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "17-30-s-exact-c-exact" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -611,7 +611,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "17-30" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -687,7 +687,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfilRetoOuDivergente" && (
-        <div key={id} className="form-product">
+        <div key={id} className="form-product form-product--item">
           <div className="form-product__title">
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
@@ -753,7 +753,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfil3h4mmOu3h6mm" && (
-        <div key={id} className="form-product">
+        <div key={id} className="form-product form-product--item">
           <div className="form-product__title">
             <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
             <h3>{nome}</h3>
@@ -857,7 +857,7 @@ const Produtos = ({
       )}
 
       {tipoConexao === "perfil48" && (
-        <div key={id} className="form-product ion-activatable ripple-parent">
+        <div key={id} className="form-product form-product--item ion-activatable ripple-parent">
           <div className={`${isClosed ? "is-closed" : ""}`}>
             <div className="form-product__title" onClick={toggleAccordion}>
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
