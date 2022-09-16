@@ -162,6 +162,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                 value={catalogo}
                 placeholder="Selecione"
                 onIonChange={onCatalogChanged}
+                cancelText="Cancelar"
               >
                 <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
                 {/* <IonSelectOption value="Hexagono Externo">
@@ -182,6 +183,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                       value={marca}
                       placeholder="Selecione"
                       onIonChange={onBrandChanged}
+                      cancelText="Cancelar"
                     >
                       {item.opcoes.map((item) => (
                         <IonSelectOption key={item.id} value={item.marca}>
@@ -205,6 +207,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
                           value={especificacao}
                           placeholder="Selecione"
                           onIonChange={onSpecificationChanged}
+                          cancelText="Cancelar"
                         >
                           {Catalogos.map(
                             (item) =>
@@ -318,7 +321,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
               <>
                 <IonItem>
                   <IonLabel position="floating">Posição</IonLabel>
-                  <IonSelect value={posicao} onIonChange={onPositionChanged}>
+                  <IonSelect value={posicao} onIonChange={onPositionChanged} cancelText="Cancelar">
                     <IonSelectOption value="favoravel">
                       Favorável
                     </IonSelectOption>
@@ -330,7 +333,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 
                 <IonItem>
                   <IonLabel position="floating">Seleção</IonLabel>
-                  <IonSelect value={uniaoImplante} onIonChange={onUnionChanged}>
+                  <IonSelect value={uniaoImplante} onIonChange={onUnionChanged} cancelText="Cancelar">
                     <IonSelectOption value="unitario">Unitário</IonSelectOption>
                     <IonSelectOption value="multiplo">Múltiplo</IonSelectOption>
                   </IonSelect>
