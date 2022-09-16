@@ -77,7 +77,6 @@ const Products = () => {
             torque={product.torque}
             posicao={product.posicao}
           />
-          <div className="classLorem"></div>
         </>
       ));
   };

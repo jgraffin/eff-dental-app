@@ -102,7 +102,7 @@ export const TeethList = () => {
     );
 
     const hasUnionImplantBottomLine = filterTeethNumberBottomRange.filter(
-      (val: TeethType) => val.uniaoImplante ?? val
+      (val: TeethType) => val.uniaoImplante === 'multiplo'
     );
 
     const itemSelected = posts.filter((val: TeethType) => val.selecionado);
@@ -125,7 +125,7 @@ export const TeethList = () => {
       setHasUnionTopLine(false);
     }
 
-    if (hasUnionImplantBottomLine.length > 0) {
+    if (hasUnionImplantBottomLine.length > 1) {
       setHasUnionBottomLine(true);
     } else {
       setHasUnionBottomLine(false);

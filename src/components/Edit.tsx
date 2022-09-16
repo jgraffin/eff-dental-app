@@ -113,7 +113,7 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
         catalogo: "",
         marca: "",
         especificacao: "",
-        implante: "",
+        implante: "Undefined",
         familia: "",
         plataforma: "",
         uniaoImplante: "unitario",

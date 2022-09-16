@@ -576,6 +576,18 @@ export const ToothSchemeWrapper = styled.div`
           &::before {
             top: 22px;
             left: 0.2rem;
+            transform: rotate(25deg);
+          }
+        }
+      }
+    }
+
+    &--48 {
+      &.desfavoravel {
+        .tooth-scheme__image {
+          &::before {
+            top: 22px;
+            left: 0.2rem;
           }
         }
       }
@@ -897,7 +909,7 @@ export const ToothSchemeWrapper = styled.div`
 
     &--37 {
       .tooth-scheme__image {
-        background-position: -377px -142px;
+        background-position: -342px -135px;
         height: 4.5rem;
         width: 2rem;
       }
@@ -911,10 +923,18 @@ export const ToothSchemeWrapper = styled.div`
         }
       }
 
+      &.favoravel {
+        .tooth-scheme__image {
+          &::before {
+            top: 27px;
+          }
+        }
+      }
+
       &.desfavoravel {
         .tooth-scheme__image {
           &::before {
-            top: 21px;
+            top: 27px;
             left: 0.2rem;
           }
         }

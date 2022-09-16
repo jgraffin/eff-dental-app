@@ -712,7 +712,7 @@ export const List = styled.div`
         &.tooth-list__item--46 {
           a {
             &::after {
-              background-position: -67px -143px;
+              background-position: -61px -130px;
             }
           }
         }
@@ -1207,7 +1207,7 @@ export const List = styled.div`
       &--38 {
         a {
           &::after {
-            background-position: 0 -143px;
+            background-position: 0 -131px;
             left: -3px;
             top: 26px;
           }
@@ -1222,7 +1222,7 @@ export const List = styled.div`
           a {
             &::before {
               background-image: url("./assets/images/implant-graphic-bottom.png");
-              left: 15px;
+              left: 13px;
               top: 72px;
             }
           }
@@ -1232,6 +1232,17 @@ export const List = styled.div`
           a {
             &::before {
               left: 10px;
+              transform: rotate(26deg);
+            }
+          }
+        }
+      }
+
+      &--48 {
+        &.desfavoravel {
+          a {
+            &::before {
+              left: 8px;
             }
           }
         }
@@ -1240,8 +1251,16 @@ export const List = styled.div`
       &--47 {
         a {
           &::after {
-            background-position: -34px -143px;
+            background-position: -32px -129px;
             left: -1px;
+          }
+        }
+
+        &.desfavoravel {
+          a {
+            &::before {
+              transform: rotate(26deg);
+            }
           }
         }
       }
@@ -1249,7 +1268,7 @@ export const List = styled.div`
       &--46 {
         a {
           &::after {
-            background-position: -67px -143px;
+            background-position: -61px -130px;
             height: 4rem;
             left: -1px;
           }
@@ -1260,7 +1279,7 @@ export const List = styled.div`
       &--44 {
         a {
           &::after {
-            background-position: -99px -143px;
+            background-position: -90px -131px;
             height: 4rem;
             left: 1px;
             width: 1.5rem;
@@ -1323,16 +1342,22 @@ export const List = styled.div`
       &--44 {
         a {
           &::after {
-            background-position: -124px -143px;
+            background-position: -115px -131px;
           }
         }
       }
 
       &--43 {
+        a {
+          &::after {
+            background-position: -138px -127px;
+          }
+        }
+
         &.has-implant {
           a {
             &::before {
-              top: 37px;
+              top: 77px;
               left: 15px;
             }
           }
@@ -1341,7 +1366,7 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 36px;
+              top: 77px;
               left: 10px;
             }
           }
@@ -1351,7 +1376,24 @@ export const List = styled.div`
       &--42 {
         a {
           &::after {
-            background-position: -174px -142px;
+            background-position: -161px -125px;
+            width: 1.4rem;
+          }
+        }
+
+        &.favoravel {
+          a {
+            &::before {
+              top: 81px;
+            }
+          }
+        }
+
+        &.desfavoravel {
+          a {
+            &::before {
+              top: 81px;
+            }
           }
         }
       }
@@ -1359,14 +1401,23 @@ export const List = styled.div`
       &--41 {
         a {
           &::after {
-            background-position: -195px -142px;
+            background-position: -181px -125px;
+          }
+        }
+
+        &.favoravel {
+          a {
+            &::before {
+              top: 80px;
+              left: 14px;
+            }
           }
         }
 
         &.desfavoravel {
           a {
             &::before {
-              top: 34px;
+              top: 79px;
               left: 10px;
             }
           }
@@ -1376,14 +1427,23 @@ export const List = styled.div`
       &--31 {
         a {
           &::after {
-            background-position: -221px -142px;
+            background-position: -203px -126px;
+          }
+        }
+
+        &.favoravel {
+          a {
+            &::before {
+              top: 78px;
+              left: 16px;
+            }
           }
         }
 
         &.desfavoravel {
           a {
             &::before {
-              top: 34px;
+              top: 78px;
               left: 10px;
             }
           }
@@ -1393,23 +1453,16 @@ export const List = styled.div`
       &--32 {
         a {
           &::after {
-            background-position: -242px -142px;
-          }
-        }
-      }
-
-      &--33 {
-        a {
-          &::after {
-            background-position: -266px -142px;
+            background-position: -225px -126px;
+            width: 1.3rem;
           }
         }
 
-        &.has-implant {
+        &.favoravel {
           a {
             &::before {
-              top: 36px;
-              left: 15px;
+              top: 80px;
+              left: 14px;
             }
           }
         }
@@ -1417,7 +1470,32 @@ export const List = styled.div`
         &.desfavoravel {
           a {
             &::before {
-              top: 36px;
+              top: 80px;
+            }
+          }
+        }
+      }
+
+      &--33 {
+        a {
+          &::after {
+            background-position: -246px -125px;
+          }
+        }
+
+        &.has-implant {
+          a {
+            &::before {
+              top: 80px;
+              left: 14px;
+            }
+          }
+        }
+
+        &.desfavoravel {
+          a {
+            &::before {
+              top: 80px;
               left: 9px;
             }
           }
@@ -1427,14 +1505,22 @@ export const List = styled.div`
       &--34 {
         a {
           &::after {
-            background-position: -291px -142px;
+            background-position: -269px -125px;
+          }
+        }
+
+        &.favoravel {
+          a {
+            &::before {
+              top: 78px;
+            }
           }
         }
 
         &.desfavoravel {
           a {
             &::before {
-              top: 34px;
+              top: 77px;
               left: 9px;
             }
           }
@@ -1444,14 +1530,22 @@ export const List = styled.div`
       &--35 {
         a {
           &::after {
-            background-position: -317px -142px;
+            background-position: -292px -125px;
+          }
+        }
+
+        &.favoravel {
+          a {
+            &::before {
+              top: 77px;
+            }
           }
         }
 
         &.desfavoravel {
           a {
             &::before {
-              top: 33px;
+              top: 76px;
               left: 9px;
             }
           }
@@ -1463,7 +1557,7 @@ export const List = styled.div`
       &--38 {
         a {
           &::after {
-            background-position: -343px -142px;
+            background-position: -318px -125px;
             height: 5rem;
             left: 0px;
             width: 1.9rem;
@@ -1479,10 +1573,18 @@ export const List = styled.div`
           }
         }
 
+        &.favoravel {
+          a {
+            &::before {
+              top: 77px;
+            }
+          }
+        }
+
         &.desfavoravel {
           a {
             &::before {
-              top: 32px;
+              top: 76px;
               left: 10px;
             }
           }
@@ -1492,7 +1594,7 @@ export const List = styled.div`
       &--37 {
         a {
           &::after {
-            background-position: -377px -142px;
+            background-position: -349px -125px;
           }
         }
       }
@@ -1500,7 +1602,7 @@ export const List = styled.div`
       &--38 {
         a {
           &::after {
-            background-position: -408px -142px;
+            background-position: -378px -126px;
           }
         }
       }
@@ -1572,7 +1674,7 @@ export const List = styled.div`
   }
 
   &.has-union-bottom-items {
-    border-bottom: 2px solid var(--ion-color-tertiary);
+    border-bottom: 2px solid var(--ion-color-primary);
 
     .tooth-list {
       &__item {
@@ -1595,12 +1697,12 @@ export const List = styled.div`
             &--37,
             &--38 {
               &.is-selected {
-                border: 1px solid var(--ion-color-tertiary);
+                border: 1px solid var(--ion-color-primary);
                 transform: translateY(16px);
               }
 
               &::after {
-                background: var(--ion-color-tertiary);
+                background: var(--ion-color-primary);
                 content: "";
                 height: 1.7rem;
                 left: 50%;
