@@ -1,3 +1,8 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+
 import {
   InputChangeEventDetail,
   IonList,
@@ -6,17 +11,13 @@ import {
   IonSelect,
   IonSelectOption,
   IonButton,
-  IonToggle,
 } from "@ionic/react";
-import { useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 import { RootState } from "../app/store";
-import { TeethType, itemUpdated } from "../features/teeth/teethSlice";
-import { Catalogos } from "../mock/manualSpecifications";
 import { Modal, ModalClose } from "../styles/App";
+import { TeethType, itemUpdated } from "../features/teeth/teethSlice";
 import ToothScheme from "./ToothScheme";
+import { Catalogos } from "../mock/manualSpecifications";
 
 const Edit = ({ match }: { match: { id: number } } | any) => {
   const { id } = match.params;
@@ -24,17 +25,17 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
     state.teeth.items.find((val: TeethType) => val.id === id)
   );
 
-  const [catalogo, setCatalogo] = useState(data.catalogo);
-  const [marca, setMarca] = useState(data.marca);
-  const [especificacao, setEspecificacao] = useState(data.especificacao);
-  const [implante, setImplante] = useState(data.implante);
-  const [plataforma, setPlataforma] = useState(data.plataforma);
-  const [familia, setFamilia] = useState(data.familia);
-  const [uniaoImplante, setUniaoImplante] = useState(data.uniaoImplante);
-  const [posicao, setPosicao] = useState(data.posicao);
+  const [catalogo, setCatalogo] = useState(data?.catalogo);
+  const [marca, setMarca] = useState(data?.marca);
+  const [especificacao, setEspecificacao] = useState(data?.especificacao);
+  const [implante, setImplante] = useState(data?.implante);
+  const [plataforma, setPlataforma] = useState(data?.plataforma);
+  const [familia, setFamilia] = useState(data?.familia);
+  const [uniaoImplante, setUniaoImplante] = useState(data?.uniaoImplante);
+  const [posicao, setPosicao] = useState(data?.posicao);
 
-  const [dente] = useState(data.dente);
-  const [selecionado] = useState(data.selecionado);
+  const [dente] = useState(data?.dente);
+  const [selecionado] = useState(data?.selecionado);
 
   const implanteRef = useRef<any>(null);
   const plataformaRef = useRef<any>(null);
@@ -130,291 +131,310 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
   }, [catalogo, marca, uniaoImplante]);
 
   return (
-    <Modal>
-      <div className="container">
-        <ModalClose>
-          <Link
-            to={{
-              pathname: `/`,
-            }}
-          ></Link>
-        </ModalClose>
+    <>
+      {data !== undefined ? (
+        <Modal>
+          <div className="container">
+            <ModalClose>
+              <Link
+                to={{
+                  pathname: `/`,
+                }}
+              ></Link>
+            </ModalClose>
 
-        <div className="container__columns">
-          {!selecionado ? (
-            <h1>Configurações</h1>
-          ) : (
-            <h1>Editar Configurações</h1>
-          )}
+            <div className="container__columns">
+              {!selecionado ? (
+                <h1>Configurações</h1>
+              ) : (
+                <h1>Editar Configurações</h1>
+              )}
 
-          <ToothScheme
-            dente={dente}
-            implante={implante}
-            posicao={posicao === "favoravel" ? "favoravel" : "desfavoravel"}
-            selecionado={selecionado}
-            uniaoImplante={uniaoImplante}
-          />
+              <ToothScheme
+                dente={dente}
+                implante={implante}
+                posicao={posicao === "favoravel" ? "favoravel" : "desfavoravel"}
+                selecionado={selecionado}
+                uniaoImplante={uniaoImplante}
+              />
 
-          <IonList>
-            <IonItem>
-              <IonLabel position="floating">Catálogos</IonLabel>
-              <IonSelect
-                value={catalogo}
-                placeholder="Selecione"
-                onIonChange={onCatalogChanged}
-                cancelText="Cancelar"
-              >
-                <IonSelectOption value="Cone Morse">Cone Morse</IonSelectOption>
-                {/* <IonSelectOption value="Hexagono Externo">
-                  Hexágono Externo
-                </IonSelectOption>
-                <IonSelectOption value="Hexagono Interno">
-                  Hexágono Interno
-                </IonSelectOption> */}
-              </IonSelect>
-            </IonItem>
+              <IonList>
+                <IonItem>
+                  <IonLabel position="floating">Catálogos</IonLabel>
+                  <IonSelect
+                    value={catalogo}
+                    placeholder="Selecione"
+                    onIonChange={onCatalogChanged}
+                    cancelText="Cancelar"
+                  >
+                    <IonSelectOption value="coneMorse">
+                      Cone Morse
+                    </IonSelectOption>
+                    <IonSelectOption value="hexInt">
+                      Hex Interno
+                    </IonSelectOption>
+                    <IonSelectOption value="hexExt">
+                      Hex Externo
+                    </IonSelectOption>
+                  </IonSelect>
+                </IonItem>
 
-            {Catalogos.map(
-              (item) =>
-                item.name === catalogo && (
-                  <IonItem key={item.id}>
-                    <IonLabel position="floating">Marca do Implante</IonLabel>
-                    <IonSelect
-                      value={marca}
-                      placeholder="Selecione"
-                      onIonChange={onBrandChanged}
-                      cancelText="Cancelar"
-                    >
-                      {item.opcoes.map((item) => (
-                        <IonSelectOption key={item.id} value={item.marca}>
-                          {item.marca}
-                        </IonSelectOption>
-                      ))}
-                    </IonSelect>
-                  </IonItem>
-                )
-            )}
-
-            {Catalogos.map(
-              (item) =>
-                item.name === catalogo &&
-                item.opcoes.map(
+                {Catalogos.map(
                   (item) =>
-                    item.marca === marca && (
+                    item.name === catalogo && (
                       <IonItem key={item.id}>
-                        <IonLabel position="floating">Especificação</IonLabel>
+                        <IonLabel position="floating">
+                          Marca do Implante
+                        </IonLabel>
                         <IonSelect
-                          value={especificacao}
+                          value={marca}
                           placeholder="Selecione"
-                          onIonChange={onSpecificationChanged}
+                          onIonChange={onBrandChanged}
                           cancelText="Cancelar"
                         >
-                          {Catalogos.map(
-                            (item) =>
-                              item.name === catalogo &&
-                              item.opcoes
-                                .filter((val) => val.marca === marca ?? true)
-                                .map((item) =>
-                                  item.manual.map((item) =>
-                                    item.especificacao !== "Undefined" ? (
-                                      <IonSelectOption
-                                        key={item.id}
-                                        value={item.especificacao}
-                                      >
-                                        {item.especificacao}
-                                      </IonSelectOption>
-                                    ) : (
-                                      <IonSelectOption
-                                        key={item.id}
-                                        value={item.especificacao}
-                                      >
-                                        Não Possui
-                                      </IonSelectOption>
-                                    )
-                                  )
-                                )
-                          )}
+                          {item.opcoes.map((item) => (
+                            <IonSelectOption key={item.id} value={item.marca}>
+                              {item.marca}
+                            </IonSelectOption>
+                          ))}
                         </IonSelect>
                       </IonItem>
                     )
-                )
-            )}
+                )}
 
-            {Catalogos.map(
-              (item) =>
-                item.name === catalogo &&
-                item.opcoes.map(
+                {Catalogos.map(
                   (item) =>
-                    item.marca === marca &&
-                    item.manual.map(
+                    item.name === catalogo &&
+                    item.opcoes.map(
                       (item) =>
-                        item.especificacao === especificacao &&
-                        Catalogos.map(
-                          (item) =>
-                            item.name === catalogo &&
-                            item.opcoes.map(
-                              (item) =>
-                                item.marca === marca &&
-                                item.manual
-                                  .filter(
-                                    (val) =>
-                                      val.especificacao === especificacao ??
-                                      true
-                                  )
-                                  .map((item) =>
-                                    item.implante !== "Undefined" ? (
-                                      <>
-                                        <strong>Implante</strong>
-                                        <h2 key={item.id} ref={implanteRef}>
-                                          {item.implante}
-                                        </h2>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <strong>Implante</strong>
-                                        <h2 key={item.id}>Não Possui</h2>
-                                      </>
+                        item.marca === marca && (
+                          <IonItem key={item.id}>
+                            <IonLabel position="floating">
+                              Especificação
+                            </IonLabel>
+                            <IonSelect
+                              value={especificacao}
+                              placeholder="Selecione"
+                              onIonChange={onSpecificationChanged}
+                              cancelText="Cancelar"
+                            >
+                              {Catalogos.map(
+                                (item) =>
+                                  item.name === catalogo &&
+                                  item.opcoes
+                                    .filter(
+                                      (val) => val.marca === marca ?? true
                                     )
-                                  )
-                            )
+                                    .map((item) =>
+                                      item.manual.map((item) =>
+                                        item.especificacao !== "Undefined" ? (
+                                          <IonSelectOption
+                                            key={item.id}
+                                            value={item.especificacao}
+                                          >
+                                            {item.especificacao}
+                                          </IonSelectOption>
+                                        ) : (
+                                          <IonSelectOption
+                                            key={item.id}
+                                            value={item.especificacao}
+                                          >
+                                            Não Possui
+                                          </IonSelectOption>
+                                        )
+                                      )
+                                    )
+                              )}
+                            </IonSelect>
+                          </IonItem>
                         )
                     )
-                )
-            )}
+                )}
 
-            {Catalogos.map(
-              (item) =>
-                item.name === catalogo &&
-                item.opcoes.map(
+                {Catalogos.map(
                   (item) =>
-                    item.marca === marca &&
-                    item.manual.map(
+                    item.name === catalogo &&
+                    item.opcoes.map(
                       (item) =>
-                        item.especificacao === especificacao &&
-                        Catalogos.map(
+                        item.marca === marca &&
+                        item.manual.map(
                           (item) =>
-                            item.name === catalogo &&
-                            item.opcoes.map(
+                            item.especificacao === especificacao &&
+                            Catalogos.map(
                               (item) =>
-                                item.marca === marca &&
-                                item.manual
-                                  .filter(
-                                    (val) =>
-                                      val.especificacao === especificacao ??
-                                      true
-                                  )
-                                  .map((item) => (
-                                    <>
-                                      <strong>Plataforma</strong>
-                                      <h2 key={item.id} ref={plataformaRef}>
-                                        {item.plataforma}
-                                      </h2>
-                                    </>
-                                  ))
+                                item.name === catalogo &&
+                                item.opcoes.map(
+                                  (item) =>
+                                    item.marca === marca &&
+                                    item.manual
+                                      .filter(
+                                        (val) =>
+                                          val.especificacao === especificacao ??
+                                          true
+                                      )
+                                      .map((item) =>
+                                        item.implante !== "Undefined" ? (
+                                          <h2 key={item.id} ref={implanteRef}>
+                                            <strong>Implante</strong>
+                                            {item.implante}
+                                          </h2>
+                                        ) : (
+                                          <h2 key={item.id}>
+                                            <strong>Implante</strong>
+                                            Não Possui
+                                          </h2>
+                                        )
+                                      )
+                                )
                             )
                         )
                     )
-                )
-            )}
+                )}
 
-            {catalogo && marca && especificacao && implante && plataforma && (
-              <>
-                <IonItem>
-                  <IonLabel position="floating">Posição</IonLabel>
-                  <IonSelect value={posicao} onIonChange={onPositionChanged} cancelText="Cancelar">
-                    <IonSelectOption value="favoravel">
-                      Favorável
-                    </IonSelectOption>
-                    <IonSelectOption value="desfavoravel">
-                      Desfavorável
-                    </IonSelectOption>
-                  </IonSelect>
-                </IonItem>
-
-                <IonItem>
-                  <IonLabel position="floating">Seleção</IonLabel>
-                  <IonSelect value={uniaoImplante} onIonChange={onUnionChanged} cancelText="Cancelar">
-                    <IonSelectOption value="unitario">Unitário</IonSelectOption>
-                    <IonSelectOption value="multiplo">Múltiplo</IonSelectOption>
-                  </IonSelect>
-                </IonItem>
-              </>
-            )}
-
-            {Catalogos.map(
-              (item) =>
-                item.name === catalogo &&
-                item.opcoes.map(
+                {Catalogos.map(
                   (item) =>
-                    item.marca === marca &&
-                    item.manual.map(
+                    item.name === catalogo &&
+                    item.opcoes.map(
                       (item) =>
-                        item.especificacao === especificacao &&
-                        Catalogos.map(
+                        item.marca === marca &&
+                        item.manual.map(
                           (item) =>
-                            item.name === catalogo &&
-                            item.opcoes.map(
+                            item.especificacao === especificacao &&
+                            Catalogos.map(
                               (item) =>
-                                item.marca === marca &&
-                                item.manual
-                                  .filter(
-                                    (val) =>
-                                      val.especificacao === especificacao ??
-                                      true
-                                  )
-                                  .map((item) => (
-                                    <>
-                                      <strong>Família</strong>
-                                      <h2 key={item.id} ref={familiaRef}>
-                                        {item.familia}
-                                      </h2>
-                                    </>
-                                  ))
+                                item.name === catalogo &&
+                                item.opcoes.map(
+                                  (item) =>
+                                    item.marca === marca &&
+                                    item.manual
+                                      .filter(
+                                        (val) =>
+                                          val.especificacao === especificacao ??
+                                          true
+                                      )
+                                      .map((item) => (
+                                        <h2 key={item.id} ref={plataformaRef}>
+                                          <strong>Plataforma</strong>
+                                          {item.plataforma}
+                                        </h2>
+                                      ))
+                                )
                             )
                         )
                     )
-                )
-            )}
-          </IonList>
-        </div>
+                )}
 
-        {!selecionado ? (
-          <IonButton
-            className="button-add ion-no-shadow"
-            color="dark"
-            expand="block"
-            size="large"
-            shape="round"
-            type="button"
-            onClick={onSaveEdit}
-          >
-            <strong>Adicionar</strong>
-          </IonButton>
-        ) : (
-          <div className="container__buttons">
-            <IonButton
-              className="button-save"
-              expand="block"
-              shape="round"
-              color="dark"
-              type="button"
-              onClick={onSaveEdit}
-            >
-              Salvar
-            </IonButton>
-            <IonButton
-              className="button-remove"
-              expand="block"
-              shape="round"
-              type="button"
-              onClick={onRemove}
-            >
-              Remover
-            </IonButton>
+                {catalogo && marca && especificacao && implante && plataforma && (
+                  <>
+                    <IonItem>
+                      <IonLabel position="floating">Posição</IonLabel>
+                      <IonSelect
+                        value={posicao}
+                        onIonChange={onPositionChanged}
+                        cancelText="Cancelar"
+                      >
+                        <IonSelectOption value="favoravel">
+                          Favorável
+                        </IonSelectOption>
+                        <IonSelectOption value="desfavoravel">
+                          Desfavorável
+                        </IonSelectOption>
+                      </IonSelect>
+                    </IonItem>
+
+                    <IonItem>
+                      <IonLabel position="floating">Seleção</IonLabel>
+                      <IonSelect
+                        value={uniaoImplante}
+                        onIonChange={onUnionChanged}
+                        cancelText="Cancelar"
+                      >
+                        <IonSelectOption value="unitario">
+                          Unitário
+                        </IonSelectOption>
+                        <IonSelectOption value="multiplo">
+                          Múltiplo
+                        </IonSelectOption>
+                      </IonSelect>
+                    </IonItem>
+                  </>
+                )}
+
+                {Catalogos.map(
+                  (item) =>
+                    item.name === catalogo &&
+                    item.opcoes.map(
+                      (item) =>
+                        item.marca === marca &&
+                        item.manual.map(
+                          (item) =>
+                            item.especificacao === especificacao &&
+                            Catalogos.map(
+                              (item) =>
+                                item.name === catalogo &&
+                                item.opcoes.map(
+                                  (item) =>
+                                    item.marca === marca &&
+                                    item.manual
+                                      .filter(
+                                        (val) =>
+                                          val.especificacao === especificacao ??
+                                          true
+                                      )
+                                      .map((item) => (
+                                        <h2 className="family-name" key={item.id} ref={familiaRef}>
+                                          <span>{item.familia}</span>
+                                        </h2>
+                                      ))
+                                )
+                            )
+                        )
+                    )
+                )}
+              </IonList>
+            </div>
+
+            {!selecionado ? (
+              <IonButton
+                className="button-add ion-no-shadow"
+                color="dark"
+                expand="block"
+                size="large"
+                shape="round"
+                type="button"
+                onClick={onSaveEdit}
+              >
+                <strong>Adicionar</strong>
+              </IonButton>
+            ) : (
+              <div className="container__buttons">
+                <IonButton
+                  className="button-save"
+                  expand="block"
+                  shape="round"
+                  color="dark"
+                  type="button"
+                  onClick={onSaveEdit}
+                >
+                  Salvar
+                </IonButton>
+                <IonButton
+                  className="button-remove"
+                  expand="block"
+                  shape="round"
+                  type="button"
+                  onClick={onRemove}
+                >
+                  Remover
+                </IonButton>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </Modal>
+        </Modal>
+      ) : (
+        <p>dsada</p>
+      )}
+    </>
   );
 };
 

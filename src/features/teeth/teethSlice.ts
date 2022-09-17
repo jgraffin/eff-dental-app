@@ -60,7 +60,6 @@ const teethSlice = createSlice({
       );
 
       if (existingItem) {
-        console.log('existingItem', existingItem);
         existingItem.catalogo = catalogo;
         existingItem.dente = dente;
         existingItem.marca = marca;

@@ -10,7 +10,6 @@ const ToothScheme = ({
 }: TeethType) => {
   return (
     <ToothSchemeWrapper>
-      {console.log("opa", posicao)}
       <div
         className={`tooth-scheme tooth-scheme--${dente} 
           ${implante !== "Undefined" ? "has-implant" : ""} 

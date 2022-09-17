@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import {
-  IonBackButton,
-  IonButton,
-  IonButtons,
   IonContent,
   IonFooter,
   IonHeader,
@@ -10,22 +11,16 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { RootState } from "../../app/store";
-import { List, NextButton } from "../../styles/App";
-import { LogoWrapper } from "../products/Styles";
 
 import {
   fetchPosts,
-  itemUpdated,
   selectAllItems,
   TeethType,
 } from "../teeth/teethSlice";
-
+import { List, NextButton } from "../../styles/App";
+import { LogoWrapper } from "../products/Styles";
+import { RootState } from "../../app/store";
 import { Wrapper } from "./Styles";
-
 import Logo from "../../images/logo.png";
 
 export const Tooth = ({ post }: TeethType | any) => {

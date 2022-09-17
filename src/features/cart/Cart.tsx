@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import {
   IonHeader,
   IonToolbar,
@@ -9,9 +12,7 @@ import {
   IonTitle,
   IonFooter,
 } from "@ionic/react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { LogoWrapper } from "../products/Styles";
@@ -24,10 +25,8 @@ import {
 import { CartList } from "./Styles";
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
-import React, { useEffect } from "react";
 
 const Cart = () => {
-  let history = useHistory();
   const dispatch = useAppDispatch();
   const numItems = useAppSelector<any>(getMemoizedNumItems);
   const products = useSelector((state: RootState) => state.products.products);
@@ -43,30 +42,6 @@ const Cart = () => {
   function onCheckout(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     dispatch(checkoutCart(items) as any);
-  }
-
-  function onCheckoutState() {
-    if (checkoutState === "LOADING") {
-      return "checkout-loading";
-    } else if (checkoutState === "READY") {
-      return "checkout-ready";
-    } else if (checkoutState === "ERROR") {
-      return "checkout-error";
-    } else {
-      return "";
-    }
-  }
-
-  useEffect(() => {
-    onCheckoutState();
-  }, []);
-
-  function getArrays(array: any) {
-    let values = array.map(
-      (item: any) =>
-        item.tipoConexao === "Anti Rotacional" &&
-        item.opcoes.map((item: any) => item.value === "a1h0.8mm")
-    );
   }
 
   return (
@@ -101,7 +76,7 @@ const Cart = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <CartList className={`${onCheckoutState()}`}>
+        <CartList>
           {Object.entries(items).length > 0 ? (
             Object.entries(items).map(([id, quantity]: any) => (
               <li key={id} id={id}>
@@ -111,7 +86,6 @@ const Cart = () => {
                     alt={products[id].nome}
                   />
                 </div>
-                {getArrays(products[id].caracteristicas)}
                 <div className="cart-list__title">
                   <h2>{products[id].nome}</h2>
                 </div>

@@ -53,15 +53,6 @@ const hideMessage = keyframes`
   }
 `;
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(25deg);
-  }
-`;
-
 const slideIn = keyframes`
   from {
     opacity: 0;
@@ -139,6 +130,20 @@ export const Modal = styled.div`
         display: block;
         margin: 0;
         padding-bottom: 0.4rem;
+
+        &.family-name {
+          font-size: 1rem;
+          span {
+            &::before {
+              content: 'Familia';
+              display: block;
+              font-family: var(--font-family-regular);
+              font-size: 0.7rem;
+              margin-top: 0.8rem;
+              margin-bottom: 0.2rem;
+            }
+          }
+        }
       }
 
       h2,

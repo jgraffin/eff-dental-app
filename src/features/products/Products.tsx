@@ -1,38 +1,34 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import {
   IonBackButton,
-  IonButton,
   IonButtons,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
-  IonItem,
-  IonLabel,
-  IonRippleEffect,
   IonRow,
   IonSelect,
   IonSelectOption,
   IonSpinner,
   IonTitle,
-  IonToggle,
   IonToolbar,
 } from "@ionic/react";
-import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getProducts } from "../../app/api";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
-import { WrapperComponents } from "../../styles/App";
-import { getMemoizedNumItems } from "../cart/CartSlice";
-import { selectAllItems, TeethType } from "../teeth/teethSlice";
-import { receivedProducts } from "./ProductsSlice";
-import { AllProducts, FamilySpecification, LogoWrapper } from "./Styles";
 
-import ShoppingCartIcon from "../../images/cart-outline.svg";
+import { AllProducts, FamilySpecification, LogoWrapper } from "./Styles";
+import { getMemoizedNumItems } from "../cart/CartSlice";
+import { getProducts } from "../../app/api";
+import { receivedProducts } from "./ProductsSlice";
+import { RootState } from "../../app/store";
+import { selectAllItems, TeethType } from "../teeth/teethSlice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { WrapperComponents } from "../../styles/App";
+
 import Logo from "../../images/logo.png";
 import Produtos from "../../components/Produtos";
-import { Catalogos } from "../../mock/manualSpecifications";
+import ShoppingCartIcon from "../../images/cart-outline.svg";
 
 const Products = () => {
   const numItems = useAppSelector<string>(getMemoizedNumItems);

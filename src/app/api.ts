@@ -37,7 +37,6 @@ export type CheckoutResponse = { success: boolean; error?: string };
 
 export function checkout(items: CartItems) {
   const modifier = Object.keys(items).length > 0 ? "success" : "error";
-  console.log(Object.keys(items).length);
   if (modifier === "success") {
     return { success: true };
   } else {
