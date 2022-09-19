@@ -25,6 +25,7 @@ import {
 import { CartList } from "./Styles";
 import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
+import { useEffect } from "react";
 
 const Cart = () => {
   const dispatch = useAppDispatch();
@@ -43,6 +44,10 @@ const Cart = () => {
     event.preventDefault();
     dispatch(checkoutCart(items) as any);
   }
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   return (
     <>
@@ -87,7 +92,12 @@ const Cart = () => {
                   />
                 </div>
                 <div className="cart-list__title">
-                  <h2>{products[id].nome}</h2>
+                  <h2>
+                    <strong>{products[id].tipoConexao}</strong>
+                    {products[id].nome}<br />
+                    <small>{products[id].fixacao} | {products[id].label}</small><br />
+                    {console.log(items)}
+                  </h2>
                 </div>
                 <div className="cart-list__field">
                   <IonInput

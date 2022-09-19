@@ -272,7 +272,7 @@ ion-checkbox[aria-checked="false"] {
 }
 
 .backdrop {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.2);
   display: block;
   height: 100%;
   left: 0;

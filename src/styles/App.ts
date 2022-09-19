@@ -135,7 +135,7 @@ export const Modal = styled.div`
           font-size: 1rem;
           span {
             &::before {
-              content: 'Familia';
+              content: "Familia";
               display: block;
               font-family: var(--font-family-regular);
               font-size: 0.7rem;
@@ -319,6 +319,24 @@ export const WrapperComponents = styled.div`
         overflow: hidden;
         position: relative;
 
+        .fixacao-cimentado {
+          padding-top: 0;
+
+          > div.form-product--item {
+            &:first-of-type {
+              margin-top: 2.5rem;
+            }
+          }
+
+          > div.form-product--item {
+            &:first-of-type {
+              &::before {
+                top: -20px;
+              }
+            }
+          }
+        }
+
         .accordion-button {
           position: absolute;
           right: 0;
@@ -331,6 +349,10 @@ export const WrapperComponents = styled.div`
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 25px;
+        }
+
+        h2 {
+          color: var(--ion-color-tertiary);
         }
       }
 
@@ -398,23 +420,21 @@ export const WrapperComponents = styled.div`
       border-radius: 0.4rem;
       border: 0.1rem solid var(--ion-color-light);
       box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
       width: 16rem;
 
       > div {
         position: relative;
-        overflow: hidden;
 
-        &.is-closed {
-          height: 6rem;
+        &.form-product__wrapper {
+          height: 4rem;
         }
       }
 
       &__title {
         align-items: center;
         display: flex;
-        padding: 1rem 1rem 0 1rem;
-        position: relative;
+        padding: 1rem 1rem 0 0;
 
         ion-ripple-effect {
           opacity: 0.2;
@@ -422,31 +442,120 @@ export const WrapperComponents = styled.div`
 
         img {
           height: auto;
-          margin-left: -1.2rem;
           margin-right: 1rem;
           transform: translateY(-8px);
-          width: 4rem;
+          width: 2.8rem;
         }
 
         h3 {
-          font-size: 1rem;
+          font-size: 0.8rem;
           font-family: var(--font-family-bold);
           text-transform: initial;
-          letter-spacing: 0.05rem;
           margin: 0;
         }
+      }
 
-        small {
-          color: var(--ion-color-primary);
+      &__heading {
+        display: flex;
+        flex-direction: column;
+
+        p {
           font-family: var(--font-family-bold);
-          position: absolute;
-          right: 10px;
-          top: 6px;
+          text-transform: lowercase;
+          font-size: 1rem;
+          color: var(--ion-color-primary);
         }
       }
 
       &__item {
         padding: 1rem 1rem 0 1rem;
+      }
+
+      &--item {
+        > div {
+          h3 {
+            display: none;
+          }
+        }
+
+        &:first-of-type {
+          > div {
+            h3 {
+              display: block;
+              position: absolute;
+              top: -2.5rem;
+              left: -0.1rem;
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        &.rotacional {
+          &:first-of-type {
+            &::before {
+              content: "ROTACIONAL";
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 1.2rem;
+              width: 100%;
+              font-size: 0.6rem;
+              font-family: var(--font-family-bold);
+              color: var(--ion-color-primary);
+            }
+          }
+        }
+
+        &.anti-rotacional {
+          position: relative;
+          margin-top: 2.5rem;
+
+          &::before {
+            content: "ANTI ROTACIONAL";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: -1.3rem;
+            width: 100%;
+            font-size: 0.6rem;
+            font-family: var(--font-family-bold);
+            color: var(--ion-color-primary);
+          }
+
+          + .anti-rotacional {
+            margin-top: 0;
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+
+        /* &.anti-rotacional {
+          margin-top: 3rem;
+          position: relative;
+
+            &::before {
+              content: "ANTI ROTACIONAL";
+              display: block;
+              position: absolute;
+              left: 0;
+              top: -1.6rem;
+              width: 100%;
+          }
+        } */
+
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        ion-button {
+          height: 1.8rem;
+          margin: 0 0.6rem 0 0;
+          width: 6rem;
+        }
       }
 
       &.form-product--additionals {
@@ -723,7 +832,22 @@ export const List = styled.div`
         }
       }
 
-      &--18, &--17, &--16, &--15, &--14, &--13, &--12, &--11, &--21, &--22, &--23, &--24, &--25, &--26, &--27, &--28 {
+      &--18,
+      &--17,
+      &--16,
+      &--15,
+      &--14,
+      &--13,
+      &--12,
+      &--11,
+      &--21,
+      &--22,
+      &--23,
+      &--24,
+      &--25,
+      &--26,
+      &--27,
+      &--28 {
         &.desfavoravel {
           a {
             &::before {

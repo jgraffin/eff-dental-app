@@ -74,6 +74,19 @@ export const CartList = styled.ul`
       letter-spacing: 0.1rem;
       margin: 0;
       padding: 0;
+
+      small {
+        color: var(--ion-color-primary);
+      }
+
+      strong {
+        color: var(--ion-color-primary);
+        display: block;
+        font-family: var(--font-family-light);
+        font-size: 0.6rem;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+      }
     }
   }
 

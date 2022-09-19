@@ -62,18 +62,14 @@ const Products = () => {
         return true;
       }, obj_filtro)
       .map((product: any) => (
-        <>
-          <Produtos
-            tipoConexao={product.tipoConexao}
-            id={product.id}
-            nome={product.nome}
-            imagem={product.imagem}
-            caracteristicas={product.caracteristicas}
-            subitem={product.subitem}
-            torque={product.torque}
-            posicao={product.posicao}
-          />
-        </>
+        <Produtos
+          tipoConexao={product.tipoConexao}
+          id={product.id}
+          nome={product.nome}
+          imagem={product.imagem}
+          label={product.label}
+          posicao={product.posicao}
+        />
       ));
   };
 
@@ -89,7 +85,7 @@ const Products = () => {
 
             <Link
               className={`header-actions-cart ${
-                Number(numItems) === 0 ? "disabled" : ""
+                Number(numItems) === 0 ? "disabled" : "" 
               }`}
               to={{
                 pathname: `/cart`,
@@ -165,12 +161,11 @@ const Products = () => {
                               : "Desfavorável"}
                           </span>
                         </FamilySpecification>
-                        <AllProducts>
+                        <AllProducts className={`fixacao-${fixacao}`}>
                           {filteredArray(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,
                             uniaoImplante: item?.uniaoImplante,
-                            adicionais: true,
                             familia: item?.familia,
                           })}
                         </AllProducts>
