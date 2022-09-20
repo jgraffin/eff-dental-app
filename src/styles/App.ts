@@ -319,24 +319,6 @@ export const WrapperComponents = styled.div`
         overflow: hidden;
         position: relative;
 
-        .fixacao-cimentado {
-          padding-top: 0;
-
-          > div.form-product--item {
-            &:first-of-type {
-              margin-top: 2.5rem;
-            }
-          }
-
-          > div.form-product--item {
-            &:first-of-type {
-              &::before {
-                top: -20px;
-              }
-            }
-          }
-        }
-
         .accordion-button {
           position: absolute;
           right: 0;
@@ -435,6 +417,7 @@ export const WrapperComponents = styled.div`
         align-items: center;
         display: flex;
         padding: 1rem 1rem 0 0;
+        height: 4rem;
 
         ion-ripple-effect {
           opacity: 0.2;
@@ -445,6 +428,7 @@ export const WrapperComponents = styled.div`
           margin-right: 1rem;
           transform: translateY(-8px);
           width: 2.8rem;
+          margin-left: -4rem;
         }
 
         h3 {
@@ -458,12 +442,16 @@ export const WrapperComponents = styled.div`
       &__heading {
         display: flex;
         flex-direction: column;
+        height: 4rem;
+        margin-left: 1rem;
+        width: 10rem;
 
         p {
           font-family: var(--font-family-bold);
           text-transform: lowercase;
-          font-size: 1rem;
+          font-size: 0.8rem;
           color: var(--ion-color-primary);
+          margin: 0;
         }
       }
 
@@ -472,78 +460,20 @@ export const WrapperComponents = styled.div`
       }
 
       &--item {
-        > div {
-          h3 {
-            display: none;
-          }
-        }
+        position: relative;
 
-        &:first-of-type {
-          > div {
-            h3 {
-              display: block;
-              position: absolute;
-              top: -2.5rem;
-              left: -0.1rem;
-              font-size: 0.9rem;
-            }
-          }
-        }
-
-        &.rotacional {
-          &:first-of-type {
-            &::before {
-              content: "ROTACIONAL";
-              display: block;
-              position: absolute;
-              left: 0;
-              top: 1.2rem;
-              width: 100%;
-              font-size: 0.6rem;
-              font-family: var(--font-family-bold);
-              color: var(--ion-color-primary);
-            }
-          }
-        }
-
-        &.anti-rotacional {
-          position: relative;
-          margin-top: 2.5rem;
-
-          &::before {
-            content: "ANTI ROTACIONAL";
-            display: block;
-            position: absolute;
-            left: 0;
-            top: -1.3rem;
-            width: 100%;
-            font-size: 0.6rem;
-            font-family: var(--font-family-bold);
+        &.rotacional, &.anti-rotacional {
+          h2 {
             color: var(--ion-color-primary);
-          }
-
-          + .anti-rotacional {
-            margin-top: 0;
-
-            &::before {
-              display: none;
-            }
+            display: block;
+            font-size: 0.65rem;
+            margin: 0.4rem 0.4rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-transform: lowercase;
           }
         }
-
-        /* &.anti-rotacional {
-          margin-top: 3rem;
-          position: relative;
-
-            &::before {
-              content: "ANTI ROTACIONAL";
-              display: block;
-              position: absolute;
-              left: 0;
-              top: -1.6rem;
-              width: 100%;
-          }
-        } */
 
         > div {
           display: flex;
@@ -553,8 +483,8 @@ export const WrapperComponents = styled.div`
 
         ion-button {
           height: 1.8rem;
-          margin: 0 0.6rem 0 0;
-          width: 6rem;
+          margin: 1rem 0.6rem 0 0;
+          width: 6.5rem;
         }
       }
 

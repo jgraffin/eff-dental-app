@@ -69,6 +69,8 @@ const Products = () => {
           imagem={product.imagem}
           label={product.label}
           posicao={product.posicao}
+          familia={product.familia}
+          acessorio={product.acessorio}
         />
       ));
   };

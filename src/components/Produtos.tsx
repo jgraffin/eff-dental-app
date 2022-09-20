@@ -23,12 +23,13 @@ const Produtos = ({
   torque,
   opcoes,
   label,
+  familia,
+  acessorio
 }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
   const [hideMessage, setHideMessage] = useState(false);
-  const [isClosed, setIsClosed] = useState(true);
 
   function onAddingToCart() {
     console.log(id);
@@ -48,33 +49,9 @@ const Produtos = ({
 
   return (
     <>
-      {tipoConexao === "Rotacional" && (
+      {tipoConexao === "Rotacional" &&  (
         <div className="form-product form-product--item ion-activatable ripple-parent rotacional">
-          <div className="form-product__wrapper">
-            <div className="form-product__title">
-              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
-              <div className="form-product__heading">
-                <h3>{nome}</h3>
-                <p>{label}</p>
-              </div>
-            </div>
-
-            <IonButton
-              className={`add-button ${successAdded ? 'added' : ''}`}
-              expand="block"
-              shape="round"
-              color="dark"
-              type="button"
-              onClick={onAddingToCart}
-            >
-              <span>{successAdded ? 'Adicionado!' : 'Adicionar'}</span>
-            </IonButton>
-          </div>
-        </div>
-      )}
-
-      {tipoConexao === "Anti Rotacional" && (
-        <div className="form-product form-product--item ion-activatable ripple-parent anti-rotacional">
+          <h2>{tipoConexao}</h2>
           <div className="form-product__wrapper">
             <div className="form-product__title">
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
@@ -88,11 +65,63 @@ const Produtos = ({
               className="add-button"
               expand="block"
               shape="round"
-              color="dark"
+              color={`${successAdded ? 'primary' : 'dark'}`}
               type="button"
               onClick={onAddingToCart}
             >
-              <span>Adicionar</span>
+              <span>{successAdded ? 'Adicionado!' : 'Adicionar'}</span>
+            </IonButton>
+          </div>
+        </div>
+      )}
+
+      {tipoConexao === "Anti Rotacional" && (
+        <div className="form-product form-product--item ion-activatable ripple-parent anti-rotacional">
+          <h2>{tipoConexao}</h2>
+          <div className="form-product__wrapper">
+            <div className="form-product__title">
+              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+              <div className="form-product__heading">
+                <h3>{nome}</h3>
+                <p>{label}</p>
+              </div>
+            </div>
+
+            <IonButton
+              className="add-button"
+              expand="block"
+              shape="round"
+              color={`${successAdded ? 'primary' : 'dark'}`}
+              type="button"
+              onClick={onAddingToCart}
+            >
+              <span>{successAdded ? 'Adicionado!' : 'Adicionar'}</span>
+            </IonButton>
+          </div>
+        </div>
+      )}
+
+      {tipoConexao === 'Acess. Anti Rotacional' && familia === 'A3.1' && (
+        <div className="form-product form-product--item ion-activatable ripple-parent accessories">
+          <h2>Acessório</h2>
+          <div className="form-product__wrapper">
+            <div className="form-product__title">
+              <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />
+              <div className="form-product__heading">
+                <h3>{nome}</h3>
+                <p>{label}</p>
+              </div>
+            </div>
+
+            <IonButton
+              className="add-button"
+              expand="block"
+              shape="round"
+              color={`${successAdded ? 'primary' : 'dark'}`}
+              type="button"
+              onClick={onAddingToCart}
+            >
+              <span>{successAdded ? 'Adicionado!' : 'Adicionar'}</span>
             </IonButton>
           </div>
         </div>

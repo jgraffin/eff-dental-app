@@ -69,20 +69,20 @@ export const CartList = styled.ul`
     width: 50%;
 
     h2 {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-family: var(--font-family-bold);
-      letter-spacing: 0.1rem;
       margin: 0;
       padding: 0;
 
       small {
         color: var(--ion-color-primary);
+        font-size: 0.6rem;
       }
 
       strong {
         color: var(--ion-color-primary);
         display: block;
-        font-family: var(--font-family-light);
+        font-family: var(--font-family-bold);
         font-size: 0.6rem;
         margin-bottom: 0.2rem;
         text-transform: uppercase;

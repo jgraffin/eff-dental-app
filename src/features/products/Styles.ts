@@ -28,7 +28,6 @@ export const FamilySpecification = styled.div`
 
 export const AllProducts = styled.div`
   position: relative;
-  padding-top: 2.5rem;
   display: block;
 
   &:empty {
