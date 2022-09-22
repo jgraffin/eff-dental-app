@@ -70,7 +70,7 @@ const Products = () => {
           label={product.label}
           posicao={product.posicao}
           familia={product.familia}
-          acessorio={product.acessorio}
+          acessorios={product.acessorios}
         />
       ));
   };

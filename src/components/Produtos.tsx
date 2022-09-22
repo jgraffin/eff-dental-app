@@ -24,7 +24,7 @@ const Produtos = ({
   opcoes,
   label,
   familia,
-  acessorio
+  acessorios
 }: any) => {
   const dispatch = useDispatch();
   const [sku, setSku] = useState("");
@@ -101,9 +101,10 @@ const Produtos = ({
         </div>
       )}
 
-      {tipoConexao === 'Acess. Anti Rotacional' && familia === 'A3.1' && (
+      {acessorios && tipoConexao === 'Anti Rotacional' && familia === 'A3.2' && (
         <div className="form-product form-product--item ion-activatable ripple-parent accessories">
-          <h2>Acessório</h2>
+          <h2>{tipoConexao}</h2>
+          <h4>Acessório</h4>
           <div className="form-product__wrapper">
             <div className="form-product__title">
               <img src={`../assets/images/proteses/${imagem}.png`} alt={nome} />

@@ -475,6 +475,30 @@ export const WrapperComponents = styled.div`
           }
         }
 
+        &.accessories {
+          background: rgba(var(--ion-color-tertiary-rgb), 0.2);
+          border: 0.1rem solid var(--ion-color-tertiary);
+
+          h2, h4 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 0.4rem;
+            font-size: 0.65rem;
+            text-transform: lowercase;
+          }
+
+          h4 {
+            transform: rotate(90deg);
+            right: -3rem;
+            top: 1.2rem;
+            font-size: 0.65rem;
+            color: var(--ion-color-tertiary);
+            font-family: var(--font-family-bold);
+            text-transform: uppercase;
+          }
+        }
+
         > div {
           display: flex;
           align-items: center;
