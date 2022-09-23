@@ -51,16 +51,16 @@ const Products = () => {
 
   const products = useAppSelector((state) => state.products.products);
 
-  let filteredArray = (data: any, obj_filtro: any) => {
+  let filterProducts = (data: any, products: any) => {
     return data
-      .filter(function (item: any) {
-        for (let obj in obj_filtro) {
-          if (obj_filtro[obj] !== item[obj]) {
+      .filter((item: any) => {
+        for (let obj in products) {
+          if (products[obj] !== item[obj]) {
             return false;
           }
         }
         return true;
-      }, obj_filtro)
+      }, products)
       .map((product: any) => (
         <Produtos
           tipoConexao={product.tipoConexao}
@@ -164,7 +164,7 @@ const Products = () => {
                           </span>
                         </FamilySpecification>
                         <AllProducts className={`fixacao-${fixacao}`}>
-                          {filteredArray(Object.values(products), {
+                          {filterProducts(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,
                             uniaoImplante: item?.uniaoImplante,

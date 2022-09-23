@@ -461,23 +461,21 @@ export const WrapperComponents = styled.div`
 
       &--item {
         position: relative;
-
-        &.rotacional, &.anti-rotacional {
-          h2 {
-            color: var(--ion-color-primary);
-            display: block;
-            font-size: 0.65rem;
-            margin: 0.4rem 0.4rem;
-            position: absolute;
-            right: 0;
-            top: 0;
-            text-transform: lowercase;
-          }
+        
+        h2 {
+          color: var(--ion-color-primary) !important;
+          display: block;
+          font-size: 0.6rem !important;
+          margin: 0.4rem 0.4rem;
+          position: absolute;
+          right: 0;
+          top: 0;
+          text-transform: lowercase;
         }
-
+      
         &.accessories {
           background: rgba(var(--ion-color-tertiary-rgb), 0.2);
-          border: 0.1rem solid var(--ion-color-tertiary);
+          border: 0.1rem solid rgba(var(--ion-color-tertiary-rgb), 0.4);
 
           h2, h4 {
             position: absolute;
@@ -486,6 +484,10 @@ export const WrapperComponents = styled.div`
             margin: 0.4rem;
             font-size: 0.65rem;
             text-transform: lowercase;
+          }
+
+          h2 {
+            color: var(--ion-color-tertiary) !important;
           }
 
           h4 {
@@ -512,84 +514,9 @@ export const WrapperComponents = styled.div`
         }
       }
 
-      &.form-product--additionals {
-        border: 0.1rem solid rgba(117, 117, 248, 0.2);
-        border-left: 0.5rem solid rgba(117, 117, 248, 0.2);
-        margin-left: 2.6rem;
-        position: relative;
-        width: 84%;
+      
 
-        h3 {
-          font-size: 0.8rem;
-          line-height: 1.2rem;
-          letter-spacing: 0.02rem;
-        }
-
-        .is-closed {
-          height: 5rem;
-        }
-
-        + .form-product.ion-activatable.ripple-parent:not(.form-product--additionals) {
-          margin-top: 4rem;
-        }
-      }
-
-      &.ion-activatable.ripple-parent:not(.form-product--additionals) {
-        + .form-product--additionals {
-          margin-top: 3rem;
-
-          &::before {
-            color: var(--ion-color-tertiary);
-            content: "ACESSÓRIOS";
-            display: block;
-            font-family: var(--font-family-bold);
-            font-size: 0.8rem;
-            height: 2rem;
-            left: 0;
-            position: absolute;
-            top: -2rem;
-            width: 100%;
-          }
-
-          &::after {
-            content: "";
-            background-color: var(--ion-color-tertiary);
-            display: block;
-            height: 0.1rem;
-            right: 0;
-            position: absolute;
-            top: -1.4rem;
-            width: 50%;
-          }
-        }
-      }
-
-      .additional-field {
-        margin-left: 1rem;
-        padding-left: 1rem;
-        border-left: 0.2rem solid var(--ion-color-primary);
-      }
-
-      .additional-torque {
-        color: var(--ion-color-primary);
-        font-family: var(--font-family-bold);
-        font-size: 0.8rem;
-        display: block;
-        padding-left: 2.3rem;
-      }
-
-      h6.additional-title {
-        font-family: var(--font-family-bold);
-        font-size: 0.7rem;
-        color: var(--ion-color-primary);
-        display: inline-block;
-        padding-left: 1rem;
-      }
-
-      img.additional-image {
-        display: inline-block;
-        width: 1.5rem;
-      }
+      
     }
   }
 
