@@ -20,39 +20,6 @@ const slideinAdd = keyframes`
   }
 `;
 
-const scaleIcon = keyframes`
-  from {
-	opacity: 0;
-	transform: scale(0.5);
-  }
-  to {
-	opacity: 1;
-	transform: scale(1);
-  }
-`;
-
-const showMessage = keyframes`
-  from {
-	opacity: 0;
-	transform: scale(0);
-  }
-  to {
-	opacity: 1;
-	transform: scale(1);
-  }
-`;
-
-const hideMessage = keyframes`
-  from {
-	opacity: 1;
-	transform: scale(1);
-  }
-  to {
-	opacity: 0;
-	transform: scale(0);
-  }
-`;
-
 const slideIn = keyframes`
   from {
 	opacity: 0;
