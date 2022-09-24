@@ -27,6 +27,7 @@ import { TeethList } from "./features/teeth/TeethList";
 import Edit from "./components/Edit";
 import Cart from "./features/cart/Cart";
 import Products from "./features/products/Products";
+import Succeeded from "./features/succeeded/Succeeded";
 
 setupIonicReact();
 
@@ -45,6 +46,7 @@ const App: React.FC = () => {
         </>
         <Route exact path="/edit/:id" component={Edit} />
         <Route exact path="/products" component={Products} />
+        <Route exact path="/succeeded" component={Succeeded}/>
         <Route exact path="/cart" component={Cart} />
         <Redirect to="/" />
       </IonReactRouter>
