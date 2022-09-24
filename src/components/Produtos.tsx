@@ -18,6 +18,7 @@ const Produtos = ({ tipoConexao, id, nome, imagem, label, acessorios }: any) => 
   return (
     <div
       className={`form-product form-product--item ion-activatable ripple-parent ${acessorios ? "accessories" : ''}`}
+      key={id}
     >
       <h2>{tipoConexao}</h2>
       <div className="form-product__wrapper">

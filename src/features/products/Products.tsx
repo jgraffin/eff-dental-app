@@ -1,42 +1,34 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import {
-  IonBackButton,
-  IonButtons,
   IonCol,
   IonContent,
   IonGrid,
-  IonHeader,
   IonRow,
   IonSelect,
   IonSelectOption,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
 
-import { AllProducts, FamilySpecification, LogoWrapper } from "./Styles";
+import { AllProducts, FamilySpecification } from "./Styles";
 import { getMemoizedNumItems } from "../cart/CartSlice";
 import { getProducts } from "../../app/api";
 import { receivedProducts } from "./ProductsSlice";
-import { RootState } from "../../app/store";
 import { selectAllItems, TeethType } from "../teeth/teethSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { WrapperComponents } from "../../styles/App";
 
-import Logo from "../../images/logo.png";
 import Produtos from "../../components/Produtos";
-import ShoppingCartIcon from "../../images/cart-outline.svg";
+import Header from "../../components/Header";
 
 const Products = () => {
   const numItems = useAppSelector<string>(getMemoizedNumItems);
+  const products = useAppSelector((state) => state.products.products);
   const dispatch = useAppDispatch();
   const store = useSelector(selectAllItems);
 
-  const postStatus = useSelector((state: RootState) => state.teeth.status);
   const [fixacao, setFixacao] = useState("cimentado");
+  const title = "Lista de componentes disponíveis";
 
   const onScrewToggle = () =>
     fixacao === "cimentado"
@@ -48,8 +40,6 @@ const Products = () => {
       dispatch(receivedProducts(products));
     });
   }, [dispatch]);
-
-  const products = useAppSelector((state) => state.products.products);
 
   let filterProducts = (data: any, products: any) => {
     return data
@@ -63,56 +53,25 @@ const Products = () => {
       }, products)
       .map((product: any) => (
         <Produtos
-          tipoConexao={product.tipoConexao}
-          id={product.id}
-          nome={product.nome}
-          imagem={product.imagem}
-          label={product.label}
-          posicao={product.posicao}
-          familia={product.familia}
-          acessorios={product.acessorios}
-          sizes={product.sizes}
+			key={product.id}
+          	tipoConexao={product.tipoConexao}
+          	id={product.id}
+          	nome={product.nome}
+          	imagem={product.imagem}
+          	label={product.label}
+          	posicao={product.posicao}
+          	familia={product.familia}
+          	acessorios={product.acessorios}
         />
       ));
   };
 
   return (
     <>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons className="header-actions">
-            <IonBackButton defaultHref="/" />
-            <LogoWrapper>
-              <img src={Logo} alt="Eff Dental" />
-            </LogoWrapper>
-
-            <Link
-              className={`header-actions-cart ${
-                Number(numItems) === 0 ? "disabled" : "" 
-              }`}
-              to={{
-                pathname: `/cart`,
-              }}
-            >
-              <img src={ShoppingCartIcon} alt="Cart Shopping" />
-              {numItems ? <span>{numItems}</span> : ""}
-            </Link>
-          </IonButtons>
-        </IonToolbar>
-        <IonToolbar>
-          <IonTitle>
-            Selecione a(s) família(s) correspondente(s)
-            <br />e escolha o componente desejado
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header totalItems={Number(numItems)} titleHeader={title}></Header>
 
       <IonContent>
         <WrapperComponents>
-          {postStatus === "loading" && (
-            <IonSpinner className="loading" name="crescent" color="primary" />
-          )}
-
           <IonGrid>
             <IonRow className="table-head">
               <IonCol className="ion-no-padding" size="2">
@@ -125,7 +84,7 @@ const Products = () => {
                     value={fixacao}
                     placeholder={fixacao}
                     onIonChange={onScrewToggle}
-                    interface="action-sheet" 
+                    interface="action-sheet"
                     cancelText="CANCELAR"
                   >
                     <IonSelectOption value="cimentado">
@@ -141,7 +100,7 @@ const Products = () => {
             {store.map(
               (item: TeethType) =>
                 item.selecionado && (
-                  <IonRow className="table-row" key={item?.id}>
+                  <IonRow className="table-row" key={item.id}>
                     <IonCol className="ion-no-padding" size="2">
                       <div className="table-row__tooth">
                         <h2>{item.dente}</h2>
@@ -150,7 +109,7 @@ const Products = () => {
 
                     <IonCol className="ion-no-padding" size="8">
                       <input type="checkbox" className="input-toggle" />
-                      <div className="table-row__item" id={item?.id}>
+                      <div className="table-row__item" id={item.id}>
                         <FamilySpecification>
                           <h2>{item?.familia}</h2>
                           <span className="table-row__union-type">
@@ -164,7 +123,7 @@ const Products = () => {
                               : "Desfavorável"}
                           </span>
                         </FamilySpecification>
-                        <AllProducts className={`fixacao-${fixacao}`}>
+                        <AllProducts>
                           {filterProducts(Object.values(products), {
                             posicao: item.posicao,
                             fixacao: fixacao,

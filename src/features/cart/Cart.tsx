@@ -45,10 +45,6 @@ const Cart = () => {
 		dispatch(checkoutCart(items) as any);
 	}
 
-	useEffect(() => {
-		console.log(products);
-	}, [products]);
-
 	return (
 		<>
 			<IonHeader>
@@ -119,9 +115,6 @@ const Cart = () => {
 			<IonFooter className="ion-no-border">
 				<div className="total-items ion-padding ion-justify-content-end">Total de Items: <strong>{numItems}</strong></div>
 				<form onSubmit={onCheckout}>
-					{checkoutState === "ERROR" && errorMessage ? (
-						<p>{errorMessage}</p>
-					) : null}
 					<IonButton
 						className="button-save button-save--checkout"
 						expand="block"
