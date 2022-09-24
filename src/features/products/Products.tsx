@@ -71,6 +71,7 @@ const Products = () => {
           posicao={product.posicao}
           familia={product.familia}
           acessorios={product.acessorios}
+          sizes={product.sizes}
         />
       ));
   };
@@ -122,10 +123,10 @@ const Products = () => {
                 <div className="filter-button">
                   <IonSelect
                     value={fixacao}
-                    cancelText="Cancelar"
-                    okText="Ok"
                     placeholder={fixacao}
                     onIonChange={onScrewToggle}
+                    interface="action-sheet" 
+                    cancelText="CANCELAR"
                   >
                     <IonSelectOption value="cimentado">
                       Cimentado

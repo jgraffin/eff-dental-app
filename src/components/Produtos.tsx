@@ -1,17 +1,18 @@
 import { IonButton } from "@ionic/react";
 import { useState } from "react";
-import { addToCart, getSelectedValues } from "../features/cart/CartSlice";
+import { addToCart } from "../features/cart/CartSlice";
 import { useDispatch } from "react-redux";
 
 const Produtos = ({ tipoConexao, id, nome, imagem, label, acessorios }: any) => {
   const dispatch = useDispatch();
-  const [sku, setSku] = useState("");
   const [successAdded, setSuccessAdded] = useState(false);
 
   function onAddingToCart() {
-    console.log(id);
     dispatch(addToCart(id));
-    dispatch(getSelectedValues(sku));
+	setSuccessAdded(true);
+	setTimeout(() =>{
+		setSuccessAdded(false);
+	}, 600);
   }
 
   return (

@@ -111,6 +111,10 @@
   --font-family-bold: "latoblack";
 }
 
+.custom-color-tertiary {
+  color: var(--ion-color-tertiary) !important;
+}
+
 @keyframes slidein {
   from {
     opacity: 0;
@@ -303,6 +307,18 @@ ion-title {
 
 ion-footer {
   padding: 0 0 2rem 0;
+}
+
+ion-footer .total-items {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--ion-color-dark);
+  text-align: center;
+  font-family: var(--ion-font-family-regular);
+}
+
+ion-footer .total-items strong {
+  color: var(--ion-color-primary);
+  font-family: var(--ion-font-family-bold);
 }
 
 ion-button {

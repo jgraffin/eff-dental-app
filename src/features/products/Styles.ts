@@ -16,9 +16,8 @@ export const FamilySpecification = styled.div`
   width: 100%;
 
   .table-row__union-type {
-    background: var(--ion-color-tertiary);
     border-radius: 90px;
-    color: white;
+    color: var(--ion-color-tertiary);
     display: inline-block;
     font-family: var(--font-family-bold);
     font-size: 0.6rem;
