@@ -37,10 +37,6 @@ const Cart = () => {
     dispatch(updateQuantity({ id, quantity }));
   }
 
-  function handleSubmit(event: any) {
-    event.preventDefault();
-  }
-
   return (
     <>
       <IonHeader>
