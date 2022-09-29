@@ -447,7 +447,7 @@ export const WrapperComponents = styled.div`
 		  	border: 0.1rem solid rgba(var(--ion-color-tertiary-rgb), 0.4);
 		  	width: 14rem;
 			margin-left: 2rem;
-			margin-bottom: 2rem;
+			margin-bottom: 1rem;
 
 			&:last-of-type {
 				margin-bottom: 0;
