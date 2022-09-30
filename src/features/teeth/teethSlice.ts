@@ -4,16 +4,16 @@ import { RootState } from "../../app/store";
 
 export type TeethType = {
   id?: string;
-  catalogo?: string;
-  dente?: string;
-  marca?: string;
-  especificacao?: string;
-  implante?: string;
-  plataforma?: string;
-  uniaoImplante?: string;
-  posicao?: string;
-  selecionado?: boolean;
-  familia?: string;
+  catalogue?: string;
+  teethNumber?: string;
+  brand?: string;
+  specification?: string;
+  implant?: string;
+  platform?: string;
+  unionType?: string;
+  position?: string;
+  selected?: boolean;
+  family?: string;
 };
 
 const initialState = {
@@ -44,47 +44,47 @@ const teethSlice = createSlice({
     itemUpdated(state: RootState, action: PayloadAction<TeethType>) {
       const {
         id,
-        catalogo,
-        dente,
-        marca,
-        plataforma,
-        especificacao,
-        implante,
-        familia,
-        uniaoImplante,
-        posicao,
-        selecionado,
+        catalogue,
+        teethNumber,
+        brand,
+        platform,
+        specification,
+        implant,
+        family,
+        unionType,
+        position,
+        selected,
       } = action.payload;
       const existingItem = state.items.find(
         (item: TeethType) => item.id === id
       );
 
       if (existingItem) {
-        existingItem.catalogo = catalogo;
-        existingItem.dente = dente;
-        existingItem.marca = marca;
-        existingItem.plataforma = plataforma;
-        existingItem.especificacao = especificacao;
-        existingItem.implante = implante;
-        existingItem.familia = familia;
-        existingItem.uniaoImplante = uniaoImplante;
-        existingItem.posicao = posicao;
-        existingItem.selecionado = selecionado;
+        existingItem.catalogue = catalogue;
+        existingItem.teethNumber = teethNumber;
+        existingItem.brand = brand;
+        existingItem.platform = platform;
+        existingItem.specification = specification;
+        existingItem.implant = implant;
+        existingItem.family = family;
+        existingItem.unionType = unionType;
+        existingItem.position = position;
+        existingItem.selected = selected;
       }
 
       axios.put(
         `https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth/${id}`,
         {
-          catalogo,
-          dente,
-          marca,
-          plataforma,
-          especificacao,
-          implante,
-          familia,
-          uniaoImplante,
-          posicao,
-          selecionado,
+          catalogue,
+          teethNumber,
+          brand,
+          platform,
+          specification,
+          implant,
+          family,
+          unionType,
+          position,
+          selected,
         }
       );
     },

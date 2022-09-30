@@ -75,27 +75,27 @@ const Cart = () => {
               <li key={id} id={id}>
                 <div className="cart-list__image">
                   <img
-                    src={`./assets/images/proteses/${products[id].imagem}.png`}
-                    alt={products[id].nome}
+                    src={`./assets/images/proteses/${products[id].image}.png`}
+                    alt={products[id].name}
                   />
                 </div>
                 <div className="cart-list__title">
                   <h2>
                     <strong
                       className={
-                        products[id].acessorios ? "custom-color-tertiary" : ""
+                        products[id].accessorie ? "custom-color-tertiary" : ""
                       }
                     >
-                      {products[id].tipoConexao}
+                      {products[id].connection}
                     </strong>
-                    {products[id].nome}
+                    {products[id].name}
                     <br />
                     <small
                       className={
-                        products[id].acessorios ? "custom-color-tertiary" : ""
+                        products[id].accessorie ? "custom-color-tertiary" : ""
                       }
                     >
-                      {products[id].fixacao} | {products[id].value}
+                      {products[id].fixture} | {products[id].value}
                     </small>
                   </h2>
                 </div>

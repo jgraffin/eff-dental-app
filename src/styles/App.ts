@@ -102,7 +102,7 @@ export const Modal = styled.div`
 		  font-size: 1rem;
 		  span {
 			&::before {
-			  content: "Familia";
+			  content: "Família";
 			  display: block;
 			  font-family: var(--font-family-regular);
 			  font-size: 0.7rem;
@@ -230,11 +230,12 @@ export const WrapperComponents = styled.div`
   border-radius: 20px 0 0 20px;
   box-shadow: 0 15px 47px 0 rgba(127, 127, 255, 0.14);
   display: block;
-  min-height: 200px;
+  min-height: 100px;
   margin: 2rem 0 2rem 1rem;
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+  padding-bottom: 1rem;
 
   ion-grid {
 	width: 100%;

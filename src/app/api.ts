@@ -1,24 +1,24 @@
 export interface Product {
   id: string;
-  familia: string;
+  family: string;
   componentes: Array<{
     id: string;
-    nome: string;
+    name: string;
     slug: string;
-    imagem: string;
+    image: string;
     cimentado: false;
-    tipoConexao: string;
+    connection: string;
     caracteristicas: Array<{
       id: string;
-      tipoConexao: string;
+      connection: string;
       opcoes: Array<{
         label: string;
         sku: string;
       }>;
     }>;
     adicionais?: Array<{
-      tipoConexao: string;
-      imagem?: string;
+      connection: string;
+      image?: string;
       sku: string;
     }>;
   }>;
@@ -33,13 +33,3 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export type CartItems = { [productID: string]: number };
-export type CheckoutResponse = { success: boolean; error?: string };
-
-export function checkout(items: CartItems) {
-  const modifier = Object.keys(items).length > 0 ? "success" : "error";
-  if (modifier === "success") {
-    return { success: true };
-  } else {
-    return { success: false, error: "Cart must not be empty" };
-  }
-}

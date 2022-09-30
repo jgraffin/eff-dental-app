@@ -27,13 +27,13 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const store = useSelector(selectAllItems);
 
-  const [fixacao, setFixacao] = useState("cimentado");
+  const [fixture, setfixture] = useState("cimentado");
   const title = "Lista de componentes disponíveis";
 
   const onScrewToggle = () =>
-    fixacao === "cimentado"
-      ? setFixacao("parafusado")
-      : setFixacao("cimentado");
+    fixture === "cimentado"
+      ? setfixture("parafusado")
+      : setfixture("cimentado");
 
   useEffect(() => {
     getProducts().then((products) => {
@@ -54,14 +54,14 @@ const Products = () => {
       .map((product: any) => (
         <Produtos
 			key={product.id}
-          	tipoConexao={product.tipoConexao}
+          	connection={product.connection}
           	id={product.id}
-          	nome={product.nome}
-          	imagem={product.imagem}
+          	name={product.name}
+          	image={product.image}
           	label={product.label}
-          	posicao={product.posicao}
-          	familia={product.familia}
-          	acessorios={product.acessorios}
+          	position={product.position}
+          	family={product.family}
+          	accessorie={product.accessorie}
         />
       ));
   };
@@ -81,8 +81,8 @@ const Products = () => {
                 Família
                 <div className="filter-button">
                   <IonSelect
-                    value={fixacao}
-                    placeholder={fixacao}
+                    value={fixture}
+                    placeholder={fixture}
                     onIonChange={onScrewToggle}
                     interface="action-sheet"
                     cancelText="CANCELAR"
@@ -99,11 +99,11 @@ const Products = () => {
             </IonRow>
             {store.map(
               (item: TeethType) =>
-                item.selecionado && (
+                item.selected && (
                   <IonRow className="table-row" key={item.id}>
                     <IonCol className="ion-no-padding" size="2">
                       <div className="table-row__tooth">
-                        <h2>{item.dente}</h2>
+                        <h2>{item.teethNumber}</h2>
                       </div>
                     </IonCol>
 
@@ -111,24 +111,24 @@ const Products = () => {
                       <input type="checkbox" className="input-toggle" />
                       <div className="table-row__item" id={item.id}>
                         <FamilySpecification>
-                          <h2>{item?.familia}</h2>
+                          <h2>{item?.family}</h2>
                           <span className="table-row__union-type">
-                            {item?.uniaoImplante === "multiplo"
+                            {item?.unionType === "multiplo"
                               ? "Múltiplo"
                               : "Unitário"}
                           </span>
                           <span className="table-row__union-type">
-                            {item?.posicao === "favoravel"
+                            {item?.position === "favoravel"
                               ? "Favorável"
                               : "Desfavorável"}
                           </span>
                         </FamilySpecification>
                         <AllProducts>
                           {filterProducts(Object.values(products), {
-                            posicao: item.posicao,
-                            fixacao: fixacao,
-                            uniaoImplante: item?.uniaoImplante,
-                            familia: item?.familia,
+                            position: item.position,
+                            fixture: fixture,
+                            unionType: item?.unionType,
+                            family: item?.family,
                           })}
                         </AllProducts>
                       </div>

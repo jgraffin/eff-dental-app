@@ -337,8 +337,17 @@ ion-button {
 
 h2 {
   font-size: 1rem;
-  font-family: var(--font-family-light);
   margin: 1rem 0;
+}
+
+.alert-form h2.alert-title {
+  color: var(--ion-color-danger);
+  font-family: var(--font-family-bold);
+}
+
+.alert-form .alert-button.sc-ion-alert-md {
+  background-color: var(--ion-color-dark);
+  color: var(--ion-color-danger-contrast);
 }
 
 .button-add,
