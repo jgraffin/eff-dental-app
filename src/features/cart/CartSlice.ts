@@ -20,8 +20,12 @@ const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
-		addToCart(state: RootState, action: PayloadAction<string>) {
+		addToCart(
+			state: RootState, 
+			action: PayloadAction<string>
+		) {
 			const id = action.payload;
+
 			if (state.items[id]) {
 				state.items[id]++;
 			} else {
@@ -29,8 +33,16 @@ const cartSlice = createSlice({
 			}
 		},
 
-		removeFromCart(state: RootState, action: PayloadAction<string>) {
-			delete state.items[action.payload];
+		removeFromCart(
+			state: RootState, 
+			action: PayloadAction<{ id: string; clearCart: boolean }>
+		) {
+			const { id, clearCart } = action.payload;
+			delete state.items[id];
+
+			if (clearCart) {
+				state.items = {}
+			}
 		},
 
 		updateQuantity(

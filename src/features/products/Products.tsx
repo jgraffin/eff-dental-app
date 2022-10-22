@@ -39,7 +39,7 @@ const Products = () => {
     getProducts().then((products) => {
       dispatch(receivedProducts(products));
     });
-  }, [dispatch]);
+  }, []);
 
   let filterProducts = (data: any, products: any) => {
     return data

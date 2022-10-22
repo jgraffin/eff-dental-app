@@ -129,7 +129,7 @@ export const TeethList = () => {
 					<IonTitle>
 						Marque abaixo a região
 						<br />
-						do implant
+						do implante
 					</IonTitle>
 				</IonToolbar>
 			</IonHeader>

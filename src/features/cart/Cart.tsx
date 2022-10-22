@@ -37,6 +37,13 @@ const Cart = () => {
     dispatch(updateQuantity({ id, quantity }));
   }
 
+  function handleSendData() {
+    dispatch(removeFromCart({
+      id: '', 
+      clearCart: true
+    }));
+  }
+
   return (
     <>
       <IonHeader>
@@ -107,7 +114,10 @@ const Cart = () => {
                   ></IonInput>
                   <IonButton
                     className="cart-list__field-delete"
-                    onClick={() => dispatch(removeFromCart(id))}
+                    onClick={() => dispatch(removeFromCart({
+                        id: id, 
+                        clearCart: false
+                    }))}
                   ></IonButton>
                 </div>
               </li>
@@ -125,6 +135,7 @@ const Cart = () => {
           className={`button-checkout ${
             numItems === 0 ? "checkout-disabled" : ""
           }`}
+          onClick={() => handleSendData()}
           to={{
             pathname: `/succeeded`,
           }}
