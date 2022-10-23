@@ -129,7 +129,6 @@ const Edit = ({ match }: { match: { id: number } } | any) => {
 	useEffect(() => {
 		setCatalogue(catalogue);
 		setBrand(brand);
-		console.log(implantRef.current);
 	}, [catalogue, brand, unionType]);
 
 	return (

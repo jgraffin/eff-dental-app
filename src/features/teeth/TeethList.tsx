@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import {
+	IonButton,
 	IonContent,
 	IonFooter,
 	IonHeader,
@@ -103,6 +104,7 @@ export const TeethList = () => {
 		} else {
 			setHasUnionBottomLine(false);
 		}
+
 	}, [postStatus, dispatch, posts]);
 
 	let content;
@@ -144,6 +146,7 @@ export const TeethList = () => {
 						<ul className="tooth-list">{content}</ul>
 					</List>
 				</Wrapper>
+
 			</IonContent>
 			<IonFooter className="ion-no-border">
 				<NextButton
