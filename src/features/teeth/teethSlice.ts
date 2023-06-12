@@ -2,6 +2,8 @@ import axios from "axios";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
+const apiTeethURL = 'https://640cf0df1a18a5db836e754a.mockapi.io/api/teeth';
+
 export type TeethType = {
 	id?: string;
 	catalogue?: string;
@@ -25,7 +27,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 	try {
 		const response = await axios.get(
-			"https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth"
+			apiTeethURL
 		);
 		return response.data;
 	} catch (err: any) {
@@ -73,7 +75,7 @@ const teethSlice = createSlice({
 			}
 
 			axios.put(
-				`https://620c58aab5736325938c1678.mockapi.io/api/v1/teeth/${id}`,
+				`${apiTeethURL}/${id}`,
 				{
 					catalogue,
 					teethNumber,
@@ -87,6 +89,13 @@ const teethSlice = createSlice({
 					selected,
 				}
 			);
+		},
+		deleteItems(state: RootState, action: PayloadAction<TeethType>) {
+			const { id } = action.payload;
+			
+			axios.delete(`${apiTeethURL}/${id}`).then((items: any) => {
+				// TODO delete all items
+		 	});
 		}
 	},
 	extraReducers(builder: any) {

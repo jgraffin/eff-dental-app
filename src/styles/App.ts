@@ -443,7 +443,7 @@ export const WrapperComponents = styled.div`
 		  text-transform: lowercase;
 		}
 	  
-		&.accessories {
+		&.accessoriess {
 		  	background: rgba(var(--ion-color-tertiary-rgb), 0.2);
 		  	border: 0.1rem solid rgba(var(--ion-color-tertiary-rgb), 0.4);
 		  	width: 14rem;

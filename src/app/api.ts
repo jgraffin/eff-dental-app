@@ -26,7 +26,7 @@ export interface Product {
 
 export async function getProducts(): Promise<Product[]> {
   const results = await fetch(
-    "https://620c58aab5736325938c1678.mockapi.io/api/v1/products"
+    "https://640cf0df1a18a5db836e754a.mockapi.io/api/products"
   );
   const products = results.json();
   return products;

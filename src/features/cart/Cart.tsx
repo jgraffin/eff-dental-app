@@ -2,24 +2,24 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import {
-	IonHeader,
-	IonToolbar,
-	IonButton,
-	IonContent,
-	IonInput,
-	IonBackButton,
-	IonButtons,
-	IonTitle,
-	IonFooter,
+  IonHeader,
+  IonToolbar,
+  IonButton,
+  IonContent,
+  IonInput,
+  IonBackButton,
+  IonButtons,
+  IonTitle,
+  IonFooter,
 } from "@ionic/react";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { LogoWrapper } from "../products/Styles";
 import {
-	getMemoizedNumItems,
-	removeFromCart,
-	updateQuantity,
+  getMemoizedNumItems,
+  removeFromCart,
+  updateQuantity,
 } from "./CartSlice";
 
 import { CartList } from "./Styles";
@@ -27,140 +27,148 @@ import ShoppingCartIcon from "../../images/cart-outline.svg";
 import Logo from "../../images/logo.png";
 
 const Cart = () => {
-	const dispatch = useAppDispatch();
-	const numItems = useAppSelector<any>(getMemoizedNumItems);
-	const products = useSelector((state: RootState) => state.products.products);
-	const items = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const numItems = useAppSelector<any>(getMemoizedNumItems);
+  const products = useSelector((state: RootState) => state.products.products);
+  const items = useAppSelector((state) => state.cart.items);
 
-	const onQuantityChanged = (event: any, id: string) => {
-		const quantity = Number(event.target.value) || 0;
-		dispatch(updateQuantity({ 
-			id, 
-			quantity 
-		}));
-	}
+  const onQuantityChanged = (event: any, id: string) => {
+    const quantity = Number(event.target.value) || 0;
+    dispatch(
+      updateQuantity({
+        id,
+        quantity,
+      })
+    );
+  };
 
-	const handleSendData = () => {
-		dispatch(removeFromCart({
-			id: '', 
-			clearCart: true
-		}));
-	}
+  const handleSendData = () => {
+    dispatch(
+      removeFromCart({
+        id: "",
+        clearCart: true,
+      })
+    );
+  };
 
-	return (
-		<>
-			<IonHeader>
+  return (
+    <>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons className="header-actions">
+            <IonBackButton defaultHref="/" />
 
-				<IonToolbar>
-					<IonButtons className="header-actions">
-						<IonBackButton defaultHref="/" />
+            <LogoWrapper>
+              <img src={Logo} alt="Eff Dental" />
+            </LogoWrapper>
 
-						<LogoWrapper>
-							<img src={Logo} alt="Eff Dental" />
-						</LogoWrapper>
+            <Link
+              className={`header-actions-cart ${
+                Number(numItems) === 0 ? "disabled" : ""
+              }`}
+              to={{
+                pathname: `/cart`,
+              }}
+            >
+              <img src={ShoppingCartIcon} alt="Cart Shopping" />
+              {numItems ? <span>{numItems}</span> : ""}
+            </Link>
+          </IonButtons>
+        </IonToolbar>
 
-						<Link
-							className={`header-actions-cart ${
-								Number(numItems) === 0 ? "disabled" : ""
-							}`}
-							to={{
-								pathname: `/cart`,
-							}}
-						>
-							<img src={ShoppingCartIcon} alt="Cart Shopping" />
-							{numItems ? <span>{numItems}</span> : ""}
-						</Link>
+        <IonToolbar>
+          <IonTitle>
+            Produtos adicionados ao
+            <br />
+            carrinho de compras
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
-					</IonButtons>
-				</IonToolbar>
+      <IonContent>
+        <CartList>
+          {Object.entries(items).length > 0 ? (
+            Object.entries(items).map(([id, quantity]: any) => (
+              <li key={id} id={id}>
+                <div className="cart-list__image">
+                  <img
+                    src={`./assets/images/proteses/${products[id].image}.png`}
+                    alt={products[id].name}
+                  />
+                </div>
+                <div className="cart-list__title">
+                  <h2>
+                    <strong
+                      className={
+                        products[id].accessories ? "custom-color-tertiary" : ""
+                      }
+                    >
+                      {products[id].connection}
+                    </strong>
 
-				<IonToolbar>
-					<IonTitle>
-						Produtos adicionados ao
-						<br />
-						carrinho de compras
-					</IonTitle>
-				</IonToolbar>
-			</IonHeader>
+                    {products[id].name}
+                    <br />
 
-			<IonContent>
+                    <small
+                      className={
+                        products[id].accessories ? "custom-color-tertiary" : ""
+                      }
+                    >
+                      <span className="ion-text-capitalize">
+                        {products[id].fixture}
+                      </span>{" "}
+                      |{" "}
+                      <span className="ion-text-uppercase">
+                        {products[id].label}
+                      </span>
+                    </small>
+                  </h2>
+                </div>
+                <div className="cart-list__field">
+                  <IonInput
+                    type="number"
+                    onIonBlur={(event) => onQuantityChanged(event, id)}
+                    value={quantity}
+                  ></IonInput>
+                  <IonButton
+                    className="cart-list__field-delete"
+                    onClick={() =>
+                      dispatch(
+                        removeFromCart({
+                          id: id,
+                          clearCart: false,
+                        })
+                      )
+                    }
+                  ></IonButton>
+                </div>
+              </li>
+            ))
+          ) : (
+            <li className="cart-list__empty">Seu carrinho está vazio</li>
+          )}
+        </CartList>
+      </IonContent>
 
-				<CartList>
-					{Object.entries(items).length > 0 ? (
-						Object.entries(items).map(([id, quantity]: any) => (
-							<li key={id} id={id}>
-								<div className="cart-list__image">
-									<img
-										src={`./assets/images/proteses/${products[id].image}.png`}
-										alt={products[id].name}
-									/>
-								</div>
-								<div className="cart-list__title">
-									<h2>
-										<strong
-											className={
-												products[id].accessorie ? "custom-color-tertiary" : ""
-											}
-										>
-											{products[id].connection}
-										</strong>
+      <IonFooter className="ion-no-border">
+        <div className="total-items ion-padding ion-justify-content-end">
+          Total de Items: <strong>{numItems}</strong>
+        </div>
 
-										{products[id].name}
-										<br />
-
-										<small
-											className={
-												products[id].accessorie ? "custom-color-tertiary" : ""
-											}
-										>
-											<span className="ion-text-capitalize">{products[id].fixture}</span> | <span className="ion-text-uppercase">{products[id].label}</span>
-										</small>
-									</h2>
-								</div>
-								<div className="cart-list__field">
-									<IonInput
-										type="number"
-										onIonBlur={(event) => onQuantityChanged(event, id)}
-										value={quantity}
-									></IonInput>
-									<IonButton
-										className="cart-list__field-delete"
-										onClick={() => dispatch(removeFromCart({
-											id: id, 
-											clearCart: false
-										}))}
-										></IonButton>
-								</div>
-							</li>
-						))
-					) : (
-						<li className="cart-list__empty">Seu carrinho está vazio</li>
-					)}
-				</CartList>
-
-			</IonContent>
-
-			<IonFooter className="ion-no-border">
-
-				<div className="total-items ion-padding ion-justify-content-end">
-					Total de Items: <strong>{numItems}</strong>
-				</div>
-
-				<Link
-					className={`button-checkout ${
-						numItems === 0 ? "checkout-disabled" : ""
-					}`}
-					onClick={() => handleSendData()}
-					to={{
-						pathname: `/succeeded`,
-					}}
-				>
-					Checkout
-				</Link>
-
-			</IonFooter>
-		</>
-	);
+        <Link
+          className={`button-checkout ${
+            numItems === 0 ? "checkout-disabled" : ""
+          }`}
+          onClick={() => handleSendData()}
+          to={{
+            pathname: `/succeeded`,
+          }}
+        >
+          Checkout
+        </Link>
+      </IonFooter>
+    </>
+  );
 };
 
 export default Cart;

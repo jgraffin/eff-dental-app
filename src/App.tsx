@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonSpinner, setupIonicReact } from "@ionic/react";
+import { IonApp, IonButton, IonSpinner, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 /* Core CSS required for Ionic components to work properly */
@@ -46,7 +46,7 @@ const App: React.FC = () => {
         </>
         <Route exact path="/edit/:id" component={Edit} />
         <Route exact path="/products" component={Products} />
-        <Route exact path="/succeeded" component={Succeeded}/>
+        <Route exact path="/succeeded" component={Succeeded} />
         <Route exact path="/cart" component={Cart} />
         <Redirect to="/" />
       </IonReactRouter>
