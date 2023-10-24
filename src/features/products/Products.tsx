@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import {
   IonCol,
@@ -8,18 +8,18 @@ import {
   IonRow,
   IonSelect,
   IonSelectOption,
-} from "@ionic/react";
+} from '@ionic/react';
 
-import { AllProducts, FamilySpecification } from "./Styles";
-import { getMemoizedNumItems } from "../cart/CartSlice";
-import { getProducts } from "../../app/api";
-import { receivedProducts } from "./ProductsSlice";
-import { selectAllItems, TeethType } from "../teeth/teethSlice";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { WrapperComponents } from "../../styles/App";
+import { AllProducts, FamilySpecification } from './Styles';
+import { getMemoizedNumItems } from '../cart/CartSlice';
+import { getProducts } from '../../app/api';
+import { receivedProducts } from './ProductsSlice';
+import { selectAllItems, TeethType } from '../teeth/teethSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { WrapperComponents } from '../../styles/App';
 
-import Produtos from "../../components/Produtos";
-import Header from "../../components/Header";
+import Produtos from '../../components/Produtos';
+import Header from '../../components/Header';
 
 const Products = () => {
   const numItems = useAppSelector<string>(getMemoizedNumItems);
@@ -27,20 +27,20 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const store = useSelector(selectAllItems);
 
-  const [fixture, setfixture] = useState("cimentado");
-  const title = "Lista de componentes disponíveis";
+  const [fixture, setfixture] = useState('cimentado');
+  const title = 'Lista de componentes disponíveis';
 
   const onScrewToggle = () =>
-    fixture === "cimentado"
-      ? setfixture("parafusado")
-      : setfixture("cimentado");
+    fixture === 'cimentado'
+      ? setfixture('parafusado')
+      : setfixture('cimentado');
 
   useEffect(() => {
     getProducts().then((products) => {
       dispatch(receivedProducts(products));
       return true;
     });
-  }, []);
+  }, [dispatch]);
 
   let filterProducts = (data: any, products: any) => {
     return data
@@ -74,24 +74,24 @@ const Products = () => {
       <IonContent>
         <WrapperComponents>
           <IonGrid>
-            <IonRow className="table-head">
-              <IonCol className="ion-no-padding" size="2">
+            <IonRow className='table-head'>
+              <IonCol className='ion-no-padding' size='2'>
                 Nº
               </IonCol>
-              <IonCol className="ion-no-padding" size="8">
+              <IonCol className='ion-no-padding' size='8'>
                 Família
-                <div className="filter-button">
+                <div className='filter-button'>
                   <IonSelect
                     value={fixture}
                     placeholder={fixture}
                     onIonChange={onScrewToggle}
-                    interface="action-sheet"
-                    cancelText="CANCELAR"
+                    interface='action-sheet'
+                    cancelText='CANCELAR'
                   >
-                    <IonSelectOption value="cimentado">
+                    <IonSelectOption value='cimentado'>
                       Cimentado
                     </IonSelectOption>
-                    <IonSelectOption value="parafusado">
+                    <IonSelectOption value='parafusado'>
                       Parafusado
                     </IonSelectOption>
                   </IonSelect>
@@ -101,27 +101,27 @@ const Products = () => {
             {store.map(
               (item: TeethType) =>
                 item.selected && (
-                  <IonRow className="table-row" key={item.id}>
-                    <IonCol className="ion-no-padding" size="2">
-                      <div className="table-row__tooth">
+                  <IonRow className='table-row' key={item.id}>
+                    <IonCol className='ion-no-padding' size='2'>
+                      <div className='table-row__tooth'>
                         <h2>{item.teethNumber}</h2>
                       </div>
                     </IonCol>
 
-                    <IonCol className="ion-no-padding" size="8">
-                      <input type="checkbox" className="input-toggle" />
-                      <div className="table-row__item" id={item.id}>
+                    <IonCol className='ion-no-padding' size='8'>
+                      <input type='checkbox' className='input-toggle' />
+                      <div className='table-row__item' id={item.id}>
                         <FamilySpecification>
                           <h2>{item?.family}</h2>
-                          <span className="table-row__union-type">
-                            {item?.position === "favoravel"
-                              ? "Favorável"
-                              : "Desfavorável"}
+                          <span className='table-row__union-type'>
+                            {item?.position === 'favoravel'
+                              ? 'Favorável'
+                              : 'Desfavorável'}
                           </span>
-                          <span className="table-row__union-type">
-                            {item?.unionType === "multiplo"
-                              ? "Múltiplo"
-                              : "Unitário"}
+                          <span className='table-row__union-type'>
+                            {item?.unionType === 'multiplo'
+                              ? 'Múltiplo'
+                              : 'Unitário'}
                           </span>
                         </FamilySpecification>
                         <AllProducts>

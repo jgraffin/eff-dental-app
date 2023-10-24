@@ -1,0 +1,9 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Eff Dental App",
+	"webDir": "build",
+	"bundledWebRuntime": true,
+	"server": {
+		"url": "http://localhost:8100"
+	}
+}
